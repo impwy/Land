@@ -1,0 +1,138 @@
+@charset "UTF-8";
+body {
+    background-color: #f6f6f6;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: #ff5757;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    background-color: #ffffff;
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+}
+
+nav a {
+    color: #333333;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #ff5757;
+}
+
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+footer a {
+    color: #f6f6f6;
+}
+
+#f1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 500px 0 500px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        margin-bottom: 40px;
+    }
+
+}
