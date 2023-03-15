@@ -24,7 +24,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
     	<param-name>contextConfigLocation</param-name>
-    	<param-value>/WEP-INF/config/presentation-layer.xml</param-value>
+    	<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

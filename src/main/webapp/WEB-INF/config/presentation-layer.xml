@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	<!-- view 어노테이션설정 -->
-	<context:component-scan base-package="com.land"/>
+	<context:component-scan base-package="com.land.myapp"/>
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<!-- 파일 업로드 설정 -->
@@ -30,6 +30,7 @@
 		</property>
 		<property name="defaultErrorView" value="common/error.jsp"/>
 	</bean>
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	
 	<!-- 다국어 설정 -->
 	<!-- MessageSource 등록 -->
@@ -52,7 +53,7 @@
 		<property name="paramName" value="lang"/>
 	</bean>
 	</mvc:interceptors>
-
+	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/views/" />
 	<property name="suffix" value=".jsp" />

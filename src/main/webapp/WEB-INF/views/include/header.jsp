@@ -7,7 +7,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="resource/css/header.css" />
+<link rel="stylesheet" href="resources/css/header.css" />
 <title>버츄얼랜드</title>
 
 </head>
@@ -20,7 +20,7 @@
 	</div>
 
 	<h1 class="logo">
-		<a href="#"> <img src="images/logo.png" alt="로고">
+		<a href="#"> <img src="resources/img/logo.jpg" alt="로고">
 		</a>
 	</h1>
 
