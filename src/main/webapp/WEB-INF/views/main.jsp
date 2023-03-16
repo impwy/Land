@@ -22,6 +22,7 @@
 	<%@ include file="include/header.jsp"%>
 	
     <main id="cbody">    
+        
         <!-- main swiper -->
         <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -44,6 +45,7 @@
         <i class="fa-solid fa-pause"></i>
       </div>
   </div>
+  
   <!-- swiper script -->
   <script>
     $('document').ready(function(){
@@ -81,6 +83,30 @@
         </a>
     </div>
 <hr>
+</div>
+
+<!-- 기구 소개 -->
+<div class="attraction-introduce">
+    <div class="main-title"><h1>기구소개</h1></div>
+   
+    <div class="attraction-container">
+        <div class="attraction-top">
+        <div class="attraction-item"><a href="">
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">롤러코스터</div></a></div>
+        <div class="attraction-item"><a href="">
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">티익스프레스</div></a></div>
+        <div class="attraction-item"><a href="">
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">회전목마</div></a></div>
+        </div>
+        <div class="attraction-bottom">
+        <div class="attraction-item"><a href="">
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">자이로드롭</div></a></div>
+        <div class="attraction-item"><a href="">
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">범퍼카</div></a></div>
+        <div class="attraction-item"><a href="">
+        <img src="resources/img/main/a.jpg" ><div class="attraction-context">혜성특급</div></a></div>
+        </div>    
+    </div>
 </div>
 
 <!-- 굿즈소개 -->
@@ -135,35 +161,16 @@
     </a>
     </div>
 </div>
-<div class="goto-goods">
-    <a href="#"><button id="goods-btn">상점가기</button></a>
-</div>
+	
+	<div id="goods-btn">
+	<a href="#">
+   		 <span>상점가기</span>
+	</a>
+	</div>
 </div>
 
-<!-- 기구 소개 -->
-<div class="attraction-introduce">
-    <div class="main-title"><h1>기구소개</h1></div>
-   
-    <div class="attraction-container">
-        <div class="attraction-top">
-        <div class="attraction-item"><a href="">
-        <img src="resources/img/main/a.jpg"><div class="attraction-context">롤러코스터</div></a></div>
-        <div class="attraction-item"><a href="">
-        <img src="resources/img/main/a.jpg"><div class="attraction-context">티익스프레스</div></a></div>
-        <div class="attraction-item"><a href="">
-        <img src="resources/img/main/a.jpg"><div class="attraction-context">회전목마</div></a></div>
-        </div>
-        <div class="attraction-bottom">
-        <div class="attraction-item"><a href="">
-        <img src="resources/img/main/a.jpg"><div class="attraction-context">자이로드롭</div></a></div>
-        <div class="attraction-item"><a href="">
-        <img src="resources/img/main/a.jpg"><div class="attraction-context">범퍼카</div></a></div>
-        <div class="attraction-item"><a href="">
-        <img src="resources/img/main/a.jpg" ><div class="attraction-context">혜성특급</div></a></div>
-        </div>    
-    </div>
-    
-</div>
+
+
 </main>
 <%@ include file="include/footer.jsp"%>
 </body>

@@ -100,6 +100,65 @@ align-items: center;
     font-size: large;
 }
 
+
+
+/* 기구소개 시작 */
+.attraction-introduce{
+    width: 100vw;
+    height: 120vh;
+    background-image: url("../img/main/atraction.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.attraction-container{
+    width: 100%;
+    height: 80%;
+}
+.attraction-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 10px 100px;
+}
+
+.attraction-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 50px 100px;
+}
+.attraction-item{
+    margin-right: 50px;
+    background-color: white;
+    border-radius: 10px;
+}
+.attraction-item a{
+    width: 100%;
+    height: 100%;
+}
+.attraction-item img{
+    width: 400px;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+   
+}
+.attraction-item:hover{
+	background-color: rgba(111,35,249,1);
+	box-shadow: 5px 5px 15px black;
+}
+
+.attraction-item:hover .attraction-context{
+	color:white;
+}
+
+.attraction-context{
+   height: 70px;
+   color: black;
+   text-align: center;
+   font-size: 2em;
+    font-weight: bold;
+}
+
 /* 굿즈소개 시작 */
 .goods-introduce{
     position: relative;
@@ -110,6 +169,7 @@ align-items: center;
     background-image: url('https://pbs.twimg.com/media/D3sEvCWUwAAqLsS?format=png');
     background-repeat: no-repeat;
     background-size: cover;
+    bottom:100px;
    
     
 }
@@ -152,7 +212,7 @@ align-items: center;
     transform: translateY(-10px);
     transform: translateX(-5px);
     box-shadow: 5px 5px 10px #111;
-    background-color: goldenrod;
+    background-color: rgb(249, 173, 244);
     border-radius: 10px;
 }
 .goods:hover .goods-text{
@@ -196,56 +256,24 @@ align-items: center;
     width: 200px;
     height: 60px;
     font-size: large;
+    font-weight: bold;
     border-radius: 20px;
     border: none;
     background-color: #eee;
+    display:flex;
+    justify-content:center;
+    align-item:center;
+    margin:0 auto; 
 }
 
-/* 기구소개 시작 */
-.attraction-introduce{
-    width: 100vw;
-    height: 120vh;
-    bottom:100px;
-    background-image: url("../img/main/atraction.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+#goods-btn:hover{
+	background-color: rgb(249, 173, 244);
+	color: white;
 }
-.attraction-container{
-    width: 100%;
-    height: 80%;
+#goods-btn a{
+	display:inline-block;
 }
-.attraction-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin : 10px 100px
-}
-.attraction-bottom{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin : 50px 100px
-}
-.attraction-item{
-    margin-right: 5px;
-    background-color: white;
-    border-radius: 10px;
-}
-.attraction-item a{
-    width: 100%;
-    height: 100%;
-}
-.attraction-item img{
-    width: 400px;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
-   
-}
-.attraction-context{
-   height: 70px;
-   color: black;
-   text-align: center;
-}
+
 
 @media screen and (max-width: 800px) {
     .goods-text-title{
