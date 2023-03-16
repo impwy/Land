@@ -15,6 +15,7 @@
 </head>
 <body>
 	<%@ include file="include/header.jsp"%>
+	<%@ include file="include/footer.jsp"%>
     <main id="cbody">    
         <!-- main swiper -->
         <div class="swiper-container">
