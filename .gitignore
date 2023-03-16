@@ -4,3 +4,4 @@ target/
 META-INF/
 *.classpath/*
 *.settings/*
+pom.properties
