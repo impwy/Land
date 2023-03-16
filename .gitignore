@@ -2,5 +2,5 @@
 *.iml
 target/*
 META-INF/*
-*.classpath
-*.settings
+*.classpath/*
+*.settings/*
