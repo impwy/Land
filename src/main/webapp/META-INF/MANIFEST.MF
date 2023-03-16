@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD:src/main/webapp/META-INF/MANIFEST.MF
 Built-By: user
+=======
+Built-By: jerry
+>>>>>>> 18422a4533b114a0c012a4fa06978fc625a016ca:target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 Build-Jdk: 1.8.0_201
 Created-By: Maven Integration for Eclipse
 

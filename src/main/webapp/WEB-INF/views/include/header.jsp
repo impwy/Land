@@ -18,10 +18,11 @@
 		<i class="fa fa-bars"></i>
 	</div>
 
-	<h1 class="logo">
-		<a href="#"> <img src="resources/img/header/logo.jpg" alt="로고">
-		</a>
-	</h1>
+	<div class="six">
+        <h1>virtualland
+          <span>Dream come true</span>
+        </h1>
+      </div>
 
 	<nav>
 	<ul class="n-list">
