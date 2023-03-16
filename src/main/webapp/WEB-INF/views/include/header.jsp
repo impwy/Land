@@ -14,13 +14,12 @@
 <body>
 	<main>
 	 <header>
-
 	<div class="mobile">
 		<i class="fa fa-bars"></i>
 	</div>
 
 	<h1 class="logo">
-		<a href="#"> <img src="resources/img/logo.jpg" alt="로고">
+		<a href="#"> <img src="resources/img/header/logo.jpg" alt="로고">
 		</a>
 	</h1>
 

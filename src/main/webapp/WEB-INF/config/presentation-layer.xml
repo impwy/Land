@@ -11,11 +11,6 @@
 	<context:component-scan base-package="com.land.myapp"/>
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
-	<!-- 파일 업로드 설정 -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000"></property>
-	</bean>
-	
 	<!-- 예외 처리 설정 -->
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
@@ -31,28 +26,6 @@
 		<property name="defaultErrorView" value="common/error.jsp"/>
 	</bean>
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
-	
-	<!-- 다국어 설정 -->
-	<!-- MessageSource 등록 -->
-	<bean id="messageSource"
-	class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>message.messageSource</value>
-			</list>
-		</property>
-	</bean>
-	
-	<!-- LocaleResolver 등록 -->
-	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">	
-	</bean>
-	
-	<!-- LocaleChangeInterceptor 등록 -->
-	<mvc:interceptors>
-	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-		<property name="paramName" value="lang"/>
-	</bean>
-	</mvc:interceptors>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/views/" />
