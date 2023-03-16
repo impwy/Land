@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resource/css/login.css">
-<link rel="stylesheet" href="resource/css/login.js">
+<link rel="stylesheet" href="resources/css/login.css">
+<link rel="stylesheet" href="resources/js/login.js">
 <title>Insert title here</title>
 </head>
 <body>
