@@ -107,6 +107,13 @@
         <img src="resources/img/main/a.jpg" ><div class="attraction-context">혜성특급</div></a></div>
         </div>    
     </div>
+    
+    <div class="goods-btn">
+	<a href="#">
+   		 <span>기구 보러 가기</span>
+	</a>
+	</div>
+    
 </div>
 
 <!-- 굿즈소개 -->
@@ -162,7 +169,7 @@
     </div>
 </div>
 	
-	<div id="goods-btn">
+	<div class="goods-btn">
 	<a href="#">
    		 <span>상점가기</span>
 	</a>

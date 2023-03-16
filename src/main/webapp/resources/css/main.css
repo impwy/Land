@@ -57,12 +57,17 @@ background-image: url("../img/main/next.png");
 background-repeat: no-repeat;
 background-size: 100% auto;
 filter: grayscale(100%);
+margin-right:10px;
+width:50px;
+z-index: 30;
 }
 .swiper-button-prev{
 background-image: url("../img/main/left-arrow.png");
 background-repeat: no-repeat;
 background-size: 100% auto;
 filter: grayscale(100%);
+z-index: 30;
+width:50px;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -76,13 +81,15 @@ background-color: rgba(0,0,0,0.3);
 width: 25px;
 border-radius: 50px;
 font-size: 5px;
-left: 52vw;
-bottom: 11px;
+left:51.5%;
+bottom:0.6%;
+transform:translate(-50%, -39%);
 z-index: 20;
 display: flex;
 justify-content: center;
 align-items: center;
 }
+
 /* 운영시간 css */
 .time{
     display: flex;
@@ -105,14 +112,15 @@ align-items: center;
 /* 기구소개 시작 */
 .attraction-introduce{
     width: 100vw;
-    height: 120vh;
+    height: 100vh;
     background-image: url("../img/main/atraction.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top:50px;
 }
 .attraction-container{
     width: 100%;
-    height: 80%;
+    height: 70%;
 }
 .attraction-top{
     display: flex;
@@ -159,19 +167,20 @@ align-items: center;
     font-weight: bold;
 }
 
+.attraction-introduce .goods-btn{
+	
+}
+
 /* 굿즈소개 시작 */
 .goods-introduce{
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: whitesmoke;
     /* margin-top: 100px; */
     background-image: url('https://pbs.twimg.com/media/D3sEvCWUwAAqLsS?format=png');
     background-repeat: no-repeat;
     background-size: cover;
-    bottom:100px;
-   
-    
 }
 .goods-introduce a{
     text-decoration: none;
@@ -181,7 +190,7 @@ align-items: center;
 .main-title{
     display: inline-block;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 100%;
     height: 10%;
     color: white;
@@ -245,13 +254,7 @@ align-items: center;
     margin-left: 50px;
 }
 
-.goto-goods{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-#goods-btn{
+.goods-btn{
     cursor: pointer;
     width: 200px;
     height: 60px;
@@ -259,19 +262,30 @@ align-items: center;
     font-weight: bold;
     border-radius: 20px;
     border: none;
-    background-color: #eee;
+    background-color: #fff;
     display:flex;
     justify-content:center;
     align-item:center;
     margin:0 auto; 
 }
 
-#goods-btn:hover{
+.goods-btn:hover{
 	background-color: rgb(249, 173, 244);
 	color: white;
 }
-#goods-btn a{
-	display:inline-block;
+
+.goods-btn a{
+	display: flex;
+	justify-content: center;
+	align-items:center;	
+}
+
+.goods-btn a span{
+	color: blue;
+}
+
+.goods-btn:hover span{
+	color: white;
 }
 
 
