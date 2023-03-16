@@ -51,7 +51,7 @@ object-fit: cover;
 }
 /* swiper button 설정 */
 .swiper-button-next{
-background-image: url("resources/img/main/next.png"); 
+background-image: url("../main/next.png"); 
 background-repeat: no-repeat;
 background-size: 100% auto;
 filter: grayscale(100%);
