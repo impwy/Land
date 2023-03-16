@@ -64,7 +64,6 @@
 				<li><a href="#">Q & A</a>
 					<hr class="dashed"></li>
 			</ul></li>
-
 	</ul>
 	</nav> 
 	</header> 
