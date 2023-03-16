@@ -74,9 +74,9 @@
             <p class="txt">10:00 - 21:00</p>
         </a>
     </div>
+<hr>
 </div>
 
-<hr>
 <!-- 굿즈소개 -->
 <div class="goods-introduce">
     <div class="main-title">
@@ -141,19 +141,19 @@
     <div class="attraction-container">
         <div class="attraction-top">
         <div class="attraction-item"><a href="">
-        <img src="resources/img/main/다운로드.jpg"><div class="attraction-context">롤러코스터</div></a></div>
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">롤러코스터</div></a></div>
         <div class="attraction-item"><a href="">
-        <img src="resources/img/main/다운로드.jpg"><div class="attraction-context">티익스프레스</div></a></div>
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">티익스프레스</div></a></div>
         <div class="attraction-item"><a href="">
-        <img src="resources/img/main/다운로드.jpg"><div class="attraction-context">회전목마</div></a></div>
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">회전목마</div></a></div>
         </div>
         <div class="attraction-bottom">
         <div class="attraction-item"><a href="">
-        <img src="resources/img/main/다운로드.jpg"><div class="attraction-context">자이로드롭</div></a></div>
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">자이로드롭</div></a></div>
         <div class="attraction-item"><a href="">
-        <img src="resources/img/main/다운로드.jpg"><div class="attraction-context">범퍼카</div></a></div>
+        <img src="resources/img/main/a.jpg"><div class="attraction-context">범퍼카</div></a></div>
         <div class="attraction-item"><a href="">
-        <img src="resources/img/main/다운로드.jpg" ><div class="attraction-context">혜성특급</div></a></div>
+        <img src="resources/img/main/a.jpg" ><div class="attraction-context">혜성특급</div></a></div>
         </div>    
     </div>
     
