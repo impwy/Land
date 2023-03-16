@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,6 +14,7 @@
     <title>Document</title>
 </head>
 <body>
+	<%@ include file="include/header.jsp"%>
     <main id="cbody">    
         <!-- main swiper -->
         <div class="swiper-container">
