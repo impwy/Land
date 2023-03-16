@@ -122,10 +122,10 @@
     <div class="goods">
         <a href="#">
         <img src="resources/img/main/229062_85158_058.jpg">
-        <span class="goods-text">
-            <span class="goods-text-title">뱃지</span>
-            <span class="goods-text-serve">싸다</span>
-        </span>
+        <div class="goods-text">
+            <div class="goods-text-title">뱃지</div>
+            <div class="goods-text-serve">싸다</div>
+        </div>
     </a>
     </div>
 </div>

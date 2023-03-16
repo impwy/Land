@@ -1,6 +1,6 @@
-.idea/*
+*.idea/
 *.iml
-target/*
-META-INF/*
+target/
+META-INF/
 *.classpath/*
 *.settings/*
