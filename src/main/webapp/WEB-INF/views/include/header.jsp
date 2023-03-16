@@ -4,6 +4,7 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="resources/css/header.css" />
 </head>
 	 <header class="header">
@@ -11,7 +12,7 @@
 		<i class="fa fa-bars"></i>
 	</div>
 	<div id="login">
-            <a href="resource/member/login.jsp">login</a> | <a href="resource/member/login.jsp">Join</a>
+            <a href="resource/member/login.jsp"><i class="fa-solid fa-right-to-bracket"></i></a> | <a href="resource/member/login.jsp"><i class="fa-solid fa-user-plus"></i></a>
         </div>
 
 	<div class="six">
