@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberDAO">
+
+	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		columnname1,
+		columnname2,
+		columnname3
+		FROM tablename1
+		WHERE columnname1 = #{value}
+	</select>
+
+	<resultMap type="member" id="member">
+		<id property="member_id" column="" />
+		<result property="member_no" column="MEMBER_NO" />
+		<result property="member_pwd" column="MEMBER_PWD" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_phone" column="MEMBER_PHONE" />
+		<result property="member_age" column="MEMBER_AGE" />
+		<result property="member_email" column="MEMBER_EMAIL" />
+		<result property="member_addr" column="MEMBER_ADDR" />
+		<result property="member_key" column="MEMBER_KEY" />
+		<result property="member_date" column="MEMBER_DATE" />
+		<result property="member_grade" column="MEMBER_GRADE" />
+		<result property="member_discount" column="MEMBER_DISCOUNT" />
+	</resultMap>
+
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+
+	<insert id="insertMember">
+		INSERT INTO tablename1 (columnname1, columnname2, columnname3)
+		VALUES(#{value1},#{value2},#{value3})
+	</insert>
+
+	<update id="updateSomething" parameterType="#modelname">
+		UPDATE tablename1
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="deleteSomething" parameterType="int">
+		DELETE FROM tablename1 WHERE
+		columnname1 = #{param1}
+	</delete>
+
+</mapper>
