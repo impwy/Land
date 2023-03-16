@@ -12,7 +12,6 @@
 
 </head>
 <body>
-	<main>
 	 <header>
 	<div class="mobile">
 		<i class="fa fa-bars"></i>
@@ -64,7 +63,8 @@
 			</ul></li>
 
 	</ul>
-	</nav> </header> </main>
+	</nav> 
+	</header> 
 
 </body>
 </html>
