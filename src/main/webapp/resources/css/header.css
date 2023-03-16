@@ -3,23 +3,15 @@ html,body{
     margin:0;
     font-size:16px; /* 기본 크기이면 생략 가능 */
 }
-<<<<<<< HEAD
-nav a{
-=======
 header a{
->>>>>>> 544ec514ecc05494fefb35cfca50a435f0aa6bde
     color:orange;
     text-decoration: none;
 }
 nav a:hover{
     color:black;
 }
-/* === BASE HEADING === */ 
-<<<<<<< HEAD
-nav h1 {
-=======
 header h1 {
->>>>>>> 544ec514ecc05494fefb35cfca50a435f0aa6bde
+
     position: relative;
     padding: 0;
     margin: 0;
