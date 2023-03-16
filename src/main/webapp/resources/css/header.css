@@ -3,7 +3,11 @@ html,body{
     margin:0;
     font-size:16px; /* 기본 크기이면 생략 가능 */
 }
+<<<<<<< HEAD
 nav a{
+=======
+header a{
+>>>>>>> 544ec514ecc05494fefb35cfca50a435f0aa6bde
     color:orange;
     text-decoration: none;
 }
@@ -11,7 +15,11 @@ nav a:hover{
     color:black;
 }
 /* === BASE HEADING === */ 
+<<<<<<< HEAD
 nav h1 {
+=======
+header h1 {
+>>>>>>> 544ec514ecc05494fefb35cfca50a435f0aa6bde
     position: relative;
     padding: 0;
     margin: 0;
@@ -24,12 +32,12 @@ nav h1 {
     transition: all 0.4s ease 0s;
   }
   
-  h1 span {
+  header h1 span {
     display: block;
     font-size: 0.5em;
     line-height: 1.3;
   }
-  h1 em {
+  header h1 em {
     font-style: normal;
     font-weight: 600;
   }
@@ -78,6 +86,8 @@ header{
     background-color:white;
     padding-top:20px;
     border-radius: 15px;
+    z-index: 100px;
+    position: fixed;
 }
 div.section{
     width:100%;
