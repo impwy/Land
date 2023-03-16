@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	 <header>
+	 <header class="header">
 	<div class="mobile">
 		<i class="fa fa-bars"></i>
 	</div>
