@@ -1,17 +1,19 @@
 @charset "UTF-8";
 html,body{
     margin:0;
+    font-family:"맑은 고딕";
     font-size:16px; /* 기본 크기이면 생략 가능 */
+    background-color:#f7f7f7
 }
 header a{
-    color:orange;
+    color:rgb(11, 9, 5);
     text-decoration: none;
 }
-nav a:hover{
+a:hover{
     color:black;
 }
+/* === BASE HEADING === */ 
 header h1 {
-
     position: relative;
     padding: 0;
     margin: 0;
@@ -35,7 +37,7 @@ header h1 {
   }
   /* STYLE 6
    ----------------------------- */
-  .six h1 {
+.six h1 {
     text-align: center;
     color:#222; font-size:30px; font-weight:400;
     text-transform: uppercase;
@@ -68,6 +70,27 @@ header h1 {
   
 
 /*-----------------------------------------------------------------------------------------------------*/
+/* login ------------------------------------------------------------------------------------------------------*/
+#login{
+    text-align: right;   
+    height: 25px;
+    word-spacing: 5px;
+    margin: 20px 64px 0 0;
+ }
+ #login a{/*하이퍼링크 된곳 css 효과 */
+     text-decoration: none;/*원래 하이퍼링크가 걸리면 밑줄
+     선이 생긴다. 이 밑줄선을 제거하는 효과 */
+     color:#333;/*하이퍼링크 된곳 글자색 지정*/   
+ }
+ #login a:hover{/* 하이퍼링크 된곳 마우스 오버시 css효과*/
+    color:#F90;/* #FF9900과 같다.*/
+ }
+ .clear{
+    clear:both;/* div간 잘못된 css적용을 막아줌.즉 div에
+    float:left;속성이 적용된 경우 빈공백으로 div레이아웃이
+    올라가는 현상이 발생하는 것을 방지한다.*/
+ }
+ /*-------------------------------------------------------------------------------------------------------*/
 *{
     box-sizing:border-box;
 }
@@ -78,7 +101,7 @@ header{
     background-color:white;
     padding-top:20px;
     border-radius: 15px;
-    z-index: 100;
+    z-index: 100px;
     position: fixed;
 }
 div.section{
@@ -180,6 +203,7 @@ ul.pro-list li{
     width:100%;
     height:auto;
     background-color:transparent;
+    
 }
 .thum img{
     width:100%;
@@ -269,13 +293,15 @@ ul.pro-list li{
     overflow: hidden;
     transition:1s;
     border-radius: 15px;
+    
 }
 .n-list>li{
     position:relative;
 }
 .drop-down>li{
     list-style-type:none;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(232, 221, 221);
+    border-radius: 15px;
 }
 .drop-down>li>a{
     display:flex;

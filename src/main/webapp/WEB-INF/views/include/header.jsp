@@ -16,6 +16,9 @@
 	<div class="mobile">
 		<i class="fa fa-bars"></i>
 	</div>
+	<div id="login">
+            <a href="#">login</a> | <a href="#">Join</a>
+        </div>
 
 	<div class="six">
         <h1>virtualland
