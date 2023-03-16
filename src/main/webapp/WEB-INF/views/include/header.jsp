@@ -17,7 +17,7 @@
 		<i class="fa fa-bars"></i>
 	</div>
 	<div id="login">
-            <a href="#">login</a> | <a href="#">Join</a>
+            <a href="resource/member/login.jsp">login</a> | <a href="resource/member/login.jsp">Join</a>
         </div>
 
 	<div class="six">
