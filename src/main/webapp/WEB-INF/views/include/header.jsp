@@ -35,7 +35,7 @@
 			</ul></li>
 		<li><a href="#">요금/우대혜택</a>
 			<ul class="drop-down">
-				<li><a href="ticket/orderTicket">가격정보</a>
+				<li><a href="orderTicket.jsp">가격정보</a>
 					<hr class="dashed"></li>
 				<li><a href="#">할인정보</a>
 					<hr class="dashed"></li>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
 
-@Service("OrderTicketService")
+@Service("orderTicketService")
 public class OrderTicketServiceImpl implements OrderTicketService{
 	
 	@Autowired

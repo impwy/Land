@@ -5,8 +5,7 @@
 <mapper namespace="OrderTicketDAO">
 	
 	<!-- 티켓구매정보 DB저장 -->
-	<insert id="insertOrderTicket" 
-	parameterType="com.land.myapp.model.orderticket.OrderTicketVO">
+	<insert id="insertOrderTicket">
 		<![CDATA[
 			INSERT INTO ORDER_TICKET(MEMBER_ID,TICKET_DATE,TICKET_EMAIL,TICKET_PHONE,TICKET_TYPE,TICKET_AMOUNT,TICKET_SUM)
 			VALUES(티켓테스트,#{ticket_date},#{ticket_email},#{ticket_phone},#{ticket_type},#{ticket_amount},#{ticket_sum})

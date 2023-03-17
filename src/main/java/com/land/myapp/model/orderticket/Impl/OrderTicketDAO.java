@@ -14,6 +14,6 @@ public class OrderTicketDAO {
 	
 	//티켓 정보 입력
 	public void insertTicket(OrderTicketVO vo) {
-		mybatis.insert("OrderTicketDAO.insertTicket",vo);
+		mybatis.insert("OrderTicketDAO.insertOrderTicket",vo);
 	}
 }

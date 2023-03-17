@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="ticket-info">
-        <form action="ticket/ticketOrder" method="post">
+        <form action="ticketOrder" method="post">
         <h3>방문날짜</h3>
         <input type="date" name="ticket_date" id="date">
         
@@ -26,7 +26,7 @@
         <h3>수량</h3>
         <input type="number" name="ticket_amount" id="amount" min="1">
         
-        <button>a</button>
+        <button type="submit">a</button>
     	</form>
     	</div>
 </body>
