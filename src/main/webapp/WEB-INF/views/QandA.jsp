@@ -1,0 +1,112 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang ="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=QandA.css/> 
+<title>QandA</title>
+</head>
+<body>
+	<div class="QandAList">
+	 <ul class="defaultList">
+	 <li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title">굿즈를 사고 기구를 타고 싶은데 보관할만한 곳이 있나요?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+	 		<span class="title" font-size=10pt;>기구마다 타기전에 물품 보관함이 있으므로 물품 보관함을 이용해 주시면 됩니다.</span>
+	 	</div>
+	 </li>
+	<li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title" >영유아, 국가유공자, 장애인 등 증빙 서류를 지참하지 못했는데 요금 할인이 가능한가요?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+	 		<p class="title">
+	 		<span font-size=10pt;>원칙적으로 영유아, 국가유공자, 장애인 등 요금할인은</span><br>
+	 		<span font-size=10pt;>증빙서류를 기반으로 하기에 미지참시 할인은 받으실수 없습니다.</span>
+	 		</p>
+	 	</div>
+	 </li>
+	<li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title">어드벤처를 나갔다가 다시 들어올수 있나요?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+	 		<span class="title" font-size=10pt;>버추얼 랜드 어드벤처에서는 파크 입장 후 퇴장하시면 원칙적으로 재입장이 불가능합니다.</span>
+	 	</div>
+	 </li>
+	 	<li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title">비,눈 같은 기상악화 시에도 운영 하나요?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+	 		<p class="title">
+	 		<span font-size=10pt;>네 저희 버추얼랜드 어드벤처는 365일 연중 무휴로 되고 있으며</span><br>
+	 		<span font-size=10pt;> 어드벤처는 천정이 유리돔으로 되어있어 날씨와 관계없이 즐길수 있습니다.</span><br>
+	 		<span font-size=10pt;>단, 야외에 있는 어드벤처는 이용이 어려우실 수 있으므로 주의해세요</span>
+	 		</p>
+	 	</div>
+	 </li>
+	 	<li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title">버추얼랜드를 찾아가려면 어떻게 해야하나요?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+	 		<p class="title">
+	 		<span font-size=10pt;>대중교통을 이용하시는것이 가장 편리하십니다.</span><br>
+	 		<span font-size=10pt;>2호선,5호선,수인분당선에 있는 왕십리역에 내리셔서 11번 출구로 나오시면됩니다.</span><br>
+	 		<span font-size=10pt;>또한 자동차로 오시는분들은 1층에 주차타워가 있으므로 주차타워에 주차하시고 들어오시면됩니다.</span>
+	 		</p>
+	 	</div>
+	 </li>
+	 	<li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title">버추얼랜드에서 사용 가능한 상품권 종류는 어떤것이 있나요?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+	 		<p class="title">
+	 		<span font-size=10pt;>저희 버추얼 랜드에서 쓸수 있는 상품권 종류는 총 3가지입니다.</span><br>
+	 		<span font-size=10pt;>① 신시계 상품권</span><br>
+	 		<span font-size=10pt;>② 국민관광 상품권</span><br>
+	 		<span font-size=10pt;>③ 온누리 상품권</span><br>
+	 		<span font-size=10pt;>이 상품권들을 사용하실 수 있습니다.</span><br>
+	 		<span font-size=10pt;>※상품권 사용시 티켓은 현장구매를 하셔야 합니다.</span>
+            </p>
+	 	</div>
+	 </li>
+	 	<li>
+	 	<a href="#" class="question">
+	 		<span class="mark">질문</span>
+	 		<span class="title">개명에 따른 이름변경을 하려면 어떻게 해야하죠?</span>
+	 	</a>
+	 	<div class="answer">
+	 		<span class="mark">답변</span>
+             <p class="title">
+	 		<span font-size=10pt;>버추얼랜드 어드벤처 회원정보는 안전한 보호를 위해 LAND에서 관리하고있습니다</span><br>
+            <span font-size=10pt;>개명 신청으로 이름이 변경되었을 경우 LAND고객센터(7270-6525)로 연락주시면 정보 변경이 가능합니다</span>
+	 	</div>
+	 </li>
+	 </ul>
+	</div>
+
+	
+</body>
+</html>
