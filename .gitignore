@@ -6,3 +6,6 @@ META-INF/
 *.settings/
 .settings/*
 pom.properties
+/.metadata/
+.project
+.settings/

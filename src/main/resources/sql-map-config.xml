@@ -14,4 +14,5 @@
 		<!-- <mapper resource="mappings/board/board-mappings.xml" /> -->
 		<mapper resource="mappings/ticket/OrderTicket_mappings.xml"/>
 	</mappers>
+	
 </configuration>
