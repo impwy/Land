@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+    <resultMap type="board" id="boardResult">
+        <id property="board_num" column="BOARD_NUM"></id>
+        <result property="member_id" column="MEMBER_ID"></result>
+        <result property="board_content" column="BOARD_CONTENT"></result>
+        <result property="board_regDate" column="BOARD_REGDATE"></result>
+        <result property="board_title" column="BOARD_TITLE"></result>
+    </resultMap>
+    
+    <!-- 글 등록 -->
+    <insert id="insertBoard" parameterType="board">
+    <![CDATA[
+    INSERT INTO BOARD(MEMBER_ID,BOARD_NUM, BOARD_CONTENT, BOARD_TITLE)
+    VALUES (#{member_id}, BOARD_NUM_SEQ.NEXTVAL,#{board_content},#{board_title})
+]]>
+    </insert>
+<!--    수정-->
+    <update id="updateBoard"><![CDATA[
+        UPDATE BOARD SET BOARD_TITLE=#{board_title} ,BOARD_CONTETNT=#{board_content} where BOARD_NUM=#{board_num}
+
+        ]]></update>
+
+<!--    삭제-->
+    <delete id="deleteBoard"><![CDATA[
+        DELETE BOARD WHERE BOARD_NUM=#{board_num}
+    ]]></delete>
+
+<!--    글 상세-->
+    <select id="getBoard" resultType="board"><![CDATA[
+        SELECT  * FROM BOARD WHERE BOARD_NUM=#{board_num}
+
+    ]]></select>
+<!--    글 목록-->
+    <select id="getBoardList" resultMap="boardResult">
+        SELECT * FROM BOARD
+        where 1=1
+        ORDER BY BOARD_NUM DESC 
+
+
+    </select>
+</mapper>

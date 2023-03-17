@@ -1,0 +1,160 @@
+body{
+margin: 0 20px;
+}
+.head{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+margin-bottom: 150px;
+background-image: url('/resources/img/enjoy/attraction/images/banner.jpeg');
+background-size: cover;
+background-position: center;
+height: 400px;
+width: 100%;
+
+}
+
+.head h1{
+    position: relative;
+    top: 40%;
+    font-size: 4vw;
+    margin-bottom: 0;
+}
+.head p{
+    position: relative;
+    top: 40%;
+    font-size: 1.2vw;
+    margin-top: 20px;
+}
+.grid{
+    /* 
+    height: auto; */
+    display: flex; /* Use flexbox layout for the 'grid' element */
+    flex-wrap: wrap; /* Allow the boxes to wrap when the viewport is narrow */
+    justify-content: space-evenly; /* Add space between boxes */
+
+    padding: 0 10px; /* Add padding on both sides */
+    width: auto;
+    height: auto;
+ 
+}
+
+.box{
+   /*  position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 250px;
+    padding: 0;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    */
+    
+    border: 1px solid rgba(162, 158, 158, 0.702);
+  margin-bottom: 50px; /* Add space between rows */
+    min-width: 250px;
+    min-height: 350px;
+  width: 20vw;
+  height: 28vw;
+}
+@keyframes shadow {
+    0% {
+      filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+    }
+    100% {
+      filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.4));
+    }
+  }
+.box:hover{
+    animation: shadow 0.15s ease-out forwards;
+    background-color: rgb(182, 24, 182);
+}
+.box:hover  .textbox p{
+    color: white;
+}
+.box img{
+    width: 20vw;
+    height: 20vw;
+    min-width: 250px;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+.upperText{ /* 호버된 영상 위에 나오는 문제가 있음 해결 해야함 */
+  background-color: rgba(34, 27, 27, 0.373);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 1vw;
+  width: 8vw;
+  height: auto;
+  margin-top: -5px;
+  display: inline-block;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+div.textbox{
+    margin-top: 0px;
+    width: auto;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    margin-right: 30px;
+}
+.textbox p{
+    height: 100%;
+    width: 100%;
+}
+.textbox p:hover{
+    background-color: rgb(182, 24, 182);
+    max-width: 100%;
+    color: white;
+    
+}
+
+
+
+.videoWrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .box:hover .videoWrapper {
+    display: block;
+    position: absolute;
+    left: -50%;
+    top: -15%;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+        transform: translateX(-10%);
+    }
+      0% {
+          transform: translateY(20%);
+      }
+      100% {
+      opacity: 1;
+          transform: translateX(0%);
+    }
+      100% {
+          transform: translateY(0%);
+      }
+  }
+  
+  .videoWrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+  }
+  

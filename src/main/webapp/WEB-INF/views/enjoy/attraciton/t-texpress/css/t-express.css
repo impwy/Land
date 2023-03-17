@@ -1,0 +1,132 @@
+body{
+    margin: 0 20px;
+    }
+
+    .head{
+        display: block;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        text-align: center;
+    text-shadow: 0.9;
+    margin-bottom: 150px;
+    height: 200px;
+    width: 100%;
+    
+    }
+
+    .head h1{
+        position: relative;
+        top: 30%;
+        font-size: 4vw;
+        margin-bottom: 0;
+    }
+    .head p{
+        position: relative;
+        top: 30%;
+        font-size: 1.2vw;
+        margin-top: 20px;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .banner{
+height: 350px;
+width: 100%;
+margin-bottom: 200px;
+    }
+
+    .banner img{
+        object-fit: cover;
+        height: 400px;
+width: 100%;
+    }
+
+    video-container{
+max-width: 1080px;
+        height: auto;
+    }
+
+    iframe{
+max-width: 1080px;
+max-height: 720px;
+    }
+
+    .infoBox{
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    width: 100%;
+    height: 720px;
+    text-align: center;
+    background-color: rgba(167, 172, 173, 0.705);
+    filter: grayscale(100%);
+    background-size:cover ;
+    align-items: center;
+    padding: 0 15px;
+  
+    }
+    .textbox{
+        width: 300px;
+        height: 400px;
+        background-color: white;
+        margin: 0 -100px;
+        border-radius: 30px;
+    }
+    .textbox img{
+        margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    }
+
+
+    .p-head{
+        font-size: 2em;
+        margin-bottom: 50px;
+    }
+    .p-number{
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+
+    .limit{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .limit img{
+        width: 50px;
+        height: 50px;
+        margin-top: 0px;
+    }
+
+
+    .button{
+        background-color: plum;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-size: 16px;
+        margin-top: 20px;
+        padding: 10px;
+        transition: background-color 0.2s ease-in-out;
+        width: 8%;
+        text-align: center;
+    }
+    .button:hover{
+        background-color: rgb(139, 109, 139);
+    }
+
+    .button a{
+        text-decoration: none;   
+        color: white;
+    }

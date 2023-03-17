@@ -1,61 +1,68 @@
 package com.land.myapp.model.board;
 
 public class BoardVO {
-	public class Board{
+public class Board{
 
-	    //멤버아이디
-	    private String memberId;
+    //멤버아이디
+    private String member_id;
 
-	    //게시판번호
-	    private int boardNum;
+    //게시판번호
+    private int board_num;
 
-	    //게시판내용
-	    private String boardContent;
+    //게시판내용
+    private String board_content;
 
-	    //게시판등록날짜
-	    private String boardRegDate;
+    //게시판등록날짜
+    private String board_regDate;
 
-	    //게시판 제목
-	    private String boardTitle;
+    //게시판 제목
+    private String board_title;
 
-	    public String getMemberId() {
-	        return memberId;
-	    }
 
-	    public void setMemberId(String memberId) {
-	        this.memberId = memberId;
-	    }
+    public String getMember_id() {
+        return member_id;
+    }
 
-	    public int getBoardNum() {
-	        return boardNum;
-	    }
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
+    }
 
-	    public void setBoardNum(int boardNum) {
-	        this.boardNum = boardNum;
-	    }
+    public int getBoard_num() {
+        return board_num;
+    }
 
-	    public String getBoardContent() {
-	        return boardContent;
-	    }
+    public void setBoard_num(int board_num) {
+        this.board_num = board_num;
+    }
 
-	    public void setBoardContent(String boardContent) {
-	        this.boardContent = boardContent;
-	    }
+    public String getBoard_content() {
+        return board_content;
+    }
 
-	    public String getBoardRegDate() {
-	        return boardRegDate;
-	    }
+    public void setBoard_content(String board_content) {
+        this.board_content = board_content;
+    }
 
-	    public void setBoardRegDate(String boardRegDate) {
-	        this.boardRegDate = boardRegDate;
-	    }
+    public String getBoard_regDate() {
+        return board_regDate;
+    }
 
-	    public String getBoardTitle() {
-	        return boardTitle;
-	    }
+    public void setBoard_regDate(String board_regDate) {
+        this.board_regDate = board_regDate;
+    }
 
-	    public void setBoardTitle(String boardTitle) {
-	        this.boardTitle = boardTitle;
-	    }
-	}
+    public String getBoard_title() {
+        return board_title;
+    }
+
+    public void setBoard_title(String board_title) {
+        this.board_title = board_title;
+    }
+
+    @Override
+    public String toString() {
+        return "BoardVO [MEMBER_ID=" + member_id + ", BOARD_NUM=" + board_num + ", BOARD_CONTENT"+ board_content+", BOARD_REG_DATE=" + board_regDate + ", BOARD_TITLE=" +board_title + "]";
+    }
+}
+
 }
