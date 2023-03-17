@@ -2,6 +2,7 @@
 *.iml
 target/
 META-INF/
-.classpath/*
+*.classpath/*
+*.settings/
 .settings/*
 pom.properties
