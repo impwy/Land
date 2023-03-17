@@ -19,7 +19,7 @@
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	
 	<!-- 예외 처리 설정 -->
-	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.ArithmeticException">
@@ -31,7 +31,7 @@
 			</props>
 		</property>
 		<property name="defaultErrorView" value="common/error.jsp"/>
-	</bean>
+	</bean> -->
 	
 	
 	
