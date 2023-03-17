@@ -3,7 +3,6 @@ package com.land.myapp.model.board;
 import java.util.Date;
 
 public class BoardVO {
-	public class Board {
 
 		// 멤버아이디
 		private String member_id;
@@ -66,5 +65,3 @@ public class BoardVO {
 					+ ", BOARD_REG_DATE=" + board_regDate + ", BOARD_TITLE=" + board_title + "]";
 		}
 	}
-
-}
