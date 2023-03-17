@@ -12,11 +12,6 @@
     <script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="resources/css/main.css"/> 
     <title>Document</title>
-    <style>
-    .attraction-introduce{
-    background-image: url("resources/img/main/atraction.jpg");
-    }
-    </style>
 </head>
 <body>
 	<%@ include file="include/header.jsp"%>
@@ -106,13 +101,13 @@
         <div class="attraction-item"><a href="">
         <img src="resources/img/main/a.jpg" ><div class="attraction-context">혜성특급</div></a></div>
         </div>    
-    </div>
-    
-    <div class="goods-btn">
+    <div class="attraction-btn">
 	<a href="#">
    		 <span>기구 보러 가기</span>
 	</a>
 	</div>
+    </div>
+    
     
 </div>
 

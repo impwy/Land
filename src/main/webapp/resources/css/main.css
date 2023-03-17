@@ -112,15 +112,14 @@ align-items: center;
 /* 기구소개 시작 */
 .attraction-introduce{
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background-image: url("../img/main/atraction.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top:50px;
 }
 .attraction-container{
     width: 100%;
-    height: 100%;
+    height: 90%;
 }
 .attraction-top{
     display: flex;
@@ -167,13 +166,46 @@ align-items: center;
     font-weight: bold;
 }
 
+.attraction-btn{
+	cursor: pointer;
+    width: 200px;
+    height: 60px;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background-color: #fff;
+    display:flex;
+    justify-content:center;
+    align-item:center; 
+    margin:0 auto;
+}
+
+.attraction-btn:hover{
+	background-color: rgba(111,35,249,1);
+	color: white;
+}
+
+.attraction-btn a{
+	display: flex;
+	justify-content: center;
+	align-items:center;	
+}
+
+.attraction-btn a span{
+	color: blue;
+}
+
+.attraction-btn:hover span{
+	color: white;
+}
+
 /* 굿즈소개 시작 */
 .goods-introduce{
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: whitesmoke;
-    margin-top: 100px; 
+    background-color: whitesmoke; 
     background-image: url('https://pbs.twimg.com/media/D3sEvCWUwAAqLsS?format=png');
     background-repeat: no-repeat;
     background-size: cover;
