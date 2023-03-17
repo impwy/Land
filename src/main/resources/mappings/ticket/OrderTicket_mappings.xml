@@ -6,10 +6,10 @@
 	
 	<!-- 티켓구매정보 DB저장 -->
 	<insert id="insertOrderTicket">
-		<![CDATA[
-			INSERT INTO ORDER_TICKET(MEMBER_ID,TICKET_DATE,TICKET_EMAIL,TICKET_PHONE,TICKET_TYPE,TICKET_AMOUNT,TICKET_SUM)
-			VALUES(티켓테스트,#{ticket_date},#{ticket_email},#{ticket_phone},#{ticket_type},#{ticket_amount},#{ticket_sum})
-		]]>
+
+			INSERT INTO ORDER_TICKET(MEMBER_ID,TICKET_NUM,TICKET_DATE,TICKET_EMAIL,TICKET_PHONE,TICKET_TYPE,TICKET_AMOUNT,TICKET_SUM)
+			VALUES(티켓테스트,1,#{ticket_date},#{ticket_email},#{ticket_phone},#{ticket_type},#{ticket_amount},#{ticket_sum})
+
 	</insert>
 
 </mapper>
