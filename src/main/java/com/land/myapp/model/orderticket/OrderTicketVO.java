@@ -3,7 +3,7 @@ package com.land.myapp.model.orderticket;
 import java.sql.Date;
 
 public class OrderTicketVO {
-	private int user_no;
+	private int member_id;
 	private int ticket_no;
 	private Date ticket_date;
 	private String ticket_name;
@@ -11,11 +11,14 @@ public class OrderTicketVO {
 	private int ticket_phone;
 	private String user_grade;
 	private String ticket_type;
-	public int getUser_no() {
-		return user_no;
+	
+	
+	
+	public int getMember_id() {
+		return member_id;
 	}
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
 	public int getTicket_no() {
 		return ticket_no;
