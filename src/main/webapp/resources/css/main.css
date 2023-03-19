@@ -58,16 +58,14 @@ background-repeat: no-repeat;
 background-size: 100% auto;
 filter: grayscale(100%);
 margin-right:10px;
-width:50px;
-z-index: 30;
+width:30px;
 }
 .swiper-button-prev{
 background-image: url("../img/main/left-arrow.png");
 background-repeat: no-repeat;
 background-size: 100% auto;
 filter: grayscale(100%);
-z-index: 30;
-width:50px;
+width:30px;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -81,7 +79,7 @@ background-color: rgba(0,0,0,0.3);
 width: 25px;
 border-radius: 50px;
 font-size: 5px;
-left:51.5%;
+left:53%;
 bottom:0.6%;
 transform:translate(-50%, -39%);
 z-index: 20;
