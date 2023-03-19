@@ -1,5 +1,5 @@
 @charset "UTF-8";
-html,body{
+header {
     margin:0;
     font-family:"맑은 고딕";
     font-size:16px; /* 기본 크기이면 생략 가능 */

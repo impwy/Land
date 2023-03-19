@@ -11,7 +11,7 @@
 <body>
     <div class="ticket-info">
        
-        <form action="ticketOrder" method="post">
+        <form action="order" method="post">
         <h3>방문날짜</h3>
         <input type="date" name="ticket_date" id="date">
         

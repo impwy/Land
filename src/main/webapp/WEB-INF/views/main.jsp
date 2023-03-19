@@ -32,6 +32,7 @@
             <div class="swiper-slide"><a href="#">
             <img src="https://adventure.lotteworld.com/image/2023/2/202302271131448550.jpg"></a></div>
         </div>
+     
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
@@ -57,14 +58,21 @@
             nextEl:".swiper-button-next",
             prevEl:".swiper-button-prev",
         },
+        on:{
+        	init:function(){
+        		$('.btn-wrapper').style.right = $('.swiper-pagination').offsetWidth+20+'px';
+        		
+        		  $('.fa-play').click(function(){
+        		        swiper.autoplay.start();
+        		    });
+        		    $(".fa-pause").on("click", function() {
+        		    swiper.autoplay.stop();
+        		    });
+        	}
+        }
     });
     /*swiper 자동실행 정지*/
-    $('.fa-play').click(function(){
-        swiper.autoplay.start();
-    });
-    $(".fa-pause").on("click", function() {
-    swiper.autoplay.stop();
-    });
+  
 });
 </script>
 

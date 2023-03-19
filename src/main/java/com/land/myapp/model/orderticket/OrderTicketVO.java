@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class OrderTicketVO {
 	private String member_id;
-	private int ticket_num;
+	private String ticket_num;
 	private Date ticket_date;
 	private String ticket_email;
 	private String ticket_phone;
@@ -35,10 +35,10 @@ public class OrderTicketVO {
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
-	public int getTicket_num() {
+	public String getTicket_num() {
 		return ticket_num;
 	}
-	public void setTicket_num(int ticket_num) {
+	public void setTicket_num(String ticket_num) {
 		this.ticket_num = ticket_num;
 	}
 	public Date getTicket_date() {
@@ -67,6 +67,11 @@ public class OrderTicketVO {
 	public void setTicket_type(String ticket_type) {
 		this.ticket_type = ticket_type;
 	}
-	
+	@Override
+	public String toString() {
+		return "OrderTicketVO [member_id=" + member_id + ", ticket_num=" + ticket_num + ", ticket_date=" + ticket_date
+				+ ", ticket_email=" + ticket_email + ", ticket_phone=" + ticket_phone + ", ticket_type=" + ticket_type
+				+ ", ticket_amount=" + ticket_amount + ", ticket_sum=" + ticket_sum + "]";
+	}
 	
 }

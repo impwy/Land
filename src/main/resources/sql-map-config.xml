@@ -3,28 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
-<<<<<<< HEAD
-    <!--Alias 설정-->
-    <typeAliases>
-    <typeAlias alias="member" type="com.land.myapp.model.member.vo.MemberVO" />   
-    </typeAliases>
-
-    <!--SQL MAPPER 설정-->
-    <mappers>
-    <mapper resource="mappings/member/member-mappings.xml" />
-    </mappers>
-=======
 	<!--Alias 설정 -->
 	<typeAliases>
 		<!-- <typeAlias type="com.land.myapp.model.board.BoardVO" alias="board"/> -->
+		    <typeAlias alias="member" type="com.land.myapp.model.member.vo.MemberVO" />  
 	</typeAliases>
-
 	<!--SQL MAPPER 설정 -->
 	<mappers>
 		<!-- <mapper resource="mappings/board/board-mappings.xml" /> -->
 		<mapper resource="mappings/ticket/OrderTicket_mappings.xml"/>
+		<mapper resource="mappings/member/member-mappings.xml" />
 	</mappers>
-	
->>>>>>> 7be2055088732a15bd403f28922b2f36a6fa89d5
 </configuration>
