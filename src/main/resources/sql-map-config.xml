@@ -6,11 +6,11 @@
 
     <!--Alias 설정-->
     <typeAliases>
-       
+    <typeAlias alias="member" type="com.land.myapp.model.member.vo.MemberVO" />   
     </typeAliases>
 
     <!--SQL MAPPER 설정-->
     <mappers>
-    
+    <mapper resource="mappings/member/member-mappings.xml" />
     </mappers>
 </configuration>

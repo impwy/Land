@@ -4,17 +4,9 @@
 
 <mapper namespace="MemberDAO">
 
-	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
-		SELECT
-		columnname1,
-		columnname2,
-		columnname3
-		FROM tablename1
-		WHERE columnname1 = #{value}
-	</select>
-
 	<resultMap type="member" id="member">
-		<id property="member_id" column="" />
+	   <!--<id property="seq" column="SEQ" />  --> 
+		<id property="member_id" column="MEMBER_ID" />
 		<result property="member_no" column="MEMBER_NO" />
 		<result property="member_pwd" column="MEMBER_PWD" />
 		<result property="member_name" column="MEMBER_NAME" />
@@ -24,30 +16,79 @@
 		<result property="member_addr" column="MEMBER_ADDR" />
 		<result property="member_key" column="MEMBER_KEY" />
 		<result property="member_date" column="MEMBER_DATE" />
-		<result property="member_grade" column="MEMBER_GRADE" />
-		<result property="member_discount" column="MEMBER_DISCOUNT" />
 	</resultMap>
-
-	<select id="getAll" resultMap="YourResultSet">
-		SELECT * FROM tablename1
+	
+	<select id="checkID" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id}
 	</select>
 
-	<insert id="insertMember">
-		INSERT INTO tablename1 (columnname1, columnname2, columnname3)
-		VALUES(#{value1},#{value2},#{value3})
+	<select id="checkMember" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id} AND MEMBER_PWD=#{member_pwd}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="member.vo.MemberVO">
+		<![CDATA[
+		INSERT INTO MEMBER (
+			MEMBER_SEQ, 
+			MEMBER_NO, 
+			MEMBER_ID, 
+			MEMBER_PWD, 
+			MEMBER_NAME, 
+			MEMBER_PHONE, 
+			MEMBER_AGE, 
+			MEMBER_EMAIL,
+			MEMBER_ADDR,
+			MEMBER_KEY,
+			MEMBER_DATE
+			
+		) VALUES(
+			SEQ.NEXTVAL, 
+			#{member_id}, 
+			#{member_pwd}, 
+			#{member_name}, 
+			#{member_phone},
+			#{member_age},
+			#{member_email},
+			#{member_addr},
+			#{member_key},
+			DATE(#{member_date}, 'yyyy-mm-dd')
+			
+		)
+		]]>
 	</insert>
-
-	<update id="updateSomething" parameterType="#modelname">
-		UPDATE tablename1
+	<!-- 회원정보 수정 -->
+	<update id="updateMember">
+		UPDATE MEMBER
 		SET
-		columnname1=#{param1}
+		MEMBER_PWD = #{member_pwd},
+		MEMBER_EMAIL = #{member_email},
+		MEMBER_PHONE = #{member_phone},
+		MEMBER_ADDR = #{member_ADDR},
 		WHERE
-		columnname2 = #{param2}
+		MEMBER_ID = #{member_id}
 	</update>
-
-	<delete id="deleteSomething" parameterType="int">
-		DELETE FROM tablename1 WHERE
-		columnname1 = #{param1}
+	
+	<select id="login" resultMap="member">
+		<![CDATA[
+			SELECT * FROM MEMBER
+			WHERE MEMBER_ID=#{member_id} AND MEMBER_PWD=#{member_pwd}
+		]]>
+	</select>
+	
+ 	<!-- 회원탈퇴 -->
+	<delete id="deleteMember">
+		DELETE FROM MEMBER WHERE
+		MEMBER_ID = #{member_id}
 	</delete>
+	<select id="forgotPWChkMember" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
+	</select>
+	
+	<update id="forgotPWUpdate">
+		UPDATE MEMBER SET MEMBER_PWD=#{member_pwd} WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
+	</update>
 
 </mapper>
