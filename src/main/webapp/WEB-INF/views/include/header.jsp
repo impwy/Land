@@ -20,9 +20,7 @@
 </div>
 
 <div class="six">
-	<h1>
-		virtualland 
-	</h1>
+	<h1>virtualland</h1>
 </div>
 
 <nav>

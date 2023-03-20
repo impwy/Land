@@ -39,7 +39,7 @@ header h1 {
    ----------------------------- */
 .six h1 {
     text-align: center;
-    color:#222; font-size:40px; font-weight:400;
+    color:#222; font-size:45px; font-weight:400;
     text-transform: uppercase;
     word-spacing: 1px; letter-spacing:2px; color:#e382d8;
   }
@@ -196,7 +196,7 @@ ul.pro-list li{
     list-style:none;
     margin-top:50px;
     margin-left:4%;
-    border-radius: 15px;
+    
 }
 
 .thum{
@@ -301,7 +301,7 @@ ul.pro-list li{
 .drop-down>li{
     list-style-type:none;
     background-color: rgb(232, 221, 221);
-    border-radius: 15px;
+    
 }
 .drop-down>li>a{
     display:flex;
