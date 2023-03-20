@@ -14,16 +14,14 @@
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
       <div class="login-form">
-     
         <div class="sign-in-htm">
-         <form action="login" method="post">
           <div class="group">
             <label for="user" class="label">아이디</label>
-            <input id="user" type="text" class="input" name="member_id">
+            <input id="user" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
-            <input id="pass" type="password" class="input" name="member_pwd">
+            <input id="pass" type="password" class="input" data-type="password">
           </div>
           <div class="group">
             <input id="check" type="checkbox" class="check" checked>
@@ -37,47 +35,48 @@
           <div class="foot-lnk">
             <a href="#forgot">비밀번호 찾기</a>
           </div>
-          </form>
         </div>
         <div class="sign-up-htm">
-         <form action="join" method="post">
           <div class="group">
             <label for="user" class="label">아이디</label>
-            <input id="user" type="text" class="input" name="member_id">
+            <input id="user" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
-            <input id="pass" type="password" class="input" name="member_pwd">
+            <input id="pass" type="password" class="input" data-type="password">
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호 확인</label>
-            <input id="pass" type="password" class="input">
+            <input id="pass" type="password" class="input" data-type="password">
           </div>
           <div class="group">
             <label for="pass" class="label">이름</label>
-            <input id="pass" type="text" class="input" name="member_name">
+            <input id="pass" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">휴대폰 번호</label>
-            <input id="pass" type="text" class="input" name="member_phone">
+            <input id="pass" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">나이</label>
-            <input id="pass" type="number" class="input" name="member_age">
+            <input id="pass" type="number" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">Email 주소</label>
-            <input id="pass" type="text" class="input" name="member_email">
+            <input id="pass" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">주소</label>
-            <input id="pass" type="text" class="input" name="member_addr">
+            <input id="pass" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">주민등록번호</label>
-            <input id="pass" type="number" class="input" name="member_key">
+            <input id="pass" type="number" class="input">
           </div>
-
+          <div class="group">
+            <label for="pass" class="label">생년월일</label>
+            <input id="pass" type="number" class="input">
+          </div>
           <div class="group">
             <input type="submit" class="button" value="Sign Up">
           </div>
@@ -85,7 +84,6 @@
           <div class="foot-lnk">
             <label for="tab-1">이미 회원이십니까?</a>
           </div>
-          </form>
         </div>
       </div>
     </div>

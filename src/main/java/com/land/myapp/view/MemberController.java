@@ -3,7 +3,6 @@ package com.land.myapp.view;
 import java.io.IOException;
 
 
-
 import java.io.PrintWriter;
 
 import javax.servlet.http.Cookie;
@@ -45,13 +44,6 @@ public class MemberController {
 			} else {
 				return "member/login";
 			}
-		}
-		// 회원가입
-		@RequestMapping(value = "/join", method = RequestMethod.POST)
-		public String signUp(MemberVO vo) {
-			System.out.println("가입 성공....");
-			memberService.insertMember(vo);
-			return "main";
 		}
 		
 		// 로그아웃
