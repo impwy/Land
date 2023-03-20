@@ -14,8 +14,8 @@
     <!-- 글 등록 -->
     <insert id="insertBoard" parameterType="board">
     <![CDATA[
-    INSERT INTO BOARD(MEMBER_ID,BOARD_NUM, BOARD_CONTENT, BOARD_TITLE)
-    VALUES (#{member_id}, BOARD_NUM_SEQ.NEXTVAL,#{board_content},#{board_title})
+      INSERT INTO BOARD(MEMBER_ID,BOARD_NUM, BOARD_CONTENT,BOARD_REGDATE , BOARD_TITLE)
+    VALUES (#{member_id}, BOARD_NUM_SEQ.NEXTVAL,#{board_content},sysdate,#{board_title});
 ]]>
     </insert>
 <!--    수정-->
