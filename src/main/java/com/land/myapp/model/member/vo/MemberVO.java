@@ -3,7 +3,8 @@ package com.land.myapp.model.member.vo;
 import java.sql.Date;
 
 public class MemberVO {
-
+	//회원고유번호
+	private int member_seq;
 	 // 회원번호 
     private int member_no;
 
@@ -29,10 +30,20 @@ public class MemberVO {
     private String member_addr;
 
     // 주민등록번호 
-    private int member_key;
+    private Long member_key;
 
     // 가입날짜 
     private Date member_date;
+    
+    
+
+	public int getMember_seq() {
+		return member_seq;
+	}
+
+	public void setMember_seq(int member_seq) {
+		this.member_seq = member_seq;
+	}
 
 	public int getMember_no() {
 		return member_no;
@@ -98,11 +109,11 @@ public class MemberVO {
 		this.member_addr = member_addr;
 	}
 
-	public int getMember_key() {
+	public Long getMember_key() {
 		return member_key;
 	}
 
-	public void setMember_key(int member_key) {
+	public void setMember_key(Long member_key) {
 		this.member_key = member_key;
 	}
 

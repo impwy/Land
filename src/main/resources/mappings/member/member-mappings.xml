@@ -5,9 +5,8 @@
 <mapper namespace="MemberDAO">
 
 	<resultMap type="member" id="member">
-	   <!--<id property="seq" column="SEQ" />  --> 
-		<id property="member_id" column="MEMBER_ID" />
-		<result property="member_no" column="MEMBER_NO" />
+	    <id property="member_no" column="MEMBER_NO" />
+		<id property="member_id" column="MEMBER_ID" />		
 		<result property="member_pwd" column="MEMBER_PWD" />
 		<result property="member_name" column="MEMBER_NAME" />
 		<result property="member_phone" column="MEMBER_PHONE" />
@@ -32,7 +31,6 @@
 	<insert id="insertMember" parameterType="member">
 		<![CDATA[
 		INSERT INTO MEMBER (
-			MEMBER_SEQ, 
 			MEMBER_NO, 
 			MEMBER_ID, 
 			MEMBER_PWD, 
@@ -45,7 +43,7 @@
 			MEMBER_DATE
 			
 		) VALUES(
-			SEQ.NEXTVAL, 
+			MEMBER_SEQ.NEXTVAL, 
 			#{member_id}, 
 			#{member_pwd}, 
 			#{member_name}, 
@@ -54,7 +52,7 @@
 			#{member_email},
 			#{member_addr},
 			#{member_key},
-			DATE(#{member_date}, 'yyyy-mm-dd')
+			sysdate
 			
 		)
 		]]>
