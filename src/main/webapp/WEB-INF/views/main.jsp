@@ -14,8 +14,8 @@
     <title>Document</title>
 </head>
 <body>
-	<%@ include file="include/header.jsp"%>
-	
+   <%@ include file="include/header.jsp"%>
+   
     <main id="cbody">    
         
         <!-- main swiper -->
@@ -59,16 +59,16 @@
             prevEl:".swiper-button-prev",
         },
         on:{
-        	init:function(){
-        		$('.btn-wrapper').style.right = $('.swiper-pagination').offsetWidth+20+'px';
-        		
-        		  $('.fa-play').click(function(){
-        		        swiper.autoplay.start();
-        		    });
-        		    $(".fa-pause").on("click", function() {
-        		    swiper.autoplay.stop();
-        		    });
-        	}
+           init:function(){
+              $('.btn-wrapper').style.right = $('.swiper-pagination').offsetWidth+20+'px';
+              
+                $('.fa-play').click(function(){
+                      swiper.autoplay.start();
+                  });
+                  $(".fa-pause").on("click", function() {
+                  swiper.autoplay.stop();
+                  });
+           }
         }
     });
     /*swiper 자동실행 정지*/
@@ -110,10 +110,10 @@
         <img src="resources/img/main/a.jpg" ><div class="attraction-context">혜성특급</div></a></div>
         </div>    
     <div class="attraction-btn">
-	<a href="#">
-   		 <span>기구 보러 가기</span>
-	</a>
-	</div>
+   <a href="#">
+          <span>기구 보러 가기</span>
+   </a>
+   </div>
     </div>
     
     
@@ -171,12 +171,12 @@
     </a>
     </div>
 </div>
-	
-	<div class="goods-btn">
-	<a href="#">
-   		 <span>상점가기</span>
-	</a>
-	</div>
+   
+   <div class="goods-btn">
+   <a href="#">
+          <span>상점가기</span>
+   </a>
+   </div>
 </div>
 
 

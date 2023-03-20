@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="resources/css/login.css">
 <link rel="stylesheet" href="resources/js/login.js">
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
