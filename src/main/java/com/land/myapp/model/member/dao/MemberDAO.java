@@ -31,8 +31,9 @@ public class MemberDAO {
 		}
 
 		// 로그인
+		
 		public MemberVO login(MemberVO vo) {
-			return (MemberVO) mybatis.selectOne("MemberDAO.login", vo);
+			return (MemberVO) mybatis.selectOne("Member.login", vo);
 		}
 
 		// 회원정보 수정

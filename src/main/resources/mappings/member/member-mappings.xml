@@ -29,7 +29,7 @@
 	</select>
 	
 	<!-- 회원가입 -->
-	<insert id="insertMember" parameterType="member.vo.MemberVO">
+	<insert id="insertMember" parameterType="member">
 		<![CDATA[
 		INSERT INTO MEMBER (
 			MEMBER_SEQ, 
@@ -71,11 +71,11 @@
 		MEMBER_ID = #{member_id}
 	</update>
 	
-	<select id="login" resultMap="member">
-		<![CDATA[
+	<select id="login" resultType ="member">
+	
 			SELECT * FROM MEMBER
 			WHERE MEMBER_ID=#{member_id} AND MEMBER_PWD=#{member_pwd}
-		]]>
+	
 	</select>
 	
  	<!-- 회원탈퇴 -->

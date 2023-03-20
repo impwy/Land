@@ -9,7 +9,7 @@ import com.land.myapp.model.basket.BasketService;
 
 @Controller
 public class BasketController {
-	@Autowired
+//	@Autowired
 	private BasketService basketservice;
 
 }
