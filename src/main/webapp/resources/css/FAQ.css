@@ -1,17 +1,23 @@
-h1{
-    text-align: center;
-    margin-top: 215px;
+.logo{
     color:#E9967A;
+    transform: translateX(35%);
+    width: 80%;
+    position: relative;
+    overflow-x: hidden;
 }
+.logo img{
+	padding-top: 230px;
+}
+
 h3{
     text-align: center;
-    margin-bottom: 90px;
     color: #000080;
 }
 /* FAQ 리스트 */
 .FAQList{
     width: 80%;
     margin-left: 150px;
+    position:relative;
 	}
     
 .FAQList li {
@@ -32,7 +38,7 @@ h3{
 .FAQList li .question {
     display:block;
     padding:26px 65px;  
-    background:url('../img/FAQ/down.png') no-repeat right 50%;
+    background:url("resources/img/FAQ/down.png") no-repeat right 50%;
     }
     
 .FAQList li .question .title {
@@ -43,7 +49,7 @@ h3{
     }
     
 .FAQList li .question .mark {
-    background-image:url('../img/FAQ/question.png');
+    background-image:url('"resources/img/FAQ/question.png"');
     }
     
 .FAQList li .answer {
@@ -54,11 +60,11 @@ h3{
     }
     
 .FAQList li .answer .mark {
-    background-image:url('../img/FAQ/answer.png');
+    background-image:url('"resources/img/FAQ/answer.png"');
     }
     
 .FAQList li.active .question {
-    background-image:url('../img/FAQ/up.png');
+    background-image:url('"resources/img/FAQ/up.png"');
     }
     
 .FAQList li.active .question .title {
