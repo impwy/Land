@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class BoardDAOMybatis {
 
-    @Autowired
+//    @Autowired
     private SqlSessionTemplate mybatis;
     //글 등록
     public void insertBoard(BoardVO vo){
