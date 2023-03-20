@@ -3,7 +3,6 @@ package com.land.myapp.view;
 import java.io.IOException;
 
 
-
 import java.io.PrintWriter;
 
 import javax.servlet.http.Cookie;
@@ -31,23 +30,14 @@ public class MemberController {
 
 	@RequestMapping("/term")
 	public String term(MemberVO vo) { return "member/term"; }
-	
+
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String signUpView(MemberVO vo) { return "member/signup"; }
-	
-	// 회원가입
-		@RequestMapping(value = "/join", method=RequestMethod.POST)
-		public String signUp(MemberVO vo) {
-			System.out.println("가입 성공....");
-			memberService.insertMember(vo);
-			return "main";
-		}
+	public String signUpView(MemberVO vo) { return "member/signup"; }	
 
 	// 로그인
 		@RequestMapping(value = "/login", method = RequestMethod.POST)
 		public String login(MemberVO vo, HttpSession session) {
 			MemberVO member = memberService.login(vo);
-			System.out.println("컨트롤러 성공....");
 			if (member != null) {
 				session.setAttribute("member", member);
 				return "main";

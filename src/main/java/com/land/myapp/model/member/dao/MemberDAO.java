@@ -17,32 +17,29 @@ public class MemberDAO {
 	
 	// 아이디 중복검사
 		public int checkID(MemberVO vo) {
-			return mybatis.selectOne("MemberDAO", vo);
+			return mybatis.selectOne("MemberDAO.checkID", vo);
 		}
 
 		// 회원 존재 유무 검사
 		public int checkMember(MemberVO vo) {
-			return mybatis.selectOne("MemberDAO", vo);
+			return mybatis.selectOne("MemberDAO.checkMember", vo);
 		}
 
 		// 회원가입
 		public void insertMember(MemberVO vo) {
-			System.out.println("dao로넘어옴");
-		   mybatis.insert("MemberDAO.insertMember", vo);
+			mybatis.insert("MemberDAO.insertMember", vo);
 		}
 
 		// 로그인
 		
 		public MemberVO login(MemberVO vo) {
-			System.out.println("dao로넘어옴");
-			return (MemberVO)mybatis.selectOne("MemberDAO.login", vo);
+			return (MemberVO) mybatis.selectOne("Member.login", vo);
 		}
 
 		// 회원정보 수정
 		public void updateMember(MemberVO vo) {
-			mybatis.update("MemberDAO", vo);
+			mybatis.update("MemberDAO.updateMember", vo);
 		}
-		
 		// 테스트용
 		public List<MemberVO> getMemberList(int start, int end, MemberVO vo) {
 			Map<String, Object> map = new HashMap<String, Object>();
