@@ -5,35 +5,87 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="resources/css/login.css">
-<link rel="stylesheet" href="resources/js/login.js">
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container right-panel-active">
-
-		<!-- Sign In -->
-		<div class="container__form container--signin">
-			<form action="#" class="form" id="form2">
-				<h2 class="form__title">Sign In</h2>
-				<input type="email" placeholder="Email" class="input" /> <input
-					type="password" placeholder="Password" class="input" /> <a
-					href="#" class="link">Forgot your password?</a>
-				<button class="btn">Sign In</button>
-			</form>
-		</div>
-
-		<!-- Overlay -->
-		<div class="container__overlay">
-			<div class="overlay">
-				<div class="overlay__panel overlay--left">
-					<button class="btn" id="signIn">Sign In</button>
-				</div>
-				<div class="overlay__panel overlay--right">
-					<button class="btn" id="signUp">Sign Up</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	 <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+          <div class="group">
+            <label for="user" class="label">아이디</label>
+            <input id="user" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">비밀번호</label>
+            <input id="pass" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <input id="check" type="checkbox" class="check" checked>
+            <label for="check"><span class="icon"></span>아이디 저장</label>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign In">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a href="#forgot">비밀번호 찾기</a>
+          </div>
+        </div>
+        <div class="sign-up-htm">
+          <div class="group">
+            <label for="user" class="label">아이디</label>
+            <input id="user" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">비밀번호</label>
+            <input id="pass" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">비밀번호 확인</label>
+            <input id="pass" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">이름</label>
+            <input id="pass" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">휴대폰 번호</label>
+            <input id="pass" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">나이</label>
+            <input id="pass" type="number" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Email 주소</label>
+            <input id="pass" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">주소</label>
+            <input id="pass" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">주민등록번호</label>
+            <input id="pass" type="number" class="input">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">생년월일</label>
+            <input id="pass" type="number" class="input">
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign Up" link="login">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <label for="tab-1">이미 회원이십니까?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
