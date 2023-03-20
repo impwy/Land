@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class BoardController {
         return "board/getBoard";
     }
     //글 목록
-    @RequestMapping("/getBoardList")
+    @RequestMapping(value="/getBoardList",method=RequestMethod.GET)
     public String getBoardList(BoardVO vo, Model model){
         model.addAttribute("boardList", boardService.getBoardList(vo));
         return "board/getBoardList";
