@@ -21,7 +21,7 @@
 
 <div class="six">
 	<h1>
-		virtualland <span>Dream come true</span>
+		virtualland 
 	</h1>
 </div>
 
@@ -29,7 +29,7 @@
 <ul class="n-list">
 	<li><a href="#">이용가이드</a>
 		<ul class="drop-down">
-			<li><a href="#">운영시간</a>
+			<li><a href="time">운영시간</a>
 				<hr class="dashed"></li>
 			<li><a href="#">공지사항</a>
 				<hr class="dashed"></li>
