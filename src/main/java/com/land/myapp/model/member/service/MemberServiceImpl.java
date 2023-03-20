@@ -2,7 +2,8 @@ package com.land.myapp.model.member.service;
 
 
 
-import java.util.List;
+
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +13,10 @@ import com.land.myapp.model.member.dao.MemberDAO;
 import com.land.myapp.model.member.vo.MemberVO;
 
 @Service("memberService")
-public class MemberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	
-	
-	
-	public void setMemberDao(MemberDAO memberDao) {
-		this.memberDAO = memberDao;
-	}
 	// ID 중복검사
 		public int checkID(MemberVO vo) {
 			return memberDAO.checkID(vo);
@@ -35,13 +30,13 @@ public class MemberServiceImpl implements MemberService {
 
 		// 회원가입
 		public void insertMember(MemberVO vo) {
-			
+			System.out.println("impl로 넘어옴");
 			memberDAO.insertMember(vo);
 		}
 
 		// 로그인
 		public MemberVO login(MemberVO vo) {
-			
+			System.out.println("impl로 넘어옴");
 			return memberDAO.login(vo);
 		}
 
@@ -50,11 +45,7 @@ public class MemberServiceImpl implements MemberService {
 			
 			memberDAO.updateMember(vo);
 		}
-		// 테스트
-		public List<MemberVO> getMemberList(int start, int end, MemberVO vo) {
-			return memberDAO.getMemberList(start, end, vo);
-		}
-
+		
 		public int getCountMember(MemberVO vo) {
 			return memberDAO.getCountMember(vo);
 		}
