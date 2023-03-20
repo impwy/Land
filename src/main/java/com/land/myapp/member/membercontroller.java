@@ -16,4 +16,5 @@ public class membercontroller {
 	public String time() {
 		return "menu/time";
 	}
+
 }

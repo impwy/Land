@@ -9,3 +9,4 @@ pom.properties
 /.metadata/
 .project
 .settings/
+database.properties

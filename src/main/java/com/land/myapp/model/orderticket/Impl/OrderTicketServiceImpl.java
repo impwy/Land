@@ -1,6 +1,7 @@
 package com.land.myapp.model.orderticket.Impl;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,11 +28,24 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	@Autowired
 	private OrderTicketDAO orderTicketDAO;
 	
+	//티켓정보 등록
 	@Override
-	public void insertTicket(OrderTicketVO vo) {
+	public void insertOrderTicket(OrderTicketVO vo) {
 		makeNum(vo);
-		orderTicketDAO.insertTicket(vo);
+		orderTicketDAO.insertOrderTicket(vo);
 		System.out.println(vo);
+	}
+	
+	//예매 취소
+	@Override
+	public void deleteOrderTicket(OrderTicketVO vo) {
+		orderTicketDAO.deletOrderTicket(vo);
+	}
+	
+	//티켓 조회
+	@Override
+	public List<OrderTicketVO> OrderTicketList(OrderTicketVO vo) {
+		return orderTicketDAO.OrdeTicketList(vo);
 	}
 
 }

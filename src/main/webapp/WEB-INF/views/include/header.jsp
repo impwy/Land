@@ -20,16 +20,14 @@
 </div>
 
 <div class="six">
-	<h1>
-		virtualland <span>Dream come true</span>
-	</h1>
+	<h1>virtualland</h1>
 </div>
 
 <nav>
 <ul class="n-list">
 	<li><a href="#">이용가이드</a>
 		<ul class="drop-down">
-			<li><a href="#">운영시간</a>
+			<li><a href="time">운영시간</a>
 				<hr class="dashed"></li>
 			<li><a href="#">공지사항</a>
 				<hr class="dashed"></li>
@@ -60,7 +58,7 @@
 		</ul></li>
 	<li><a href="#">고객센터</a>
 		<ul class="drop-down">
-			<li><a href="#">Q & A</a>
+			<li><a href="FAQ">FAQ</a>
 				<hr class="dashed"></li>
 		</ul></li>
 </ul>

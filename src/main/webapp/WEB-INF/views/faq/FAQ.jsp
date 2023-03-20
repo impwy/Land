@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang ="ko">
 <head>
@@ -7,12 +7,13 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="project/css/FAQ.css"/>
- 
-<title>FAQ</title>
+    <link rel="stylesheet" href="resources/css/FAQ.css"/>
+
+<title>FAQ Page</title>
 </head>
+<%@ include file="../include/header.jsp"%>
 <body>
-	<h1><img src="'../img/FAQ/FAQ.png'"></h1>
+	<div class ="logo"><img src="resources/img/FAQ/FAQ.png"></div>
 	<div class="FAQList">
 	 <ul class="defaultList">
 	 <li>
@@ -109,5 +110,6 @@
 	</div>
 	<h3>다른 문의가 있으시면 VirtualLand@VirtualLandbiz.com로 메일 남겨주시면<br>
 	1주일 이내로 답변 드리겠습니다.</h3>
+	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

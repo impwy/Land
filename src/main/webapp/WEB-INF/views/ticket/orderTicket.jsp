@@ -27,7 +27,19 @@
         <h3>수량</h3>
         <input type="number" name="ticket_amount" id="amount" min="1">
         
+        <h3>총금액</h3>
+        <input type="number" id="total" name="ticket_sum" readonly />
+        <script>
+        $('document').ready(function(){
+        	
+        });
+        </script>
         <button type="submit">a</button>
+    	</form>
+    	<form action="deleteTicket" method="post">
+    	<h1>티켓넘버 입력</h1>
+		<input type="text" name="ticket_num">
+    	<button>삭제</button>
     	</form>
     	</div>
 </body>

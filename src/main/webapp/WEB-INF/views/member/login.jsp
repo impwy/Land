@@ -29,6 +29,7 @@
           </div>
           <div class="group">
             <input type="submit" class="button" value="Sign In">
+            
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -77,7 +78,7 @@
             <input id="pass" type="number" class="input">
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up" link="login">
+            <input type="submit" class="button" value="Sign Up">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">

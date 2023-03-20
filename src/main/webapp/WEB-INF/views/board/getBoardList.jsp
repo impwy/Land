@@ -46,7 +46,6 @@
 					<td align="left"><a href="getBoard?seq=${board.board_num }">${board.board_title }</a></td>
 					<td>${board.member_id }</td>
 					<td><fmt:formatDate value="${board.board_regDate }" pattern="yyyy-MM-dd"/></td>
-					<td>${board.board_num }</td>
 				</tr>
 			</c:forEach>
 

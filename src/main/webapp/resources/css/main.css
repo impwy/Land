@@ -175,7 +175,7 @@ align-items: center;
     background-color: #fff;
     display:flex;
     justify-content:center;
-    align-item:center; 
+    align-items:center; 
     margin:0 auto;
 }
 
@@ -291,7 +291,7 @@ align-items: center;
     background-color: #fff;
     display:flex;
     justify-content:center;
-    align-item:center;
+    align-items:center;
     margin:0 auto; 
 }
 

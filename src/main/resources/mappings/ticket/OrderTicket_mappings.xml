@@ -4,10 +4,31 @@
 
 <mapper namespace="OrderTicketDAO">
 	
-	<!-- 티켓구매정보 DB저장 -->
+	<resultMap id="ticket" type="com.land.myapp.model.orderticket.OrderTicketVO">
+		<id property="ticket_num" column="TICKET_NUM" />
+		<result property="member_id" column="MEMBER_ID" />
+		<result property="ticket_date" column="TICKET_DATE" />
+		<result property="ticket_email" column="TICKET_EMAIL" />
+		<result property="ticket_phone" column="TICKET_PHONE" />
+		<result property="ticket_type" column="TICKET_TYPE" />
+		<result property="ticket_amount" column="TICKET_AMOUNT" />
+		<result property="ticket_sum" column="TICKET_SUM" />
+	</resultMap>
+	
+	<!-- 티켓구매정보 저장-->
 	<insert id="insertOrderTicket">
 			INSERT INTO ORDER_TICKET(MEMBER_ID,TICKET_NUM,TICKET_DATE,TICKET_EMAIL,TICKET_PHONE,TICKET_TYPE,TICKET_AMOUNT,TICKET_SUM)
 			 VALUES(#{member_id},#{ticket_num},#{ticket_date},#{ticket_email},#{ticket_phone},#{ticket_type},#{ticket_amount},1)
 	</insert>
-
+	
+	<!-- 예매취소 -->
+	<delete id="deleteOrderTicket">
+		DELETE FROM ORDER_TICKET WHERE TICKET_NUM = #{ticket_num}
+	</delete>
+	
+	<!-- 예매내역조회 -->
+	<select id="ordeTicketList" resultMap="ticket">
+		SELECT * FROM ORDER_TICKET WHERE TICKET_NUM = #{ticket_num}
+	</select>
+	
 </mapper>
