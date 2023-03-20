@@ -58,7 +58,7 @@
 		</ul></li>
 	<li><a href="#">고객센터</a>
 		<ul class="drop-down">
-			<li><a href="#">Q & A</a>
+			<li><a href="FAQ">FAQ</a>
 				<hr class="dashed"></li>
 		</ul></li>
 </ul>
