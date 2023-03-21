@@ -20,21 +20,21 @@
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
 	</c:if>
 	<c:if test="${not empty member }">
+		<c:if test="${member.member_id != admin }">
 		<a href="#">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="#">굿즈몰</a>
 		<a href="ticket">티켓예매</a>		
 		<a href="logout" class="logout">Sign Out</a>
-		
-		<c:if test="${member.id == admin }">
+		</c:if>
+		<c:if test="${member.member_id == admin }">
 		<a href="#">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="#">굿즈몰</a>
 		<a href="ticket">티켓예매</a>	
 		<a href="ticket">굿즈등록</a>	
 		<a href="logout" class="logout">Sign Out</a>
-		</c:if>
-
+	</c:if>
 	</c:if>
 	
 </div>
