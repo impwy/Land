@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="resources/js/ticket.js"></script>
+    <script src="resources/js/allDayTicket.js"></script>
     <title>All Day Ticket</title>
 </head>
 <body>
@@ -23,10 +23,10 @@
         
         
         <h3>이메일</h3>
-        <input type="text" name="ticket_email" id="email">
+        <input type="text" name="ticket_email" id="email" value="${member.member_email }">
         
         <h3>핸드폰</h3>
-        <input type="text" name="ticket_phone" id="phone">
+        <input type="text" name="ticket_phone" id="phone" value="${member.member_phone }">
         
         <h3>어른</h3>
         <button id="adult-minus" type="button">-</button>
