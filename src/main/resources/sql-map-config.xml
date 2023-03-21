@@ -12,6 +12,7 @@
 	<mappers>
 		<mapper resource="mappings/board/board-mappings.xml" />
 		<mapper resource="mappings/ticket/OrderTicket_mappings.xml"/>
+		<mapper resource="mappings/ticket/Ticket_mapping.xml"/>
 		<mapper resource="mappings/member/member-mappings.xml" />
 	</mappers>
 </configuration>

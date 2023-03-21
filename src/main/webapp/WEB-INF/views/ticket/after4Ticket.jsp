@@ -13,11 +13,14 @@
     <div class="ticket-info">
        
         <form action="order" method="post">
+        <!-- hidden처리 -->
+        <input type="hidden" name="ticket_type" id="type" value="afterFour">
+        <input type="hidden" id="member_id" name="member_id" value="${member.member_id }" />
+        <input type="hidden" id="amount" name="ticket_amount" value="0" />
+        
         <h3>방문날짜</h3>
         <input type="date" name="ticket_date" id="date">
         
-        <!-- 티켓종류 -->
-        <input type="hidden" name="ticket_type" id="type" value="allDay">
         
         <h3>이메일</h3>
         <input type="text" name="ticket_email" id="email">
@@ -39,9 +42,6 @@
         <button id="baby-minus" type="button">-</button>
         <input type="number" id="baby-amount" readonly value="0" />
         <button id="baby-plus" type="button">+</button>
-        
-        <input type="hidden" id="amount" name="ticket_amount" readonly value="0" />
-      
 
         <h3>금액</h3>
         <input type="number" id="total" name="ticket_sum" readonly value="0" />

@@ -1,3 +1,8 @@
+//+,-를 누르면 getTicketPrice(TicketVO vo)를 실행해서 
+//ticket_type에 대한 가격을 가져와 금액에 추가해준다.
+//예매 페이지에 들어올 때 티켓 가격을 가져온다.
+
+
 $('document').ready(function(){
     //종일권 어른
     $('#adult-minus').click(function () {
