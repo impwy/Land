@@ -9,7 +9,7 @@
 <%@ include file="../include/header.jsp"%>
 </head>
 <div class="fee-form">
-	<h1><이용요금 안내></h1>
+	<h1 class="fee-name"><이용요금 안내></h1>
 	
 	<div class="fee-section">
 		<h2>입장료</h2>

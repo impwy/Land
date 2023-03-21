@@ -62,7 +62,7 @@
 		<ul class="drop-down">
 			<li><a href="fee">가격정보</a>
 				<hr class="dashed"></li>
-			<li><a href="#">할인정보</a>
+			<li><a href="discount">할인정보</a>
 				<hr class="dashed"></li>
 		</ul></li>
 	<li><a href="#">즐길거리</a>
