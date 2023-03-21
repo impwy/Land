@@ -4,9 +4,6 @@ import java.util.Date;
 
 public class Order_GoodsVO {
 	
-	// 주문(굿즈) 
-	public class orderGoods {
-
 	    // 회원번호 
 	    private Long userNo;
 
@@ -84,7 +81,16 @@ public class Order_GoodsVO {
 	        this.orderPayment = orderPayment;
 	    }
 
+		@Override
+		public String toString() {
+			return "Order_GoodsVO [userNo=" + userNo + ", goodsNum=" + goodsNum + ", orderDate=" + orderDate
+					+ ", userAddr=" + userAddr + ", userPhone=" + userPhone + ", orderProcess=" + orderProcess
+					+ ", orderPayment=" + orderPayment + "]";
+		}
+	    
+	    
+
 	   
 	}
 
-}
+
