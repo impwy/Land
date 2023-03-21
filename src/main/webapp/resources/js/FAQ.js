@@ -1,3 +1,4 @@
+@charset "UTF-8";
 // Modal을 가져옵니다.
 let modals = document.getElementsByClassName("modal");
 // Modal을 띄우는 클래스 이름을 가져옵니다.
