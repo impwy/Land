@@ -11,7 +11,7 @@
 		<h1>글 등록</h1>
 		<a href="#">Log-Out</a>
 		<hr>
-		<form action="insertBoard.jsp" method="post"
+		<form action="insertBoard" method="post"
 			enctype="multipart/form-data">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>

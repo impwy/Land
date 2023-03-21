@@ -1,11 +1,12 @@
 @charset "UTF-8";
 /*footer -----------------------------------------------------------------------------------------------------*/
 footer {
-	postion:fixed;
+	postion:absolute;
 	display: flex;
 	height: 100px;
 	align-items: center;
 	background: #eee;
+	bottom:0;
 }
 
 footer .footerLogo {

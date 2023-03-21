@@ -39,8 +39,8 @@
 			</table>
 		</form>
 		<hr>
-		<a href="insertBoard.jsp">글등록</a> <a
-			href="deleteBoard?seq=${board.board_num }">글삭제</a> <a
+		<a href="insertBoard">글등록</a> <a
+			href="deleteBoard?board_num=${board.board_num }">글삭제</a> <a
 			href="getBoardList">글목록</a>&nbsp;&nbsp;&nbsp;
 	</center>
 </body>

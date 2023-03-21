@@ -1,0 +1,38 @@
+@charset "UTF-8";
+.guidemap-b {
+    font-family: Arial, sans-serif;
+    background-color: whitesmoke;
+    top: 220px;
+    position: absolute;
+    width:100%;
+    height:auto;
+    
+  }
+  .guidemap-h {
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+  }
+  #photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 50px;
+  }
+  .photo {
+    margin: 20px;
+    text-align: center;
+  }
+  .photo img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #999;
+  }
+  .photo .caption {
+    font-style: italic;
+    color: #777;
+    margin-top: 10px;
+  }
+  .guidemap-p{
+    text-align: center;
+  }

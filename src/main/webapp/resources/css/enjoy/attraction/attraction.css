@@ -1,4 +1,4 @@
-body{
+body.attraction{
 margin: 0 20px;
 }
 .head{
@@ -9,7 +9,7 @@ margin: 0 20px;
     color: white;
     text-align: center;
 margin-bottom: 150px;
-background-image: url('/resources/img/enjoy/attraction/images/banner.jpeg');
+background-image: url('resources/img/enjoy/attraction/images/banner.jpeg');
 background-size: cover;
 background-position: center;
 height: 400px;
@@ -56,6 +56,7 @@ width: 100%;
   margin-bottom: 50px; /* Add space between rows */
     min-width: 250px;
     min-height: 350px;
+    
   width: 20vw;
   height: 28vw;
 }
@@ -80,6 +81,7 @@ width: 100%;
     min-width: 250px;
     min-height: 250px;
     object-fit: cover;
+    z-index:4px;
 }
 
 .upperText{ /* 호버된 영상 위에 나오는 문제가 있음 해결 해야함 */
@@ -88,7 +90,7 @@ width: 100%;
   padding: 10px;
   text-align: center;
   font-size: 1vw;
-  width: 8vw;
+  width: 9vw;
   height: auto;
   margin-top: -5px;
   display: inline-block;
@@ -107,18 +109,16 @@ div.textbox{
     text-align: right;
     margin-right: 30px;
 }
-.textbox p{
+/*.textbox p{
     height: 100%;
     width: 100%;
-}
+}*/
 .textbox p:hover{
     background-color: rgb(182, 24, 182);
     max-width: 100%;
     color: white;
     
 }
-
-
 
 .videoWrapper {
     display: none;

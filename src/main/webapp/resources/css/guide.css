@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .guide-header {
-    background-color: #ff38b3;
+    background-color: #ffa7f0;
     color: #fff;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -13,6 +13,7 @@
 .guide-div {
     margin: 20px;
 }
+
 .h1, h2 {
     font-weight: normal;
     text-transform: uppercase;

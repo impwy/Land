@@ -17,4 +17,18 @@ public class membercontroller {
 		return "menu/time";
 	}
 
+	@RequestMapping(value = "/guide", method = RequestMethod.GET)
+	public String guide() {
+		return "menu/guide";
+	}
+	@RequestMapping(value = "/guidemap", method = RequestMethod.GET)
+	public String guidemap() {
+		return "menu/guidemap";
+	}
+	@RequestMapping(value = "/attraction", method = RequestMethod.GET)
+	public String attraction() {
+		return "enjoy/attraciton/attraction";
+	}
+
+
 }

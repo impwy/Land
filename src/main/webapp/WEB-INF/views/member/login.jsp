@@ -34,7 +34,6 @@
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
-            <a href="#forgot">비밀번호 찾기</a>
           </div>
           </form>
         </div>
@@ -49,32 +48,32 @@
             <input id="pass" type="password" class="input" name="member_pwd">
           </div>
           <div class="group">
-            <label for="pass" class="label">비밀번호 확인</label>
-            <input id="pass" type="password" class="input">
+            <label for="passCheck" class="label">비밀번호 확인</label>
+            <input id="passCheck" type="password" class="input">
           </div>
           <div class="group">
-            <label for="pass" class="label">이름</label>
-            <input id="pass" type="text" class="input" name="member_name">
+            <label for="name" class="label">이름</label>
+            <input id="name" type="text" class="input" name="member_name">
           </div>
           <div class="group">
-            <label for="pass" class="label">휴대폰 번호</label>
-            <input id="pass" type="text" class="input" name="member_phone">
+            <label for="phone" class="label">휴대폰 번호</label>
+            <input id="phone" type="text" class="input" name="member_phone">
           </div>
           <div class="group">
-            <label for="pass" class="label">나이</label>
-            <input id="pass" type="number" class="input" name="member_age">
+            <label for="age" class="label">나이</label>
+            <input id="age" type="number" class="input" name="member_age">
           </div>
           <div class="group">
-            <label for="pass" class="label">Email 주소</label>
-            <input id="pass" type="text" class="input" name="member_email">
+            <label for="email" class="label">Email 주소</label>
+            <input id="email" type="text" class="input" name="member_email">
           </div>
           <div class="group">
-            <label for="pass" class="label">주소</label>
-            <input id="pass" type="text" class="input" name="member_addr">
+            <label for="address" class="label">주소</label>
+            <input id="address" type="text" class="input" name="member_addr">
           </div>
           <div class="group">
-            <label for="pass" class="label">주민등록번호</label>
-            <input id="pass" type="number" class="input" name="member_key">
+            <label for="key" class="label">주민등록번호</label>
+            <input id="key" type="number" class="input" name="member_key">
           </div>
           <div class="group">
             <input type="submit" class="button" value="Sign Up">

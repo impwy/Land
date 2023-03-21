@@ -6,12 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="../../../../resources/css/enjoy/attraction/attraction.css">
+<link rel="stylesheet" href="resources/css/enjoy/attraction/attraction.css">
 <html>
 <head>
   <title>Title</title>
 </head>
-<body>
+<body class="attraction">
+
 <div class="head">
   <h1>어트랙션</h1>
   <p>흥미롭고 다채로운 놀이기구를 타고 상상의 나래를 펼치세요! </p>
@@ -19,10 +20,10 @@
 <div class="grid">
   <div class="box">
     <a href="t-texpress/t-express.jsp">
-      <img src="../../../../resources/img/enjoy/attraction/images/T-exp.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/T-exp.jpeg" alt="image1">
       <div class="upperText">유러피안 어드벤처</div>
       <div class="textbox">
-        <p>T-익스프레스</p>
+        <p class="textbox">T-익스프레스</p>
         <div class="videoWrapper">
         </div>
       </div>
@@ -30,7 +31,7 @@
   </div>
   <div class="box">
     <a href="#">
-      <img src="../../../../resources/img/enjoy/attraction/images/B-dragon.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/B-dragon.jpeg" alt="image1">
       <div class="upperText">매직랜드</div>
       <div class="textbox">
         <p>비룡열차</p>
@@ -39,19 +40,19 @@
   </div>
   <div class="box">
     <a href="#">
-      <img src="/resources/img/enjoy/attraction/images/double-rockspin.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/double-rockspin.jpeg" alt="image1">
       <div class="upperText">아메리칸 어드벤처</div>
       <div class="textbox">
         <p>더블락스핀</p>
         <div class="videoWrapper">
-          <video src="/resources/img/enjoy/attraction/images/doublerockspin.mp4" loop muted autoplay></video>
+          <video src="resources/img/enjoy/attraction/images/doublerockspin.mp4" loop muted autoplay></video>
         </div>
       </div>
     </a>
   </div>
   <div class="box">
     <a href="#">
-      <img src="/resources/img/enjoy/attraction/images/amazone-express.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/amazone-express.jpeg" alt="image1">
       <div class="upperText">주토피아</div>
       <div class="textbox">
         <p>아마존익스프레스</p>
@@ -60,7 +61,7 @@
   </div>
   <div class="box">
     <a href="#">
-      <img src="/resources/img/enjoy/attraction/images/rabtor-ranger.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/rabtor-ranger.jpeg" alt="image1">
       <div class="upperText">유러피안 어드벤처</div>
       <div class="textbox">
         <p>랩터레인저</p>
@@ -69,7 +70,7 @@
   </div>
   <div class="box">
     <a href="#">
-      <img src="/resources/img/enjoy/attraction/images/bumpercar.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/bumpercar.jpeg" alt="image1">
       <div class="upperText">매직랜드</div>
       <div class="textbox">
         <p>범퍼카</p>
@@ -78,7 +79,7 @@
   </div>
   <div class="box">
     <a href="#">
-      <img src="/resources/img/enjoy/attraction/images/columbus.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/columbus.jpeg" alt="image1">
       <div class="upperText">아메리칸 어드벤처</div>
       <div class="textbox">
         <p>콜럼버스대탐험</p>
@@ -87,7 +88,7 @@
   </div>
   <div class="box">
     <a href="#">
-      <img src="/resources/img/enjoy/attraction/images/safari.jpeg" alt="image1">
+      <img src="resources/img/enjoy/attraction/images/safari.jpeg" alt="image1">
       <div class="upperText">주토피아</div>
       <div class="textbox">
         <p>사파리월드</p>
