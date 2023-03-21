@@ -7,7 +7,7 @@
 <title>Ticketing</title>
 </head>
 <body>
-	<a href="#">종일권</a>
-	<a href="#">애프터4</a>
+	<a href="allDayTicket">종일권</a>
+	<a href="after4Ticket">애프터4</a>
 </body>
 </html>

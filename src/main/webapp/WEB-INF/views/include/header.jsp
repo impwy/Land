@@ -22,6 +22,8 @@
 	<c:if test="${not empty member }">
 		<a href="#">장바구니</a>
 		<a href="#">개인정보</a>
+		<a href="#">굿즈몰</a>
+		<a href="ticket">티켓예매</a>		
 		<a href="logout" class="logout">Sign Out</a>
 
 	</c:if>

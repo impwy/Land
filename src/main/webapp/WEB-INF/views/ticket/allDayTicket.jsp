@@ -24,6 +24,10 @@
         <h3>핸드폰</h3>
         <input type="text" name="ticket_phone" id="phone">
         
+        <h3>수량</h3>
+        <input type="number" id="amount" name="ticket_amount" readonly value="0" />
+        <button id="adult-minus">-</button>
+        <button id="adult-plus">+</button>
         <h3>금액</h3>
         <input type="number" id="total" name="ticket_sum" readonly />
         <button type="submit">a</button>
