@@ -25,8 +25,11 @@
 	
 <!--상품 등록  -->
 	<insert id="insertGoods" parameterType="goods">
-		INSERT INTO GOODS_INFO (columnname1, columnname2, columnname3)
-		VALUES(#{value1},#{value2},#{value3})
+	    <![CDATA[
+		INSERT INTO GOODS_INFO (GOODS_NUM, GOODS_PRICE, GOODS_NAME, GOODS_IMAGE, GOODS_AMOUNT)
+		VALUES(#{goods_num},#{goods_price},#{goods_name},#{goods_image},#{goods_amount})
+		]]>
+		
 	</insert>
 
 	<!-- <update id="updateSomething" parameterType="#modelname">

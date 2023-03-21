@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import com.land.myapp.model.goods.GoodsService;
 
 @Service("goodsService")
-public class GoodsServiceImpl implements GoodsService {
-	@Autowired
-	private 
-
+public class GoodsServiceImpl  {
+	
 }

@@ -17,7 +17,7 @@
     ></script> 
   </head>
   
- <body
+ <body>
    <%@ include file="../include/header.jsp"%>
     <head>
       <title>버츄얼랜드스토어</title>

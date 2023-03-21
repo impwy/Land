@@ -8,18 +8,16 @@ import org.springframework.stereotype.Repository;
 
 import com.land.myapp.model.goods.GoodsVO;
 
+
 @Repository
 public class GoodsDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	//관리자가 상품 코드 중복 검사
-	public int prdCheckID(GoodsVO vo) {
-		return mybatis.selectOne("GoodsDAO.prdCheckID",vo);
+	//상품등록
+	public void insertGoods(GoodsVO vo) {
+		mybatis.insert("ProductInfoDAO.insertProduct", vo);
 	}
-	
-	//상품 검색
-	public List<GoodsVO> listSearch
 	
 
 }
