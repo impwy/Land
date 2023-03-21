@@ -57,7 +57,7 @@ public class MemberController {
 		@RequestMapping(value = "/logout", method = RequestMethod.GET)
 		public String logout(HttpSession session) {
 			session.invalidate();
-			return "member/login";
+			return "main";
 		}
 	
 	

@@ -16,9 +16,13 @@
 	<i class="fa fa-bars"></i>
 </div>
 <div id="login">
-	<c:if test=""></c:if>
+	<c:if test="${empty member }">
 	<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
+	</c:if>
+	<c:if test="${not empty member }">
+	<a href="#">장바구니</a>
 	<a href="logout" class="logout">Sign Out</a>
+	</c:if >
 </div>
 
 <div class="six">
