@@ -14,7 +14,7 @@
       height: 500px;
       width: 1200px;
       position: relative;
-      up:40px;
+      top:10px;
       left: 350px;
     }
   </style>
@@ -25,9 +25,8 @@
         <h1>오시는길</h1>
     </div>
     <div class="guide-div">
-        <h2 class="guide-h2">오시는길</h2>
+        <h2 class="guide-h2">버츄얼랜드(서울 성동구 행당동 286-5)</h2>
         <hr>
-        <p class="guide-p">ㅋㅋㅋ</p>
     </div>
   <div id="map"></div>
   <script>
