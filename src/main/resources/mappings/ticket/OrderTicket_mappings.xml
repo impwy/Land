@@ -27,7 +27,7 @@
 	</delete>
 	
 	<!-- 예매내역조회 -->
-	<select id ="selectList" resultMap="OrderTicket">
+	<select id ="getOrderTicketList" parameterType="hashmap" resultMap="ticket">
 		SELECT TICKET_NUM, TICKET_DATE, TICKET_EMAIL, TICKET_PHONE, TICKET_TYPE, TICKET_AMOUNT, TICKET_SUM
 		FROM ORDER_TICKET
 		WHERE MEMBER_ID =#{member_id}     <!-- 아이디를 찾은후 오더티켓에서 가져올거를 셀렉하기  -->

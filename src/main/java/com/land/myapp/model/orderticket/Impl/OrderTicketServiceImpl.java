@@ -44,7 +44,7 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	
 	//티켓 조회
 	public void selectOrderTicket(OrderTicketVO vo) {
-		orderTicketDAO.selectOrderTicket(vo);
+		orderTicketDAO.getOrderTicketList(vo);
 	}
 	
 }
