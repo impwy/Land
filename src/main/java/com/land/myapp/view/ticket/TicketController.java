@@ -34,15 +34,15 @@ public class TicketController {
 			,HttpSession session
 			) {
 
-		String member = (String) session.getAttribute("member_id");
-		//로그인체크 로그인이 되어있다면 member_id = 로그인된 id
-		if(member != null) {
-			member_id = member;
-		}
+//		String member = (String) session.getAttribute("member");
+//		//로그인체크 로그인이 되어있다면 member_id = 로그인된 id
+//		if(member != null) {
+//			member_id = member;
+//		}
 		//로그인이 안되어있다면 member_id "Guest"로 저장
 		vo.setMember_id(member_id);
 		orderticketservice.insertOrderTicket(vo);
-		return "/ticket/orderTicket"; 
+		return "/ticket/ticketMain"; 
 	}
 	
 	//예매 취소

@@ -39,7 +39,7 @@ public class MemberController {
 		public String login(MemberVO vo, HttpSession session) {
 			MemberVO member = memberService.login(vo);
 			if (member != null) {
-				session.setAttribute("member", member);
+				session.setAttribute("member", vo.getMember_id());
 				return "main";
 			} else {
 				return "member/login";
