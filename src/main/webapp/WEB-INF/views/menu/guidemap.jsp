@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resource/css/guidemap.css"/>
 <title>가이드맵</title>
+<link rel="stylesheet" href="resources/css/guidemap.css" />
 </head>
 <div class="guidemap-b">
+<%@ include file="../include/header.jsp"%>
     <h1 class="guidemap-h">가이드맵
     </h1>
     <p class="guidemap-p">보다 편하게,보다 알차게 <br>모험을 즐기세요!</p>

@@ -16,8 +16,7 @@ public class membercontroller {
 	public String time() {
 		return "menu/time";
 	}
-<<<<<<< HEAD
-=======
+
 	@RequestMapping(value = "/guide", method = RequestMethod.GET)
 	public String guide() {
 		return "menu/guide";
@@ -26,6 +25,6 @@ public class membercontroller {
 	public String guidemap() {
 		return "menu/guidemap";
 	}
->>>>>>> 1108dcd (no message)
+
 
 }

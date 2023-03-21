@@ -41,7 +41,7 @@
 				<hr class="dashed"></li>
 			<li><a href="guide">오시는길</a>
 				<hr class="dashed"></li>
-			<li><a href="#">가이드맵</a></li>
+			<li><a href="guidemap">가이드맵</a></li>
 		</ul></li>
 	<li><a href="#">요금/우대혜택</a>
 		<ul class="drop-down">

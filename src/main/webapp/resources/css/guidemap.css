@@ -4,7 +4,9 @@
     background-color: whitesmoke;
     top: 220px;
     position: absolute;
-    left: 450px;
+    width:100%;
+    height:auto;
+    
   }
   .guidemap-h {
     text-align: center;
