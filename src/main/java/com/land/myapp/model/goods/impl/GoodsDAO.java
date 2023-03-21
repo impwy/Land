@@ -16,7 +16,7 @@ public class GoodsDAO {
 	
 	//상품등록
 	public void insertGoods(GoodsVO vo) {
-		mybatis.insert("ProductInfoDAO.insertProduct", vo);
+		mybatis.insert("GoodsDAO.insertGoods", vo);
 	}
 	
 
