@@ -9,5 +9,4 @@ public interface OrderTicketService {
 	//예매 취소
 	void deleteOrderTicket(OrderTicketVO vo);
 	//티켓 조회
-	List<OrderTicketVO> OrderTicketList(OrderTicketVO vo);
 }

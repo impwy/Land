@@ -25,7 +25,5 @@ public class OrderTicketDAO {
 		mybatis.delete("OrderTicketDAO.deleteOrderTicket",vo);
 	}
 	//티켓 조회
-	public List<OrderTicketVO> OrdeTicketList(OrderTicketVO vo) {
-		return mybatis.selectList("OrderTicketDAO.orderTicketList",vo);
-	}
+	
 }
