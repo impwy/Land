@@ -6,10 +6,12 @@
     font-size:16px; /* 기본 크기이면 생략 가능 */
     background-color:#f7f7f7;
     top:0;
+    height:1500px;
 }
 .header a{
     color:rgb(11, 9, 5);
     text-decoration: none;
+    align:middle;
 }
 a:hover{
     color:black;
@@ -44,6 +46,8 @@ a:hover{
     color:#222; font-size:45px; font-weight:400;
     text-transform: uppercase;
     word-spacing: 1px; letter-spacing:2px; color:#e382d8;
+    background:white;
+    
   }
   .six h1 span {
     line-height:2em; padding-bottom:15px;
@@ -53,6 +57,10 @@ a:hover{
     font-style: italic; font-family: "Playfair Display","Bookman",serif;
     color:#f793de; letter-spacing:-0.005em; word-spacing:1px;
     letter-spacing:none;
+  }
+  .six img {
+  display:block;
+  margin:0px auto;
   }
   /* .six h1:after, .six h1:before {
     position: absolute;
@@ -138,7 +146,6 @@ nav{
     height:50px;
     background-color:rgb(249, 173, 244);
     margin:auto; /* margin:auto auto auto auto; */
-    margin-top:20px;
     border-radius: 15px;
 }
 ul.n-list{

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,17 +17,20 @@
 </div>
 <div id="login">
 	<c:if test="${empty member }">
-	<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
+		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
 	</c:if>
 	<c:if test="${not empty member }">
-	<a href="#">장바구니</a>
-	<a href="#">개인정보</a>
-	<a href="logout" class="logout">Sign Out</a>
+		<a href="#">장바구니</a>
+		<a href="#">개인정보</a>
+		<a href="logout" class="logout">Sign Out</a>
 
-	</c:if >
+	</c:if>
 </div>
 
 <div class="six">
+<a href="main"><img
+		src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+		alt="카카오라이언" width="100" height="50" border="0" /></a>
 	<h1>virtualland</h1>
 </div>
 
@@ -70,6 +73,5 @@
 				<hr class="dashed"></li>
 		</ul></li>
 </ul>
-</nav> 
-</header>
+</nav> </header>
 </html>
