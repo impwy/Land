@@ -43,9 +43,5 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	}
 	
 	//티켓 조회
-	@Override
-	public List<OrderTicketVO> OrderTicketList(OrderTicketVO vo) {
-		return orderTicketDAO.OrdeTicketList(vo);
-	}
-
+	
 }

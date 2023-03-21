@@ -1,9 +1,11 @@
 @charset "UTF-8";
 header {
+	postion:fixed;
     margin:0;
     font-family:"맑은 고딕";
     font-size:16px; /* 기본 크기이면 생략 가능 */
-    background-color:#f7f7f7
+    background-color:#f7f7f7;
+    top:0;
 }
 header a{
     color:rgb(11, 9, 5);

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*footer -----------------------------------------------------------------------------------------------------*/
 footer {
+	postion:fixed;
 	display: flex;
 	height: 100px;
 	align-items: center;

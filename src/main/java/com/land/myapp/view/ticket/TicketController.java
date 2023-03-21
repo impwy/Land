@@ -51,11 +51,6 @@ public class TicketController {
 		return "main";
 	}
 	//예매내역 조회
-	@RequestMapping(value="/ordetTicketList", method=RequestMethod.POST)
-	public String ordetTicketList (OrderTicketVO vo, Model model){
-		model.addAttribute("ticketList", orderticketservice.OrderTicketList(vo));
-		return "main";
-	}
 }
 	
 	

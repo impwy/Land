@@ -27,9 +27,7 @@
 	</delete>
 	
 	<!-- 예매내역조회 -->
-	<select id="ordeTicketList" resultMap="ticket">
-		SELECT * FROM ORDER_TICKET WHERE TICKET_NUM = #{ticket_num}
-	</select>
+	
 	
 	<!-- 예매 갯수 -->
 	<select id="getCountOrderTicket" resultType="java.lang.Integer">

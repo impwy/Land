@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/time.css" />
+<title>운영시간</title>
 </head>
 <body>
-yfmfjh
+
+<div class="time-header">
+        <h1 class="time-title">운영정보</h1>
+    
+    <div class="time-div">
+        <h2 class="time-title2">운영시간</h2>
+        <hr>
+        <p class="time-title3"></p>
+        <div>9:00am to 5:00pm</div>
+    </div>
+    </div>
 </body>
 </html>
