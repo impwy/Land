@@ -52,7 +52,7 @@
 		</ul></li>
 	<li><a href="#">즐길거리</a>
 		<ul class="drop-down">
-			<li><a href="#">어트랙션</a>
+			<li><a href="attraction">어트랙션</a>
 				<hr class="dashed"></li>
 			<li><a href="#">레스토랑</a>
 				<hr class="dashed"></li>

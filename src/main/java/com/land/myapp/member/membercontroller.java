@@ -25,6 +25,10 @@ public class membercontroller {
 	public String guidemap() {
 		return "menu/guidemap";
 	}
+	@RequestMapping(value = "/attraction", method = RequestMethod.GET)
+	public String attraction() {
+		return "enjoy/attraciton/attraction";
+	}
 
 
 }
