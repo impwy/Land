@@ -15,7 +15,7 @@
         <form action="order" method="post">
         <!-- hidden처리 -->
         <input type="hidden" name="ticket_type" id="type" value="allDay">
-        <input type="hidden" id="member_id" name="member_id" value="${member }" />
+        <input type="hidden" id="member_id" name="member_id" value="${member.member_id }" />
         <input type="hidden" id="amount" name="ticket_amount" value="0" />
         
         <h3>방문날짜</h3>
