@@ -18,8 +18,6 @@ public class TicketController {
 	@Autowired
 	private OrderTicketService orderTicketService;
 	
-	@Autowired
-	private TicketService ticketService;
 	
 	//티켓 주문 페이지 이동
 	@RequestMapping(value="/ticketOrder")
@@ -31,8 +29,7 @@ public class TicketController {
 	//로그인이 안되어있다면 member_id Guest로 저장
 	@RequestMapping(value="/order",method=RequestMethod.POST)
 	public String insertTicket(
-			@RequestParam(value="member_id",required=false,defaultValue="Guest") String member_id,
-			@RequestParam(value="ticket_num",required=false) int ticket_num
+			@RequestParam(value="member_id",required=false,defaultValue="Guest") String member_id
 			,OrderTicketVO vo
 			,HttpSession session
 			) {

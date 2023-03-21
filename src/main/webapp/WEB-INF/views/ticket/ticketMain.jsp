@@ -8,6 +8,6 @@
 </head>
 <body>
 	<a href="allDayTicket">종일권</a>
-	<a href="after4Ticket">애프터4</a>
+	<a href="afterFourTicket">애프터4</a>
 </body>
 </html>
