@@ -1,0 +1,45 @@
+.time-header {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+	margin: auto;
+	border-radius: 15px;
+	font-weight: 600;
+	font-size: larger;
+	width: 800px;
+	height: 80px;
+	border-radius: 15px;
+	background-image:
+		url("https://i.pinimg.com/564x/d3/b1/2b/d3b12b53c209148feb9d89df6144adbf.jpg");
+	text-align: center;
+	top: 200px;
+}
+
+.time-div {
+	margin: 20px;
+}
+
+.time-title1, time-title2 {
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.time-header h1 {
+	font-size: 36px;
+	margin: 0;
+	text-align: center;
+}
+
+.time-title2 {
+	font-size: 24px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.time-title3 {
+	line-height: 1.5;
+	margin-bottom: 20px;
+	text-align: center;
+}

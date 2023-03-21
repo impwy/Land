@@ -29,9 +29,9 @@
 		<ul class="drop-down">
 			<li><a href="time">운영시간</a>
 				<hr class="dashed"></li>
-			<li><a href="#">공지사항</a>
+			<li><a href="getBoardList">공지사항</a>
 				<hr class="dashed"></li>
-			<li><a href="#">오시는길</a>
+			<li><a href="guide">오시는길</a>
 				<hr class="dashed"></li>
 			<li><a href="#">가이드맵</a></li>
 		</ul></li>
