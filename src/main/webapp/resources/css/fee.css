@@ -1,0 +1,63 @@
+@charset "UTF-8";
+.fee-section {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.fee-form{
+	margin-top:250px;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    margin: 1em 0;
+    text-shadow: 2px 2px 5px #999;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 1em 0;
+    color: #FF6F61;
+    text-shadow: 1px 1px 2px #999;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.fee-section {
+    background-color: #FFF;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #999;
+    margin: 1em;
+}
+
+.fee-section p:first-of-type {
+    margin-top: 0;
+}
+
+.fee-section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #ffa7f0;
+    color: #FFF;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 1px 1px 2px #999;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #ffa7f0;
+}

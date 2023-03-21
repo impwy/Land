@@ -29,6 +29,10 @@ public class membercontroller {
 	public String attraction() {
 		return "enjoy/attraciton/attraction";
 	}
+	@RequestMapping(value = "/fee", method = RequestMethod.GET)
+	public String fee() {
+		return "menu/fee";
+	}
 
 
 }
