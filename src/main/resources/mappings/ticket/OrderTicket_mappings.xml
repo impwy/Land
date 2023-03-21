@@ -28,7 +28,6 @@
 	
 	<!-- 예매내역조회 -->
 	
-	
 	<!-- 예매 갯수 -->
 	<select id="getCountOrderTicket" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM ORDER_TICKET WHERE MEMBER_ID = #{member_id}

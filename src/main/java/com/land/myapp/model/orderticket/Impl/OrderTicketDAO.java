@@ -22,5 +22,4 @@ public class OrderTicketDAO {
 		mybatis.delete("OrderTicketDAO.deleteOrderTicket",vo);
 	}
 	//티켓 조회
-	
 }
