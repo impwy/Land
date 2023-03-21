@@ -15,12 +15,12 @@
     <insert id="insertBoard" parameterType="board">
     <![CDATA[
       INSERT INTO BOARD(MEMBER_ID,BOARD_NUM, BOARD_CONTENT,BOARD_REGDATE , BOARD_TITLE)
-    VALUES (#{member_id}, BOARD_NUM_SEQ.NEXTVAL,#{board_content},sysdate,#{board_title});
+    VALUES (#{member_id, jdbcType=VARCHAR}, BOARD_NUM_SEQ.NEXTVAL,#{board_content, jdbcType=VARCHAR},sysdate,#{board_title, jdbcType=VARCHAR})
 ]]>
     </insert>
 <!--    수정-->
     <update id="updateBoard"><![CDATA[
-        UPDATE BOARD SET BOARD_TITLE=#{board_title} ,BOARD_CONTETNT=#{board_content} where BOARD_NUM=#{board_num}
+        UPDATE BOARD SET BOARD_TITLE=#{board_title} ,BOARD_CONTENT=#{board_content} where BOARD_NUM=#{board_num}
 
         ]]></update>
 

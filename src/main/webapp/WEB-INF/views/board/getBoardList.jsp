@@ -43,14 +43,17 @@
 			<c:forEach items="${boardList }" var="board">
 				<tr>
 					<td>${board.board_num }</td>
-					<td align="left"><a href="getBoard?seq=${board.board_num }">${board.board_title }</a></td>
+					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>
 					<td>${board.member_id }</td>
 					<td><fmt:formatDate value="${board.board_regDate }" pattern="yyyy-MM-dd"/></td>
 				</tr>
 			</c:forEach>
 
 		</table>
-		<br> <a href="insertBoard.jsp">글 등록</a>
+		<c:if test="${member.member_id eq 'admin'}">
+					<button type="button" class="text" onClick="location.href='insertBoard'">글쓰기</button>
+				</c:if>
+		<br> <a href="insertBoard">글 등록</a>
 </body>
 </html>
 
