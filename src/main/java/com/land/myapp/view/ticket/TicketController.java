@@ -28,11 +28,12 @@ public class TicketController {
 	//로그인이 안되어있다면 member_id Guest로 저장
 	@RequestMapping(value="/order",method=RequestMethod.POST)
 	public String insertTicket(
-			@RequestParam(value="member_id",required=false,defaultValue="Guest") String member_id 
+			@RequestParam(value="member_id",required=false,defaultValue="Guest") String member_id,
+			@RequestParam(value="ticket_num",required=false,defaultValue="1") int ticket_num
 			,OrderTicketVO vo
 			,HttpSession session
 			) {
-		session.setAttribute("member_id", "member1");
+
 		String member = (String) session.getAttribute("member_id");
 		//로그인체크 로그인이 되어있다면 member_id = 로그인된 id
 		if(member != null) {

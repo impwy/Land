@@ -10,6 +10,7 @@ public class OrderTicketVO {
 	private String ticket_phone;
 	private String ticket_type;
 	private int ticket_amount;
+	private int ticket_sum;
 	
 	
 	
@@ -27,7 +28,6 @@ public class OrderTicketVO {
 	public void setTicket_sum(int ticket_sum) {
 		this.ticket_sum = ticket_sum;
 	}
-	private int ticket_sum;
 	
 	public String getMember_id() {
 		return member_id;

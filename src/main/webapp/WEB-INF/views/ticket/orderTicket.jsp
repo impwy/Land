@@ -15,8 +15,8 @@
         <h3>방문날짜</h3>
         <input type="date" name="ticket_date" id="date">
         
-        <H3>티켓종류</H3>
-        <input type="text" name="ticket_type" id="type">
+        <h3>티켓종류</h3>
+        <input type="" name="ticket_type" id="type">
         
         <h3>이메일</h3>
         <input type="text" name="ticket_email" id="email">
@@ -24,10 +24,7 @@
         <h3>핸드폰</h3>
         <input type="text" name="ticket_phone" id="phone">
         
-        <h3>수량</h3>
-        <input type="number" name="ticket_amount" id="amount" min="1">
-        
-        <h3>총금액</h3>
+        <h3>금액</h3>
         <input type="number" id="total" name="ticket_sum" readonly />
         <script>
         $('document').ready(function(){

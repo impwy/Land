@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,8 +16,9 @@
 	<i class="fa fa-bars"></i>
 </div>
 <div id="login">
-	<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a> | <a
-		href="resource/member/login.jsp"><i class="fa-solid fa-user-plus"></i></a>
+	<c:if test=""></c:if>
+	<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
+	<a href="logout" class="logout">Sign Out</a>
 </div>
 
 <div class="six">
@@ -62,5 +64,6 @@
 				<hr class="dashed"></li>
 		</ul></li>
 </ul>
-</nav> </header>
+</nav> 
+</header>
 </html>
