@@ -29,7 +29,7 @@ public class MemberVO {
     private String member_addr;
 
     // 주민등록번호 
-    private int member_key;
+    private Long member_key;
 
     // 가입날짜 
     private Date member_date;
@@ -98,11 +98,11 @@ public class MemberVO {
 		this.member_addr = member_addr;
 	}
 
-	public int getMember_key() {
+	public Long getMember_key() {
 		return member_key;
 	}
 
-	public void setMember_key(int member_key) {
+	public void setMember_key(Long member_key) {
 		this.member_key = member_key;
 	}
 

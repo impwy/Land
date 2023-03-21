@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 
 		// 회원가입
 		public void insertMember(MemberVO vo) {
-			
+			System.out.println("impl까지 옴");
 			memberDAO.insertMember(vo);
 		}
 

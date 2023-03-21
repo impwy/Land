@@ -10,3 +10,4 @@ pom.properties
 .project
 .settings/
 database.properties
+src/main/webapp/WEB-INF/views/member/login.jsp.rej

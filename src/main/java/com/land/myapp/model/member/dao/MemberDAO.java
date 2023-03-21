@@ -27,13 +27,15 @@ public class MemberDAO {
 
 		// 회원가입
 		public void insertMember(MemberVO vo) {
+			System.out.println("dao로넘어옴");
 			mybatis.insert("MemberDAO.insertMember", vo);
 		}
 
 		// 로그인
 		
 		public MemberVO login(MemberVO vo) {
-			return (MemberVO) mybatis.selectOne("Member.login", vo);
+			System.out.println("dao로넘어옴");
+			return (MemberVO) mybatis.selectOne("MemberDAO.login", vo);
 		}
 
 		// 회원정보 수정
