@@ -35,17 +35,19 @@
 		<!-- 검색 종료 -->
 		<table border="1" cellpadding="0" cellspacing="0" width="700">
 			<tr>
-				<th bgcolor="orange" width="100">번호</th>
-				<th bgcolor="orange" width="200">제목</th>
-				<th bgcolor="orange" width="150">작성자</th>
-				<th bgcolor="orange" width="150">작성일자</th>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일자</th>
+				<th>조회수</th>
 			</tr>
 			<c:forEach items="${boardList }" var="board">
 				<tr>
 					<td>${board.board_num }</td>
 					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>
 					<td>${board.member_id }</td>
-					<td><fmt:formatDate value="${board.board_regDate }" pattern="yyyy-MM-dd"/></td>
+					<td>${board.board_regdate }</td>
+					<td>${board.board_viewcnt }</td>
 				</tr>
 			</c:forEach>
 
@@ -53,7 +55,7 @@
 		<c:if test="${member.member_id eq 'admin'}">
 					<button type="button" class="text" onClick="location.href='insertBoard'">글쓰기</button>
 				</c:if>
-		<br> <a href="insertBoard">글 등록</a>
+		<br>
 </body>
 </html>
 

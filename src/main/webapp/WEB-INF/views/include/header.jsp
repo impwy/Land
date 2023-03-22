@@ -64,7 +64,7 @@
 		</ul></li>
 	<li><a href="#">요금/우대혜택</a>
 		<ul class="drop-down">
-			<li><a href="fee">가격정보</a>
+			<li><a href="price">가격정보</a>
 				<hr class="dashed"></li>
 			<li><a href="discount">할인정보</a>
 				<hr class="dashed"></li>
@@ -73,9 +73,9 @@
 		<ul class="drop-down">
 			<li><a href="attraction">어트랙션</a>
 				<hr class="dashed"></li>
-			<li><a href="#">레스토랑</a>
+			<li><a href="restaurant">레스토랑</a>
 				<hr class="dashed"></li>
-			<li><a href="#">주변환경</a>
+			<li><a href="convenients">주변환경</a>
 				<hr class="dashed"></li>
 		</ul></li>
 	<li><a href="#">굿즈</a>
@@ -86,6 +86,8 @@
 	<li><a href="#">고객센터</a>
 		<ul class="drop-down">
 			<li><a href="FAQ">FAQ</a>
+				<hr class="dashed"></li>
+				<li><a href="getBoardList">게시판</a>
 				<hr class="dashed"></li>
 		</ul></li>
 </ul>

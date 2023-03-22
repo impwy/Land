@@ -29,13 +29,21 @@ public class membercontroller {
 	public String attraction() {
 		return "enjoy/attraciton/attraction";
 	}
-	@RequestMapping(value = "/fee", method = RequestMethod.GET)
-	public String fee() {
-		return "menu/fee";
-	}
 	@RequestMapping(value = "/discount", method = RequestMethod.GET)
 	public String discount() {
 		return "menu/discount";
+	}
+	@RequestMapping(value = "/restaurant", method = RequestMethod.GET)
+	public String restaurant() {
+		return "menu/restaurant";
+	}
+	@RequestMapping(value = "/convenients", method = RequestMethod.GET)
+	public String convenients() {
+		return "menu/convenients";
+	}
+	@RequestMapping(value = "/price", method = RequestMethod.GET)
+	public String price() {
+		return "menu/price";
 	}
 
 

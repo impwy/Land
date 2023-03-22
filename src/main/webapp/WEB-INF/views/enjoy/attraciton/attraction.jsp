@@ -6,13 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="resources/css/enjoy/attraction/attraction.css">
+<link rel="stylesheet" href="resources/css/attraction.css">
 <html>
 <head>
   <title>Title</title>
 </head>
 <body class="attraction">
-
 <div class="head">
   <h1>어트랙션</h1>
   <p>흥미롭고 다채로운 놀이기구를 타고 상상의 나래를 펼치세요! </p>
