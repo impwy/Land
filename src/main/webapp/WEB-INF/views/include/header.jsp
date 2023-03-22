@@ -73,7 +73,7 @@
 		<ul class="drop-down">
 			<li><a href="attraction">어트랙션</a>
 				<hr class="dashed"></li>
-			<li><a href="#">레스토랑</a>
+			<li><a href="restaurant">레스토랑</a>
 				<hr class="dashed"></li>
 			<li><a href="#">주변환경</a>
 				<hr class="dashed"></li>

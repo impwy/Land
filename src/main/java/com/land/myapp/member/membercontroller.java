@@ -37,6 +37,10 @@ public class membercontroller {
 	public String discount() {
 		return "menu/discount";
 	}
+	@RequestMapping(value = "/restaurant", method = RequestMethod.GET)
+	public String restaurant() {
+		return "menu/restaurant";
+	}
 
 
 }
