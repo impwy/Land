@@ -75,7 +75,7 @@
 				<hr class="dashed"></li>
 			<li><a href="restaurant">레스토랑</a>
 				<hr class="dashed"></li>
-			<li><a href="#">주변환경</a>
+			<li><a href="convenients">주변환경</a>
 				<hr class="dashed"></li>
 		</ul></li>
 	<li><a href="#">굿즈</a>

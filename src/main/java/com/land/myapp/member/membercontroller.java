@@ -41,6 +41,10 @@ public class membercontroller {
 	public String restaurant() {
 		return "menu/restaurant";
 	}
+	@RequestMapping(value = "/convenients", method = RequestMethod.GET)
+	public String convenients() {
+		return "menu/convenients";
+	}
 
 
 }
