@@ -1,5 +1,8 @@
 package com.land.myapp.view.ticket;
 
+import java.sql.Date;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
-import com.land.myapp.model.ticket.TicketService;
 
 @Controller
 public class TicketController {
@@ -20,15 +22,9 @@ public class TicketController {
 
 	
 	//로그인이 안되어있다면 member_id Guest로 저장
-	@RequestMapping(value="/order",method=RequestMethod.POST)
-	public String insertTicket(
-			@RequestParam(value="member_id",required=false,defaultValue="Guest") String member_id
-			,OrderTicketVO vo
-			,HttpSession session
-			) {
-		vo.setMember_id(member_id);
+	@RequestMapping(value="ticketPayment",method=RequestMethod.POST)
+	public String insertTicket(OrderTicketVO vo ,HttpSession session) {
 		orderTicketService.insertOrderTicket(vo);
-		System.out.println(vo.getTicket_amount());
 		return "/ticket/ticketMain"; 
 	}
 	
@@ -39,10 +35,31 @@ public class TicketController {
 		return "main";
 	}
 	
-	//티켓예매 페이지로 이동
+		//티켓예매 페이지로 이동
 		@RequestMapping("/ticket")
 		public String ticket() {
 			return "/ticket/ticketMain";
+		}
+		//티켓주문으로 이동
+		@RequestMapping(value="/order", method=RequestMethod.POST)
+		public String orderTicket(
+				@RequestParam(value="adult_amount") int adult_amount,
+				@RequestParam(value="teen_amount") int teen_amount,
+				@RequestParam(value="baby_amount") int baby_amount,
+				@RequestParam(value="ticket_sum") int ticket_sum,
+				@RequestParam(value="ticket_date") Date ticket_date,
+				@RequestParam(value="ticket_amount") String ticket_amount,				
+				HttpSession session
+				) {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("adult_amount",adult_amount);
+			map.put("teen_amount",teen_amount);
+			map.put("baby_amount",baby_amount);
+			map.put("ticket_date",ticket_date);
+			map.put("ticket_sum",ticket_sum);
+			map.put("ticket_amount", ticket_amount);
+			session.setAttribute("map", map);
+			return "/ticket/ticketPayment";
 		}
 		//allDayTicket이동
 		@RequestMapping("/allDayTicket")
