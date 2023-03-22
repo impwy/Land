@@ -1,6 +1,7 @@
-package com.land.myapp.model.goods.impl;
+package com.land.myapp.model.goods.Impl;
 
 import java.util.List;
+
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class GoodsDAO {
 	
 	//상품등록
 	public void insertGoods(GoodsVO vo) {
+		System.out.println("굿즈dao통과");
 		mybatis.insert("GoodsDAO.insertGoods", vo);
 	}
 	

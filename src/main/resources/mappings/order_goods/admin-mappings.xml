@@ -24,10 +24,22 @@
 	</select> -->
 	
 <!--상품 등록  -->
-	<insert id="insertGoods" parameterType="goods">
+	<insert id="insertGoods">
 	    <![CDATA[
-		INSERT INTO GOODS_INFO (GOODS_NUM, GOODS_PRICE, GOODS_NAME, GOODS_IMAGE, GOODS_AMOUNT)
-		VALUES(#{goods_num},#{goods_price},#{goods_name},#{goods_image},#{goods_amount})
+		INSERT INTO GOODS_INFO (
+		GOODS_NUM, 
+		GOODS_PRICE, 
+		GOODS_NAME, 
+		GOODS_IMAGE, 
+		GOODS_AMOUNT
+		
+		) VALUES(
+		#{goods_num},
+		#{goods_price},
+		#{goods_name},
+		#{goods_image},
+		#{goods_amount}
+		)
 		]]>
 		
 	</insert>

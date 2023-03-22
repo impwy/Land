@@ -1,4 +1,4 @@
-package com.land.myapp.model.goods.impl;
+package com.land.myapp.model.goods.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class GoodsServiceImpl implements GoodsService {
 	//관리자 아이디로 상품 등록
 	public void insertGoods(GoodsVO vo) {
 		
-		System.out.println("통과");
+		System.out.println("Impl통과");
 		goodsDAO.insertGoods(vo);
 	}
 }

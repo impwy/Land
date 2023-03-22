@@ -5,23 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자 상품등록</title>
+<link rel="stylesheet" href="resources/css/goodsEnroll.css" />
 </head>
 <body>
-	<%@ include file="../include/header.jsp"%>
+
 
 	<div class="admin_content_wrap">
+	<form action="insertGoods" method="post" id="enrollForm">
 		<div class="admin content subject">
 			<span>상품등록</span>
 		</div>
-
+		<br /> <br />
 		<div class="admin_content_main">
-			<form action="/admin/goodsEnroll" method="post" id="enrollForm">
+			
 				<div class="form_section">
 					<div class="form_section_title">
 						<label>상품번호</label>
 					</div>
 					<div class="form_section_content">
-						<input name="bookName">
+						<input name="goods_num" id="goods_num">
 					</div>
 				</div>
 				<div class="form_section">
@@ -29,7 +31,7 @@
 						<label>상품가격</label>
 					</div>
 					<div class="form_section_content">
-						<input name="authorId" value="0">
+						<input name="goods_price" value="0" id="goods_price">
 					</div>
 				</div>
 				<div class="form_section">
@@ -37,7 +39,7 @@
 						<label>상품이름</label>
 					</div>
 					<div class="form_section_content">
-						<input name="publeYear">
+						<input name="goods_name" id="goods_name">
 					</div>
 				</div>
 				<div class="form_section">
@@ -45,51 +47,29 @@
 						<label>상품이미지</label>
 					</div>
 					<div class="form_section_content">
-						<input name="publisher">
+						<input id="goods_image" name="goods_image"/>
 					</div>
 				</div>
-				<div class="form_section">
-					<div class="form_section_title">
-						<label>상품 수량</label>
-					</div>
-					<div class="form_section_content">
-						<input name="cateCode">
-					</div>
-				</div>
-				
-				
-				
-			</form>
-			<div class="btn_section">
-				<button id="cancelBtn" class="btn">취 소</button>
-				<button id="enrollBtn" class="btn enroll_btn">등 록</button>
+		</div>
+		<div class="form_section">
+			<div class="form_section_title">
+				<label>상품 수량</label>
+			</div>
+			<div class="form_section_content">
+				<input name="cateCode">
 			</div>
 		</div>
-
-
+		
+		<div class="btn_section">
+			
+	        <button>등록</button>
+		</div>
+		</form>
 	</div>
+	
 
-	<%@ include file="../include/footer.jsp"%>
-	<script>
-
-	let enrollForm = $("#enrollForm")
+ 	
 	
-/* 취소 버튼 */
-$("#cancelBtn").click(function(){
 	
-	location.href="/admin/goodsManage"
-	
-});
-
-/* 상품 등록 버튼 */
-$("#enrollBtn").on("click",function(e){
-	
-	e.preventDefault();
-	
-	enrollForm.submit();
-	
-});
-
-</script> 	
 </body>
 </html>
