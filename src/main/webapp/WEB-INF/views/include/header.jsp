@@ -64,7 +64,7 @@
 		</ul></li>
 	<li><a href="#">요금/우대혜택</a>
 		<ul class="drop-down">
-			<li><a href="fee">가격정보</a>
+			<li><a href="price">가격정보</a>
 				<hr class="dashed"></li>
 			<li><a href="discount">할인정보</a>
 				<hr class="dashed"></li>

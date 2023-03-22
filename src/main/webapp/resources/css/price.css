@@ -1,0 +1,149 @@
+@charset "UTF-8";
+@charset "utf-8";
+.priceform {
+  height: 100%;
+  font-size: 18px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  color: #000;
+  margin-top: 250px;
+ 
+  
+}
+/* .mainimage {
+  height: 550px;
+  background-image: url("img/ticket-main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+} */
+.current {
+  text-align: center;
+}
+.tabArea {
+  text-align: center;
+}
+
+.tblType {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tblType th,
+.tblType td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.tblType th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+.tblType th p {
+  margin: 0;
+}
+.tblType th .pointColor2 {
+  color: green;
+  font-size: 12px;
+  font-weight: normal;
+}
+.customer-team {
+  background-color: aquamarine;
+  width: 18%;
+  text-align: center;
+}
+
+.mb20 {
+  margin-bottom: 25px !important;
+}
+
+.priceBox1 {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -28px 20px;
+  text-align: center;
+}
+.priceBox1 dl {
+  flex: 1;
+  padding: 34px 0 50px;
+  margin: 0 28px;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #ababab;
+}
+.priceBox1 dl dt {
+  font-size: 22px;
+  line-height: 1.48;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+.priceBox1 dl dd div {
+  font-size: 20px;
+  line-height: 1.45;
+  padding-left: 18px;
+  position: relative;
+  text-align: left;
+}
+.priceBox1 dl dd div + div {
+  margin-top: 5px;
+}
+.priceBox1 dl dd div:before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #000;
+}
+.priceBox1 dl dd div span {
+  float: left;
+  margin-right: 4px;
+}
+.priceBox1 dl dd div p {
+  overflow: hidden;
+}
+
+.containerInner .inner {
+  padding: 0px 20px;
+}
+/* navbar */
+.navbar {
+  height: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.navbar #logo {
+  line-height: 60px;
+}
+.navbar #logo img {
+  vertical-align: middle;
+}
+
+.navbar #menu {
+  float: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar #menu li {
+  float: left;
+  margin-left: 50px;
+  line-height: 60px;
+}
+
+.navbar #menu li a {
+  text-decoration: none;
+  color: #545454;
+  font-size: 13px;
+  font-weight: bold;
+}
+.tabArea h3 {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  align-content: center;
+}
