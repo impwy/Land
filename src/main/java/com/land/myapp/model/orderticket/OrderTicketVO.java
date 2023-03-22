@@ -9,17 +9,17 @@ public class OrderTicketVO {
 	private String ticket_email;
 	private String ticket_phone;
 	private String ticket_type;
-	private int ticket_amount;
+	private String ticket_amount;
 	private int ticket_sum;
 	
 	
 	
 	
 	
-	public int getTicket_amount() {
+	public String getTicket_amount() {
 		return ticket_amount;
 	}
-	public void setTicket_amount(int ticket_amount) {
+	public void setTicket_amount(String ticket_amount) {
 		this.ticket_amount = ticket_amount;
 	}
 	public int getTicket_sum() {

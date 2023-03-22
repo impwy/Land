@@ -17,13 +17,6 @@ public class TicketController {
 	
 	@Autowired
 	private OrderTicketService orderTicketService;
-	
-	
-	//티켓 주문 페이지 이동
-	@RequestMapping(value="/ticketOrder")
-	public String orderTicket() {
-		return "/ticket/orderTicket";
-	}
 
 	
 	//로그인이 안되어있다면 member_id Guest로 저장
@@ -35,6 +28,7 @@ public class TicketController {
 			) {
 		vo.setMember_id(member_id);
 		orderTicketService.insertOrderTicket(vo);
+		System.out.println(vo.getTicket_amount());
 		return "/ticket/ticketMain"; 
 	}
 	
@@ -44,6 +38,22 @@ public class TicketController {
 		orderTicketService.deleteOrderTicket(vo);
 		return "main";
 	}
+	
+	//티켓예매 페이지로 이동
+		@RequestMapping("/ticket")
+		public String ticket() {
+			return "/ticket/ticketMain";
+		}
+		//allDayTicket이동
+		@RequestMapping("/allDayTicket")
+		public String allDayTicket() {
+			return "ticket/allDayTicket";
+		}
+		//after4Ticket이동
+		@RequestMapping("/after4Ticket")
+		public String after4Ticket() {
+			return "ticket/after4Ticket";
+		}
 	
 	
 	//예매내역 조회

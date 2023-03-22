@@ -41,20 +41,5 @@ public class HomeController {
 		return "/member/login";
 
 	}
-	//티켓예매 페이지로 이동
-	@RequestMapping("/ticket")
-	public String ticket() {
-		return "/ticket/ticketMain";
-	}
-	//allDayTicket이동
-	@RequestMapping("/allDayTicket")
-	public String allDayTicket() {
-		return "ticket/allDayTicket";
-	}
-	//after4Ticket이동
-	@RequestMapping("/after4Ticket")
-	public String after4Ticket() {
-		return "ticket/after4Ticket";
-	}
-	//굿즈몰로 이동
+
 }
