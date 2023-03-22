@@ -16,21 +16,21 @@
 			<input name="seq" type="hidden" value="${board.board_num}">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange" width="70">제목</td>
+					<td width="70">제목</td>
 					<td align="left"><input type="text" name="title"
 						value="${board.board_title }"></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">작성자</td>
+					<td>작성자</td>
 					<td align="left">${board.member_id }</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">내용</td>
+					<td>내용</td>
 					<td align="left"><textarea name="content" cols="40" rows="10">${board.board_content }</textarea></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">등록일</td>
-					<td align="left"><fmt:formatDate value="${board.board_regDate }" pattern="yyyy-MM-dd"/></td>
+					<td>등록일</td>
+					<td align="left">${board.board_regdate }</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"

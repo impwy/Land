@@ -5,17 +5,19 @@
 <mapper namespace="BoardDAO">
     <resultMap type="board" id="boardResult">
         <id property="board_num" column="BOARD_NUM"></id>
-        <result property="member_id" column="MEMBER_ID"></result>
-        <result property="board_content" column="BOARD_CONTENT"></result>
-        <result property="board_regDate" column="BOARD_REGDATE"></result>
         <result property="board_title" column="BOARD_TITLE"></result>
+        <result property="board_content" column="BOARD_CONTENT"></result>
+        <result property="member_id" column="MEMBER_ID"></result>
+        <result property="board_viewcnt" column="BOARD_VIEWCNT"></result>
+        <result property="board_regdate" column="BOARD_REGDATE"></result>
+        <result property="board_updatereg" column="BOARD_UPDATEREG"></result>
     </resultMap>
     
     <!-- 글 등록 -->
     <insert id="insertBoard" parameterType="board">
     <![CDATA[
-      INSERT INTO BOARD(MEMBER_ID,BOARD_NUM, BOARD_CONTENT,BOARD_REGDATE , BOARD_TITLE)
-    VALUES (#{member_id, jdbcType=VARCHAR}, BOARD_NUM_SEQ.NEXTVAL,#{board_content, jdbcType=VARCHAR},sysdate,#{board_title, jdbcType=VARCHAR})
+      INSERT INTO BOARD(board_num,board_title,board_content,member_id)
+    VALUES (board_num_seq.nextval,#{board_title},#{board_content},#{member_id})
 ]]>
     </insert>
 <!--    수정-->

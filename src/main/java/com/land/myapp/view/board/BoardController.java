@@ -2,6 +2,7 @@ package com.land.myapp.view.board;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.land.myapp.model.board.BoardService;
 import com.land.myapp.model.board.BoardVO;
 import com.land.myapp.model.member.dao.MemberDAO;
+import com.land.myapp.model.member.service.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
 
 @Controller
@@ -24,6 +25,9 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
     
+    @Autowired
+    private MemberService memberService;
+    
     //글 작성
     @RequestMapping(value="/insertBoard", method=RequestMethod.GET)
     public String insertBoardGo(BoardVO vo)throws IOException {
@@ -31,11 +35,15 @@ public class BoardController {
     }
     //글 등록
     @RequestMapping(value="/insertBoard", method=RequestMethod.POST)
-    public String insertBoard(BoardVO vo,
-    		@RequestParam(value="member_id",required=false,defaultValue="Guest") String member_id )throws IOException {
-    	vo.setMember_id(member_id);
-        boardService.insertBoard(vo);
-        return "redirect:getBoardList";
+    public String insertBoard(BoardVO bvo,MemberVO mvo,HttpSession session) {
+    	System.out.println("board_content");
+    	MemberVO member=memberService.login(mvo);
+    	if(member !=null) {
+    		session.setAttribute("member", member);
+    		return "getBoard";
+    	}else{
+    		return "member/login";
+    	}
     }
     // 수정
     @RequestMapping("/updateBoard")
@@ -64,13 +72,13 @@ public class BoardController {
     
     
     //로그인
-    @RequestMapping(value = "/loginBoard", method = RequestMethod.GET)
-	public String loginView(@ModelAttribute("user") MemberVO vo) {
-		System.out.println("로그인 화면으로 이동");
-		vo.setMember_id("admin");
-		vo.setMember_pwd("a");
-		return "board/loginboard";
-	}
+    private boolean loginCheck(HttpServletRequest request) {
+        // 1. 세션을 얻어서
+        HttpSession session = request.getSession();
+        // 2. 세션에 id가 있는지 확인, 있으면 true를 반환
+        return session.getAttribute("id")!=null;
+    }
+	
     
     
     @RequestMapping(value = "/login2", method = RequestMethod.POST)
