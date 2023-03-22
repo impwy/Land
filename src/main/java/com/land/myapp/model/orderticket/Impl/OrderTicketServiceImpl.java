@@ -22,7 +22,6 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 		
 		String ticketNum = year+monthValue+day+num; 
 		vo.setTicket_num(ticketNum);
-		System.out.println(ticketNum);
 	}
 	
 	@Autowired
@@ -43,8 +42,8 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	}
 	
 	//티켓 조회
-	public void selectOrderTicket(OrderTicketVO vo) {
-		orderTicketDAO.getOrderTicketList(vo);
+	public List<OrderTicketVO> getOrderTicketList(OrderTicketVO vo,String member_id) {
+		return orderTicketDAO.getOrderTicketList(vo, member_id);
 	}
 	
 }

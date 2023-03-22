@@ -28,12 +28,11 @@
 	</delete>
 	
 	<!-- 예매내역조회 -->
-	<select id ="getOrderTicketList" parameterType="hashmap" resultMap="ticket">
-		SELECT TICKET_NUM, TICKET_DATE, TICKET_EMAIL, TICKET_PHONE, TICKET_TYPE, TICKET_AMOUNT, TICKET_SUM
-		FROM ORDER_TICKET
-		WHERE MEMBER_ID =#{member_id}     <!-- 아이디를 찾은후 오더티켓에서 가져올거를 셀렉하기  -->
-		
+	<select id ="getOrderTicketList" resultMap="ticket">
+		SELECT MEMBER_NAME, TICKET_DATE, TICKET_EMAIL, TICKET_PHONE, TICKET_AMOUNT, TICKET_SUM
+		FROM ORDER_TICKET NATURAL JOIN MEMBER WHERE MEMBER_ID = #{member_id};
 	</select>
+	
 	<!-- 예매 갯수 -->
 	<select id="getCountOrderTicket" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM ORDER_TICKET WHERE MEMBER_ID = #{member_id}
