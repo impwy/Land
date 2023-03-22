@@ -87,6 +87,8 @@
 		<ul class="drop-down">
 			<li><a href="FAQ">FAQ</a>
 				<hr class="dashed"></li>
+				<li><a href="getBoardList">게시판</a>
+				<hr class="dashed"></li>
 		</ul></li>
 </ul>
 </nav> </header>
