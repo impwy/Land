@@ -53,6 +53,7 @@ public class TicketController {
 				@RequestParam(value="ticket_sum") int ticket_sum,
 				@RequestParam(value="ticket_date") Date ticket_date,
 				@RequestParam(value="ticket_amount") String ticket_amount,				
+				@RequestParam(value="ticket_type") String ticket_type,				
 				HttpSession session
 				) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
@@ -62,6 +63,7 @@ public class TicketController {
 			map.put("ticket_date",ticket_date);
 			map.put("ticket_sum",ticket_sum);
 			map.put("ticket_amount", ticket_amount);
+			map.put("ticket_type", ticket_type);
 			session.setAttribute("map", map);
 			return "/ticket/ticketPayment";
 		}
