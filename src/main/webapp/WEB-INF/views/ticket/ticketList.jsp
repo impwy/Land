@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h3>예매내역</h3>
-		<table>
+		<table border="1">
 		<tr>
 			<th>이름</th>
 			<th>이메일</th>
@@ -21,7 +21,9 @@
 			<th>가격</th>
 			<th>예매 취소</th>
 		</tr>
-		<c:forEach begin="0" end="${(fn:length(list))}" var="i">
+		<c:choose>
+		<c:when test="${not empty list}">
+		<c:forEach begin="0" end="${(fn:length(list)-1)}" var="i">
 		<c:set var="row" value="${list[i] }"/>
 		<tr>
 			<td>${row.member_name }</td>
@@ -34,6 +36,11 @@
 			<td><a href="deleteTicket?ticket_num=${row.ticket_num }">취소</a></td>
 		</tr>
 		</c:forEach>
+		</c:when>
+		<c:otherwise>
+		<td colspan="8">예매 내역이 없습니다.</td>
+		</c:otherwise>
+		</c:choose>
 		</table>
 </body>
 </html>

@@ -32,7 +32,6 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	public void insertOrderTicket(OrderTicketVO vo) {
 		makeNum(vo);
 		orderTicketDAO.insertOrderTicket(vo);
-		System.out.println(vo);
 	}
 	
 	//예매 취소

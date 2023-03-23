@@ -23,7 +23,7 @@ public class TicketController {
 	private OrderTicketService orderTicketService;
 
 	
-	//로그인이 안되어있다면 member_id Guest로 저장
+	//로그인 정보 저장
 	@RequestMapping(value="ticketPayment",method=RequestMethod.POST)
 	public String insertTicket(OrderTicketVO vo ,HttpSession session) {
 		orderTicketService.insertOrderTicket(vo);
@@ -34,7 +34,7 @@ public class TicketController {
 	@RequestMapping(value="/deleteTicket", method=RequestMethod.GET)
 	public String deleteTicket(String ticket_num) {
 		orderTicketService.deleteOrderTicket(ticket_num);
-		return "ticketList";
+		return "redirect:/ticketList";
 	}
 	
 		//티켓예매 페이지로 이동
@@ -82,11 +82,9 @@ public class TicketController {
 	@RequestMapping(value="/ticketList", method=RequestMethod.GET)
 	public String getTicketList(OrderTicketVO vo, HttpSession session) {
 		MemberVO member = (MemberVO) session.getAttribute("member");
-		String member_id = member.getMember_id();
-		System.out.println(member_id);
-		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member_id);
+		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member.getMember_id());
 		session.setAttribute("list", list);
-		return "/ticket/ticketList";
+		return "ticket/ticketList";
 	}
 }
 	
