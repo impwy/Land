@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*---------------------------main--------------------------*/
+.main{
+	padding: 20px;
+}
+
+.section {
+	margin-bottom: 40px;
+}
+
+.section h2 {
+	margin-bottom: 20px;
+	font-size: 24px;
+    text-align: center;
+}
+
+.section ul {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 20px;
+}
+
+.section li {
+	border: 1px solid #ddd;
+	padding: 20px;
+	text-align: center;
+}
+
+.section img {
+	max-width: 100%;
+}
+
+.section button {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+.section button:hover {
+	background-color: #fff;
+	color: #333;
+}
