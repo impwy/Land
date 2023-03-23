@@ -49,6 +49,34 @@ public class membercontroller {
 	public String goodsmall() {
 		return "menu/goodsmall";
 	}
+	@RequestMapping(value = "/doll", method = RequestMethod.GET)
+	public String doll() {
+		return "menu/doll";
+	}
+	@RequestMapping(value = "/hairband", method = RequestMethod.GET)
+	public String hairband() {
+		return "menu/hairband";
+	}
+	@RequestMapping(value = "/hat", method = RequestMethod.GET)
+	public String hat() {
+		return "menu/hat";
+	}
+	@RequestMapping(value = "/toy", method = RequestMethod.GET)
+	public String toy() {
+		return "menu/toy";
+	}
+	@RequestMapping(value = "/costum", method = RequestMethod.GET)
+	public String costum() {
+		return "menu/costum";
+	}
+	@RequestMapping(value = "/souvenir", method = RequestMethod.GET)
+	public String souvenir() {
+		return "menu/souvenir";
+	}
+	@RequestMapping(value = "/cloth", method = RequestMethod.GET)
+	public String cloth() {
+		return "menu/cloth";
+	}
 
 
 }

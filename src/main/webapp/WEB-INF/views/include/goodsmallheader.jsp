@@ -14,13 +14,13 @@
             width="100" height="50" border="0" /></a>
     <nav>
         <ul>
-            <li><a href="#">인형</a></li>
-            <li><a href="#">머리띠</a></li>
-            <li><a href="#">모자</a></li>
-            <li><a href="#">장난감</a></li>
-            <li><a href="#">교복대여</a></li>
-            <li><a href="#">기념품</a></li>
-            <li><a href="#">옷</a></li>
+            <li><a href="doll">인형</a></li>
+            <li><a href="hairband">머리띠</a></li>
+            <li><a href="hat">모자</a></li>
+            <li><a href="toy">장난감</a></li>
+            <li><a href="costum">교복대여</a></li>
+            <li><a href="souvenir">기념품</a></li>
+            <li><a href="cloth">옷</a></li>
         </ul>
     </nav>
     <div id="login">
