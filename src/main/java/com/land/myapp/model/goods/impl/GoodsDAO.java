@@ -36,6 +36,7 @@ public class GoodsDAO {
 	}
 	//상품 등록
 	public void insertGoods(GoodsVO vo) {
+		System.out.println(vo);
 		mybatis.insert("GoodsDAO.Goods_insert",vo);
 	}
 //	public String fileInfo(int product_id) {

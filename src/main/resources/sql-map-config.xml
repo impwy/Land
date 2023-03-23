@@ -15,6 +15,7 @@
 		<mapper resource="mappings/ticket/OrderTicket_mappings.xml"/>
 		<mapper resource="mappings/ticket/Ticket_mapping.xml"/>
 		<mapper resource="mappings/member/member-mappings.xml" />
+		<mapper resource="mappings/order_goods/admin-mappings.xml" />
 		
 	</mappers>
 </configuration>

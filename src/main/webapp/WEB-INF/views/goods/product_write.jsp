@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
@@ -23,12 +24,12 @@ function product_write(){
 	var goods_image=$("#goods_image").val();
 	var goods_amount=$("#goods_amount").val();
 	
-	if(product_name==""){ //빈값이면
+	if(goods_name===""){ //빈값이면
 		alert("상품이름을 입력하세요"); 
 		$("#goods_name").focus(); //입력포커스 이동
 		return; //함수 종료, 폼 데이터를 제출하지 않음
 	}
-	if(goods_price==""){
+	if(goods_price===""){
 		alert("가격을 입력하세요");
 		$("#goods_price").focus();
 		return;
@@ -39,7 +40,7 @@ function product_write(){
 		return;
 	} */
 	//폼 데이터를 받을 주소
-	document.form1.action="${path}/shop/poduct/insert.do";
+	document.form1.action="form1";
 	//폼 데이터를 서버에 전송
 	document.form1.submit();
 }
@@ -47,7 +48,7 @@ function product_write(){
 
 
 <h2>상품 등록</h2>
-<form name="form1" method="post"
+<form action="form1" name="form1" method="post"
 	enctype="multipart/form-data">
 <table>
 	<tr>
@@ -73,10 +74,10 @@ function product_write(){
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" value="등록" 
-				onclick="javascript:product_write()">
+			<input type="button" value="등록">
+			
 			<input type="button" value="목록"
-onclick="location.href='${path}/shop/product/list.do'">
+  onclick="product_list">
 		</td>
 	</tr>
 </table>	

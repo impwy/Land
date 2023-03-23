@@ -24,18 +24,18 @@ public class GoodsController {
 //		List<GoodsVO> list = goodsService.listProduct();
 //		model.addAttribute("list",list);
 //		return "/";
-//	}
-	@RequestMapping("/write")//버튼을 누르면 굿즈정보입력 화면 진입
+//	}//버튼을 누르면 굿즈정보입력 화면 진입
+	@RequestMapping("/write")
 	public String addGoods() {
 		return "/goods/product_write";
-	}
-	@RequestMapping(value="/write", method=RequestMethod.POST)//굿즈입력화면에서 입력완료후 처리
+	}//굿즈입력화면에서 상품 등록 입력완료후 처리
+	@RequestMapping(value="/form1", method=RequestMethod.POST)
 	public String insertGoods(GoodsVO vo) {
 		goodsService.insertGoods(vo);
 		System.out.println("굿즈등록성공");
 		return "/main";
 	}
-	//관리자
+	
 	
 	//관리자페이지로 이동
 	@RequestMapping("/insert")
