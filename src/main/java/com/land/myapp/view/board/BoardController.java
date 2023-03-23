@@ -38,13 +38,13 @@ public class BoardController {
     public String insertBoard(BoardVO vo,MemberVO mvo,HttpSession session) {
     	System.out.println("board_content");
     	boardService.insertBoard(vo);
-    		return "board/getBoardList";
+    		return "redirect:getBoardList";
     	}
     
     // 수정 폼
     @RequestMapping(value="/updateBoard",method=RequestMethod.GET)
     public String updateBoardGo(BoardVO vo)throws IOException {
-        return "board/getBoard";
+        return "board/updateBoard";
     }
     //수정    
     @RequestMapping(value="/updateBoard",method=RequestMethod.POST)
