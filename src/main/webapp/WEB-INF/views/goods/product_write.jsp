@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<script>
+<!-- <script>
 function product_write(){
 	// 태그를 name으로 조회할 경우
 	//var product_name=document.form1.product_name.value;
@@ -42,9 +42,9 @@ function product_write(){
 	//폼 데이터를 받을 주소
 	document.form1.action="form1";
 	//폼 데이터를 서버에 전송
-	document.form1.submit();
+	document.form1.submit("goods_info");
 }
-</script>
+</script> -->
 
 
 <h2>상품 등록</h2>
@@ -74,10 +74,9 @@ function product_write(){
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" value="등록">
+			<input type="submit" value="등록" class="button">
 			
-			<input type="button" value="목록"
-  onclick="product_list">
+			<input type="button" value="목록" onclick="goods/product_list">
 		</td>
 	</tr>
 </table>	
