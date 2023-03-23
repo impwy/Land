@@ -39,7 +39,6 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일자</th>
-				<th>조회수</th>
 			</tr>
 			<c:forEach items="${boardList }" var="board">
 				<tr>
@@ -47,7 +46,6 @@
 					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>
 					<td>${board.member_id }</td>
 					<td>${board.board_regdate }</td>
-					<td>${board.board_viewcnt }</td>
 				</tr>
 			</c:forEach>
 

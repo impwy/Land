@@ -17,6 +17,7 @@
 			<th>핸드폰</th>
 			<th>티켓넘버</th>
 			<th>예매날짜</th>
+			<th>종류</th>
 			<th>수량</th>
 			<th>가격</th>
 			<th>예매 취소</th>
@@ -31,6 +32,7 @@
 			<td>${row.ticket_phone}</td>
 			<td>${row.ticket_num}</td>
 			<td>${row.ticket_date}</td>
+			<td>${row.ticket_type}</td>
 			<td>${row.ticket_amount}</td>
 			<td>${row.ticket_sum}</td>
 			<td><a href="deleteTicket?ticket_num=${row.ticket_num }">취소</a></td>

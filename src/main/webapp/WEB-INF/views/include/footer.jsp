@@ -9,7 +9,7 @@
         전화:+82 010 7230 6526<br>
         Fax +82 64123 4321
         <div class="sns">
-            <a href="#"><img src="resources/img/facebook.gif" alt="페이스북"></a>
+            <a href="https://www.facebook.com/"><img src="resources/img/facebook.gif" alt="페이스북"></a>
             <a href="#"><img src="resources/img/instagram.gif" alt="인스타그램"></a> 
             <a href="#"><img src="resources/img/twitter.gif" alt="트위터"></a>
         </div>

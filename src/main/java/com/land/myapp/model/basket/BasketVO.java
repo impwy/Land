@@ -1,34 +1,50 @@
 package com.land.myapp.model.basket;
 
-public class BasketVO {//장바구니
-	
-	private int user_no;    //회원번호
-	private int goods_num;  //상품번호
-	private int basket_sum; //총금액
-	
-	public int getUser_no() {
-		return user_no;
-	}
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
-	}
-	public int getGoods_num() {
-		return goods_num;
-	}
-	public void setGoods_num(int goods_num) {
-		this.goods_num = goods_num;
-	}
-	public int getBasket_sum() {
-		return basket_sum;
-	}
-	public void setBasket_sum(int basket_sum) {
-		this.basket_sum = basket_sum;
-	}
-	@Override
-	public String toString() {
-		return "basketVO [user_no=" + user_no + ", goods_num=" + goods_num + ", basket_sum=" + basket_sum + "]";
-	}
-	
-	
+public class BasketVO {// 장바구니
 
+	private int member_id; // 회원번호
+	private int prd_id; // 상품번호
+	private int buy_quantity; // 총금액
+	private int cart_id; //
+	private int prd_opt; //
+
+	public int getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+
+	public int getPrd_id() {
+		return prd_id;
+	}
+
+	public void setPrd_id(int prd_id) {
+		this.prd_id = prd_id;
+	}
+
+	public int getBuy_quantity() {
+		return buy_quantity;
+	}
+
+	public void setBuy_quantity(int buy_quantity) {
+		this.buy_quantity = buy_quantity;
+	}
+
+	public int getCart_id() {
+		return cart_id;
+	}
+
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
+	}
+
+	public int getPrd_opt() {
+		return prd_opt;
+	}
+
+	public void setPrd_opt(int prd_opt) {
+		this.prd_opt = prd_opt;
+	}
 }

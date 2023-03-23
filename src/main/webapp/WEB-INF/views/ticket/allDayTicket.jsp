@@ -16,6 +16,7 @@
        
         <form action="order" method="post">
         <input type="hidden" id="amount" name="ticket_amount" value="0" />
+        <input type="hidden" id="type" name="ticket_type" value="allDay" />
         <h3>방문날짜</h3>
         <input type="date" name="ticket_date" id="date">
         

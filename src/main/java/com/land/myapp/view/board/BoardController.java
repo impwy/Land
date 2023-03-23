@@ -28,29 +28,30 @@ public class BoardController {
     @Autowired
     private MemberService memberService;
     
-    //글 작성
+    //글 작성폼
     @RequestMapping(value="/insertBoard", method=RequestMethod.GET)
     public String insertBoardGo(BoardVO vo)throws IOException {
         return "board/insertBoard";
     }
     //글 등록
     @RequestMapping(value="/insertBoard", method=RequestMethod.POST)
-    public String insertBoard(BoardVO bvo,MemberVO mvo,HttpSession session) {
+    public String insertBoard(BoardVO vo,MemberVO mvo,HttpSession session) {
     	System.out.println("board_content");
-    	MemberVO member=memberService.login(mvo);
-    	if(member !=null) {
-    		session.setAttribute("member", member);
-    		return "getBoard";
-    	}else{
-    		return "member/login";
+    	boardService.insertBoard(vo);
+    		return "redirect:getBoardList";
     	}
+    
+    // 수정 폼
+    @RequestMapping(value="/updateBoard",method=RequestMethod.GET)
+    public String updateBoardGo(BoardVO vo)throws IOException {
+        return "board/updateBoard";
     }
-    // 수정
-    @RequestMapping("/updateBoard")
-    public String updateBoard(@ModelAttribute("board") BoardVO vo)throws IOException {
-        boardService.updateBoard(vo);
+    //수정    
+    @RequestMapping(value="/updateBoard",method=RequestMethod.POST)
+    public String updateBoard(BoardVO vo)throws IOException {
+    	boardService.updateBoard(vo);
         return "redirect:getBoardList";
-    }
+}
     //삭제
     @RequestMapping("/deleteBoard")
     public String deleteBoard(BoardVO vo){
@@ -69,31 +70,6 @@ public class BoardController {
         model.addAttribute("boardList", boardService.getBoardList(vo));
         return "board/getBoardList";
     }
+      
     
-    
-    //로그인
-    private boolean loginCheck(HttpServletRequest request) {
-        // 1. 세션을 얻어서
-        HttpSession session = request.getSession();
-        // 2. 세션에 id가 있는지 확인, 있으면 true를 반환
-        return session.getAttribute("id")!=null;
-    }
-	
-    
-    
-    @RequestMapping(value = "/login2", method = RequestMethod.POST)
-	public String login(MemberVO vo, MemberDAO memberDAO, HttpSession session) {
-		if(vo.getMember_id()==null||vo.getMember_id().equals("")){
-			throw new IllegalArgumentException("아이디는 반드시 입력 해야 합니다.");
-		}
-		MemberVO user=memberDAO.login(vo);
-		System.out.println("로그인 인증 처리");
-
-		if (user != null) {
-			session.setAttribute("member_id", user.getMember_id());
-			return "board/getBoardList";
-		}
-		else
-			return "board/loginboard";
-    }
 }

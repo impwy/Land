@@ -8,23 +8,19 @@
         <result property="board_title" column="BOARD_TITLE"></result>
         <result property="board_content" column="BOARD_CONTENT"></result>
         <result property="member_id" column="MEMBER_ID"></result>
-        <result property="board_viewcnt" column="BOARD_VIEWCNT"></result>
         <result property="board_regdate" column="BOARD_REGDATE"></result>
-        <result property="board_updatereg" column="BOARD_UPDATEREG"></result>
     </resultMap>
     
     <!-- 글 등록 -->
     <insert id="insertBoard" parameterType="board">
-    <![CDATA[
       INSERT INTO BOARD(board_num,board_title,board_content,member_id)
     VALUES (board_num_seq.nextval,#{board_title},#{board_content},#{member_id})
-]]>
     </insert>
 <!--    수정-->
-    <update id="updateBoard"><![CDATA[
+    <update id="updateBoard">
         UPDATE BOARD SET BOARD_TITLE=#{board_title} ,BOARD_CONTENT=#{board_content} where BOARD_NUM=#{board_num}
 
-        ]]></update>
+      </update>
 
 <!--    삭제-->
     <delete id="deleteBoard"><![CDATA[
