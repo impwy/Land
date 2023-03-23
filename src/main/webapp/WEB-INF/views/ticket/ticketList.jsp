@@ -40,7 +40,7 @@
 		</c:forEach>
 		</c:when>
 		<c:otherwise>
-		<td colspan="8">예매 내역이 없습니다.</td>
+		<td colspan="9">예매 내역이 없습니다.</td>
 		</c:otherwise>
 		</c:choose>
 		</table>
