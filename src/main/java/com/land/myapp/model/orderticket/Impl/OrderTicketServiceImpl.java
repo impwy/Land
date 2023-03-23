@@ -37,13 +37,13 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	
 	//예매 취소
 	@Override
-	public void deleteOrderTicket(OrderTicketVO vo) {
-		orderTicketDAO.deletOrderTicket(vo);
+	public void deleteOrderTicket(String ticket_num) {
+		orderTicketDAO.deletOrderTicket(ticket_num);
 	}
 	
 	//티켓 조회
-	public List<OrderTicketVO> getOrderTicketList(OrderTicketVO vo,String member_id) {
-		return orderTicketDAO.getOrderTicketList(vo, member_id);
+	public List<OrderTicketVO> getOrderTicketList(String member_id) {
+		return orderTicketDAO.getOrderTicketList(member_id);
 	}
 	
 }

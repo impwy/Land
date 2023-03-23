@@ -1,4 +1,4 @@
-package com.land.myapp.model.goods.Impl;
+package com.land.myapp.model.goods.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

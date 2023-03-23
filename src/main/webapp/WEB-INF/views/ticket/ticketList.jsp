@@ -19,8 +19,9 @@
 			<th>예매날짜</th>
 			<th>수량</th>
 			<th>가격</th>
+			<th>예매 취소</th>
 		</tr>
-		<c:forEach begin="0" end="${(fn:length(list))} var="i">
+		<c:forEach begin="0" end="${(fn:length(list))}" var="i">
 		<c:set var="row" value="${list[i] }"/>
 		<tr>
 			<td>${row.member_name }</td>
@@ -30,6 +31,7 @@
 			<td>${row.ticket_date}</td>
 			<td>${row.ticket_amount}</td>
 			<td>${row.ticket_sum}</td>
+			<td><a href="deleteTicket?ticket_num=${row.ticket_num }">취소</a></td>
 		</tr>
 		</c:forEach>
 		</table>

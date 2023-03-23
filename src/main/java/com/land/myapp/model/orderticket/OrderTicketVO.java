@@ -11,11 +11,18 @@ public class OrderTicketVO {
 	private String ticket_type;
 	private String ticket_amount;
 	private int ticket_sum;
+	private String member_name;
 	
 	
 	
 	
 	
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
 	public String getTicket_amount() {
 		return ticket_amount;
 	}
@@ -71,7 +78,9 @@ public class OrderTicketVO {
 	public String toString() {
 		return "OrderTicketVO [member_id=" + member_id + ", ticket_num=" + ticket_num + ", ticket_date=" + ticket_date
 				+ ", ticket_email=" + ticket_email + ", ticket_phone=" + ticket_phone + ", ticket_type=" + ticket_type
-				+ ", ticket_amount=" + ticket_amount + ", ticket_sum=" + ticket_sum + "]";
+				+ ", ticket_amount=" + ticket_amount + ", ticket_sum=" + ticket_sum + ", member_name=" + member_name
+				+ "]";
 	}
+	
 	
 }

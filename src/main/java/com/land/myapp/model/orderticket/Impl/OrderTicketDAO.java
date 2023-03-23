@@ -20,11 +20,11 @@ public class OrderTicketDAO {
 	}
 	
 	//예매 취소
-	public void deletOrderTicket(OrderTicketVO vo) {
-		mybatis.delete("OrderTicketDAO.deleteOrderTicket",vo);
+	public void deletOrderTicket(String ticket_num) {
+		mybatis.delete("OrderTicketDAO.deleteOrderTicket",ticket_num);
 	}
 	//티켓 조회
-	public List<OrderTicketVO> getOrderTicketList(OrderTicketVO vo,String member_id){
+	public List<OrderTicketVO> getOrderTicketList(String member_id){
 		return mybatis.selectList("OrderTicketDAO.getOrderTicketList",member_id);        
 	}
 }

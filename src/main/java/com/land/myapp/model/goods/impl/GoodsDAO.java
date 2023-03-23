@@ -1,7 +1,4 @@
-package com.land.myapp.model.goods.Impl;
-
-import java.util.List;
-
+package com.land.myapp.model.goods.impl;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -7,7 +7,7 @@ public interface OrderTicketService {
 	//티켓 정보 입력
 	void insertOrderTicket(OrderTicketVO vo);
 	//예매 취소
-	void deleteOrderTicket(OrderTicketVO vo);
+	void deleteOrderTicket(String ticket_num);
 	//티켓 조회
-	List<OrderTicketVO> getOrderTicketList(OrderTicketVO vo, String member_id);
+	List<OrderTicketVO> getOrderTicketList(String member_id);
 }
