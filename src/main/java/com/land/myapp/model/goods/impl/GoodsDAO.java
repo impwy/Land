@@ -1,14 +1,11 @@
-<<<<<<< HEAD
+
 package com.land.myapp.model.goods.Impl;
 
-import java.util.HashMap;
 
-=======
-package com.land.myapp.model.goods.impl;
->>>>>>> 65d790194d3436c4e3f4f2dd658a98f227a212a4
+
 
 import java.util.List;
-import java.util.Map;
+
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

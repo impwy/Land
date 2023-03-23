@@ -7,7 +7,7 @@
 	<typeAliases>
 		<typeAlias  alias="board" type="com.land.myapp.model.board.BoardVO"/>
 		    <typeAlias alias="member" type="com.land.myapp.model.member.vo.MemberVO" />  
-		     <typeAlias alias="goods" type="com.land.myapp.model.goods.GoodVO" />
+		     
 	</typeAliases>
 	<!--SQL MAPPER 설정 -->
 	<mappers>
@@ -15,6 +15,6 @@
 		<mapper resource="mappings/ticket/OrderTicket_mappings.xml"/>
 		<mapper resource="mappings/ticket/Ticket_mapping.xml"/>
 		<mapper resource="mappings/member/member-mappings.xml" />
-		<mapper resource="mappings/order_goods/goodsInfo-mappings.xml" />
+		
 	</mappers>
 </configuration>

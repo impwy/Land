@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface GoodsService {
 	    
-	    List<GoodsVO> listProduct();
+	    List<GoodsVO> listGoods();
 	    void updateGoods(GoodsVO vo);
 	    void deleteGoods(int goods_num);
 	    void insertGoods(GoodsVO vo);
-	    String fileInfo(int goods_num);
+	   
 	   
 	
 }
