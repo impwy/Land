@@ -80,7 +80,7 @@
 		</ul></li>
 	<li><a href="#">굿즈</a>
 		<ul class="drop-down">
-			<li><a href="#">굿즈몰</a>
+			<li><a href="goodsmall">굿즈몰</a>
 				<hr class="dashed"></li>
 		</ul></li>
 	<li><a href="#">고객센터</a>
