@@ -74,7 +74,7 @@ public class TicketController {
 			return "ticket/allDayTicket";
 		}
 		//after4Ticket이동
-		@RequestMapping("/after4Ticket")
+		@RequestMapping("/afterFourTicket")
 		public String after4Ticket() {
 			return "ticket/after4Ticket";
 		}
