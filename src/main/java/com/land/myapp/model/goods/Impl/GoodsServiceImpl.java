@@ -1,6 +1,7 @@
-package com.land.myapp.model.goods.impl;
+package com.land.myapp.model.goods.Impl;
 
 import java.util.List;
+
 
 
 
@@ -14,7 +15,7 @@ import com.land.myapp.model.goods.GoodsVO;
 
 
 @Service("goodsService")
-public class GoodsServiceImpl{
+public class GoodsServiceImpl implements GoodsService{
 	
 	@Autowired
 	private GoodsDAO goodsDAO;
@@ -35,8 +36,6 @@ public class GoodsServiceImpl{
     public List<GoodsVO> listGoods(){
     	return goodsDAO.listGoods();
     }
-//    public String fileInfo(int goods_num) {
-//    	return goodsDAO.fileInfo(goods_num);
-//    }
+   
  
 }
