@@ -35,7 +35,7 @@
 		<a href="#">개인정보</a>
 		<a href="#">굿즈몰</a>
 		<a href="ticket">티켓예매</a>	
-		<a href="insert">굿즈등록</a>	
+		<a href="insert">굿즈관리</a>	
 		<a href="logout" class="logout">Sign Out</a>
 	</c:if>
 	
