@@ -25,7 +25,7 @@
 		<c:if test="${member.member_id ne 'admin' }">
 		<a href="#">장바구니</a>
 		<a href="#">개인정보</a>
-		<a href="#">굿즈몰</a>
+		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>		
 		<a href="logout" class="logout">Sign Out</a>
 		</c:if>
@@ -33,7 +33,7 @@
 		<c:if test="${member.member_id eq 'admin' }">
 		<a href="#">장바구니</a>
 		<a href="#">개인정보</a>
-		<a href="#">굿즈몰</a>
+		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>	
 		<a href="insert">굿즈관리</a>	
 		<a href="logout" class="logout">Sign Out</a>
@@ -80,7 +80,7 @@
 		</ul></li>
 	<li><a href="#">굿즈</a>
 		<ul class="drop-down">
-			<li><a href="#">굿즈몰</a>
+			<li><a href="goodsmall">굿즈몰</a>
 				<hr class="dashed"></li>
 		</ul></li>
 	<li><a href="#">고객센터</a>

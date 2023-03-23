@@ -11,6 +11,7 @@ $(document).ready(function() {
 	  teenInput.change(updateTotal);
 	  babyInput.change(updateTotal);
 	  
+	  $("button").click(updateAmount);
 	  
 	  // Define the updateTotal function
 	  function updateTotal() {
@@ -18,9 +19,24 @@ $(document).ready(function() {
 		var teenValue = parseInt(teenInput.val());
 		var babyValue = parseInt(babyInput.val());
 	    var totalValue = adultValue*40000 + teenValue*30000 + babyValue*20000;
-	    var amountValue = "어른"+adultValue+",청소년"+teenValue+",유아"+babyValue;
 	    totalInput.val(totalValue);
-	    amountInput.val(amountValue);
+	  }
+	  
+	  function updateAmount(){
+		  var adultValue = adultInput.val();
+		  var teenValue = teenInput.val();
+		  var babyValue = babyInput.val();
+		  var amountValue = "";
+		    if(adultValue !== "0"){
+		    amountValue+=" 어른"+adultValue;
+		    }
+		    if(teenValue !== "0"){
+		    amountValue	+=" 청소년"+teenValue;
+		    }
+		    if(babyValue !== "0" ){	    	
+		    amountValue+=" 유아"+babyValue;
+		    }
+		    amountInput.val(amountValue);
 	  }
 	  
 	});

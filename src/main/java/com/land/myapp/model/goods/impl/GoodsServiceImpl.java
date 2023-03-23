@@ -1,4 +1,4 @@
-package com.land.myapp.model.goods.Impl;
+package com.land.myapp.model.goods.impl;
 
 import java.util.List;
 

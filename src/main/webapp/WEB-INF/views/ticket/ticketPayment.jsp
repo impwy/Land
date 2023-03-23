@@ -11,6 +11,7 @@
 		<!-- hidden처리 -->
         <input type="hidden" name="ticket_type" id="type" value="allDay">
         <input type="hidden" id="member_id" name="member_id" value="${member.member_id }" />
+        <input type="hidden" id="member_name" name="member_name" value="${member.member_name }" />
         <input type="hidden" id="amount" name="ticket_amount" value="${map.ticket_amount }" />
        	<input type="text" id="name" value="${member.member_name }" />
        	<input type="text" id="email" name="ticket_email" value="${member.member_email }" />

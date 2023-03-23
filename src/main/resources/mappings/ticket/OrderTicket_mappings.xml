@@ -13,13 +13,14 @@
 		<result property="ticket_type" column="TICKET_TYPE" />
 		<result property="ticket_amount" column="TICKET_AMOUNT" />
 		<result property="ticket_sum" column="TICKET_SUM" />
+		<result property="member_name" column="MEMBER_NAME" />		
 	</resultMap>
 	
 	<!-- 티켓구매정보 저장-->
 	<insert id="insertOrderTicket">
 		
-			INSERT INTO ORDER_TICKET(MEMBER_ID,TICKET_NUM,TICKET_DATE,TICKET_EMAIL,TICKET_PHONE,TICKET_TYPE,TICKET_AMOUNT,TICKET_SUM)
-			 VALUES(#{member_id},#{ticket_num},#{ticket_date},#{ticket_email},#{ticket_phone},#{ticket_type},#{ticket_amount},#{ticket_sum})
+			INSERT INTO ORDER_TICKET(MEMBER_ID,TICKET_NUM,TICKET_DATE,TICKET_EMAIL,TICKET_PHONE,TICKET_TYPE,TICKET_AMOUNT,TICKET_SUM,MEMBER_NAME)
+			 VALUES(#{member_id},#{ticket_num},#{ticket_date},#{ticket_email},#{ticket_phone},#{ticket_type},#{ticket_amount},#{ticket_sum},#{member_name})
 	</insert>
 	
 	<!-- 예매취소 -->
@@ -28,14 +29,15 @@
 	</delete>
 	
 	<!-- 예매내역조회 -->
-	<select id ="getOrderTicketList" parameterType="hashmap" resultMap="ticket">
-		SELECT TICKET_NUM, TICKET_DATE, TICKET_EMAIL, TICKET_PHONE, TICKET_TYPE, TICKET_AMOUNT, TICKET_SUM
-		FROM ORDER_TICKET
-		WHERE MEMBER_ID =#{member_id}     <!-- 아이디를 찾은후 오더티켓에서 가져올거를 셀렉하기  -->
-		
+	<select id ="getOrderTicketList" parameterType="String" resultMap="ticket">
+		<![CDATA[
+		SELECT b.MEMBER_NAME, TICKET_DATE, TICKET_EMAIL, TICKET_PHONE, TICKET_NUM, TICKET_AMOUNT, TICKET_SUM
+		FROM ORDER_TICKET a, MEMBER b WHERE a.MEMBER_ID = b.MEMBER_ID AND b.MEMBER_ID = #{member_id};
+		]]>
 	</select>
+	
 	<!-- 예매 갯수 -->
-	<select id="getCountOrderTicket" resultType="java.lang.Integer">
+	<select id="getCountOrderTicket" parameterType="String" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM ORDER_TICKET WHERE MEMBER_ID = #{member_id}
 	</select>
 </mapper>

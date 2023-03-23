@@ -2,6 +2,7 @@ package com.land.myapp.view.ticket;
 
 import java.sql.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.land.myapp.model.member.vo.MemberVO;
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
 
@@ -29,10 +31,10 @@ public class TicketController {
 	}
 	
 	//예매 취소
-	@RequestMapping(value="/deleteTicket", method=RequestMethod.POST)
-	public String deleteTicket(OrderTicketVO vo) {
-		orderTicketService.deleteOrderTicket(vo);
-		return "main";
+	@RequestMapping(value="/deleteTicket", method=RequestMethod.GET)
+	public String deleteTicket(String ticket_num) {
+		orderTicketService.deleteOrderTicket(ticket_num);
+		return "ticketList";
 	}
 	
 		//티켓예매 페이지로 이동
@@ -40,6 +42,8 @@ public class TicketController {
 		public String ticket() {
 			return "/ticket/ticketMain";
 		}
+		
+		//시간되면 ajox로 구현
 		//티켓주문으로 이동
 		@RequestMapping(value="/order", method=RequestMethod.POST)
 		public String orderTicket(
@@ -61,6 +65,7 @@ public class TicketController {
 			session.setAttribute("map", map);
 			return "/ticket/ticketPayment";
 		}
+		
 		//allDayTicket이동
 		@RequestMapping("/allDayTicket")
 		public String allDayTicket() {
@@ -74,6 +79,15 @@ public class TicketController {
 	
 	
 	//예매내역 조회
+	@RequestMapping(value="/ticketList", method=RequestMethod.GET)
+	public String getTicketList(OrderTicketVO vo, HttpSession session) {
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		String member_id = member.getMember_id();
+		System.out.println(member_id);
+		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member_id);
+		session.setAttribute("list", list);
+		return "/ticket/ticketList";
+	}
 }
 	
 	

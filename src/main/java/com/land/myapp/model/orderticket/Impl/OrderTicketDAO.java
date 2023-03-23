@@ -1,8 +1,6 @@
 package com.land.myapp.model.orderticket.Impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +20,11 @@ public class OrderTicketDAO {
 	}
 	
 	//예매 취소
-	public void deletOrderTicket(OrderTicketVO vo) {
-		mybatis.delete("OrderTicketDAO.deleteOrderTicket",vo);
+	public void deletOrderTicket(String ticket_num) {
+		mybatis.delete("OrderTicketDAO.deleteOrderTicket",ticket_num);
 	}
 	//티켓 조회
-	public List<OrderTicketVO> getOrderTicketList(OrderTicketVO vo){
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("member_id", vo.getMember_id());
-		map.put("OrderTicket", vo);
-		return mybatis.selectList("OrderTicketDAO.getOrderTicketList" , map);        //mapping OrderTicketDAO안에있는 id(메소드)쓰기
+	public List<OrderTicketVO> getOrderTicketList(String member_id){
+		return mybatis.selectList("OrderTicketDAO.getOrderTicketList",member_id);        
 	}
 }

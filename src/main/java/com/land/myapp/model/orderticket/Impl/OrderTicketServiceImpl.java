@@ -22,7 +22,6 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 		
 		String ticketNum = year+monthValue+day+num; 
 		vo.setTicket_num(ticketNum);
-		System.out.println(ticketNum);
 	}
 	
 	@Autowired
@@ -38,13 +37,13 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	
 	//예매 취소
 	@Override
-	public void deleteOrderTicket(OrderTicketVO vo) {
-		orderTicketDAO.deletOrderTicket(vo);
+	public void deleteOrderTicket(String ticket_num) {
+		orderTicketDAO.deletOrderTicket(ticket_num);
 	}
 	
 	//티켓 조회
-	public void selectOrderTicket(OrderTicketVO vo) {
-		orderTicketDAO.getOrderTicketList(vo);
+	public List<OrderTicketVO> getOrderTicketList(String member_id) {
+		return orderTicketDAO.getOrderTicketList(member_id);
 	}
 	
 }
