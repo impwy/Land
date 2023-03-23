@@ -13,11 +13,11 @@
 		<a href="#">Log-Out(미구현)</a>
 		<hr>
 		<form action="updateBoard" method="post">
-			<input name="seq" type="hidden" value="${board.board_num}">
+			<input name="board_num" type="hidden" value="${board.board_num}">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
 					<td width="70">제목</td>
-					<td align="left"><input type="text" name="title"
+					<td align="left"><input type="text" name="board_title"
 						value="${board.board_title }"></td>
 				</tr>
 				<tr>
@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td align="left"><textarea name="content" cols="40" rows="10">${board.board_content }</textarea></td>
+					<td align="left"><textarea name="board_content" cols="40" rows="10">${board.board_content }</textarea></td>
 				</tr>
 				<tr>
 					<td>등록일</td>
