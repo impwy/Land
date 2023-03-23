@@ -24,7 +24,7 @@
         </ul>
     </nav>
     <div id="login">
-        <a href="login2.html">login</a> | <a href="#">Join</a>
+        <a href="#">login</a> | <a href="#">Join</a>
     </div>
 </div>
 </html>
