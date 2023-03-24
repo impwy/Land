@@ -38,7 +38,7 @@ public class BoardController {
     public String insertBoard(BoardVO vo,MemberVO mvo,HttpSession session) {
     	System.out.println("board_content");
     	boardService.insertBoard(vo);
-    		return "redirect:getBoardList";
+    		return "redirect:page";
     	}
     
     // 수정 폼
@@ -50,13 +50,13 @@ public class BoardController {
     @RequestMapping(value="/updateBoard",method=RequestMethod.POST)
     public String updateBoard(BoardVO vo)throws IOException {
     	boardService.updateBoard(vo);
-        return "redirect:getBoardList";
+        return "redirect:page";
 }
     //삭제
     @RequestMapping("/deleteBoard")
     public String deleteBoard(BoardVO vo){
         boardService.deleteBoard(vo);
-        return "redirect:getBoardList";
+        return "redirect:page";
     }
     //글 상세보기
     @RequestMapping("/getBoard")

@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 		</form>
-		<a href="getBoardList">글 목록 가기</a>
+		<a href="page">글 목록 가기</a>
 	</center>
 </body>
 </html>
