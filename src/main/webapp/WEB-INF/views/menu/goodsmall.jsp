@@ -1,89 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>굿즈몰</title>
 <link rel="stylesheet" href="resources/css/goodsmall.css"/>
 <%@ include file="../include/goodsmallheader.jsp"%>
 </head>
 <div class="main">
 		<div class="section">
-			<h2>신제품</h2>
-			<ul>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20230202_225/16753106495482oWKW_JPEG/2613333433477594_929618388.jpg?type=f295_381" alt="Product 1">
-					<h3>푸바오 100일 보들 애착 봉제인형</h3>
-					<p>29,000원</p>
-					<p>★★★★★|리뷰 128</p>
-					<button>Add to Cart</button>
-				</li>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20210401_90/1617272915641BsM7X_JPEG/18408758355337117_858546194.jpg?type=f296_296" alt="Product 2">
-					<h3>완구 판다 회전 라이트</h3>
-					<p>8,400원</p>
-					<p>★★★★☆|리뷰 58</p>
-					<button>Add to Cart</button>
-				</li>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20200304_275/1583314733835VJdt7_JPEG/20678122359363781_2132856343.jpg?type=f296_296" alt="Product 3">
-					<h3>캐릭터 우유 키홀더</h3>
-					<p>8,000원</p>
-					<p>★★★★★|리뷰 12</p>
-					<button>Add to Cart</button>
-				</li>
-			</ul>
-		</div>
-		<div class="section">
-			<ul>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20220714_257/1657786162547NO0aM_PNG/58922058232613675_1078133758.png?type=f296_296" alt="Product 4">
-					<h3>완구 스위밍 상어</h3>
-					<p>22,000원</p>
-					<p>★★★★★|리뷰 45</p>
-					<button>Add to Cart</button>
-				</li>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20230117_78/1673929254533SWeBo_PNG/75065150249556730_1032377332.png?type=f296_296" alt="Product 5">
-					<h3>쿼카 목도리</h3>
-					<p>10,000원</p>
-					<p>★★★★☆|리뷰 76</p>
-					<button>Add to Cart</button>
-				</li>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20221228_42/1672200248341t1ten_PNG/73336143985178084_209322268.png?type=f296_296" alt="Product 6">
-					<h3>토끼 스마트폰 봉제 크로스백 2종</h3>
-					<p>18,000원</p>
-					<p>★★★★☆|리뷰 76</p>
-					<button>Add to Cart</button>
-				</li>
-			</ul>
-		</div>
-		<div class="section">
-			<ul>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20221130_216/1669770174164ebfMP_PNG/70906072824434366_610504265.png?type=f296_296" alt="Product 4">
-					<h3>아동 펭귄 뽀글이 귀도리 모자</h3>
-					<p>10,000원</p>
-					<p>★★★★★|리뷰 90</p>
-					<button>Add to Cart</button>
-				</li>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20220721_160/1658391364379kDiR6_JPEG/59527207095155150_1857463297.jpg?type=f296_296" alt="Product 5">
-					<h3>펭귄 맘엔베이비 보들인형 소</h3>
-					<p>25,000원</p>
-					<p>★★★★★|리뷰 48</p>
-					<button>Add to Cart</button>
-				</li>
-				<li>
-					<img src="https://shop-phinf.pstatic.net/20230215_40/16764489062153OjCq_JPEG/77584733995273228_53144638.jpg?type=f296_296" alt="Product 6">
-					<h3>기린 봉제인형 소</h3>
-					<p>17,000원</p>
-					<p>★★★★★|리뷰 25</p>
-					<button>Add to Cart</button>
-				</li>
-			</ul>
+			<h2>굿즈</h2>
+			<table id="goods">
+			<!-- 컨트롤러 참고, if문 0이면 -->
+				<c:if test="${(fn:length(map.list)) eq 0}">
+					상품내역이 없습니다.
+					</c:if>
+					<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
+					<!-- 이중 for문 x축 -->
+					<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}" var="row">
+					<tr>
+					<!-- 이중 for문 y축 -->
+						<c:forEach begin="0" end="3" var="col">
+							<c:set var="item" value="${map.list[row * 4 + col]}" />
+							<c:if test="${not empty item}">
+								<td width="300">
+									<div onclick="location.href='goodsInfo?goods_num=${item.goods_num}'" style="cursor: pointer">
+										<div><img src="${item.goods_image}" width="200" height="200"></div>
+										<div>${item.goods_name}</div>
+										<div><fmt:formatNumber value="${item.goods_price}" pattern="#,###,###"/>원</div>
+									</div>
+								</td>
+							</c:if>
+						</c:forEach>
+					</tr>
+					</c:forEach>
+			</table>
 		</div>
 	</div>
 	<%@ include file="../include/goodsmallfooter.jsp"%>

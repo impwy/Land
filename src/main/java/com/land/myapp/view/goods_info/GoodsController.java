@@ -9,8 +9,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,12 +22,12 @@ public class GoodsController {
 	@Autowired
 	private GoodsService goodsService;
 	
-	//상품등록된 굿즈페이지 확인
-	@RequestMapping(value="")
+	//db저장된 굿즈, 화면에 뿌려주기
+	@RequestMapping("/goodsmall")
 	public String goodsViewList(Model model) {
 		List<GoodsVO> list = goodsService.listGoods();
 		model.addAttribute("list",list);
-		return "/";
+		return "/menu/goodsmall";
 	}
 	//버튼을 누르면 굿즈정보입력 화면 진입
 	
@@ -35,6 +35,7 @@ public class GoodsController {
 	public String addGoods() {
 		return "/goods/product_write";
 	}
+	
 	
 	//굿즈입력화면에서 상품 등록 입력완료후 처리
 	@RequestMapping(value="/form1", method=RequestMethod.POST)
