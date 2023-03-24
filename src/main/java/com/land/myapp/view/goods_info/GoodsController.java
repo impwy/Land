@@ -66,5 +66,12 @@ public class GoodsController {
 			// views/shop/product_write.jsp로 이동
 			return "goods/product_list";
 		}
+		
+		//상품 상세보기
+		@RequestMapping(value="/goodsInfo", method=RequestMethod.GET)
+		public String getGoodsInfo(GoodsVO vo, int goods_num, Model model) {
+			model.addAttribute("goods", goodsService.getGoodsInfo(goods_num));
+			return "/goods/goodsPage";
+		}
 
 }
