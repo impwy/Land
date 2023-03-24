@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.*;
 
 @Repository
 public class BoardDAOMybatis {
@@ -39,4 +40,12 @@ public class BoardDAOMybatis {
         return mybatis.selectList("BoardDAO.getBoardList",vo);
     }
 
+    //페이징
+    public List<BoardVO> getBoardPage(Map map) {
+        return mybatis.selectList("BoardDAO.getBoardPage", map);
+    }
+    //카운트
+    public int count()throws Exception{
+        return mybatis.selectOne("BoardDAO.count");
+    }
 }

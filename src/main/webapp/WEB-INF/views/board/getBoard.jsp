@@ -45,7 +45,7 @@
 		<a href="insertBoard">글등록</a>
 		 <a	href="deleteBoard?board_num=${board.board_num }">글삭제</a>
 		 </c:if>
-		  <a href="getBoardList">글목록</a>&nbsp;&nbsp;&nbsp;
+		  <a href="page">글목록</a>&nbsp;&nbsp;&nbsp;
 	</center>
 </body>
 </html>

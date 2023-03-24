@@ -5,7 +5,7 @@ function insertCart() {
 	var member_id = $("#member_id").val();
 	var prd_id = $("#prd_id").val();
 	var buy_quantity = $("#buy_quantity").val();
-	if (member_id == "admin") {
+	if (member_id == "admini") {
 		swal("", "관리자 권한으로는 이용하실 수 없습니다.", "warning");
 	} else if (!member_id) {
 		swal("", "비회원은 장바구니를 이용하실 수 없습니다.", "error");

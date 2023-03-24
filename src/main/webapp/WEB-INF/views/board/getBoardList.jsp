@@ -18,26 +18,13 @@
 		<h3>
 			${member_id }게시판 입니다.<a href="#">Log-out(미구현)</a>
 		</h3>
-		<!-- 검색 시작 -->
-<%--		<form action="getBoardList" method="post">--%>
-<%--			<table border="1" cellpadding="0" cellspacing="0" width="700">--%>
-<%--				<tr>--%>
-<%--					<td align="center">--%>
-<%--					<select name="searchCondition">--%>
-<%--							<c:forEach items="${conditionMap }" var="option">--%>
-<%--							<option value="${option.value }">${option.key }--%>
-<%--							</c:forEach>--%>
-<%--					</select> <input type="text" name="searchKeyword"> <input--%>
-<%--						type="submit" value="<spring:message code="message.board.list.search.condition.btn"/>"></td>--%>
-<%--				</tr>--%>
-<%--			</table>--%>
-<%--		</form>--%>
-		<!-- 검색 종료 -->
+	
 		<table border="1" cellpadding="0" cellspacing="0" width="700">
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
 				<th>작성자</th>
+				<th>조회수</th>
 				<th>작성일자</th>
 			</tr>
 			<c:forEach items="${boardList }" var="board">
@@ -45,11 +32,28 @@
 					<td>${board.board_num }</td>
 					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>
 					<td>${board.member_id }</td>
+					<td>${board.board_viewcnt}</td>
 					<td>${board.board_regdate }</td>
 				</tr>
 			</c:forEach>
-
 		</table>
+		<br>
+		<div>
+
+			<c:if test="${ph.showPrev}">
+				<a href="<c:url value='/page?page=${ph.beginPage-1}&pageSize=${ph.pageSize}'/>">&lt;</a>
+			</c:if>
+
+			<c:forEach var="i" begin="${ph.beginPage}" end="${ph.endPage}">
+				<a href="<c:url value='/page?page=${i}&pageSize=${ph.pageSize}'/> ">${i}</a>
+			</c:forEach>
+
+			<c:if test="${ph.showNext}">
+				<a href="<c:url value='/page?page=${ph.endPage+1}&pageSize=${ph.pageSize}'/>">&gt;</a>
+			</c:if>
+		</div>
+
+
 		<c:if test="${member.member_id eq 'admin'}">
 					<button type="button" class="text" onClick="location.href='insertBoard'">글쓰기</button>
 				</c:if>

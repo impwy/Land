@@ -8,7 +8,7 @@ public interface GoodsService {
 	    void updateGoods(GoodsVO vo);
 	    void deleteGoods(int goods_num);
 	    void insertGoods(GoodsVO vo);
-	   List<GoodsVO> getGoodsInfo(int goods_num);
+	   GoodsVO getGoodsInfo(int goods_num);
 	   
 	
 }
