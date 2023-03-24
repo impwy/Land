@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.mvc.method.annotation.ViewMethodReturnValueHandler;
+import org.springframework.web.servlet.mvc.method.annotation.ViewNameMethodReturnValueHandler;
 
 import com.land.myapp.model.member.vo.MemberVO;
 import com.land.myapp.model.orderticket.OrderTicketService;
@@ -21,12 +24,15 @@ public class TicketController {
 
 	
 	//예매 성공
-	@RequestMapping(value="ticketPayment",method=RequestMethod.POST)
-	public String insertTicket(OrderTicketVO vo ,HttpSession session) {
+	@RequestMapping(value="/ticketPayment",method=RequestMethod.POST)
+	public String insertTicket(OrderTicketVO vo) {
 		orderTicketService.insertOrderTicket(vo);
 		return "redirect:/success"; 
 	}
-	
+	@RequestMapping("/success")
+	public String success() {
+		return "/ticket/success";
+	}
 	//예매 취소
 	@RequestMapping(value="/deleteTicket", method=RequestMethod.GET)
 	public String deleteTicket(String ticket_num) {
