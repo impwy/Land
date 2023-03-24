@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -33,4 +34,18 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardVO> getBoardList(BoardVO vo) {
         return boardDAO.getBoardList(vo);
     }
+    //페이징
+    public List<BoardVO> getBoardPage(Map map){
+        return boardDAO.getBoardPage(map);
+    }
+
+    @Override
+    public int getCount() throws Exception {
+        return boardDAO.count();
+    }
+
+
+
+
 }
+

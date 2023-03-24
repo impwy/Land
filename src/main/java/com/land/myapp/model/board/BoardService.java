@@ -1,6 +1,7 @@
 package com.land.myapp.model.board;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BoardService {
 
@@ -18,4 +19,10 @@ public interface BoardService {
 
     //글 목록
     List<BoardVO> getBoardList(BoardVO vo);
+
+    //페이징
+
+    List<BoardVO> getBoardPage(Map map);
+
+    int getCount() throws Exception;
 }

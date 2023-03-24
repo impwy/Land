@@ -8,6 +8,8 @@
         <result property="board_title" column="BOARD_TITLE"></result>
         <result property="board_content" column="BOARD_CONTENT"></result>
         <result property="member_id" column="MEMBER_ID"></result>
+        <result property="board_viewcnt" column="BOARD_VIEWCNT"></result>
+        <result property="board_commentcnt" column="BOARD_COMMENTCNT"></result>
         <result property="board_regdate" column="BOARD_REGDATE"></result>
     </resultMap>
     
@@ -36,8 +38,26 @@
     <select id="getBoardList" resultMap="boardResult">
         SELECT * FROM BOARD
         where 1=1
-        ORDER BY BOARD_NUM DESC 
-
-
+        ORDER BY BOARD_NUM DESC
     </select>
+
+    <select id="getBoardPage" parameterType="map" resultType="board">
+        SELECT * FROM(
+                    SELECT ROWNUM AS RN, A.*  FROM
+                (SELECT *  FROM board ORDER BY board_regdate DESC,board_num desc) A )
+        WHERE RN BETWEEN ${start} AND ${end}
+    </select>
+
+<!--    카운트-->
+    <select id="count" resultType="int">
+        select count(*) from board
+    </select>
+
+<!--    조회수 증가-->
+    <update id="increaseViewCnt">
+        update board
+            set board_viewcnt=board_viewcnt +1
+            where board_num=#{board_num}
+    </update>
+
 </mapper>
