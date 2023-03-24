@@ -14,13 +14,11 @@ import com.land.myapp.model.goods.GoodsVO;
 @Controller
 public class ProductController {
 	@Autowired
-	private GoodsService goodsService;
+	private GoodsService goodService;
 	
 	@RequestMapping(value="/goodsInfo", method=RequestMethod.GET)
-	public String getGoodsInfo(int goods_num, Model model) {
-		List<GoodsVO> goods = goodsService.getGoodsInfo(goods_num);
-		System.out.println(goods);
-		model.addAttribute(goods);
+	public String getGoodsInfo(GoodsVO vo, int goods_num, Model model) {
+		model.addAttribute("goods", goodService.getGoodsInfo(goods_num));
 		return "/goods/goodsPage";
 	}
 	

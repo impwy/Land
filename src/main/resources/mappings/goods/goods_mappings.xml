@@ -3,8 +3,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="goodsInfoDAO">
+			<resultMap id="GoodsInfo" type="com.land.myapp.model.goods.GoodsVO">
+			<id property="goods_num" column="GOODS_NUM"/>
+			<result property="goods_price" column="GOODS_PRICE"/>
+			<result property="goods_name" column="GOODS_NAME"/>
+			<result property="goods_image" column="GOODS_IMAGE"/>
+			<result property="goods_amount" column="GOODS_AMOUNT"/>
 			
-			<select id="getGoodsInfo" resultType="com.land.myapp.model.goods.GoodsVO">
+			</resultMap>
+			
+			<select id="getGoodsInfo" resultMap="GoodsInfo">
 			<![CDATA[
 				SELECT * FROM GOODS_INFO WHERE GOODS_NUM = #{goods_num}
 			]]>

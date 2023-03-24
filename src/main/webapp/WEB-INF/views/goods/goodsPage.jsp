@@ -7,7 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="resources/js/product.js"></script>
+<script src="resources/js/cart.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<link rel="stylesheet" href="resources/css/productpage.css" />
 <title>상품 상세 페이지</title>
 </head>
 <body>
@@ -23,7 +26,7 @@
 		</script>
 		<div class="productdetail">
 			<form>
-				<img class="productLeft" src="${goods.goods_image}">
+				<img class="productLeft" src="resources/img/goods/701654899163093_1415798837.jpg">
 				<div class="productRight">
 					<p align="left" class="p1">상품명: ${goods.goods_name}</p>
 					<p align="left" class="p2">가격: <fmt:formatNumber value="${goods.goods_price}" pattern="#,###"/>원</p>

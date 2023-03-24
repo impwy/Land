@@ -40,7 +40,7 @@ public class GoodsServiceImpl implements GoodsService{
     
     //상품상세
 	@Override
-	public List<GoodsVO> getGoodsInfo(int goods_num) {
+	public GoodsVO getGoodsInfo(int goods_num) {
 		return goodsDAO.getGoodsInfo(goods_num);
 	}
    
