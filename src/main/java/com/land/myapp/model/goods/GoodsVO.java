@@ -1,6 +1,6 @@
 package com.land.myapp.model.goods;
 
-import org.springframework.web.multipart.MultipartFile;
+
 
 public class GoodsVO {
 	private int goods_num;//상품번호
@@ -8,7 +8,7 @@ public class GoodsVO {
 	private String goods_name;//상품이름
 	private String goods_image;//상품이미지
 	private int goods_amount;//상품수량
-	private MultipartFile file1; //첨부파일
+	
 	
 	public int getGoods_num() {
 		return goods_num;
@@ -40,18 +40,14 @@ public class GoodsVO {
 	public void setGoods_amount(int goods_amount) {
 		this.goods_amount = goods_amount;
 	}
-	public MultipartFile getFile1() {
-		return file1;
-	}
-	public void setFile1(MultipartFile file1) {
-		this.file1 = file1;
-	}
-	
 	@Override
 	public String toString() {
 		return "GoodsVO [goods_num=" + goods_num + ", goods_price=" + goods_price + ", goods_name=" + goods_name
-				+ ", goods_image=" + goods_image + ", goods_amount=" + goods_amount + ", file1=" + file1 + "]";
+				+ ", goods_image=" + goods_image + ", goods_amount=" + goods_amount + "]";
 	}
+	
+	
+	
 	
 	
 }

@@ -42,34 +42,33 @@ function product_write(){
 	//폼 데이터를 받을 주소
 	document.form1.action="form1";
 	//폼 데이터를 서버에 전송
-	document.form1.submit("goods_info");
+	document.form1.submit("");
 }
 </script> -->
 
 
 <h2>상품 등록</h2>
-<form action="form1" name="form1" method="post"
-	enctype="multipart/form-data">
+<form action="form1" method="post">
 <table>
 	<tr>
 		<td>상품명</td>
-		<td><input type="text" name="goods_name" id="goods_name"></td>
+		<td><input type="text" name="goods_name" id="name" ></td>
 	</tr>
 	<tr>
 		<td>상품번호</td>
-		<td><input type="text" name="goods_num" id="goods_num"></td>
+		<td><input type="number" name="goods_num" id="number" ></td>
 	</tr>
 	<tr>
 		<td>상품가격</td>
-		<td><input type="text" name="goods_price" id="goods_price"></td>
+		<td><input type="number" name="goods_price" id="price" ></td>
 	</tr>
 	<tr>
 		<td>상품이미지</td>
-		<td><input type="text" name="goods_image" id="goods_image"></td>
+		<td><input type="text" name="goods_image" id="image" ></td>
 	</tr>
 	<tr>
 		<td>상품수량</td>
-		<td><input type="text" name="goods_amount" id="goods_amount"></td>
+		<td><input type="number" name="goods_amount" id="amount" ></td>
 		
 	</tr>
 	<tr>

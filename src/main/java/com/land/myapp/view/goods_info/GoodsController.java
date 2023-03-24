@@ -1,12 +1,16 @@
 package com.land.myapp.view.goods_info;
 
+
+
 import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,22 +23,34 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	//상품등록된 굿즈페이지 확인
-//	@RequestMapping(value="")
-//	public String goodsViewList(Model model) {
-//		List<GoodsVO> list = goodsService.listProduct();
-//		model.addAttribute("list",list);
-//		return "/";
-//	}//버튼을 누르면 굿즈정보입력 화면 진입
+	@RequestMapping(value="")
+	public String goodsViewList(Model model) {
+		List<GoodsVO> list = goodsService.listGoods();
+		model.addAttribute("list",list);
+		return "/";
+	}
+	//버튼을 누르면 굿즈정보입력 화면 진입
+	
 	@RequestMapping("/write")
 	public String addGoods() {
 		return "/goods/product_write";
-	}//굿즈입력화면에서 상품 등록 입력완료후 처리
+	}
+	
+	//굿즈입력화면에서 상품 등록 입력완료후 처리
 	@RequestMapping(value="/form1", method=RequestMethod.POST)
 	public String insertGoods(GoodsVO vo) {
 		goodsService.insertGoods(vo);
 		System.out.println("굿즈등록성공");
 		return "/main";
 	}
+	
+//	//굿즈입력화면에서 상품 등록 입력완료후 처리
+//		@RequestMapping(value="/form1", method=RequestMethod.POST)
+//		public String insertGoods(@ModelAttribute GoodsVO vo, HttpSession session) {
+//			goodsService.insertGoods(vo);
+//			System.out.println("굿즈등록성공");
+//			return "/main";
+//		}
 	
 	
 	//관리자페이지로 이동

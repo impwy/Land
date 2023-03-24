@@ -30,6 +30,7 @@ public class GoodsServiceImpl implements GoodsService{
     }
     //상품등록
     public void insertGoods(GoodsVO vo) {
+    	System.out.println("impl통과");
     	goodsDAO.insertGoods(vo);
     }
     

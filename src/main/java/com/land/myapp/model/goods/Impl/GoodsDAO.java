@@ -34,8 +34,9 @@ public class GoodsDAO {
 	}
 	//상품 등록
 	public void insertGoods(GoodsVO vo) {
+		System.out.println("dao넘어옴");
 		System.out.println(vo);
-		mybatis.insert("GoodsDAO.Goods_insert",vo);
+		mybatis.insert("GoodsDAO.goods_insert",vo);
 	}
 //	public String fileInfo(int product_id) {
 //		return mybatis.selectOne("product.fileInfo", product_id);

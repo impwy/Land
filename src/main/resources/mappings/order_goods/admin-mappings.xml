@@ -7,7 +7,7 @@
 
 <!--상품 등록  -->
 	<insert id="goods_insert">
-	    
+	     
 		INSERT INTO GOODS_INFO (
 		GOODS_NUM, 
 		GOODS_PRICE, 
