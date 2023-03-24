@@ -7,7 +7,7 @@
 <title>Payment</title>
 </head>
 <body>
-	<form action="ticketPayment" method="post">
+	<form action="ticketPayment" method="POST">
 		<!-- hidden처리 -->
         <input type="hidden" name="ticket_type" id="type" value="${map.ticket_type }">
         <input type="hidden" id="member_id" name="member_id" value="${member.member_id }" />

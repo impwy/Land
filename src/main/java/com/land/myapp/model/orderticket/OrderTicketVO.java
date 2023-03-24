@@ -2,6 +2,8 @@ package com.land.myapp.model.orderticket;
 
 import java.sql.Date;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 public class OrderTicketVO {
 	private String member_id;
 	private String ticket_num;
@@ -12,6 +14,12 @@ public class OrderTicketVO {
 	private String ticket_amount;
 	private int ticket_sum;
 	private String member_name;
+	
+	//티켓 수량 셋팅
+	int adult_amount=0;
+	
+	int teen_amount=0;
+	int baby_amount=0;
 	
 	
 	
@@ -80,6 +88,25 @@ public class OrderTicketVO {
 				+ ", ticket_email=" + ticket_email + ", ticket_phone=" + ticket_phone + ", ticket_type=" + ticket_type
 				+ ", ticket_amount=" + ticket_amount + ", ticket_sum=" + ticket_sum + ", member_name=" + member_name
 				+ "]";
+	}
+	
+	public int getAdult_amount() {
+		return adult_amount;
+	}
+	public void setAdult_amount(int adult_amount) {
+		this.adult_amount = adult_amount;
+	}
+	public int getTeen_amount() {
+		return teen_amount;
+	}
+	public void setTeen_amount(int teen_amount) {
+		this.teen_amount = teen_amount;
+	}
+	public int getBaby_amount() {
+		return baby_amount;
+	}
+	public void setBaby_amount(int baby_amount) {
+		this.baby_amount = baby_amount;
 	}
 	
 	

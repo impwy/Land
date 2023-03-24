@@ -1,7 +1,5 @@
 package com.land.myapp.view.ticket;
 
-import java.sql.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.land.myapp.model.member.vo.MemberVO;
 import com.land.myapp.model.orderticket.OrderTicketService;
@@ -23,11 +20,11 @@ public class TicketController {
 	private OrderTicketService orderTicketService;
 
 	
-	//로그인 정보 저장
+	//예매 성공
 	@RequestMapping(value="ticketPayment",method=RequestMethod.POST)
 	public String insertTicket(OrderTicketVO vo ,HttpSession session) {
 		orderTicketService.insertOrderTicket(vo);
-		return "/ticket/ticketMain"; 
+		return "redirect:/success"; 
 	}
 	
 	//예매 취소
@@ -46,25 +43,8 @@ public class TicketController {
 		//시간되면 ajox로 구현
 		//티켓주문으로 이동
 		@RequestMapping(value="/order", method=RequestMethod.POST)
-		public String orderTicket(
-				@RequestParam(value="adult_amount") int adult_amount,
-				@RequestParam(value="teen_amount") int teen_amount,
-				@RequestParam(value="baby_amount") int baby_amount,
-				@RequestParam(value="ticket_sum") int ticket_sum,
-				@RequestParam(value="ticket_date") Date ticket_date,
-				@RequestParam(value="ticket_amount") String ticket_amount,				
-				@RequestParam(value="ticket_type") String ticket_type,				
-				HttpSession session
-				) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("adult_amount",adult_amount);
-			map.put("teen_amount",teen_amount);
-			map.put("baby_amount",baby_amount);
-			map.put("ticket_date",ticket_date);
-			map.put("ticket_sum",ticket_sum);
-			map.put("ticket_amount", ticket_amount);
-			map.put("ticket_type", ticket_type);
-			session.setAttribute("map", map);
+		public String orderTicket(OrderTicketVO vo,HttpSession session) {
+			session.setAttribute("map", vo);
 			return "/ticket/ticketPayment";
 		}
 		
