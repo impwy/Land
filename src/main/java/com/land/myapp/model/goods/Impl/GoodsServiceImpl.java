@@ -37,6 +37,12 @@ public class GoodsServiceImpl implements GoodsService{
     public List<GoodsVO> listGoods(){
     	return goodsDAO.listGoods();
     }
+    
+    //상품상세
+	@Override
+	public List<GoodsVO> getGoodsInfo(int goods_num) {
+		return goodsDAO.getGoodsInfo(goods_num);
+	}
    
  
 }

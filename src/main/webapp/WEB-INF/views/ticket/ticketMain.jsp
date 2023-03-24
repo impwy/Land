@@ -10,5 +10,6 @@
 	<a href="allDayTicket">종일권</a>
 	<a href="afterFourTicket">애프터4</a>
 	<a href="ticketList">예매확인</a>
+	<a href="goodsInfo?goods_num=1">물품상세</a>
 </body>
 </html>
