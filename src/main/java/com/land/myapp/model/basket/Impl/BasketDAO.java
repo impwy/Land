@@ -10,7 +10,8 @@ import com.land.myapp.model.basket.BasketVO;
 
 @Repository
 public class BasketDAO {
-//	@Autowired
+	
+	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	//장바구니 등록
@@ -23,8 +24,9 @@ public class BasketDAO {
 		mybatis.delete("BasketDAO.deleteBasket",vo);
 	}
 	//리스트 출력
-	public List<BasketVO> getBasketList(BasketVO vo){
-		return mybatis.selectList("BasketDAO.basket",vo);
+	public List<BasketVO> getBasketList(){
+		List<BasketVO> result = mybatis.selectList("BasketDAO.basketList");
+		return result;
 	}
 
 }

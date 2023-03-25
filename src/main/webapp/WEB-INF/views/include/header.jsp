@@ -16,22 +16,22 @@
 	<i class="fa fa-bars"></i>
 </div>
 <div id="login">
-	<c:if test="${empty member }">
+	<c:if test="${empty member }"> <!-- 멤버가아닐경우뜨는 페이지 -->
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
 	</c:if>
 	
-	<c:if test="${not empty member }">
+	<c:if test="${not empty member }"> <!-- 멤버일경우뜨는페이지 -->
 		
-		<c:if test="${member.member_id ne 'admin' }">
-		<a href="#">장바구니</a>
+		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
+		<a href="basket/basketlsit">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>		
 		<a href="logout" class="logout">Sign Out</a>
 		</c:if>
 		
-		<c:if test="${member.member_id eq 'admin' }">
-		<a href="#">장바구니</a>
+		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
+		<a href="basket/basketlsit">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>	

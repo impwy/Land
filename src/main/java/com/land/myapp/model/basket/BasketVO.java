@@ -2,49 +2,40 @@ package com.land.myapp.model.basket;
 
 public class BasketVO {// 장바구니
 
-	private int member_id; // 회원번호
-	private int prd_id; // 상품번호
-	private int buy_quantity; // 총금액
-	private int cart_id; //
-	private int prd_opt; //
+	private String member_id;
+	private int goods_num;
+	private String basket_sum;
+	private int basket_amount;
 
-	public int getMember_id() {
+	public String getMember_id() {
 		return member_id;
 	}
 
-	public void setMember_id(int member_id) {
+	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
 
-	public int getPrd_id() {
-		return prd_id;
+	public int getGoods_num() {
+		return goods_num;
 	}
 
-	public void setPrd_id(int prd_id) {
-		this.prd_id = prd_id;
+	public void setGoods_num(int goods_num) {
+		this.goods_num = goods_num;
 	}
 
-	public int getBuy_quantity() {
-		return buy_quantity;
+	public String getBasket_sum() {
+		return basket_sum;
 	}
 
-	public void setBuy_quantity(int buy_quantity) {
-		this.buy_quantity = buy_quantity;
+	public void setBasket_sum(String basket_sum) {
+		this.basket_sum = basket_sum;
 	}
 
-	public int getCart_id() {
-		return cart_id;
+	public int getBasket_amount() {
+		return basket_amount;
 	}
 
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
-	}
-
-	public int getPrd_opt() {
-		return prd_opt;
-	}
-
-	public void setPrd_opt(int prd_opt) {
-		this.prd_opt = prd_opt;
+	public void setBasket_amount(int basket_amount) {
+		this.basket_amount = basket_amount;
 	}
 }
