@@ -10,11 +10,12 @@ import com.land.myapp.model.basket.BasketVO;
 
 @Repository
 public class BasketDAO {
-//	@Autowired
+	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	//장바구니 등록
 	public void insertBasket(BasketVO vo) {
+		System.out.println(vo);
 		mybatis.insert("BasketDAO.insertBasket",vo);
 		
 	}

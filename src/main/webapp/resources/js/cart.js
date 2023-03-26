@@ -1,44 +1,49 @@
 /**
  * 장바구니
- */
+ */	 
 function insertCart() {
 	var member_id = $("#member_id").val();
-	var prd_id = $("#prd_id").val();
-	var buy_quantity = $("#buy_quantity").val();
+	var goods_num = $("#goods_num").val();
+	var basket_amount = $("#basket_amount").val();
+	var basket_sum = $("#basket_sum").val();	
+	
 	if (member_id == "admini") {
 		swal("", "관리자 권한으로는 이용하실 수 없습니다.", "warning");
-	} else if (!member_id) {
-		swal("", "비회원은 장바구니를 이용하실 수 없습니다.", "error");
-	} else if (buy_quantity == 0) {
-		swal("", "수량을 선택해주세요", "error");
-	} else {
-		$.ajax({
-			type : "GET",
-			url : "insertCart",
-			data : {
-				"member_id" : member_id,
-				"goods_num" : goods_num,
-				"bascket_amount" : bascket_amount,
-			},
-			success : function(data) {
-				swal("", "장바구니에 저장되었습니다.", "success");
-			}
-		});
-	}
-}
+					} else if (!member_id) {
+						swal("", "비회원은 장바구니를 이용하실 수 없습니다.", "error");
+					} else if (basket_amount == 0) {
+						swal("", "수량을 선택해주세요", "error");
+					} else {
+						$.ajax({
+							type : "GET",
+							url : "insertBasket",
+							data : {
+								"member_id" : member_id,
+								"goods_num" : goods_num,
+								"basket_sum": basket_sum,
+								"basket_amount" : basket_amount
+							},
+							success : function(data) {
+								swal("", "장바구니에 저장되었습니다.", "success");
+								window.location.href="/";
+							}
+						});
+					}
+				}
+			
 
-function buyCart(prd_id, member_id) {
+function buyCart(goods_num, member_id) {
 	if (!member_id) {
 		console.log('a');
 	} else {
-		console.log(prd_id + " + " + member_id);
+		console.log(goods_num + " + " + member_id);
 		window.location.href="payment";
 		$.ajax({
 			type : "POST",
 			url : "payment",
 			data : {
 				"member_id" : member_id,
-				"prd_id" : prd_id
+				"goods_num" : goods_num
 			},
 			success : function() {
 				window.location.href = "payment";
@@ -47,7 +52,7 @@ function buyCart(prd_id, member_id) {
 	}
 }
 
-function delCart(prd_id, member_id) {
+function delCart(goods_num, member_id) {
 	if (!member_id) {
 		swal("", "비회원은 장바구니를 이용하실 수 없습니다.", "error")
 	} else {
@@ -56,7 +61,7 @@ function delCart(prd_id, member_id) {
 			url : "delCart",
 			data : {
 				"member_id" : member_id,
-				"prd_id" : prd_id
+				"goods_num" : goods_num
 			},
 			success : function(data) {
 				window.location.reload();

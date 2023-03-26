@@ -17,6 +17,7 @@
 		<mapper resource="mappings/member/member-mappings.xml" />
 		<mapper resource="mappings/order_goods/admin-mappings.xml" />
 		<mapper resource="mappings/goods/goods_mappings.xml" />
+		<mapper resource="mappings/basket/basket_mappings.xml" />
 		
 	</mappers>
 </configuration>

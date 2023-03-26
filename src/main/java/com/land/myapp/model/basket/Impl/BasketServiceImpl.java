@@ -11,7 +11,7 @@ import com.land.myapp.model.basket.BasketVO;
 @Service("BasketService")
 public class BasketServiceImpl implements BasketService {
 	
-//	@Autowired
+	@Autowired
 	private BasketDAO basketDAO;
 	
 	public void insertBasket(BasketVO vo) {

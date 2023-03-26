@@ -4,17 +4,17 @@ var checkYEAR = false;
 var checkNAME = false;
 
 $(document).ready(function() {
-	$("#member_pwd").keyup(function() {
-		$("#checkPasswd").text("");
+	$("#user_pass").keyup(function() {
+		$("#passCheck").text("");
 	});
 	
 	$("#chk_member_pwd").keyup(function() {
 		var checkText = $("#checkPasswd");
-		if ($("#member_pwd").val() == "" || $("#chk_member_pwd").val() == "") {
+		if ($("#user_pass").val() == "" || $("#passCheck").val() == "") {
 			checkText.css("color", "red");
 			checkText.text("필수정보입니다.");
 			checkPWD = false;
-		} else if ($("#member_pwd").val() != $("#chk_member_pwd").val()) {
+		} else if ($("#pass").val() != $("#passCheck").val()) {
 			checkPWD = false;
 			checkText.text("패스워드가 동일하지 않습니다.");
 			checkText.css("color", "red");
@@ -25,38 +25,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("#email_select").change(function() {
-		if ($("#email_select").val() == "1") {
-			$("#email_addr").val("");
-			$("#email_addr").prop("disabled", false);
-		} else if ($("#email_select").val() == "") {
-			$("#email_addr").val("");
-			$("#email_addr").prop("disabled", true);
-		} else {
-			$("#email_addr").val($("#email_select").val());
-			$("#email_addr").prop("disabled", true);
-		}
-	});
-	
-	if ($("#birth_year").val() != "") {
-		checkBirth();
-	};
-	
-	$("#birth_year").blur(function() {
-		checkBirth();
-	});
-	
-	$("#birth_month").blur(function() {
-		checkBirth();
-	});
-	
-	$("#birth_day").blur(function() {
-		checkBirth();
-	});
-	
-	$("#member_name").blur(function() {
-		checkName();
-	});
 })
 
 function doSignup() {
@@ -70,26 +38,7 @@ function doSignup() {
 	if (checkYEAR == false) { console.log("생일이 비어있음"); }
 	if (checkID == false || checkPWD == false || checkNAME == false || checkYEAR == false) {
 		swal("", "필수항목이 비어있습니다. 입력해주세요.", "warning");
-	} else {
-		$.ajax({
-			type : "POST",
-			url : "join",
-			data : {
-				"member_id" : member_id,
-				"member_pwd" : member_pwd,
-				"member_name" : member_name,
-				"member_year" : member_year,
-				"member_email" : member_email,
-				"member_phone" : member_phone,
-				"member_zipcode" : member_zipcode,
-				"member_faddr" : member_faddr,
-				"member_laddr" : member_laddr
-			},
-			success : function(data) {
-				window.location.href="main";
-			}
-		});
-	}
+	} 
 }
 
 function idChk() {

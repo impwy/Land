@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="resources/css/login.css">
-<script src="resources/js/signup.js"></script>
+<!-- <script src="resources/js/signup.js"></script> -->
 
 <title>Insert title here</title>
 </head>
@@ -42,11 +42,11 @@
         <form action="join" method="post">
           <div class="group">
             <label for="user" class="label">아이디</label>
-            <input id="user" type="text" class="input" name="member_id">
+            <input id="user_id" type="text" class="input" name="member_id">
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
-            <input id="pass" type="password" class="input" name="member_pwd">
+            <input id="user_pass" type="password" class="input" name="member_pwd">
           </div>
           <div class="group">
             <label for="passCheck" class="label">비밀번호 확인</label>
@@ -81,7 +81,6 @@
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
-            <label for="tab-1">이미 회원이십니까?</a>
           </div>
           </form>
         </div>

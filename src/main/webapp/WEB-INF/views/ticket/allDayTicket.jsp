@@ -5,8 +5,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="resources/js/allDayTicket.js"></script>
+   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    
     <title>All Day Ticket</title>
 </head>
 <body>
@@ -39,6 +39,6 @@
     	</form>
     </div>
 
-       
+       <script src="resources/js/allDayTicket.js"></script>
 </body>
 </html>

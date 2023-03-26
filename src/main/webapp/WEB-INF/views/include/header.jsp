@@ -6,9 +6,10 @@
 <head>
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/f84cdf215e.js"
-	crossorigin="anonymous"></script>
+	rel="stylesheet" />
+<script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="resources/css/header.css" />
 </head>
 <header class="header">
@@ -17,9 +18,28 @@
 </div>
 <div id="login">
 	<c:if test="${empty member }">
+		<a href="goodsmall">굿즈몰</a>
+		<div id="ticketing">티켓예매</div>		
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
+		<input type="hidden" id="member_id" value="${member.member_id}"/>
 	</c:if>
-	
+	<script>
+			var member_id = $('#member_id').val();
+			$('#ticketing').click(function(){
+				if(!member_id){
+					window.location.href="login";
+				}else{
+				$.ajax({
+					type:"POST",
+					url:"ticket",
+					data:{},
+					success :function(){
+						window.location.href="ticket";
+					}
+				});
+				}
+			});
+	</script>
 	<c:if test="${not empty member }">
 		
 		<c:if test="${member.member_id ne 'admin' }">
