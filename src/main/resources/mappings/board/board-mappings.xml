@@ -13,6 +13,8 @@
         <result property="board_regdate" column="BOARD_REGDATE"></result>
     </resultMap>
     
+    
+    
     <!-- 글 등록 -->
     <insert id="insertBoard" parameterType="board">
       INSERT INTO BOARD(board_num,board_title,board_content,member_id)

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import com.land.myapp.model.basket.BasketService;
 import com.land.myapp.model.board.BoardService;
 import com.land.myapp.model.board.BoardVO;
 import com.land.myapp.model.member.service.MemberService;
@@ -81,6 +82,8 @@ public class BoardController {
         model.addAttribute("pageSize",pageSize);
         return "board/getBoard";
     }
+    //--------------------------------------------------------------------------//
+
     //글 읽기 궁성
 //    @GetMapping("/getBoard")
 //    public String getBoard(Integer board_num,Model m) {
