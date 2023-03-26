@@ -19,6 +19,7 @@
 		<mapper resource="mappings/basket/basket-mappings.xml" />
 		<mapper resource="mappings/order_goods/admin-mappings.xml" />
 		<mapper resource="mappings/goods/goods_mappings.xml" />
+		<mapper resource="mappings/goods/Goods_payment_mappings.xml"/>
 		
 	</mappers>
 </configuration>

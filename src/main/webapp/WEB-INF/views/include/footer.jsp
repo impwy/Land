@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="resources/css/footer.css" />
 <footer>        
         <p>COPYRIGHT 2018 VIRTUALLAND. ALL RIGHTS RESERVED<br>
-        대표자:박원용 | 서울 성동구 행당동 286-5 미래타워</p>
+        팀장:박원용 팀원:김성탄,진영인,유건희,김주환 | 서울 성동구 행당동 286-5 미래타워</p>
         Contact mail: VirtualLand@VirtualLandbiz.com<br>
         전화:+82 010 7230 6526<br>
         Fax +82 64123 4321

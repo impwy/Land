@@ -7,8 +7,6 @@
 <title>요금안내</title>
 <link rel="stylesheet" href="resources/css/price.css" />
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="/inc/js/jquery-1.9.1.min.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <div class="priceform">
 <%@ include file="../include/header.jsp"%>
