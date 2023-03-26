@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <%@ include file="../include/goodsmallheader.jsp"%>
-<title>My Shopping Cart</title>
+<title>내 장바구니</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -75,25 +75,25 @@
   <ul>
     <li>
       <h2>상품</h2>
-      <p>Price: $10.00</p>
-      <button onclick="addToCart('Product 1', 10.00)">Add to Cart</button>
+      <p>가격:?</p>
+      <button onclick="addToCart('상품 1', 10.00)">장바구니에 추가</button>
     </li>
     <li>
       <h2>상품</h2>
-      <p>Price: $20.00</p>
-      <button onclick="addToCart('Product 2', 20.00)">Add to Cart</button>
+      <p>가격:?</p>
+      <button onclick="addToCart('상품 2', 20.00)">장바구니에 추가</button>
     </li>
     <li>
       <h2>상품</h2>
-      <p>Price: $30.00</p>
-      <button onclick="addToCart('Product 3', 30.00)">Add to Cart</button>
+      <p>가격:?</p>
+      <button onclick="addToCart('상품 3', 30.00)">장바구니에 추가</button>
     </li>
   </ul>
-  
+  <button onclick="clearCart()">장바구니 비우기</button>
+  <button onclick="checkout()">구매하기</button>
   <h2>장바구니</h2>
   <ul id="cart">
   </ul>
-  
   <script>
     function addToCart(name, price) {
       // Get the cart element
@@ -101,11 +101,42 @@
       
       // Create a new list item for the product
       var item = document.createElement('li');
-      item.innerHTML = name + ' - $' + price.toFixed(2);
+      item.innerHTML = name + ' - ￦' + price.toFixed(2);
       
       // Add the item to the cart
       cart.appendChild(item);
     }
+    function checkout() {
+        // Get the cart element
+        var cart = document.getElementById('cart');
+        
+        // Create an array to store the cart items
+        var items = [];
+        
+        // Loop through the cart list and add each item to the array
+        for (var i = 0; i < cart.children.length; i++) {
+          items.push(cart.children[i].innerHTML);
+        }
+        
+        // Send the items to the server for processing and payment
+        // (replace this with your own server-side code)
+        sendItemsToServer(items);
+        
+        // Clear the cart
+        clearCart();
+      }
+    
+    function clearCart() {
+    	  // Get the cart element
+    	  var cart = document.getElementById('cart');
+    	  
+    	  // Remove all items from the cart
+    	  while (cart.firstChild) {
+    	    cart.removeChild(cart.firstChild);
+    	  }
+    	}
+
   </script>
+ 
   <%@ include file="../include/goodsmallfooter.jsp"%>
 </html>
