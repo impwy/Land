@@ -16,20 +16,20 @@ public class BasketController {
 	@Autowired
 	private BasketService basketservice;
 
-	//@RequestMapping(value = "/aaa", method = RequestMethod.GET)
-	//public String insertbasket(BasketVO vo) {
-	//	basketservice.insertBasket(vo);
+	/*@RequestMapping(value = "/aaa", method = RequestMethod.GET)
+	public String insertbasket(BasketVO vo) {
+		basketservice.insertBasket(vo);
 
-	//	return "aaa";
+		return "aaa";
 
-	//}
+	}*/
 
-	//@RequestMapping(value = "/aaa", method = RequestMethod.GET)
-	//public String deletebasket(BasketVO vo) {
-	//	basketservice.deleteBasket(vo);
+	/*@RequestMapping(value = "/aaa", method = RequestMethod.GET)
+	public String deletebasket(BasketVO vo) {
+		basketservice.deleteBasket(vo);
 
-	//	return "aaa";
-	//}
+		return "aaa";
+	}*/
 	
 	@RequestMapping(value = "/basketlsit", method = RequestMethod.GET)
 	 public String listbasket(Model model) {

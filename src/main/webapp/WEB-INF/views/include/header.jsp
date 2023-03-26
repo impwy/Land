@@ -23,7 +23,7 @@
 	<c:if test="${not empty member }"> <!-- 멤버일경우뜨는페이지 -->
 		
 		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
-		<a href="basket/basketlsit">장바구니</a>
+		<a href="basket">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>		

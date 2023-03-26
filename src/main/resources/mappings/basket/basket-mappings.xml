@@ -10,27 +10,13 @@
 		<result property="member_id" column="MEMBER_ID"></result>
 	</resultMap>
 
-	<!-- 글 등록 -->
+	
 	<insert id="insertBasket" parameterType="basket">
 		INSERT INTO
 		BASKET(goods_num,member_id)
 		VALUES (#{goods_num},#{member_id})
 	</insert>
-	<!-- 수정 -->
-	<!-- <update id="updateBoard"> UPDATE BOARD SET BOARD_TITLE=#{board_title} 
-		,BOARD_CONTENT=#{board_content} where BOARD_NUM=#{board_num} </update> -->
-
-	<!-- 삭제 -->
-	<delete id="deleteBoard"><![CDATA[
-        DELETE BOARD WHERE BOARD_NUM=#{board_num}
-    ]]></delete>
-
-	<!-- 글 상세 -->
-	<select id="getBoard" resultType="board"><![CDATA[
-        SELECT  * FROM BOARD WHERE BOARD_NUM=#{board_num}
-
-    ]]></select>
-	<!-- 글 목록 -->
+	
 	<select id="basketList" resultMap="basketResult">
 		SELECT * FROM BASKET
 	</select>
