@@ -10,7 +10,6 @@
     <script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/prpper.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="resources/css/FAQ.css"/>
     <link href="resoutces/js/FAQ.js">
     
