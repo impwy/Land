@@ -1,6 +1,7 @@
 package com.land.myapp.model.basket;
 
 public class BasketVO {// 장바구니
+
 	private String member_id;
 	private int goods_num;
 	private int basket_sum;

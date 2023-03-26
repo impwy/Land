@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BasketDAO">
+	<resultMap type="basket" id="basketResult">
+		<id property="goods_num" column="GOODS_NUM"></id>
+		<result property="basket_sum" column="BASKET_SUM"></result>
+		<result property="basket_amount" column="BASKET_AMOUNT"></result>
+		<result property="member_id" column="MEMBER_ID"></result>
+	</resultMap>
+
+	
+	<insert id="insertBasket" parameterType="basket">
+		INSERT INTO
+		BASKET(goods_num,member_id)
+		VALUES (#{goods_num},#{member_id})
+	</insert>
+	
+	<select id="basketList" resultMap="basketResult">
+		SELECT * FROM BASKET
+	</select>
+</mapper>

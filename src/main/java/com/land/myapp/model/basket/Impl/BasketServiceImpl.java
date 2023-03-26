@@ -14,17 +14,18 @@ public class BasketServiceImpl implements BasketService {
 	@Autowired
 	private BasketDAO basketDAO;
 	
+	@Override
 	public void insertBasket(BasketVO vo) {
 		basketDAO.insertBasket(vo);
 	}
-	
+	@Override
 	public void deleteBasket(BasketVO vo) {
 		basketDAO.deleteBasket(vo);
 	}
 	
-	
-	public List<BasketVO> getBasketList(BasketVO vo) {
-		return basketDAO.getBasketList(vo);
+	@Override
+	public List<BasketVO> getBasketList() {
+		return basketDAO.getBasketList();
 	}
 
 }

@@ -21,10 +21,17 @@ public class BoardServiceImpl implements BoardService {
     public void updateBoard(BoardVO vo) {
         boardDAO.updateBoard(vo);
     }
+
+
     //삭제
-    public void deleteBoard(BoardVO vo) {
-        boardDAO.deleteBoard(vo);
+    @Override
+    public int deleteBoard(Integer board_num, String member_id) throws Exception{
+        return boardDAO.deleteBoard(board_num,member_id);
     }
+
+
+
+
     //상세보기
     public BoardVO getBoard(BoardVO vo) {
         return boardDAO.getBoard(vo);

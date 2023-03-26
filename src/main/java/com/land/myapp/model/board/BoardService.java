@@ -12,7 +12,8 @@ public interface BoardService {
     void updateBoard(BoardVO vo);
 
     //글 삭제
-    void deleteBoard(BoardVO vo);
+
+    int deleteBoard(Integer board_num, String member_id) throws Exception;
 
     //글 상세
     BoardVO getBoard(BoardVO vo);

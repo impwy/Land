@@ -38,13 +38,13 @@ public class BoardController {
     public String insertBoard(BoardVO vo,MemberVO mvo,HttpSession session) {
     	System.out.println("board_content");
     	boardService.insertBoard(vo);
-    		return "redirect:page";
+    		return "redirect:getBoardList";
     	}
     
     // 수정 폼
     @RequestMapping(value="/updateBoard",method=RequestMethod.GET)
     public String updateBoardGo(BoardVO vo)throws IOException {
-        return "board/updateBoard";
+        return "redirect:page";
     }
     //수정    
     @RequestMapping(value="/updateBoard",method=RequestMethod.POST)
@@ -53,17 +53,46 @@ public class BoardController {
         return "redirect:page";
 }
     //삭제
-    @RequestMapping("/deleteBoard")
-    public String deleteBoard(BoardVO vo){
-        boardService.deleteBoard(vo);
+    @PostMapping("/deleteBoard")
+    public String deleteBoard(Integer board_num,String member_id,Integer page,Integer pageSize,Model m){
+
+        try{
+        m.addAttribute("page",page);
+        m.addAttribute("pageSize",pageSize);
+
+       int rowCnt= boardService.deleteBoard(board_num,member_id);
+
+       if(rowCnt==1){
+           m.addAttribute("msg","DEL_OK");
+           return "redirect:page";
+       }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
         return "redirect:page";
     }
-    //글 상세보기
+    //글 상세보기 ( 원본)
     @RequestMapping("/getBoard")
-    public String getBoard(BoardVO vo, Model model) {
+    public String getBoard(BoardVO vo, Model model,Integer page,Integer pageSize) {
         model.addAttribute("board", boardService.getBoard(vo));
+        model.addAttribute("page",page);
+        model.addAttribute("pageSize",pageSize);
         return "board/getBoard";
     }
+    //글 읽기 궁성
+//    @GetMapping("/getBoard")
+//    public String getBoard(Integer board_num,Model m) {
+//        try {
+//            BoardVO boardVO = boardService.getBoard(board_num);
+////    m.addAttribute("boardVO",boardVO); //아래 문장과 동일
+//            m.addAttribute(boardVO);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return "board/getBoard";
+//    }
     //글 목록
     @RequestMapping(value="/getBoardList",method=RequestMethod.GET)
     public String getBoardList(BoardVO vo, Model model){
@@ -88,6 +117,8 @@ public class BoardController {
             List<BoardVO> list=boardService.getBoardPage(map);
             model.addAttribute("boardList",list);
             model.addAttribute("ph",pageHandler);
+            model.addAttribute("page",page);
+            model.addAttribute("pageSize",pageSize);
         } catch (Exception e) {
             e.printStackTrace();
         }

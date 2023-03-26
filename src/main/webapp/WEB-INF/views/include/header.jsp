@@ -17,12 +17,17 @@
 	<i class="fa fa-bars"></i>
 </div>
 <div id="login">
+<<<<<<< HEAD
 	<c:if test="${empty member }">
 		<a href="goodsmall">굿즈몰</a>
 		<div id="ticketing">티켓예매</div>		
+=======
+	<c:if test="${empty member }"> <!-- 멤버가아닐경우뜨는 페이지 -->
+>>>>>>> 507bbc41f1d787e7837fcd710ebfbb318dd3a18f
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
 		<input type="hidden" id="member_id" value="${member.member_id}"/>
 	</c:if>
+<<<<<<< HEAD
 	<script>
 			var member_id = $('#member_id').val();
 			$('#ticketing').click(function(){
@@ -41,17 +46,21 @@
 			});
 	</script>
 	<c:if test="${not empty member }">
+=======
+	
+	<c:if test="${not empty member }"> <!-- 멤버일경우뜨는페이지 -->
+>>>>>>> 507bbc41f1d787e7837fcd710ebfbb318dd3a18f
 		
-		<c:if test="${member.member_id ne 'admin' }">
-		<a href="#">장바구니</a>
+		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
+		<a href="basket">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>		
 		<a href="logout" class="logout">Sign Out</a>
 		</c:if>
 		
-		<c:if test="${member.member_id eq 'admin' }">
-		<a href="#">장바구니</a>
+		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
+		<a href="basket/basketlsit">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>	
