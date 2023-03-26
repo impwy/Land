@@ -22,9 +22,9 @@ public class BasketController {
 
 		return "aaa";
 
-	}*/
+	}
 
-	/*@RequestMapping(value = "/aaa", method = RequestMethod.GET)
+	@RequestMapping(value = "/aaa", method = RequestMethod.GET)
 	public String deletebasket(BasketVO vo) {
 		basketservice.deleteBasket(vo);
 
