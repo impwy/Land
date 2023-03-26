@@ -16,7 +16,7 @@
 	<th>멤버 아이디</th>
 	<th>굿즈 넘버</th>
 	<th>바구니 넘버</th>
-	<th>AOUNT</th>
+	<th>AMOUNT</th>
 </tr>
 
 <c:forEach items="${basketList}" var="basket">

@@ -24,6 +24,6 @@
 	</insert>
 	
 	<select id="basketList" resultMap="basketResult">
-		SELECT * FROM BASKET
+	SELECT * FROM BASKET
 	</select>
 </mapper>
