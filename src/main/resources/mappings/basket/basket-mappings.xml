@@ -11,10 +11,16 @@
 	</resultMap>
 
 	
-	<insert id="insertBasket" parameterType="basket">
-		INSERT INTO
-		BASKET(goods_num,member_id)
-		VALUES (#{goods_num},#{member_id})
+	<!-- 장바구니추가 -->
+	<insert id="insertBasket">
+		<![CDATA[
+			MERGE INTO BASKET
+			USING DUAL ON (MEMBER_ID=#{member_id} AND GOODS_NUM=#{goods_num})
+			WHEN MATCHED THEN
+			UPDATE SET BASKET_AMOUNT = BASKET_AMOUNT + #{basket_amount}, BASKET_SUM = BASKET_SUM + #{basket_sum}
+			WHEN NOT MATCHED THEN
+			INSERT (MEMBER_ID, GOODS_NUM, BASKET_SUM, BASKET_AMOUNT) VALUES (#{member_id}, #{goods_num}, #{basket_sum}, #{basket_amount})
+		]]>
 	</insert>
 	
 	<select id="basketList" resultMap="basketResult">

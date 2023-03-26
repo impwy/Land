@@ -15,6 +15,14 @@ public class BasketController {
 
 	@Autowired
 	private BasketService basketservice;
+	
+	@RequestMapping("/insertBasket")
+	public String insertBasket(BasketVO vo) {
+		System.out.println("ajax성공");
+		basketservice.insertBasket(vo);;
+		return "main";
+	}
+	
 
 	/*@RequestMapping(value = "/aaa", method = RequestMethod.GET)
 	public String insertbasket(BasketVO vo) {
