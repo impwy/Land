@@ -18,7 +18,11 @@
 		<h3>
 			${member_id }게시판 입니다.<a href="#">Log-out(미구현)</a>
 		</h3>
-	
+		<script >
+			let msg="${param.msg}" //msg값이 안넘어옴 미구현
+			if(msg=="DEL_OK") alert("성공적으로 삭제 되었습니다.");
+		</script>
+
 		<table border="1" cellpadding="0" cellspacing="0" width="700">
 			<tr>
 				<th>번호</th>
@@ -30,7 +34,8 @@
 			<c:forEach items="${boardList }" var="board">
 				<tr>
 					<td>${board.board_num }</td>
-					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>
+<%--					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>--%>
+					<td align="left"><a href="<c:url value='getBoard?board_num=${board.board_num}&page=${page}&pageSize=${pageSize}'/>">${board.board_title }</a></td>
 					<td>${board.member_id }</td>
 					<td>${board.board_viewcnt}</td>
 					<td>${board.board_regdate }</td>

@@ -6,9 +6,10 @@
 <head>
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/f84cdf215e.js"
-	crossorigin="anonymous"></script>
+	rel="stylesheet" />
+<script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="resources/css/header.css" />
 </head>
 <header class="header">
@@ -16,22 +17,46 @@
 	<i class="fa fa-bars"></i>
 </div>
 <div id="login">
-	<c:if test="${empty member }">
+
+	<c:if test="${empty member }"> <!-- 멤버가아닐경우뜨는 페이지 -->
+		<a href="goodsmall">굿즈몰</a>
+		<div id="ticketing">티켓예매</div>		
+
+
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
+		<input type="hidden" id="member_id" value="${member.member_id}"/>
 	</c:if>
-	
-	<c:if test="${not empty member }">
+
+	<script>
+			var member_id = $('#member_id').val();
+			$('#ticketing').click(function(){
+				if(!member_id){
+					window.location.href="login";
+				}else{
+				$.ajax({
+					type:"POST",
+					url:"ticket",
+					data:{},
+					success :function(){
+						window.location.href="ticket";
+					}
+				});
+				}
+			});
+	</script>
+	<c:if test="${not empty member }"> <!-- 멤버일경우뜨는페이지 -->
+
 		
-		<c:if test="${member.member_id ne 'admin' }">
-		<a href="#">장바구니</a>
+		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
+		<a href="basket/basketlsit">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>		
 		<a href="logout" class="logout">Sign Out</a>
 		</c:if>
 		
-		<c:if test="${member.member_id eq 'admin' }">
-		<a href="#">장바구니</a>
+		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
+		<a href="basket/basketlsit">장바구니</a>
 		<a href="#">개인정보</a>
 		<a href="goodsmall">굿즈몰</a>
 		<a href="ticket">티켓예매</a>	

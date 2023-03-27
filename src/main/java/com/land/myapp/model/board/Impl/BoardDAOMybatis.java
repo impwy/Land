@@ -24,14 +24,17 @@ public class BoardDAOMybatis {
         mybatis.update("BoardDAO.updateBoard",vo);
     }
     // 글 삭제
-    public void deleteBoard(BoardVO vo){
+    public int deleteBoard(Integer board_num,String member_id){
         System.out.println("==> 글 삭제");
-        mybatis.delete("BoardDAO.deleteBoard",vo);
+        Map map=new HashMap();
+        map.put("board_num",board_num);
+        map.put("member_id",member_id);
+        return mybatis.delete("BoardDAO.deleteBoard",map);
+
     }
 
     //글 상세
     public BoardVO getBoard(BoardVO vo){
-        System.out.println("==> 글 상세");
         return (BoardVO)mybatis.selectOne("BoardDAO.getBoard",vo);
     }
     //글 목록

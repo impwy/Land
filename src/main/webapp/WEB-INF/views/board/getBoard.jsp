@@ -7,45 +7,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 상세</title>
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 </head>
 <body>
-	<center>
-		<h1>글 상세</h1>
-		<a href="#">Log-Out(미구현)</a>
-		<hr>
-		<form action="updateBoard" method="post">
-			<input name="board_num" type="hidden" value="${board.board_num}">
-			<table border="1" cellpadding="0" cellspacing="0">
-				<tr>
-					<td width="70">제목</td>
-					<td align="left"><input type="text" name="board_title"
-						value="${board.board_title }" readonly="readonly"></td>
-				</tr>
-				<tr>
-					<td>작성자</td>
-					<td align="left">${board.member_id }</td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td align="left"><textarea name="board_content" cols="40" rows="10" readonly="readonly">${board.board_content }</textarea></td>
-				</tr>
-				<tr>
-					<td>등록일</td>
-					<td align="left">${board.board_regdate }</td>
-				</tr>
-				<tr>
-					<c:if test="${member.member_id eq 'admin'}">
-					<button type="button" class="text" onClick="location.href='updateBoard'">글수정</button>
-				</c:if>
-				</tr>
-			</table>
-		</form>
-		<hr>
-		<c:if test="${member.member_id eq 'admin'}">
-		<a href="insertBoard">글등록</a>
-		 <a	href="deleteBoard?board_num=${board.board_num }">글삭제</a>
-		 </c:if>
-		  <a href="page">글목록</a>&nbsp;&nbsp;&nbsp;
-	</center>
+<h2>게시물읽기</h2>
+<form action="" id="form">
+	<input type="text" name="board_num" value="${board.board_num}" readonly="readonly">
+	<input type="text" name="board_title" value="${board.board_title}" readonly="readonly" >
+	<textarea name="board_content" id="" cols="30" rows="10" readonly="readonly">${board.board_content}</textarea>
+	<button type="button" id="writeBtn" class="btn">등록</button>
+	<button type="button" id="modifyBtn" class="btn">수정</button>
+	<button type="button" id="removeBtn" class="btn">삭제</button>
+	<button type="button" id="listBtn" class="btn">목록</button>
+</form>
+<script >
+	$(document).ready(function(){
+		$("#listBtn").on("click", function(){
+			location.href="<c:url value='/page'/>?page=${page}&pageSize=${pageSize}";
+		});
+	});
+	$(document).ready(function(){
+		$("#removeBtn").on("click", function(){
+			if(!confirm("정말로 삭제하시겠습니까?")) return;
+			let form=$("#form");
+			form.attr("action","<c:url value='/deleteBoard'/>?page=${page}&pageSize=${pageSize}");
+			form.attr("method","post");
+            form.submit();
+		});
+	});
+</script>
 </body>
 </html>

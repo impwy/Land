@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsPaymentDAO">
+	<resultMap type="com.land.myapp.model.goods_payment.GoodsPaymentVO" id="GoodsPayment">
+	<id property="member_id" column="MEMBER_ID"/>
+	<result property="goods_num" column="GOODS_NUM"/>
+	<result property="order_date" column="ORDER_DATE"/>
+	<result property="member_addr" column="MEMBER_ADDR"/>
+	<result property="member_phone" column="MEMBER_PHONE"/>
+	<result property="order_process" column="ORDER_PROCESS"/>
+	<result property="order_payment" column="ORDER_PAYMENT"/>
+	<result property="order_sum" column="ORDER_SUM"/>
+	<result property="order_amount" column="ORDER_AMOUNT"/>
+	</resultMap>
+
+	<insert id="insertGoodsPayment">
+	<![CDATA[
+		INSERT INTO GOODS_PAYMENT(MEMBER_ID, GOODS_NUM, ORDER_DATE, MEMBER_ADDR, MEMBER_PHONE, ORDER_PROCESS, ORDER_PAYMENT, ORDER_SUM, ORDER_AMOUNT)
+		VALUES(#{member_id}, #{goods_num}, SYSDATE, #{member_addr}, #{member_phone}, '배송중', '카카오페이', #{order_sum}, #{order_amount})
+	]]>
+	</insert>
+
+</mapper>

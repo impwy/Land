@@ -13,6 +13,8 @@
         <result property="board_regdate" column="BOARD_REGDATE"></result>
     </resultMap>
     
+    
+    
     <!-- 글 등록 -->
     <insert id="insertBoard" parameterType="board">
       INSERT INTO BOARD(board_num,board_title,board_content,member_id)
@@ -25,15 +27,24 @@
       </update>
 
 <!--    삭제-->
-    <delete id="deleteBoard"><![CDATA[
+    <delete id="deleteBoard" parameterType="map"><![CDATA[
         DELETE BOARD WHERE BOARD_NUM=#{board_num}
     ]]></delete>
 
 <!--    글 상세-->
-    <select id="getBoard" resultType="board"><![CDATA[
-        SELECT  * FROM BOARD WHERE BOARD_NUM=#{board_num}
+<!--    <select id="getBoard" resultType="board"><![CDATA[-->
+<!--        SELECT  * FROM BOARD WHERE BOARD_NUM=#{board_num}-->
 
-    ]]></select>
+<!--    ]]></select>-->
+<!--    글 읽기 궁성-->
+    <sql id="selectFromBoard">
+        SELECT board_num, board_title, board_content, member_id, board_viewcnt, board_commentcnt, board_regdate
+        FROM board
+    </sql>
+    <select id="getBoard" resultType="board">
+        <include refid="selectFromBoard"/>
+        where board_num=#{board_num}
+    </select>
 <!--    글 목록-->
     <select id="getBoardList" resultMap="boardResult">
         SELECT * FROM BOARD

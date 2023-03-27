@@ -77,6 +77,10 @@ public class membercontroller {
 	public String cloth() {
 		return "menu/cloth";
 	}
+	/*@RequestMapping(value = "/basket", method = RequestMethod.GET)
+	public String basket() {
+		return "basket/basket";
+	}*/
 
 
 }

@@ -5,39 +5,39 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="resources/js/allDayTicket.js"></script>
+    <link rel="stylesheet" href="resources/css/ticketPart.css">
     <title>All Day Ticket</title>
 </head>
 <body>
-    <div class="ticket-info">
+<%@ include file="../include/header.jsp"%>
+   <div class="ticket-info">
+    <h2>티켓을 고르세요.</h2>
        
-       <h2>티켓선택</h2>
-       
-        <form action="order" method="post">
+    <form action="order" method="post">
         <input type="hidden" id="amount" name="ticket_amount" value="0" />
         <input type="hidden" id="type" name="ticket_type" value="allDay" />
-        <h3>방문날짜</h3>
+        
+        <h3>방문 날짜</h3>
         <input type="date" name="ticket_date" id="date">
         
-        <h3>어른</h3>
-      
+        <h3>성인</h3>
         <input type="number" id="adult-amount" name="adult_amount" min="0" max="4" value="0" />
              
         <h3>청소년</h3>
-     
         <input type="number" id="teen-amount" name="teen_amount" min="0" max="4" value="0" />
     
         <h3>아기</h3>
-  
         <input type="number" id="baby-amount" name="baby_amount" min="0" max="4" value="0" />
 
-        <h3>금액</h3>
+        <h3>총가격</h3>
         <input type="number" id="total" name="ticket_sum" readonly value="0" />
         <br>
         <button>결제하기</button>
-    	</form>
-    </div>
+    </form>
+</div>
+<%@ include file="../include/footer.jsp"%>
 
        
 </body>
