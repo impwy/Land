@@ -44,13 +44,14 @@ public class GoodsDAO {
 	
 
 	// 품목 리스트
-		public List<GoodsVO> getGoodsList(GoodsVO vo) {
-//			Map<String, Object> map = new HashMap<String, Object>();
-//			map.put("start", start);
-//			map.put("end", end);
-//			map.put("goods", vo);
+		public List<GoodsVO> getGoodsList(int start, int end, GoodsVO vo) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("start", start);
+			map.put("end", end);
+			map.put("goods", vo);
 			System.out.println("dao통과");
-			return mybatis.selectList("GoodsDAO.getGoodsList",vo);
+			return mybatis.selectList("GoodsDAO.getGoodsList",map);
+			
 		}
 		
 		// 리스트 갯수 체크

@@ -12,25 +12,51 @@
 	content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <title>굿즈몰</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="resources/css/goodsmall.css" />
+<%@ include file="../include/goodsmallheader.jsp"%>
 
 </head>
 <body>
-<%@ include file="../include/goodsmallheader.jsp"%>
 
-	<h2>상품목록</h2>
-	<form action="goodsmall" method="get">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	</form>
+	<h2>굿즈</h2>
+	<table id="goods">
+		<!-- 컨트롤러 참고, if문 0이면 -->
+		<c:if test="${(fn:length(map.list)) eq 0}">
+					상품내역이 없습니다.
+					</c:if>
+		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
+		<!-- 이중 for문 x축 -->
+		<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}"
+			var="row">
+			<tr>
+				<!-- 이중 for문 y축 -->
+				<c:forEach begin="0" end="3" var="col">
+					<c:set var="item" value="${map.list[row * 4 + col]}" />
+					<c:if test="${not empty item}">
+						<td width="300">
+							<div
+								onclick="location.href='goodsInfo?goods_num=${item.goods_num}'"
+								style="cursor: pointer">
+								<div>
+									<img src="${item.goods_image}" width="200" height="200">
+								</div>
+								<div>${item.goods_name}</div>
+								<div>
+									<fmt:formatNumber value="${item.goods_price}"
+										pattern="#,###,###" />
+									원
+								</div>
+							</div>
+						</td>
+					</c:if>
+				</c:forEach>
+		</c:forEach>
+
+	</table>
+
+
 </body>
+
+<%@ include file="../include/goodsmallfooter.jsp"%>
+
 </html>

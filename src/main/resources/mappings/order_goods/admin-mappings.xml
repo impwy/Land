@@ -4,7 +4,7 @@
 
 <mapper namespace="GoodsDAO">
 
- <resultMap id="goodsinfo" type="com.land.myapp.model.goods.GoodsVO">
+ <resultMap type="goods" id="goodsinfo">
 			<id property="goods_num" column="GOODS_NUM"/>
 			<result property="goods_price" column="GOODS_PRICE"/>
 			<result property="goods_name" column="GOODS_NAME"/>
@@ -12,6 +12,14 @@
 			<result property="goods_amount" column="GOODS_AMOUNT"/>
 			
 			</resultMap>
+			
+			<!-- rownum은 페이징을 뽑아 낼때 쓰는거 -->
+	<select id="getGoodsList" resultMap ="goodsinfo">
+		
+		SELECT * FROM GOODS_INFO
+		ORDER BY GOODS_NUM
+		
+	</select> 
 
 
 <!--상품 등록  -->
@@ -64,12 +72,6 @@
 		]]>
 	</select>
 	
-	<!-- rownum은 페이징을 뽑아 낼때 쓰는거 -->
-	<select id="getGoodsList" resultMap="goodsinfo">
-		
-		SELECT * FROM GOODS_INFO
-		ORDER BY GOODS_NUM
-		
-	</select> 
+	
 	
 </mapper>

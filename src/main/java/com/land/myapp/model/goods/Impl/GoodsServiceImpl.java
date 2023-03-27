@@ -41,9 +41,9 @@ public class GoodsServiceImpl implements GoodsService{
 		return goodsDAO.getGoodsInfo(goods_num);
 	}
 	
-	public List<GoodsVO> getGoodsList(GoodsVO vo){
+	public List<GoodsVO> getGoodsList(int start, int end, GoodsVO vo){
 		System.out.println("impl통과");
-		return goodsDAO.getGoodsList(vo);
+		return goodsDAO.getGoodsList(start,end,vo);
 	}
 	
 	public int getCountGoods(GoodsVO vo) {

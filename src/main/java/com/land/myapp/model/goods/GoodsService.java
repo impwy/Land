@@ -6,6 +6,8 @@ import java.util.List;
 
 
 
+
+
 public interface GoodsService {
 	    
 	   
@@ -14,7 +16,7 @@ public interface GoodsService {
 	    void insertGoods(GoodsVO vo);
 	   GoodsVO getGoodsInfo(int goods_num);
 	// 물품 리스트
-		List<GoodsVO> getGoodsList(GoodsVO vo);
+		List<GoodsVO> getGoodsList(int start, int end, GoodsVO vo);
 		
 		int getCountGoods(GoodsVO vo);
 	   
