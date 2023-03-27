@@ -120,7 +120,7 @@ button:hover {
 	    buyer_tel : '${member.member_phone}',
 	}, function(rsp) {
 	    if ( rsp.success ) {
-	        var msg = '결제가 완료되었습니다.';
+	        var msg = '예매가 완료되었습니다.';
 	        $.ajax({
 	        	  type: "POST",
 	        	  url: "ticketPayment",
@@ -128,7 +128,7 @@ button:hover {
 	        	  success: function(response) {
 	        	    console.log(response);
 	        	    swal("", msg, "success").then(()=>{
-	        	    location.href="success";
+	        	    location.href="main";
 	        	    });
 	        	  },
 	        	  error: function(xhr, textStatus, errorThrown) {
