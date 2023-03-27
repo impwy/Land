@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import com.land.myapp.model.basket.BasketService;
 import com.land.myapp.model.board.BoardService;
 import com.land.myapp.model.board.BoardVO;
-import com.land.myapp.model.member.service.MemberService;
+import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
 
 @Controller

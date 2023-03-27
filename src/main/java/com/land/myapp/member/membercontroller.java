@@ -81,6 +81,9 @@ public class membercontroller {
 	public String basket() {
 		return "basket/basket";
 	}*/
-
+	@RequestMapping(value ="/FAQ", method = RequestMethod.GET)
+	private String FAQ() {
+		return "faq/FAQ";
+	}
 
 }

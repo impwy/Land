@@ -1,9 +1,6 @@
-package com.land.myapp.model.member.service;
+package com.land.myapp.model.member.vo;
 
 import java.util.List;
-
-
-import com.land.myapp.model.member.vo.MemberVO;
 
 
 public interface MemberService {

@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.land.myapp.model.member.dao.MemberDAO;
+import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
 
 @Service("memberService")

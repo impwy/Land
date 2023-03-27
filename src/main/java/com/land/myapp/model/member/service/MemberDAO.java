@@ -1,4 +1,4 @@
-package com.land.myapp.model.member.dao;
+package com.land.myapp.model.member.service;
 
 import java.util.HashMap;
 import java.util.List;
