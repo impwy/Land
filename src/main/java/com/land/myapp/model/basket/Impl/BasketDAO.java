@@ -25,7 +25,7 @@ public class BasketDAO {
 		mybatis.delete("BasketDAO.deleteBasket",vo);
 	}
 	//리스트 출력
-	public List<BasketVO> getBasketList(){
+	public List<BasketVO> getBasketList(BasketVO vo){
 		List<BasketVO> result = mybatis.selectList("BasketDAO.basketList");
 		return result;
 	}

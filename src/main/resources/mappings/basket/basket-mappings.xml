@@ -4,10 +4,10 @@
 
 <mapper namespace="BasketDAO">
 	<resultMap type="basket" id="basketResult">
-		<id property="goods_num" column="GOODS_NUM"></id>
+		<id property="member_id" column="MEMBER_ID"></id>
+		<result property="goods_num" column="GOODS_NUM"></result>
 		<result property="basket_sum" column="BASKET_SUM"></result>
 		<result property="basket_amount" column="BASKET_AMOUNT"></result>
-		<result property="member_id" column="MEMBER_ID"></result>
 	</resultMap>
 
 	
@@ -24,6 +24,8 @@
 	</insert>
 	
 	<select id="basketList" resultMap="basketResult">
-	SELECT * FROM BASKET
+	<![CDATA[
+		SELECT * FROM BASKET
+	]]>
 	</select>
 </mapper>

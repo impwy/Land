@@ -8,6 +8,6 @@ public interface BasketService {// 장바구니
 
 	void deleteBasket(BasketVO vo); // 물품 삭제
 
-	List<BasketVO> getBasketList(); // 리스트 출력
+	List<BasketVO> getBasketList(BasketVO vo); // 리스트 출력
 
 }
