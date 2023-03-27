@@ -10,7 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	 <table>
+<h1>장바구니</h1>
+	<table>
 		<tr>
 			<th>아이디</th>
 			<th>굿즈종류</th>
@@ -26,5 +27,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<td>
+	<input type="button" id="delbasket" onClick="delbasket('${goods_num}', '${member_id}')" value="삭제" />
+    <input type="hidden" id="member_id" value="${member_id}" />
+    </td>
 </body>
 </html>
