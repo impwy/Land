@@ -23,8 +23,8 @@ public class MemberServiceImpl implements MemberService {
 		this.memberDAO = memberDao;
 	}
 	// ID 중복검사
-		public int checkID(MemberVO vo) {
-			return memberDAO.checkID(vo);
+		public int checkID(String member_id) {
+			return memberDAO.checkID(member_id);
 		}
 
 		// 회원 유무 검사

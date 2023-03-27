@@ -13,7 +13,7 @@
 			width: 100%;
 			justify-content: center;
 			align-items: center;
-			margin-top:500px;
+			margin:20% auto;
 		}
 		
 		#ticket-main a {

@@ -6,7 +6,7 @@ import java.util.List;
 public interface MemberService {
 	
 	// ID 중복검사
-		int checkID(MemberVO vo);
+		int checkID(String member_id);
 		
 		// 로그인시 회원 체크
 		int checkMember(MemberVO vo);

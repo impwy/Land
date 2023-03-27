@@ -75,21 +75,19 @@ var order_amount = parseInt($("#basket_amount").val());
 
 IMP.init('imp42522200'); 
 IMP.request_pay({
-	pg : "kakaopay", 
-    pay_method : 'card',
-    merchant_uid : 'merchant_' + new Date().getTime(),
-    name : '${goods.goods_name}',
-    amount : amount,
-    buyer_email : '${member.member_email}',
-    buyer_name : '${member.member_name}',
-    buyer_tel : '${member.member_phone}',
-    buyer_addr : '${member.member_addr}',
+	pg : "kakaopay",  //pg사
+    pay_method : 'card', //결제방법
+    merchant_uid : 'merchant_' + new Date().getTime(), //결제날짜
+    name : '${goods.goods_name}', //품목이름
+    amount : amount, //수량
+    buyer_email : '${member.member_email}', //이메일
+    buyer_name : '${member.member_name}', //이름
+    buyer_tel : '${member.member_phone}', //전화번호
+    buyer_addr : '${member.member_addr}', //주소
 }, function(rsp) {
-    if ( rsp.success ) {
+    if ( rsp.success ) { //성공시
     	var amount = parseInt($("#basket_sum").val());
     	var order_amount = parseInt($("#basket_amount").val());
-    	var member_id = $('#member_id').val();
-    	var goods_num = $('#goods_num').val();
         var msg = '결제가 완료되었습니다.';
       	$.ajax({
       		type : "post",
@@ -104,13 +102,11 @@ IMP.request_pay({
 			},
 			success : function(data) {
 				 swal("", msg, "success");
-			
 			}
       	});
     } else {
         var msg = '결제에 실패하였습니다.';
         rsp.error_msg;
-        
     }
 });
 });

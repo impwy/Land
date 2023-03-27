@@ -16,8 +16,8 @@ public class MemberDAO {
 	private SqlSessionTemplate mybatis;
 	
 	// 아이디 중복검사
-		public int checkID(MemberVO vo) {
-			return mybatis.selectOne("MemberDAO.checkID", vo);
+		public int checkID(String member_id) {
+			return mybatis.selectOne("MemberDAO.checkID", member_id);
 		}
 
 		// 회원 존재 유무 검사

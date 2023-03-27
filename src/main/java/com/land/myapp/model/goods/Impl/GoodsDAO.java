@@ -39,7 +39,7 @@ public class GoodsDAO {
 
 	//상품상세
 	public GoodsVO getGoodsInfo(int goods_num){
-		return mybatis.selectOne("GoodsDAO.getGoodsInfo",goods_num);
+		return mybatis.selectOne("goodsInfoDAO.getGoodsInfo",goods_num);
 	}
 	
 
