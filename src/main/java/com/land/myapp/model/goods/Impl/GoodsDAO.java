@@ -2,8 +2,10 @@
 
 package com.land.myapp.model.goods.Impl;
 
-import java.util.List;
+import java.util.HashMap;
 
+import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +15,12 @@ import com.land.myapp.model.goods.GoodsVO;
 
 
 
+
+
 @Repository
 public class GoodsDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
-	//목록
-	public List<GoodsVO> listGoods(){
-		return mybatis.selectList("GoodsDAO.Goods_list");
-	}
-
 	
 	//상품정보수정
 	public void updateGoods(GoodsVO vo) {
@@ -38,13 +36,26 @@ public class GoodsDAO {
 		System.out.println(vo);
 		mybatis.insert("GoodsDAO.goods_insert",vo);
 	}
-//	public String fileInfo(int product_id) {
-//		return mybatis.selectOne("product.fileInfo", product_id);
-//	}
-	
+
 	//상품상세
 	public GoodsVO getGoodsInfo(int goods_num){
-		return mybatis.selectOne("goodsInfoDAO.getGoodsInfo",goods_num);
+		return mybatis.selectOne("GoodsDAO.getGoodsInfo",goods_num);
 	}
+	
+
+	// 품목 리스트
+		public List<GoodsVO> getGoodsList(GoodsVO vo) {
+//			Map<String, Object> map = new HashMap<String, Object>();
+//			map.put("start", start);
+//			map.put("end", end);
+//			map.put("goods", vo);
+			System.out.println("dao통과");
+			return mybatis.selectList("GoodsDAO.getGoodsList",vo);
+		}
+		
+		// 리스트 갯수 체크
+		public int getCountGoods(GoodsVO vo) {
+			return mybatis.selectOne("GoodsDAO.getCountGoods", vo);
+		}
 
 }

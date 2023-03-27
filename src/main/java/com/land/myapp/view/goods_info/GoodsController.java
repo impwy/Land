@@ -2,6 +2,8 @@ package com.land.myapp.view.goods_info;
 
 
 
+
+
 import java.util.List;
 
 
@@ -9,11 +11,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
+
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
+import com.land.myapp.Pager;
 import com.land.myapp.model.goods.GoodsService;
 import com.land.myapp.model.goods.GoodsVO;
 
@@ -22,12 +27,26 @@ public class GoodsController {
 	@Autowired
 	private GoodsService goodsService;
 	
+	
+	
 	//db저장된 굿즈, 화면에 뿌려주기
 	@RequestMapping("/goodsmall")
-	public String goodsViewList(Model model) {
-		List<GoodsVO> list = goodsService.listGoods();
+	public String goodsViewList(Model model, GoodsVO vo) {
+//		int count = goodsService.getCountGoods(vo);
+//		Pager pager = new Pager(count,curPage);
+//		int start = pager.getPageBegin();
+//		int end = pager.getPageEnd();
+		
+		List<GoodsVO> list = goodsService.getGoodsList(vo);
+//		HashMap<String, Object> map = new HashMap<String, Object>();
+//		
+//		map.put("list", list);
+//		map.put("count", count);
+//		map.put("pager", pager);
+//		System.out.println(list);
 		model.addAttribute("list",list);
-		return "/menu/goodsmall";
+		System.out.println("컨트롤러 통과");
+		return "/goods/goodsmall";
 	}
 	//버튼을 누르면 굿즈정보입력 화면 진입
 	
