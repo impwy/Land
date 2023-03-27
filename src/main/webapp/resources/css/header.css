@@ -101,6 +101,7 @@ font-size: 30px;
  }
  #login a:hover{/* 하이퍼링크 된곳 마우스 오버시 css효과*/
     color:#F90;/* #FF9900과 같다.*/
+    cursor: pointer;
  }
  .clear{
     clear:both;/* div간 잘못된 css적용을 막아줌.즉 div에
