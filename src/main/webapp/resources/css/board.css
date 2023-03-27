@@ -1,0 +1,115 @@
+/* Apply a background image to the body */
+
+body.board {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+    margin-top: 250px;
+    text-align: center;
+}
+a.board {
+    text-decoration: none;
+    color: black;
+}
+.paging-container>a{
+    text-decoration: none;
+    color: black;
+}
+button,
+input {
+    border: none;
+    outline: none;
+}
+table.board {
+    border-collapse: collapse;
+    width: 100%;
+    border-top: 2px solid rgb(39, 39, 39);
+}
+table.board >th,
+td {
+    width:300px;
+    text-align: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+table.board> td{
+    color: rgb(53, 53, 53);
+}
+table.board>tr:nth-child(even) {
+    background-color: #f0f0f070;
+}
+.no      { width:150px;}
+.title   { width:50%;  }
+
+.board-container {
+    width: 60%;
+    height: 1200px;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+td.title   { text-align: left;  }
+td.writer  { text-align: left;  }
+td.viewcnt { text-align: right; }
+td.title:hover {
+    text-decoration: underline;
+}
+
+/* Style the alert message */
+.alert {
+    background-color: #FF69B4;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #32CD32;
+}
+
+/* Add a box shadow to the table */
+
+
+.paging-container {
+    width:100%;
+    height: 70px;
+    display: flex;
+    margin-top: 50px;
+    margin : auto;
+}
+
+.paging {
+    color: black;
+    width: 100%;
+    align-items: center;
+}
+
+.page {
+    color: black;
+    padding: 6px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.paging-active {
+    background-color: rgb(216, 216, 216);
+    border-radius: 5px;
+    color: rgb(24, 24, 24);
+
+}
+
+.btn-write {
+    background-color: rgb(236, 236, 236); /* Blue background */
+    border: none; /* Remove borders */
+    color: black; /* White text */
+    padding: 6px 12px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 5px;
+    margin-left: 30px;
+}
+.btn-write:hover {
+    text-decoration: underline;
+}

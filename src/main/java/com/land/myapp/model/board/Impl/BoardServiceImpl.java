@@ -14,12 +14,15 @@ public class BoardServiceImpl implements BoardService {
     private BoardDAOMybatis boardDAO;
 
     //글 등록
-    public void insertBoard(BoardVO vo) {
-        boardDAO.insertBoard(vo);
+    public int insertBoard(BoardVO vo)throws Exception {
+//        throw new Exception("test");
+        return boardDAO.insertBoard(vo);
+
     }
     //수정
-    public void updateBoard(BoardVO vo) {
-        boardDAO.updateBoard(vo);
+    public int updateBoard(BoardVO vo) {
+       return boardDAO.updateBoard(vo);
+
     }
 
 
