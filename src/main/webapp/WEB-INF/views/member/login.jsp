@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="resources/css/login.css">
-<!-- <script src="resources/js/signup.js"></script> -->
-
+<script type="text/javascript" src="resources/js/signup.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -43,6 +44,7 @@
           <div class="group">
             <label for="user" class="label">아이디</label>
             <input id="user_id" type="text" class="input" name="member_id">
+            <button type="button" id="checkID" onClick="idCheck">중복검사</button>
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
@@ -51,6 +53,7 @@
           <div class="group">
             <label for="passCheck" class="label">비밀번호 확인</label>
             <input id="passCheck" type="password" class="input">
+            <span id="checkPasswd"></span>
           </div>
           <div class="group">
             <label for="name" class="label">이름</label>
@@ -87,5 +90,6 @@
       </div>
     </div>
   </div>
+  
 </body>
 </html>

@@ -24,8 +24,8 @@ public class BasketServiceImpl implements BasketService {
 	}
 	
 	@Override
-	public List<BasketVO> getBasketList() {
-		return basketDAO.getBasketList();
+	public List<BasketVO> getBasketList(BasketVO vo) {
+		return basketDAO.getBasketList(vo);
 	}
 
 }

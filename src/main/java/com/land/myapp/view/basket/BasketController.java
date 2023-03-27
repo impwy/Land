@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.land.myapp.model.basket.BasketService;
 import com.land.myapp.model.basket.BasketVO;
@@ -38,12 +39,13 @@ public class BasketController {
 
 		return "aaa";
 	}*/
+
 	
-	@RequestMapping(value = "/basketlsit", method = RequestMethod.GET)
-	 public String listbasket(Model model) {
-		model.addAttribute("basketList",basketservice.getBasketList());
+	@RequestMapping(value = "/basket/basketlist", method = RequestMethod.GET)
+	 public String listbasket(Model model,BasketVO vo) {
+		model.addAttribute("basketList",basketservice.getBasketList(vo));
 		System.out.print("데이터 전송 됨");
-	        return "basket/basketlsit";  
+	        return "basket/basketlist";  
 		}
 
 }

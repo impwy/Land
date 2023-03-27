@@ -1,19 +1,13 @@
 package com.land.myapp.view.member;
 
-import java.io.IOException;
-
-
-import java.io.PrintWriter;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
@@ -58,6 +52,11 @@ public class MemberController {
 			session.invalidate();
 			return "main";
 		}
-	
-	
+		
+		@PostMapping(value="/checkID")
+		@ResponseBody
+		public int checkID(String member_id){
+			System.out.println(member_id);
+			return memberService.checkID(member_id);
+		}
 }
