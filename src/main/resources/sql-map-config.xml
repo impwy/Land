@@ -8,6 +8,7 @@
 		<typeAlias  alias="board" type="com.land.myapp.model.board.BoardVO"/>
 		    <typeAlias alias="member" type="com.land.myapp.model.member.vo.MemberVO" />  
 		      <typeAlias alias="basket" type="com.land.myapp.model.basket.BasketVO" />  
+
 		     
 	</typeAliases>
 	<!--SQL MAPPER 설정 -->
@@ -19,7 +20,6 @@
 		<mapper resource="mappings/basket/basket-mappings.xml" />
 		<mapper resource="mappings/order_goods/admin-mappings.xml" />
 		<mapper resource="mappings/goods/goods_mappings.xml" />
-		<mapper resource="mappings/goods/Goods_payment_mappings.xml"/>
-		
+
 	</mappers>
 </configuration>

@@ -1,9 +1,8 @@
 package com.land.myapp.model.goods.Impl;
 
+import java.util.HashMap;
 import java.util.List;
-
-
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,14 +33,21 @@ public class GoodsServiceImpl implements GoodsService{
     	goodsDAO.insertGoods(vo);
     }
     
-    public List<GoodsVO> listGoods(){
-    	return goodsDAO.listGoods();
-    }
+   
     
     //상품상세
 	@Override
 	public GoodsVO getGoodsInfo(int goods_num) {
 		return goodsDAO.getGoodsInfo(goods_num);
+	}
+	
+	public List<GoodsVO> getGoodsList(GoodsVO vo){
+		System.out.println("impl통과");
+		return goodsDAO.getGoodsList(vo);
+	}
+	
+	public int getCountGoods(GoodsVO vo) {
+		return goodsDAO.getCountGoods(vo);
 	}
    
  

@@ -4,6 +4,15 @@
 
 <mapper namespace="GoodsDAO">
 
+ <resultMap id="goodsinfo" type="com.land.myapp.model.goods.GoodsVO">
+			<id property="goods_num" column="GOODS_NUM"/>
+			<result property="goods_price" column="GOODS_PRICE"/>
+			<result property="goods_name" column="GOODS_NAME"/>
+			<result property="goods_image" column="GOODS_IMAGE"/>
+			<result property="goods_amount" column="GOODS_AMOUNT"/>
+			
+			</resultMap>
+
 
 <!--상품 등록  -->
 	<insert id="goods_insert">
@@ -25,12 +34,12 @@
 		
 		
 	</insert>
-	
+	<!-- 상품 리스트 뿌려주기 -->
 	<select id="goods_list"
 		resultType=
 			"com.land.myapp.model.goods.GoodsVO">
 		select * from goods_info
-		order by goods_name
+		order by goods_num
 	</select>
 	
 	<!-- 상품 레코드 삭제 -->	
@@ -41,12 +50,26 @@
 	
 	<!-- 상품정보 수정 -->	
 	<update id="goods_update">
-		update product
+		update goods_info
 		set
 			goods_name=#{goods_name}, 
 			goods_price=#{goods_price},
 			goods_amount=#{goods_amount}
 		where goods_num=#{goods_num}
 	</update>
+	
+	  <select id="getCountGoods" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM GOODS_INFO WHERE GOODS_NUM=#{goods_num}
+		]]>
+	</select>
+	
+	<!-- rownum은 페이징을 뽑아 낼때 쓰는거 -->
+	<select id="getGoodsList" resultMap="goodsinfo">
+		
+		SELECT * FROM GOODS_INFO
+		ORDER BY GOODS_NUM
+		
+	</select> 
 	
 </mapper>
