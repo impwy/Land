@@ -1,46 +1,56 @@
 @charset "UTF-8";
-/*---------------------------main--------------------------*/
-.main{
+
+::-ms-input-placeholder {
+	color: #a8a8a8;
+}
+
+::-webkit-input-placeholder {
+	color: #a8a8a8;
+}
+
+::-moz-placeholder {
+	color: #a8a8a8;
+}
+
+::-moz-placeholder {
+	color: #a8a8a8;
+}
+
+body {
+	font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial,
+		sans-serif;
+	font-size: 13px;
+	padding: 0;
+	margin: 0;
 	padding: 20px;
+	background: #fff;
 }
 
-.section {
-	margin-bottom: 40px;
-}
-
-.section h2 {
-	margin-bottom: 20px;
-	font-size: 24px;
-    text-align: center;
-}
-
-.section ul {
-	list-style: none;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-gap: 20px;
-}
-
-.section li {
-	border: 1px solid #ddd;
-	padding: 20px;
+h1 {
+	width: 100%;
+	margin: 0px auto;
 	text-align: center;
 }
 
-.section img {
-	max-width: 100%;
+a {
+	color: #000;
+	text-decoration: none;
 }
 
-.section button {
-	background-color: #333;
-	color: #fff;
-	padding: 10px;
-	border: none;
-	cursor: pointer;
-	margin-top: 20px;
+.btn {
+	border: 0px;
+	outline: none;
+	background-color: transparent;
+	z-index: 100;
 }
 
-.section button:hover {
-	background-color: #fff;
-	color: #333;
+/* 상품 테이블 */
+#product {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#product, #product tr, #product tr td {
+	width: 300px;
 }

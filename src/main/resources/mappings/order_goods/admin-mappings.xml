@@ -15,10 +15,13 @@
 			
 			<!-- rownum은 페이징을 뽑아 낼때 쓰는거 -->
 	<select id="getGoodsList" resultMap ="goodsinfo">
-		
-		SELECT * FROM GOODS_INFO
-		ORDER BY GOODS_NUM
-		
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROWNUM AS RN, A.* FROM (
+					SELECT * FROM GOODS_INFO ORDER BY GOODS_NUM DESC
+				) A
+			) WHERE RN BETWEEN #{start} AND #{end}
+		]]>
 	</select> 
 
 
@@ -68,7 +71,7 @@
 	
 	  <select id="getCountGoods" resultType="java.lang.Integer">
 		<![CDATA[
-			SELECT COUNT(*) FROM GOODS_INFO WHERE GOODS_NUM=#{goods_num}
+			SELECT COUNT(*) FROM GOODS_INFO
 		]]>
 	</select>
 	
