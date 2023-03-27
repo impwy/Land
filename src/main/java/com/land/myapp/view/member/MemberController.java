@@ -28,6 +28,11 @@ public class MemberController {
 	public String signUpView(MemberVO vo) { return "member/signup"; }	
 
 	// 로그인
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "member/login";
+	}
+	
 		@RequestMapping(value = "/login", method = RequestMethod.POST)
 		public String login(MemberVO vo, HttpSession session) {
 			MemberVO member = memberService.login(vo);

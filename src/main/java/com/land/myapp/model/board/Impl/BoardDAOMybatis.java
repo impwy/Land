@@ -14,14 +14,14 @@ public class BoardDAOMybatis {
     @Autowired
     private SqlSessionTemplate mybatis;
     //글 등록
-    public void insertBoard(BoardVO vo){
-        System.out.println("==>글 등록");
-        mybatis.insert("BoardDAO.insertBoard",vo);
+    public int insertBoard(BoardVO vo) throws Exception{
+        return mybatis.insert("BoardDAO.insertBoard",vo);
     }
     //글 수정
-    public void updateBoard(BoardVO vo){
+    public int updateBoard(BoardVO vo){
         System.out.println("==>글 수정");
-        mybatis.update("BoardDAO.updateBoard",vo);
+       return mybatis.update("BoardDAO.updateBoard",vo);
+
     }
     // 글 삭제
     public int deleteBoard(Integer board_num,String member_id){

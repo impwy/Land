@@ -13,15 +13,13 @@
         <result property="board_regdate" column="BOARD_REGDATE"></result>
     </resultMap>
     
-    
-    
     <!-- 글 등록 -->
     <insert id="insertBoard" parameterType="board">
       INSERT INTO BOARD(board_num,board_title,board_content,member_id)
     VALUES (board_num_seq.nextval,#{board_title},#{board_content},#{member_id})
     </insert>
 <!--    수정-->
-    <update id="updateBoard">
+    <update id="updateBoard" parameterType="board">
         UPDATE BOARD SET BOARD_TITLE=#{board_title} ,BOARD_CONTENT=#{board_content} where BOARD_NUM=#{board_num}
 
       </update>

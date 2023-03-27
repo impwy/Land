@@ -51,46 +51,37 @@
 		</div>
 	</div>
 
-	<!-- swiper script --> <script>
-		$('document')
-				.ready(
-						function() {
-							var swiper = new Swiper(
-									".swiper-container",
-									{
-										slidesPerView : 'auto',
-										spaceBetween : 30, /*사진 간 간격*/
-										autoplay : true, /*자동실행*/
-										loop : true, /*반복*/
-										pagination : { /*밑에 이동 버튼*/
-											el : ".swiper-pagination",
-											clickable : true,
-										},
-										navigation : { /*양쪽 이동 버튼 설정*/
-											nextEl : ".swiper-button-next",
-											prevEl : ".swiper-button-prev",
-										},
-										on : {
-											init : function() {
-												$('.btn-wrapper').style.right = $('.swiper-pagination').offsetWidth
-														+ 20 + 'px';
-
-												$('.fa-play').click(function() {
-													swiper.autoplay.start();
-												});
-												$(".fa-pause").on(
-														"click",
-														function() {
-															swiper.autoplay
-																	.stop();
-														});
-											}
-										}
-									});
-							/*swiper 자동실행 정지*/
+	<!-- swiper script -->
+	 <script>
+		$('document').ready(function() {
+	var swiper = new Swiper(".swiper-container",
+					{
+		slidesPerView : 'auto',
+		spaceBetween : 30, /*사진 간 간격*/
+		autoplay : true, /*자동실행*/
+		loop : true, /*반복*/
+		pagination : { /*밑에 이동 버튼*/
+		el : ".swiper-pagination",
+		clickable : true,
+		},
+		navigation : { /*양쪽 이동 버튼 설정*/
+		nextEl : ".swiper-button-next",
+		prevEl : ".swiper-button-prev",
+		},
+		on : {
+		init : function() {
+		$('.btn-wrapper').style.right = $('.swiper-pagination').offsetWidth + 20 + 'px';
+		$('.fa-play').click(function() {
+		swiper.autoplay.start();
+		});
+		$(".fa-pause").on("click",function() 	/*swiper 자동실행 정지*/
+				{swiper.autoplay.stop();
+				});}}});
+						
 
 						});
-	</script> <!-- 운영시간 -->
+	</script> 
+	<!-- 운영시간 -->
 	<div class="mainTodayTime">
 		<div class="time">
 			<a href="#"> <i class="fa-regular fa-clock"></i>

@@ -6,10 +6,10 @@ import java.util.Map;
 public interface BoardService {
 
     //글 등록
-    void insertBoard(BoardVO vo);
+    int insertBoard(BoardVO vo) throws Exception;
 
     //글 수정
-    void updateBoard(BoardVO vo);
+    int updateBoard(BoardVO vo);
 
     //글 삭제
 

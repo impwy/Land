@@ -19,8 +19,8 @@
 <div id="login">
 
 	<c:if test="${empty member }"> <!-- 멤버가아닐경우뜨는 페이지 -->
-		<a href="goodsmall">굿즈몰</a>
-		<a id="ticketing">예매</a>		
+		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
+		<a id="ticketing"><i class="fa-solid fa-ticket fa-beat"></i></i></a>		
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
 		<input type="hidden" id="member_id" value="${member.member_id}"/>
 	</c:if>
@@ -28,20 +28,19 @@
 
 		
 		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
-		<a href="basket/basketlist">장바구니</a>
-		<a href="#">개인정보</a>
-		<a href="goodsmall">굿즈몰</a>
-		<a href="ticket">예매</a>		
-		<a href="logout" class="logout">Sign Out</a>
+		<a href="basket/basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
+		<a href="#"><i class="fa-solid fa-user"></i></a>
+		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
+		<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>		
+		<a href="" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 		</c:if>
 		
 		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
-		<a href="basket/basketlist">장바구니</a>
+		<a href="basket/basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
 		<a href="#">개인정보</a>
-		<a href="goodsmall">굿즈몰</a>
-		<a href="ticket">예매</a>	
+		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="insert">굿즈관리</a>	
-		<a href="logout" class="logout">Sign Out</a>
+		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 	</c:if>
 	
 	</c:if>

@@ -17,7 +17,7 @@
        
     <form action="order" method="post">
         <input type="hidden" id="amount" name="ticket_amount" value="0" />
-        <input type="hidden" id="type" name="ticket_type" value="afterFour" />
+        <input type="hidden" id="type" name="ticket_type" value="AfterFour" />
         
         <h3>방문 날짜</h3>
         <input type="date" name="ticket_date" id="date">

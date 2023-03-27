@@ -29,10 +29,7 @@ public class TicketController {
 		orderTicketService.insertOrderTicket(vo);
 		return "redirect:/success"; 
 	}
-	@RequestMapping("/success")
-	public String success() {
-		return "/ticket/success";
-	}
+	
 	//예매 취소
 	@RequestMapping(value="/deleteTicket", method=RequestMethod.GET)
 	public String deleteTicket(String ticket_num) {
@@ -46,7 +43,6 @@ public class TicketController {
 			return "/ticket/ticketMain";
 		}
 		
-		//시간되면 ajox로 구현
 		//티켓주문으로 이동
 		@RequestMapping(value="/order", method=RequestMethod.POST)
 		public String orderTicket(OrderTicketVO vo,HttpSession session) {
