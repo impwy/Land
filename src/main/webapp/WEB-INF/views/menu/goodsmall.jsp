@@ -69,13 +69,10 @@
 					<!-- 여기는 pager의 블록 변수 주석 참고 -->
 					<c:forEach var="num" begin="${map.pager.blockBegin}"
 						end="${map.pager.blockEnd}">
-						<c:choose>
-						<!-- 현재페이지 페이지숫자 빨강 -->
+						<c:choose>					
 							<c:when test="${num == map.pager.curPage}">
 								<span style="color: red;">${num}</span>
-							</c:when>
-							
-							<!-- 페이지 수 넘버링 -->
+							</c:when>		
 							<c:otherwise>
 								<a href="goodsmall?curPage=${num}">${num}</a>
 							</c:otherwise>
