@@ -27,7 +27,7 @@ public class TicketController {
 	@RequestMapping(value="/ticketPayment",method=RequestMethod.POST)
 	public String insertTicket(OrderTicketVO vo) {
 		orderTicketService.insertOrderTicket(vo);
-		return "redirect:/success"; 
+		return "main"; 
 	}
 	
 	//예매 취소
@@ -46,6 +46,7 @@ public class TicketController {
 		//티켓주문으로 이동
 		@RequestMapping(value="/order", method=RequestMethod.POST)
 		public String orderTicket(OrderTicketVO vo,HttpSession session) {
+			System.out.println(vo);
 			session.setAttribute("map", vo);
 			return "/ticket/ticketPayment";
 		}
@@ -64,18 +65,21 @@ public class TicketController {
 	
 	//예매내역 조회
 	@RequestMapping(value="/ticketList", method=RequestMethod.GET)
-	public String getTicketList(OrderTicketVO vo, HttpSession session,
+	public String getTicketList(OrderTicketVO vo, 
+			HttpSession session,
 			@RequestParam(defaultValue="1") int curPage) {
-		MemberVO member = (MemberVO) session.getAttribute("member");
-		int count = orderTicketService.getCountOrderTicket(vo);
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String member_id = member.getMember_id();
+		int count = orderTicketService.getCountOrderTicket(member_id);
 		Pager pager = new Pager(count, curPage);
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
-		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member.getMember_id(),start,end);
+		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member_id,start,end);
+		System.out.println(list);
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("list", list);
-		map.put("start", start);
-		map.put("end", end);
+		map.put("count", count);
+		map.put("pager", pager);
 		session.setAttribute("map", map);
 		return "ticket/ticketList";
 	}

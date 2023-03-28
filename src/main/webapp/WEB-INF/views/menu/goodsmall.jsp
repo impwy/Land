@@ -135,8 +135,7 @@ table#product img {
 					</c:if>
 		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
 		<!-- 이중 for문 x축 -->
-		<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}"
-			var="row">
+		<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}" var="row">
 			<tr>
 				<!-- 이중 for문 y축 -->
 				<c:forEach begin="0" end="3" var="col">

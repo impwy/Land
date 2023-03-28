@@ -7,8 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.land.myapp.model.member.vo.MemberVO;
 import com.land.myapp.model.orderticket.OrderTicketVO;
-import com.land.myapp.model.ticket.TicketVO;
 
 @Repository
 public class OrderTicketDAO {
@@ -35,7 +35,7 @@ public class OrderTicketDAO {
 	}
 	
 	//예매 수
-	public int getCountOrderTicket(OrderTicketVO vo) {
-		return mybatis.selectOne("TicketDAO.getCountOrderTicket",vo);
+	public int getCountOrderTicket(String member_id) {
+		return mybatis.selectOne("OrderTicketDAO.getCountOrderTicket", member_id);
 	}
 }

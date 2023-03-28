@@ -16,21 +16,11 @@ public class OrderTicketVO {
 	private String member_name;
 	
 	//티켓 수량 셋팅
-	int adult_amount=0;
-	
+	int adult_amount=0;	
 	int teen_amount=0;
 	int baby_amount=0;
 	
-	
-	
-	
-	
-	public String getMember_name() {
-		return member_name;
-	}
-	public void setMember_name(String member_name) {
-		this.member_name = member_name;
-	}
+		
 	public String getTicket_amount() {
 		return ticket_amount;
 	}
@@ -81,6 +71,13 @@ public class OrderTicketVO {
 	}
 	public void setTicket_type(String ticket_type) {
 		this.ticket_type = ticket_type;
+	}
+	
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 	@Override
 	public String toString() {

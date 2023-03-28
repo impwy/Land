@@ -59,9 +59,9 @@
 			<th>예매 취소</th>
 		</tr>
 		<c:choose>
-		<c:when test="${not empty list}">
-		<c:forEach begin="0" end="${(fn:length(list)-1)}" var="i">
-		<c:set var="row" value="${list[i] }"/>
+		<c:when test="${not empty map.list}">
+		<c:forEach begin="0" end="${(fn:length(map.list)-1)}" var="i">
+		<c:set var="row" value="${map.list[i] }"/>
 		<tr>
 			<td>${row.member_name }</td>
 			<td>${row.ticket_email}</td>
@@ -79,6 +79,35 @@
 		<td colspan="9">예매 내역이 없습니다.</td>
 		</c:otherwise>
 		</c:choose>
+		
+		<c:if test="${(fn:length(map)) ne 0}">
+			<tr>
+				<td colspan="4" align="center">
+					<c:if test="${map.pager.curBlock > 1}">
+						<a href="ticketList">[처음]</a>
+					</c:if> 
+					<c:if test="${map.pager.curBlock > 1}">
+						<a href="ticketList?curPage=${map.pager.prevPage}">[이전]</a>
+					</c:if> 
+					<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+						<c:choose>
+							<c:when test="${num == map.pager.curPage}">
+								<span style="color: red;">${num}</span>
+							</c:when>
+							<c:otherwise>
+								<a href="ticketList?curPage=${num}">${num}</a>
+							</c:otherwise>
+						</c:choose>	
+					</c:forEach> 
+					<c:if test="${map.pager.curBlock < map.pager.totBlock}">
+						<a href="ticketList?curPage=${map.pager.nextPage}">>[다음]</a>
+					</c:if>
+					<c:if test="${map.pager.curBlock < map.pager.totPage}">
+						<a href="ticketList?curPage=${map.pager.totPage}">[끝]</a>
+					</c:if>
+				</td>
+			</tr>
+		</c:if>
 		</table>
 </div>
 </body>

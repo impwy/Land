@@ -11,5 +11,5 @@ public interface OrderTicketService {
 	//티켓 조회
 	List<OrderTicketVO> getOrderTicketList(String member_id,int start, int end);
 	//주문 수
-	int getCountOrderTicket(OrderTicketVO vo);
+	int getCountOrderTicket(String member_id);
 }

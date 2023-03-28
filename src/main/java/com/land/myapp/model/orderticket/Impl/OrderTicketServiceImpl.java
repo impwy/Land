@@ -47,8 +47,8 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	}
 	
 	//티켓 수량
-	public int getCountOrderTicket(OrderTicketVO vo) {
-		return orderTicketDAO.getCountOrderTicket(vo);
+	public int getCountOrderTicket(String member_id) {
+		return orderTicketDAO.getCountOrderTicket(member_id);
 	}
 	
 }
