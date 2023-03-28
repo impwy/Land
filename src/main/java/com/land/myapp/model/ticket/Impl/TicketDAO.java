@@ -16,6 +16,9 @@ public class TicketDAO{
 	
 	//티켓 가격 가져오기
 	public List<TicketVO> getTicketPrice(TicketVO vo) {
+		
 		return mybatis.selectList("TicketDAO.getTicketPrice",vo);
 	}
+	
+	
 }

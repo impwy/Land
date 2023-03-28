@@ -5,13 +5,15 @@
   Time: 9:25
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <link rel="stylesheet" href="resources/css/attraction.css">
 <html>
 <head>
   <title>Title</title>
 </head>
 <body class="attraction">
+<%@ include file="../../include/header.jsp"%>
 <div class="head">
   <h1>어트랙션</h1>
   <p>흥미롭고 다채로운 놀이기구를 타고 상상의 나래를 펼치세요! </p>
@@ -96,5 +98,6 @@
   </div>
 
 </div>
+<%@ include file="../../include/footer.jsp"%>
 </body>
 </html>

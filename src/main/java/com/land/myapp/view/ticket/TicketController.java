@@ -1,5 +1,6 @@
 package com.land.myapp.view.ticket;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,10 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.mvc.method.annotation.ViewMethodReturnValueHandler;
-import org.springframework.web.servlet.mvc.method.annotation.ViewNameMethodReturnValueHandler;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.land.myapp.Pager;
 import com.land.myapp.model.member.vo.MemberVO;
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
@@ -64,10 +64,19 @@ public class TicketController {
 	
 	//예매내역 조회
 	@RequestMapping(value="/ticketList", method=RequestMethod.GET)
-	public String getTicketList(OrderTicketVO vo, HttpSession session) {
+	public String getTicketList(OrderTicketVO vo, HttpSession session,
+			@RequestParam(defaultValue="1") int curPage) {
 		MemberVO member = (MemberVO) session.getAttribute("member");
-		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member.getMember_id());
-		session.setAttribute("list", list);
+		int count = orderTicketService.getCountOrderTicket(vo);
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member.getMember_id(),start,end);
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("list", list);
+		map.put("start", start);
+		map.put("end", end);
+		session.setAttribute("map", map);
 		return "ticket/ticketList";
 	}
 }

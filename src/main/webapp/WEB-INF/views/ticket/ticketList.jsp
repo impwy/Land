@@ -7,8 +7,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+    #ticket-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+       background-color: #F7F7F7; /* Change to a light grey or white color */
+  color: #333; /* Change the text color to a darker shade */
+      border: 1px solid #ddd;
+    }
+
+    /* Style the header row */
+  #ticket-list  th {
+      background-color: #FFD700;
+      font-weight: bold;
+      padding: 10px;
+      text-align: left;
+    }
+
+    /* Style the data rows */
+   #ticket-list td {
+      padding: 8px;
+      background-color: #FFF;
+    }
+
+    /* Style the "Cancel booking" link */
+   #ticket-list a {
+      color: #cc0000;
+      text-decoration: none;
+    }
+
+    /* Hover effect on table rows */
+   #ticket-list tr:hover {
+      background-color: #f3f3f3;
+    }
+  </style>
 </head>
 <body>
+<div id="ticket-list">
 	<h3>예매내역</h3>
 		<table border="1">
 		<tr>
@@ -44,5 +80,6 @@
 		</c:otherwise>
 		</c:choose>
 		</table>
+</div>
 </body>
 </html>
