@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/goodsmallheader.css" />
+
 <title>Insert title here</title>
+
 </head>
 <div class="main-header">
     <h1>버츄얼 Store</h1>
-    <a href="main"><img
+    <!-- <a href="main"><img
             src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg" alt="카카오라이언"
-            width="100" height="50" border="0" /></a>
-    <nav>
-        <ul>           
-        </ul>
-    </nav>
+            width="100" height="50" border="0" /></a> -->
+   
    
 </div>
 </html>

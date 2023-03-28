@@ -1,56 +1,50 @@
 @charset "UTF-8";
 
-::-ms-input-placeholder {
-	color: #a8a8a8;
-}
-
-::-webkit-input-placeholder {
-	color: #a8a8a8;
-}
-
-::-moz-placeholder {
-	color: #a8a8a8;
-}
-
-::-moz-placeholder {
-	color: #a8a8a8;
-}
-
-body {
-	font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial,
-		sans-serif;
-	font-size: 13px;
-	padding: 0;
-	margin: 0;
-	padding: 20px;
-	background: #fff;
-}
-
-h1 {
-	width: 100%;
-	margin: 0px auto;
-	text-align: center;
-}
-
-a {
-	color: #000;
-	text-decoration: none;
-}
-
-.btn {
-	border: 0px;
-	outline: none;
-	background-color: transparent;
-	z-index: 100;
-}
-
-/* 상품 테이블 */
-#product {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-#product, #product tr, #product tr td {
-	width: 300px;
-}
+   table#product {
+      margin: 0 auto; /* center the table */
+      border-collapse: collapse;
+      width: 80%;
+    }
+    table#product td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    table#product img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Styles for the "No product details" message */
+    .no-product {
+      text-align: center;
+      font-style: italic;
+      margin-top: 20px;
+    }
+    
+    /* Styles for the pager links */
+    .pager {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .pager a {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+    }
+    .pager a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    .pager span {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid #333;
+      background-color: #333;
+      color: #fff;
+    }
