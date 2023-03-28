@@ -73,14 +73,22 @@
           </div>
           <div class="group">
             <label for="address" class="label">주소</label>
-            <input id="address" type="text" class="input" name="member_addr">
+            <input type="text" id="member_addr_number" placeholder="우편번호" readonly>
+            <input type="button" id="search_addr_number" value="우편번호 찾기" onclick="searchPost()"><br><br>
+            <input type="text" id="member_addr" placeholder="기본주소" readonly><br><br>
+            <input type="text" id="member_detail_addr" placeholder="나머지주소" oninput="checkAddr()"><br><br>
+           <!--  <input id="address" type="text" class="input" name="member_addr"> -->
           </div>
           <div class="group">
             <label for="key" class="label">주민등록번호</label>
             <input id="key" type="number" class="input" name="member_key">
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up">
+            <input type="button" id="signup_cancel" value="취소" onclick="location.href='main'">
+            <input type="button" class="btn-signup" onclick = "Signup()" value="회원가입" style="cursor:pointer;">
+            
+            
+            <!-- <input type="submit" class="button" value="Sign Up"> -->
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
