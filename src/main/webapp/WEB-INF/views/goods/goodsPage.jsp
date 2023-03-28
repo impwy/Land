@@ -79,7 +79,7 @@ IMP.request_pay({
     pay_method : 'card', //결제방법
     merchant_uid : 'merchant_' + new Date().getTime(), //결제날짜
     name : '${goods.goods_name}', //품목이름
-    amount : amount, //수량
+    amount : amount, //가격
     buyer_email : '${member.member_email}', //이메일
     buyer_name : '${member.member_name}', //이름
     buyer_tel : '${member.member_phone}', //전화번호
