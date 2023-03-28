@@ -37,7 +37,7 @@ public class MemberController {
 		public String login(MemberVO vo, HttpSession session) {
 			MemberVO member = memberService.login(vo);
 			if (member != null) {
-				session.setAttribute("member", member);
+				session.setAttribute("member", member);		
 				return "main";
 			} else {
 				return "member/login";
@@ -61,7 +61,12 @@ public class MemberController {
 		@PostMapping(value="/checkID")
 		@ResponseBody
 		public int checkID(String member_id){
-			System.out.println(member_id);
 			return memberService.checkID(member_id);
+		}
+		
+		@PostMapping(value="/checkMember")
+		@ResponseBody
+		public int checkMember(MemberVO vo) {
+			return memberService.checkMember(vo);
 		}
 }
