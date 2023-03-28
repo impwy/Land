@@ -58,6 +58,18 @@
 			if(msg=="DEL_ERR") alert("삭제에 실패했습니다.","warning");
 		</script>
 <div class="board-container">
+	<div class="search-container">
+		<form action="<c:url value="page"/>" class="search-form" method="get">
+			<select class="search-option" name="option">
+				<option value="A" ${ph.sc.option=='A' || ph.sc.option=='' ? "selected" : ""}>모두</option>
+				<option value="T" ${ph.sc.option=='T' ? "selected" : ""}>제목만</option>
+				<option value="W" ${ph.sc.option=='W' ? "selected" : ""}>작성자</option>
+			</select>
+
+			<input type="text" name="keyword" class="search-input" type="text" value="${ph.sc.keyword}" placeholder="검색어를 입력해주세요">
+			<input type="submit" class="search-button" value="검색">
+		</form>
+	</div>
 <c:if test="${member.member_id eq 'admin'}">
 	<button id="writeBtn" class="btn-write" onclick="location.href='<c:url value="insertBoard"/>'"><i class="fa fa-pencil"></i> 글쓰기</button>
 </c:if>
@@ -70,10 +82,10 @@
 				<th>작성일자</th>
 			</tr>
 			<c:forEach items="${boardList }" var="board">
-				<tr class="">
+				<tr>
 					<td class="no">${board.board_num }</td>
 <%--					<td align="left"><a href="getBoard?board_num=${board.board_num }">${board.board_title }</a></td>--%>
-					<td align="left" class="title"><a class="board" href="<c:url value='getBoard?board_num=${board.board_num}&page=${page}&pageSize=${pageSize}'/>">${board.board_title }</a></td>
+					<td  class="title"><a class="board" href="<c:url value="getBoard${ph.sc.queryString}&board_num=${board.board_num}"/>"><c:out value="${board.board_title }"/></a></td>
 					<td class="writer">${board.member_id }</td>
 					<td class="viewcnt">${board.board_viewcnt}</td>
 					<td class="">${board.board_regdate }</td>
@@ -81,25 +93,24 @@
 			</c:forEach>
 		</table>
 		<br>
-		<div class="paging-container">
-			<div class="paging">
-			<c:if test="${ph.showPrev}">
-				<a class="page" href="<c:url value='/page?page=${ph.beginPage-1}&pageSize=${ph.pageSize}'/>">&lt;</a>
+	<div class="paging-container">
+		<div class="paging">
+			<c:if test="${totalCnt==null || totalCnt==0}">
+				<div> 게시물이 없습니다. </div>
 			</c:if>
-
-			<c:forEach var="i" begin="${ph.beginPage}" end="${ph.endPage}">
-				<a class="page ${i==ph.page? "paging-active":""}" href="<c:url value='/page?page=${i}&pageSize=${ph.pageSize}'/> ">${i}</a>
-			</c:forEach>
-
-			<c:if test="${ph.showNext}">
-				<a class="page" href="<c:url value='/page?page=${ph.endPage+1}&pageSize=${ph.pageSize}'/>">&gt;</a>
+			<c:if test="${totalCnt!=null && totalCnt!=0}">
+				<c:if test="${ph.showPrev}">
+					<a class="page" href="<c:url value="page${ph.sc.getQueryString(ph.beginPage-1)}"/>">&lt;</a>
+				</c:if>
+				<c:forEach var="i" begin="${ph.beginPage}" end="${ph.endPage}">
+					<a class="page ${i==ph.sc.page? "paging-active" : ""}" href="<c:url value="page${ph.sc.getQueryString(i)}"/>">${i}</a>
+				</c:forEach>
+				<c:if test="${ph.showNext}">
+					<a class="page" href="<c:url value="page${ph.sc.getQueryString(ph.endPage+1)}"/>">&gt;</a>
+				</c:if>
 			</c:if>
-			</div>
 		</div>
-
-
-
-
+	</div>
 		<br>
 </div>
 </body>

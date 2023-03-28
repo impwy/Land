@@ -29,6 +29,9 @@
         DELETE BOARD WHERE BOARD_NUM=#{board_num}
     ]]></delete>
 
+    <delete id="deleteAll">
+        DELETE from BOARD
+        </delete>
 <!--    글 상세-->
 <!--    <select id="getBoard" resultType="board"><![CDATA[-->
 <!--        SELECT  * FROM BOARD WHERE BOARD_NUM=#{board_num}-->
@@ -54,7 +57,7 @@
         SELECT * FROM(
                     SELECT ROWNUM AS RN, A.*  FROM
                 (SELECT *  FROM board ORDER BY board_regdate DESC,board_num desc) A )
-        WHERE RN BETWEEN ${start} AND ${end}
+        WHERE RN BETWEEN ${offset} AND ${pageSize}
     </select>
 
 <!--    카운트-->
@@ -63,10 +66,46 @@
     </select>
 
 <!--    조회수 증가-->
-    <update id="increaseViewCnt">
+    <update id="increaseViewCnt" parameterType="int">
         update board
             set board_viewcnt=board_viewcnt +1
             where board_num=#{board_num}
     </update>
+
+<!--    검색-->
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="T"'>
+                and board_title like '%'||#{keyword}||'%'
+            </when>
+            <when test='option=="W"'>
+                and member_id like '%'||#{keyword}||'%'
+            </when>
+            <otherwise>
+                and board_title like '%'||#{keyword}||'%'
+                or member_id like '%'||#{keyword}||'%'
+            </otherwise>
+        </choose>
+    </sql>
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="board">
+        select board_num,board_title,member_id,board_regdate,board_viewcnt,board_commentcnt
+        from (
+                 select rownum as rn, A.*
+                 from (
+                          select board_num,board_title,member_id,board_regdate,board_viewcnt,board_commentcnt
+                          from board
+                          where 1=1
+                        <include refid="searchCondition"/>
+                          ORDER BY BOARD_NUM desc
+                      ) A
+             ) where rn between ${offset} and ${pageSize}*#{page}
+    </select>
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        select count(*)
+         from board
+        where 1=1
+        <include refid="searchCondition"/>
+    </select>
 
 </mapper>

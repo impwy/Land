@@ -13,22 +13,27 @@
 
 	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 
-<title>게시물 ${mode=="new"?"쓰기":"읽기"}</title>
+<title> ${mode=="new"?"글 작성":"내용"}</title>
 	<script type="text/javascript">
 
 		let msg=${msg};
-        if(msg=="WRT_ERR") alert('삭제',"삭제되었습니다.","error")
+        if(msg=="WRT_ERR") alert('삭제',"삭제되었습니다.","error");
 
 	</script>
 </head>
+<div class="board-container">
+
+
 <body class="getBoard">
 <div class="getBoard-container">
-<h2 class="writing-header">게시물 ${mode=="new"?"쓰기":"읽기"}</h2>
+<h2 class="writing-header"> ${mode=="new"?"글 작성":"내용"}</h2>
 <form action="" id="form" class="frm" method="post">
+
 	<input type="text" name="board_num" value="${board.board_num}" hidden="hidden">
+
 	<c:if test="${mode ne 'new'}">
-	<input class="getBoard" type="text" name="board_title" value="${board.board_title}" placeholder="제목을 입력해 주세요." ${mode=="new" ? "" :"readonly='readonly'"} ><br>
-	<textarea class="getBoard" name="board_content" rows="20" placeholder="내용을 입력해 주세요." ${mode=="new" ? "" :"readonly='readonly'"}>${board.board_content}</textarea><br>
+	<input class="getBoard" type="text" name="board_title" value="<c:out value='${board.board_title}'/>"  ${mode=="new" ? "" :"readonly='readonly'"} ><br>
+	<textarea class="getBoard" name="board_content" rows="20"  ${mode=="new" ? "" :"readonly='readonly'"}><c:out value="${board.board_content}"/></textarea><br>
 </c:if>
 <c:if test="${mode eq 'new'}">
 	<input class="getBoard" type="text" name="board_title"  placeholder="제목을 입력해 주세요." ${mode=="new" ? "" :"readonly='readonly'"} ><br>
@@ -74,7 +79,7 @@
 		}, function(isConfirm) {
 			if (isConfirm) {
 				let form=$("#form");
-				form.attr("action","<c:url value='/deleteBoard'/>?page=${page}&pageSize=${pageSize}");
+				form.attr("action","<c:url value='/deleteBoard${searchCondition.queryString}'/>");
 				form.attr("method","post");
 				form.submit();
 			}else{
@@ -106,7 +111,7 @@
 		}
 
 		$("#listBtn").on("click", function () {
-			location.href = "<c:url value='/page'/>?page=${page}&pageSize=${pageSize}";
+			location.href="<c:url value='page${searchCondition.queryString}'/>";
 		});
 		$("#modifyBtn").on("click", function(){
 			let form=$("#form");
@@ -117,16 +122,19 @@
                 $("input[name=board_title]").attr('readonly',false); //제목
 				$("textarea").attr('readonly',false);//내용
 				$("#modifyBtn").html("<i class='fa fa-pencil'></i> 수정하기");
+				$("#writeNewBtn").hide();
+
+
 				return;
 			}
-                form.attr("action","<c:url value='/updateBoard'/>?page=${page}&pageSize=${pageSize}")
+			form.attr("action", "<c:url value='updateBoard${searchCondition.queryString}'/>");
 				form.attr("method","post");
 			if(formCheck())
 				form.submit();
 		});
 		$("#writeBtn").on("click", function(){
 			let form=$("#form");
-			form.attr("action","<c:url value='/insertBoard'/>");
+			form.attr("action","<c:url value='insertBoard'/>");
 			form.attr("method","post");
 
             if(formCheck())
@@ -135,11 +143,12 @@
 		$("#removeBtn").on("click", function(){
 			if(!confirm('경고',"정말 삭제 하시겠습니까?","warning")) return;
 			let form=$("#form");
-			form.attr("action","<c:url value='/deleteBoard'/>?page=${page}&pageSize=${pageSize}");
+			form.attr("action","<c:url value='deleteBoard${searchCondition.queryString}'/>");
 			form.attr("method","post");
             form.submit();
 		});
 	});
 </script>
 </body>
+</div>
 </html>

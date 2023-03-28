@@ -1,6 +1,7 @@
 package com.land.myapp.model.board.Impl;
 
 import com.land.myapp.model.board.BoardVO;
+import com.land.myapp.model.board.SearchCondition;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,27 +20,28 @@ public class BoardDAOMybatis {
     }
     //글 수정
     public int updateBoard(BoardVO vo){
-        System.out.println("==>글 수정");
        return mybatis.update("BoardDAO.updateBoard",vo);
 
     }
     // 글 삭제
     public int deleteBoard(Integer board_num,String member_id){
-        System.out.println("==> 글 삭제");
         Map map=new HashMap();
         map.put("board_num",board_num);
         map.put("member_id",member_id);
         return mybatis.delete("BoardDAO.deleteBoard",map);
 
     }
+    //모두 지우기
+    public int deleteAll(){
+        return mybatis.delete("BoardDAO.deleteAll");
 
+    }
     //글 상세
-    public BoardVO getBoard(BoardVO vo){
-        return (BoardVO)mybatis.selectOne("BoardDAO.getBoard",vo);
+    public BoardVO getBoard(int board_num){
+        return (BoardVO)mybatis.selectOne("BoardDAO.getBoard",board_num);
     }
     //글 목록
     public List<BoardVO> getBoardList(BoardVO vo){
-        System.out.println("==> 글 상세 목록");
         return mybatis.selectList("BoardDAO.getBoardList",vo);
     }
 
@@ -50,5 +52,15 @@ public class BoardDAOMybatis {
     //카운트
     public int count()throws Exception{
         return mybatis.selectOne("BoardDAO.count");
+    }
+    public int increaseViewCnt(Integer board_num){
+        return mybatis.update("BoardDAO.increaseViewCnt", board_num);
+    }
+    //검색
+    public List<BoardVO> searchSelectPage(SearchCondition sc){
+        return mybatis.selectList("BoardDAO.searchSelectPage",sc);
+    }
+    public int searchResultCnt(SearchCondition sc)throws Exception{
+        return mybatis.selectOne("BoardDAO.searchResultCnt",sc);
     }
 }
