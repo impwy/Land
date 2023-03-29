@@ -22,8 +22,6 @@
 	</script>
 </head>
 <div class="board-container">
-
-
 <body class="getBoard">
 <div class="getBoard-container">
 <h2 class="writing-header"> ${mode=="new"?"글 작성":"내용"}</h2>
@@ -51,7 +49,16 @@
 	<button type="button" id="removeBtn" class="btn btn-remove"><i class="fa fa-remove"></i>삭제</button>
 	</c:if>
 	<button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i>목록</button>
+<br>
+	<c:if test="${prevPage.board_num !=null }">
+		<button type="button" id="prevBtn" class="btn btn-prev"><i class="fa fa-long-arrow-left"></i>이전 글</button>
+	</c:if>
+	<br>
+	<c:if test="${nextPage.board_num !=null}">
+		<button type="button" id="nextBtn" class="btn btn-next">다음 글<i class="fa fa-long-arrow-right"></i></button>
+	</c:if>
 </form>
+
 </div>
 <script type="text/javascript">
 	var alert = function(msg,title,type) {
@@ -146,6 +153,12 @@
 			form.attr("action","<c:url value='deleteBoard${searchCondition.queryString}'/>");
 			form.attr("method","post");
             form.submit();
+		});
+		$("#prevBtn").on("click", function (){
+		location.href="<c:url value='getBoard${sc.queryString}&board_num=${prevPage.board_num}'/>"
+		});
+		$("#nextBtn").on("click", function (){
+		location.href="<c:url value='getBoard${sc.queryString}&board_num=${nextPage.board_num}'/>"
 		});
 	});
 </script>

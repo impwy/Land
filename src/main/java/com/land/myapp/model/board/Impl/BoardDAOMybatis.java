@@ -40,6 +40,13 @@ public class BoardDAOMybatis {
     public BoardVO getBoard(int board_num){
         return (BoardVO)mybatis.selectOne("BoardDAO.getBoard",board_num);
     }
+
+    //이전글
+    public BoardVO prevPage(int board_num){
+        System.out.println(board_num);
+        return (BoardVO) mybatis.selectOne("BoardDAO.prevPage",board_num);}
+    //다음글
+    public BoardVO nextPage(int board_num){return (BoardVO) mybatis.selectOne("BoardDAO.nextPage",board_num);}
     //글 목록
     public List<BoardVO> getBoardList(BoardVO vo){
         return mybatis.selectList("BoardDAO.getBoardList",vo);
@@ -63,4 +70,6 @@ public class BoardDAOMybatis {
     public int searchResultCnt(SearchCondition sc)throws Exception{
         return mybatis.selectOne("BoardDAO.searchResultCnt",sc);
     }
+
+
 }

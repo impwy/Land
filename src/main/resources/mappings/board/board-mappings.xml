@@ -108,4 +108,32 @@
         <include refid="searchCondition"/>
     </select>
 
+<!--    이전글-->
+    <select id="prevPage" resultType="board">
+
+        select * from board
+        WHERE board_num
+
+                  IN (
+        (
+        SELECT	MAX(BOARD_NUM)
+        FROM	board
+        <![CDATA[ WHERE	BOARD_NUM  < #{board_num} )
+        )
+
+    ]]></select>
+
+    <!--    다음글-->
+    <select id="nextPage" resultType="board">
+
+        select * from board
+        WHERE board_num
+
+                  IN (
+        (
+        SELECT	MIN(BOARD_NUM)
+        FROM	board
+        <![CDATA[WHERE	BOARD_NUM  > #{board_num} )
+        )
+    ]]></select>
 </mapper>

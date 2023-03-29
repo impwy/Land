@@ -77,6 +77,16 @@ public class BoardServiceImpl implements BoardService {
         return boardDAO.searchResultCnt(sc);
     }
 
+    @Override
+    public BoardVO prevPage(int board_num) {
+        return boardDAO.prevPage(board_num);
+    }
+
+    @Override
+    public BoardVO nextPage(int board_num) {
+        return boardDAO.nextPage(board_num);
+    }
+
 
 }
 

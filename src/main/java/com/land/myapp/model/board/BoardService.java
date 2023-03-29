@@ -32,4 +32,9 @@ public interface BoardService {
 
 
     int getSearchResultCnt(SearchCondition sc) throws Exception;
+
+
+    BoardVO prevPage(int board_num);
+
+    BoardVO nextPage(int board_num);
 }
