@@ -6,9 +6,9 @@ import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 
 public interface BasketService {// 장바구니
 
-	void insertBasket(BasketVO vo); // 물품 추가
+	void insertBasket(BasketVO vo); // 장바구니 추가
 
-	void deleteBasket(int goods_num); // 물품 삭제
+	void deleteBasket(BasketVO vo); // 장바구니 삭제
 
 	public BasketVO getSelectOne(BasketVO vo);// 상세 정보
 

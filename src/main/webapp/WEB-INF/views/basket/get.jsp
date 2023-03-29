@@ -28,7 +28,7 @@
 
 	</table>
 
-	<a href="/basket/delbasket?goods_num=${pageinfo.goods_num}">글삭제</a>
+	<a href="/basket/delbasket?goods_num=${pageinfo.goods_num}&member_id=${member.member_id}">글삭제</a>
 
 </body>
 </html>

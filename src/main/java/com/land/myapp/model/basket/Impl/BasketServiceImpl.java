@@ -14,15 +14,15 @@ public class BasketServiceImpl implements BasketService {
 	
 	@Autowired
 	private BasketDAO basketDAO;
-	//장바구니 넣기
+	//장바구니 추가
 	@Override
 	public void insertBasket(BasketVO vo) {
 		basketDAO.insertBasket(vo);
 	}
 	//장바구니 삭제
 	@Override
-	public void deleteBasket(int goods_num) {
-		basketDAO.deleteBasket(goods_num);
+	public void deleteBasket(BasketVO vo) {
+		basketDAO.deleteBasket(vo);
 	}
 	//장바구니 리스트
 	@Override

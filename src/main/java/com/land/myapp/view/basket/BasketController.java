@@ -17,7 +17,7 @@ import com.land.myapp.model.member.vo.MemberVO;
 
 @Controller
 public class BasketController {
-	
+
 	@Autowired
 	private GoodsPaymentService goodsPaymentService;
 
@@ -42,9 +42,9 @@ public class BasketController {
 	// 삭제
 	@RequestMapping(value = "/basket/delbasket", method = RequestMethod.GET)
 	// "RequestMethod.GET" 매개변수를 사용하여 GET 요청을 처리하도록 설정
-	public String deletebasket(int goods_num) {
+	public String deletebasket(BasketVO vo) {
 		// 장바구니에 있는 항목의 고유 식별자를 나타내는 정수 변수 "goods_num"을 사용
-		basketservice.deleteBasket(goods_num);
+		basketservice.deleteBasket(vo);
 		// "basketservice" 개체에서 "deleteBasket" 메서드를 호출 "goods_num"을 매개 변수로 전달하여
 		// 사용자의 장바구니에서 항목을 삭제
 		System.out.println("데이터 삭제 됨");
@@ -75,15 +75,19 @@ public class BasketController {
 
 	// 결제
 	@RequestMapping(value = "/goodspay")
-	public String insertPayment(String[] prd_list, GoodsPaymentVO vo) {
-		for (int i = 0; i < prd_list.length; i += 3) {
-			vo.setMember_id(prd_list[i]);
-			vo.setGoods_num(Integer.parseInt(prd_list[i + 1]));
-			vo.setOrder_amount(Integer.parseInt(prd_list[i + 2]));
+	// "/goodspay"에 대한 요청 매핑을 처리하는 메서드
+	public String insertPayment(String[] getBasketList, GoodsPaymentVO vo) {
+		//"getBasketList"의 문자열 배열과 "vo"라는 "GoodsPaymentVO" 객체를 받기
+		for (int i = 0; i < getBasketList.length; i += 3) { 
+			vo.setMember_id(getBasketList[i]);
+			vo.setGoods_num(Integer.parseInt(getBasketList[i + 1]));
+			vo.setOrder_amount(Integer.parseInt(getBasketList[i + 2]));
 			System.out.println(vo.toString());
+			// getBasketList 배열을 반복하고 그에 따라 "vo" 개체에 대한 구성원 ID, 상품 번호 및 주문 금액을 설정
 			goodsPaymentService.insertGoodsPayment(vo);
+			//"vo" 개체의 세부 정보를 인쇄하고 이를 goodPaymentService에 삽입
 			basketservice.deleteCartPayment(vo);
-			
+			// basketservice를 사용하여 장바구니에서 결제 내역을 삭제
 		}
 		return "main";
 	}
@@ -99,17 +103,18 @@ public class BasketController {
 		return "/basket/get";
 		// "model" 객체의 "pageinfo" 속성은 "basketvo"로 설정 "/basket/get" 문자열 값을 리턴
 	}
-	//굿즈  페이지 이동
-			@RequestMapping(value="/goodsOrder")
-			public String orderGoods() {
-				return "/goods/Goods";
-			}
-			
-			//주문 내역 등록
-			@PostMapping(value="/payment")
-			public String insertGoodsPayment(GoodsPaymentVO vo) {
-				goodsPaymentService.insertGoodsPayment(vo);
-				return "main";
-			}
+
+	// 굿즈 페이지 이동
+	@RequestMapping(value = "/goodsOrder")
+	public String orderGoods() {
+		return "/goods/Goods";
+	}
+
+	// 주문 내역 등록
+	@PostMapping(value = "/payment")
+	public String insertGoodsPayment(GoodsPaymentVO vo) {
+		goodsPaymentService.insertGoodsPayment(vo);
+		return "main";
+	}
 
 }
