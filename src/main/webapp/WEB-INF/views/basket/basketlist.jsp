@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>장바구니</h1>
+	<h1>장바구니</h1>
 	<table>
 		<tr>
 			<th>아이디</th>
@@ -20,22 +20,20 @@
 		</tr>
 		<c:forEach items="${basketList}" var="basket">
 			<tr>
-				<th>${basket.member_id}</th>
-				
-				<th>
-					<a href='/basket/get?goods_num=<c:out value="${basket.goods_num}"/>'>
-					굿즈 상품
-					</a>
-				</th>
+				<th>${member.member_id}</th>
+
+				<th><a
+					href='/basket/get?goods_num=<c:out value="${basket.goods_num}"/>'>
+						${basket.goods_num} </a></th>
 				<th>${basket.basket_sum}</th>
 				<th>${basket.basket_amount}</th>
-				
+
 			</tr>
 		</c:forEach>
 	</table>
-	
-	
-	
-	<a href="main">main</a>
+
+
+
+	<a href="/">main</a>
 </body>
 </html>

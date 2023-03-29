@@ -61,7 +61,7 @@
 		<!-- select 문은 "BASKET" 테이블에서 모든 열을 선택 -->
 		<!-- "resultMap" 속성은 이 쿼리의 결과를 Java 객체에 매핑하는 데 사용해야 하는 결과 맵의 이름을 지정 -->
 	<![CDATA[
-		SELECT * FROM BASKET
+		SELECT * FROM BASKET WHERE MEMBER_ID = #{member_id, jdbcType=VARCHAR}
 	]]>
 		<!-- SQL 문은 CDATA 섹션에 내장되어 있으며, 이는 포함된 텍스트를 순수 문자 데이터로 처리하고 XML로 구문 분석하지 
 			않아야 함을 나타내는 데 사용 -->
@@ -82,4 +82,11 @@
 			모든 열을 선택 -->
 		<!-- "resultMap" 속성은 select 문의 결과가 "basketResult" 결과 맵에 매핑되어야 함을 지정 -->
 	</select>
+	
+	<!-- 구매후 장바구니 비우기 -->
+	<delete id="deleteCartPayment">
+		<![CDATA[
+			DELETE BASKET WHERE MEMBER_ID=#{member_id} AND GOODS_NUM=#{goods_num}
+		]]>
+	</delete>
 </mapper>
