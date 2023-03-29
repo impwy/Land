@@ -50,13 +50,14 @@
 	</c:if>
 	<button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i>목록</button>
 <br>
-	<c:if test="${prevPage.board_num !=null }">
-		<button type="button" id="prevBtn" class="btn btn-prev"><i class="fa fa-long-arrow-left"></i>이전 글</button>
-	</c:if>
 	<br>
-	<c:if test="${nextPage.board_num !=null}">
-		<button type="button" id="nextBtn" class="btn btn-next">다음 글<i class="fa fa-long-arrow-right"></i></button>
-	</c:if>
+		<button type="button" id="nextBtn" class="boardBtn"  ${nextPage.board_num ==null?"disabled":""}><i class="fa-solid fa-caret-up"></i>다음글${nextPage.board_num ==null?"이 없습니다":""}</button>
+		<c:out value="${nextPage.board_title }"/>
+
+	<br>
+	<br>
+		<button type="button" id="prevBtn" class="boardBtn"  ${prevPage.board_num ==null?"disabled":""}><i class="fa-solid fa-caret-down"></i>이전글${prevPage.board_num ==null?"이 없습니다":""}</button>
+		<c:out value="${prevPage.board_title }"/>
 </form>
 
 </div>
