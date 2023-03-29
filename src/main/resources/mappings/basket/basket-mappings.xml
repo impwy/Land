@@ -76,7 +76,7 @@
 		<!-- SQL 문은 CDATA 섹션에 내장되어 있으며, 이는 포함된 텍스트를 순수 문자 데이터로 처리하고 XML로 구문 분석하지 
 			않아야 함을 나타내는 데 사용 -->
 	<![CDATA[
-		SELECT * FROM BASKET where GOODS_NUM=#{goods_num}
+		SELECT * FROM BASKET where GOODS_NUM=#{goods_num} AND MEMBER_ID=#{member_id}
 	]]>
 		<!-- select 문은 "GOODS_NUM" 열의 값이 "goods_num" 매개변수의 값과 같은 "BASKET" 테이블에서 
 			모든 열을 선택 -->

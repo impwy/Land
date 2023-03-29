@@ -25,9 +25,8 @@ public class BasketDAO {
 	}
 
 	// 장바구니 비우기
-	public int deleteBasket(int goods_num) {
-		int result = mybatis.delete("BasketDAO.deleteCart", goods_num);
-		return result;
+	public void deleteBasket(int goods_num) {
+		mybatis.delete("BasketDAO.deleteCart", goods_num);
 	}
 
 	// 리스트 출력
@@ -37,8 +36,8 @@ public class BasketDAO {
 	}
 
 	// 상세 정보
-	public BasketVO getSelectOne(int goods_num) {
-		BasketVO result = mybatis.selectOne("BasketDAO.getbasketList", goods_num);
+	public BasketVO getSelectOne(BasketVO vo) {
+		BasketVO result = mybatis.selectOne("BasketDAO.getbasketList",vo);
 		return result;
 	}
 

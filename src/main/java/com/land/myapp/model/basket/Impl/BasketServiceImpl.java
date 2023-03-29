@@ -21,8 +21,8 @@ public class BasketServiceImpl implements BasketService {
 	}
 	//장바구니 삭제
 	@Override
-	public int deleteBasket(int goods_num) {
-		return basketDAO.deleteBasket(goods_num);
+	public void deleteBasket(int goods_num) {
+		basketDAO.deleteBasket(goods_num);
 	}
 	//장바구니 리스트
 	@Override
@@ -31,8 +31,8 @@ public class BasketServiceImpl implements BasketService {
 	}
 	//장바구니 상세보기
 	@Override
-	public BasketVO getSelectOne(int goods_num) {
-		return basketDAO.getSelectOne(goods_num);
+	public BasketVO getSelectOne(BasketVO vo) {
+		return basketDAO.getSelectOne(vo);
 	}
 	//장바구니 결제
 	@Override

@@ -90,9 +90,9 @@ public class BasketController {
 
 	// 상세
 	@RequestMapping("/basket/get")
-	public String getSelectOne(int goods_num, Model model) {
+	public String getSelectOne(BasketVO vo, Model model) {
 		// 정수 변수 "goods_num" 및 "모델" 개체 "model"의 두 매개 변수를 사용
-		BasketVO basketvo = basketservice.getSelectOne(goods_num);
+		BasketVO basketvo = basketservice.getSelectOne(vo);
 		// "basketservice" 개체에서 "getSelectOne" 메서드를 호출하여 바구니에서
 		// 선택한 항목을 나타내는 "BasketVO" 개체 "basketvo"를 반환
 		model.addAttribute("pageinfo", basketvo);

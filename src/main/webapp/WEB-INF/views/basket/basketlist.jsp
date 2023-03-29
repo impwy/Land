@@ -23,7 +23,7 @@
 				<th>${member.member_id}</th>
 
 				<th><a
-					href='/basket/get?goods_num=<c:out value="${basket.goods_num}"/>'>
+					href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>
 						${basket.goods_num} </a></th>
 				<th>${basket.basket_sum}</th>
 				<th>${basket.basket_amount}</th>
