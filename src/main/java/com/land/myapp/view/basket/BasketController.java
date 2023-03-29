@@ -30,12 +30,12 @@ public class BasketController {
 		basketservice.insertBasket(vo);
 		return "main";
 	}
-
-	@RequestMapping(value = "/delbasket", method = RequestMethod.GET)
-	public String deletebasket(BasketVO vo) {
-		basketservice.deleteBasket(vo);
+	// 삭제
+	@RequestMapping(value = "/basket/delbasket", method = RequestMethod.GET)
+	public String deletebasket(int goods_num) {
+		basketservice.deleteBasket(goods_num);
 		System.out.println("데이터 삭제 됨");
-		return "basket/basketlist";
+		return "redirect:/basket/basketlist";
 	}
 
 	@RequestMapping(value = "/basket/basketlist", method = RequestMethod.GET)
@@ -71,5 +71,13 @@ public class BasketController {
 		}
 		return "main";
 	}*/
+	//상세
+	@RequestMapping("/basket/get")
+	public String getSelectOne(int goods_num ,Model model) {
+		BasketVO basketvo = basketservice.getSelectOne(goods_num);
+		model.addAttribute("pageinfo",basketvo);
+		return "/basket/get";
+	}
+	
 
 }

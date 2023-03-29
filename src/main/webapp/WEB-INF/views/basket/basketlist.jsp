@@ -21,15 +21,21 @@
 		<c:forEach items="${basketList}" var="basket">
 			<tr>
 				<th>${basket.member_id}</th>
-				<th>${basket.goods_num}</th>
+				
+				<th>
+					<a href='/basket/get?goods_num=<c:out value="${basket.goods_num}"/>'>
+					굿즈 상품
+					</a>
+				</th>
 				<th>${basket.basket_sum}</th>
 				<th>${basket.basket_amount}</th>
+				
 			</tr>
 		</c:forEach>
 	</table>
-	<td>
-	<input type="button" id="delbasket" onClick="delbasket('${goods_num}', '${member_id}')" value="삭제" />
-    <input type="hidden" id="member_id" value="${member_id}" />
-    </td>
+	
+	
+	
+	<a href="main">main</a>
 </body>
 </html>
