@@ -1,16 +1,20 @@
 package com.land.myapp.view.basket;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.land.myapp.model.basket.BasketService;
 import com.land.myapp.model.basket.BasketVO;
+import com.land.myapp.model.goods.GoodsVO;
 import com.land.myapp.model.goods_payment.GoodsPaymentService;
 import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberVO;
@@ -104,17 +108,32 @@ public class BasketController {
 		// "model" 객체의 "pageinfo" 속성은 "basketvo"로 설정 "/basket/get" 문자열 값을 리턴
 	}
 
-	// 굿즈 페이지 이동
-	@RequestMapping(value = "/goodsOrder")
-	public String orderGoods() {
-		return "/goods/Goods";
-	}
-
-	// 주문 내역 등록
-	@PostMapping(value = "/payment")
-	public String insertGoodsPayment(GoodsPaymentVO vo) {
-		goodsPaymentService.insertGoodsPayment(vo);
-		return "main";
-	}
+	//굿즈  페이지 이동
+			@RequestMapping(value="/goodsOrder")
+			public String orderGoods() {
+				return "/goods/Goods";
+			}
+			
+			//주문 내역 등록
+			@PostMapping(value="/payment")
+			public String insertGoodsPayment(GoodsPaymentVO vo) {
+				goodsPaymentService.insertGoodsPayment(vo);
+				return "main";
+			}
+			
+			//주문 이동
+			@PostMapping(value="/goodsPayment")
+			public String orderGoods(GoodsPaymentVO vo, HttpSession session, GoodsVO gvo) {
+				HashMap<String, Object> map = new HashMap<>();
+				map.put("vo", vo);
+				map.put("gvo", gvo);
+				session.setAttribute("goods", map);
+				return "/payment/goodsPayment";
+			}
+			
+			@GetMapping(value="/goodsPayment")
+			public String paymentGoods(GoodsPaymentVO vo) {
+				return "/payment/goodsPayment";
+			}
 
 }
