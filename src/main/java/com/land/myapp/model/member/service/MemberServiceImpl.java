@@ -5,6 +5,7 @@ package com.land.myapp.model.member.service;
 import java.util.List;
 
 
+import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,14 +52,37 @@ public class MemberServiceImpl implements MemberService {
 			memberDAO.updateMember(vo);
 		}
 		// 테스트
-		public List<MemberVO> getMemberList(int start, int end, MemberVO vo) {
-			return memberDAO.getMemberList(start, end, vo);
+		public List<MemberVO> getMemberList(MemberVO vo) {
+			return memberDAO.getMemberList(vo);
 		}
 
 		public int getCountMember(MemberVO vo) {
 			return memberDAO.getCountMember(vo);
 		}
-		@Override
+
+	//구매 내역 조회
+	@Override
+	public List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo){
+		return memberDAO.getorderMember(vo);
+	}
+
+	@Override
+	public int getCountOrder(GoodsPaymentVO vo) {
+		// TODO Auto-generated method stub
+		return memberDAO.getCountOrder(vo);
+	}
+	@Override
+	public int deleteMember(Integer member_no){
+		return memberDAO.deleteMember(member_no);
+	}
+
+	@Override
+	public MemberVO getMember(Integer member_no){
+	return memberDAO.getMember(member_no);
+	}
+
+
+	@Override
 		public int forgotPWChkMember(MemberVO vo) {
 			// TODO Auto-generated method stub
 			return 0;
@@ -68,6 +92,7 @@ public class MemberServiceImpl implements MemberService {
 			// TODO Auto-generated method stub
 			
 		}
+
 	
 
 	

@@ -6,7 +6,7 @@ function insertCart() {
 	var goods_num = $("#goods_num").val();
 	var basket_amount = $("#basket_amount").val();
 	var basket_sum = $("#basket_sum").val();	
-	
+	var goods_name = $("#goods_names").val();
 	if (member_id == "admini") {
 		swal("", "관리자 권한으로는 이용하실 수 없습니다.", "warning");
 					} else if (!member_id) {
@@ -20,6 +20,7 @@ function insertCart() {
 							type : "GET",
 							url : "insertBasket",
 							data : {
+								"goods_name" : goods_name,
 								"member_id" : member_id,
 								"goods_num" : goods_num,
 								"basket_sum": basket_sum,

@@ -1,5 +1,7 @@
 package com.land.myapp.model.member.vo;
 
+import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+
 import java.util.List;
 
 
@@ -25,6 +27,16 @@ public interface MemberService {
 		void forgotPWUpdate(MemberVO vo);
 		
 		// 회원 리스트
-		List<MemberVO> getMemberList(int start, int end, MemberVO vo);
+		List<MemberVO> getMemberList(MemberVO vo);
 		int getCountMember(MemberVO vo);
+
+	//구매 내역 조회
+	List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo);
+
+
+	//구매 갯수
+	int getCountOrder(GoodsPaymentVO vo);
+		int deleteMember(Integer member_no);
+
+		MemberVO getMember(Integer member_no);
 	}

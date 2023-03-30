@@ -34,6 +34,13 @@ public class MemberVO {
     // 가입날짜 
     private Date member_date;
 
+	private Integer getMember;
+
+	public MemberVO(){}
+	public MemberVO(int member_no) {
+		this.member_no = member_no;
+	}
+
 	public int getMember_no() {
 		return member_no;
 	}
@@ -114,14 +121,28 @@ public class MemberVO {
 		this.member_date = member_date;
 	}
 
+	public Integer getGetMember() {
+		return getMember;
+	}
+
+	public void setGetMember(Integer getMember) {
+		this.getMember = getMember;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberVO [member_no=" + member_no + ", member_id=" + member_id + ", member_pwd=" + member_pwd
-				+ ", member_name=" + member_name + ", member_phone=" + member_phone + ", member_age=" + member_age
-				+ ", member_email=" + member_email + ", member_addr=" + member_addr + ", member_key=" + member_key
-				+ ", member_date=" + member_date + "]";
+		return "MemberVO{" +
+				"member_no=" + member_no +
+				", member_id='" + member_id + '\'' +
+				", member_pwd='" + member_pwd + '\'' +
+				", member_name='" + member_name + '\'' +
+				", member_phone='" + member_phone + '\'' +
+				", member_age=" + member_age +
+				", member_email='" + member_email + '\'' +
+				", member_addr='" + member_addr + '\'' +
+				", member_key=" + member_key +
+				", member_date=" + member_date +
+				", getMember=" + getMember +
+				'}';
 	}
-    
-	
-	
 }

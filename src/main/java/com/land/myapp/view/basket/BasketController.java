@@ -1,4 +1,4 @@
-package com.land.myapp.view.basket;
+  package com.land.myapp.view.basket;
 
 import java.util.HashMap;
 
@@ -44,7 +44,7 @@ public class BasketController {
 	}
 
 	// 삭제
-	@RequestMapping(value = "/basket/delbasket", method = RequestMethod.GET)
+	@RequestMapping(value = "/delbasket", method = RequestMethod.GET)
 	// "RequestMethod.GET" 매개변수를 사용하여 GET 요청을 처리하도록 설정
 	public String deletebasket(BasketVO vo) {
 		// 장바구니에 있는 항목의 고유 식별자를 나타내는 정수 변수 "goods_num"을 사용
@@ -53,15 +53,15 @@ public class BasketController {
 		// 사용자의 장바구니에서 항목을 삭제
 		System.out.println("데이터 삭제 됨");
 		// ("데이터가 삭제되었습니다") 메시지를 콘솔에 출력
-		return "redirect:/basket/basketlist";
+		return "redirect:/basketlist";
 		// "redirect:/basket/basketlist" 문자열 값을 반환 "/basket/basketlist" URL 경로로
 		// 리디렉션하여 사용자의 장바구니에 있는 항목의 업데이트된 목록을 표시
 	}
 
 	// 리스트 구현
-	@RequestMapping(value = "/basket/basketlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/basketlist", method = RequestMethod.GET)
 	// "RequestMethod.GET" 매개변수를 사용하여 GET 요청을 처리
-	public String listbasket(Model model, BasketVO vo, HttpSession session) {
+	public String listbasket(Model model, BasketVO vo, HttpSession session, GoodsVO gvo) {
 		// 멤버컨트롤러에서 로그인정보를 member 객체에 저장. 그 객체를 가져오고
 		// 아이디를 뽑아온다.
 		MemberVO member = (MemberVO) session.getAttribute("member");
