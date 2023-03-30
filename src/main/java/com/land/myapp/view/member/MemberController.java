@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberService;
@@ -100,22 +101,43 @@ public class MemberController {
 			return "mypage/mypage2";
 		}
 		
-		
-		//마이페이지 이동
-		@RequestMapping("/mypage3")
-		public String mypage3() {
+		//회원 정보 수정 창 이동 
+		@RequestMapping(value="/mypage3", method = RequestMethod.GET)
+		public String mypage4() {
 			return "mypage/mypage3";
 		}
 		
-		//회원 정보 수정 창 이동 
-		@RequestMapping(value="/mypage4", method = RequestMethod.GET)
-		public String mypage4() {
-			return "mypage/mypage4";
-		}
-		@RequestMapping(value="/mypage4",method = RequestMethod.POST)
+		//회원 정보 수정
+		@RequestMapping(value="/mypage3",method = RequestMethod.POST)
 		public String updateMember(MemberVO vo) {
 			memberService.updateMember(vo);
 			return "mypage/mypage";
 		}
 		
+		//회원 정보 탈퇴 페이지로 이동
+		@RequestMapping(value="/delete", method = RequestMethod.GET)
+		public String mypage3() {
+			return "mypage/delete";
+		}
+		
+		//회원 탈퇴
+		@RequestMapping(value="/delete", method = RequestMethod.POST)
+		public String deleteMember(MemberVO vo, HttpSession session , RedirectAttributes rttr) {
+			//세션에 있는 member를 가져와 member변수에 넣어준다
+			MemberVO member = (MemberVO) session.getAttribute("member");
+			
+			//세션에 있는 비밀번호
+			String sessionPwd = member.getMember_pwd();
+			
+			//vo로 들어오는 비밀번호
+			String voPwd = vo.getMember_pwd();
+			
+			if(!(sessionPwd.equals(voPwd))) {
+				rttr.addFlashAttribute("msg", false);
+				return " redirect:/mypage/delete";
+			}
+			memberService.deleteMember(vo);
+			session.invalidate();
+			return "mypage/main";
+		}
 }

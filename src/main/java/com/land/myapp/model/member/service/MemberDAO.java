@@ -62,13 +62,20 @@ public class MemberDAO {
 			// TODO Auto-generated method stub
 			return 0;
 		}*/
+		
 		//구매 내역 조회
 		public List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo) {
 			// TODO Auto-generated method stub
 			return mybatis.selectList("MemberDAO.orderMember",vo);
 		}
+		
 		//구매 갯수
 		public int getCountOrder(GoodsPaymentVO vo) {
 			return mybatis.selectOne("MemberDAO.CountOrder", vo);
+		}
+		
+		//회원 탈퇴
+		public void deleteMember(MemberVO vo) {
+			mybatis.delete("MemberDAO.deleteMember" ,vo);
 		}
 }

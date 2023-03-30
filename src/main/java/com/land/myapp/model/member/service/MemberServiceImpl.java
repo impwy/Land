@@ -76,5 +76,8 @@ public class MemberServiceImpl implements MemberService {
 			return memberDAO.getCountOrder(vo);
 		}
 		
-	
+		//회원 탈퇴
+		public void deleteMember(MemberVO vo) {
+			memberDAO.deleteMember(vo);
+		}
 }

@@ -33,7 +33,7 @@
 		<tr>
 			<td>
 				<img src ="resouces/img/">
-				<input type="button" value = "회원 정보 보기" onClick="location.href='mypage4'">
+				<input type="button" value = "회원 정보 보기" onClick="location.href='mypage3'">
 			</td>
 		</tr>
 			</table>

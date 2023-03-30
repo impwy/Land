@@ -80,7 +80,7 @@
  	<!-- 회원탈퇴 -->
 	<delete id="deleteMember">
 		DELETE FROM MEMBER WHERE
-		MEMBER_ID = #{member_id}
+		MEMBER_ID = #{member_id} AND MEMBER_PWD = #{member_pwd}
 	</delete>
 	<select id="forgotPWChkMember" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM MEMBER WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}

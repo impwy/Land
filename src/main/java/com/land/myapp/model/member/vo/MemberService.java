@@ -36,5 +36,8 @@ public interface MemberService {
 		//구매 갯수
 		int getCountOrder(GoodsPaymentVO vo);
 		
+		//회원 탈퇴
+		void deleteMember(MemberVO vo);
+		
 		
 	}
