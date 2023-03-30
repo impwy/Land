@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberVO;
 
 @Repository
@@ -43,39 +43,34 @@ public class MemberDAO {
 		public void updateMember(MemberVO vo) {
 			mybatis.update("MemberDAO.updateMember", vo);
 		}
-		
-		//구매 내역 조회
-		public List<MemberVO> getorderMember(String member_id){
-			return mybatis.selectList("MemberDAO.getorderMember",member_id);
-		}
-		
+
 		// 테스트용
-		public List<MemberVO> getMemberList(int start, int end, MemberVO vo) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("start", start);
-			map.put("end", end);
-			map.put("member", vo);
-			return mybatis.selectList("MemberDAO.getMemberList", map);
+		//회원 리스트
+		public List<MemberVO> getMemberList(MemberVO vo) {
+			return mybatis.selectList("MemberDAO.getMemberList", vo);
 		}
 
-		/*public int getCountMember(MemberVO vo) {
-			// TODO Auto-generated method stub
-			return 0;
-		}*/
-		
-		//구매 내역 조회
-		public List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo) {
-			// TODO Auto-generated method stub
-			return mybatis.selectList("MemberDAO.orderMember",vo);
+	//구매 내역 조회
+	public List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("MemberDAO.orderMember",vo);
+	}
+
+	//구매 갯수
+	public int getCountOrder(GoodsPaymentVO vo) {
+		return mybatis.selectOne("MemberDAO.CountOrder", vo);
+	}
+
+		//회원 삭제
+		public int deleteMember(Integer member_no){
+			return mybatis.delete("MemberDAO.deleteMember", member_no);
 		}
-		
-		//구매 갯수
-		public int getCountOrder(GoodsPaymentVO vo) {
-			return mybatis.selectOne("MemberDAO.CountOrder", vo);
+
+
+		public int getCountMember(MemberVO vo) {
+			return mybatis.selectOne("MemberDAO.getCountMember", vo);
 		}
-		
-		//회원 탈퇴
-		public void deleteMember(MemberVO vo) {
-			mybatis.delete("MemberDAO.deleteMember" ,vo);
+		public MemberVO getMember(int member_no){
+			return mybatis.selectOne("MemberDAO.getMember",member_no);
 		}
 }
