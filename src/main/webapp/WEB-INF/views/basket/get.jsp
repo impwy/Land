@@ -16,8 +16,8 @@
 
 		<tr>
 			<th>아이디</th>
-			<th>수량</th>
-			<th>합계</th>
+			<th>상품종류</th>
+			<th>가격</th>
 		</tr>
 
 		<tr>
@@ -28,7 +28,7 @@
 
 	</table>
 
-	<a href="/basket/delbasket?goods_num=${pageinfo.goods_num}&member_id=${member.member_id}">글삭제</a>
+	 <!-- <a href="/basket/delbasket?goods_num=${pageinfo.goods_num}&member_id=${member.member_id}">글삭제</a> -->
 
 </body>
 </html>

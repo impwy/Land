@@ -28,16 +28,26 @@
 
 		
 		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
+<<<<<<< HEAD
 		<a href="basket/basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
 		<a href="mypage"><i class="fa-solid fa-user"></i></a>
+=======
+		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
+		<a href="#"><i class="fa-solid fa-user"></i></a>
+>>>>>>> 2444adc (리스트 구매(1차시도))
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>		
 		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 		</c:if>
 		
 		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
+<<<<<<< HEAD
 		<a href="basket/basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
 		<a href="mypage">개인정보</a>
+=======
+		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
+		<a href="#">개인정보</a>
+>>>>>>> 2444adc (리스트 구매(1차시도))
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="insert">굿즈관리</a>	
 		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>

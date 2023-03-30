@@ -3,9 +3,10 @@
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <style>
 table {
 	border-collapse: collapse;
@@ -32,9 +33,6 @@ a:hover {
 	text-decoration: underline;
 }
 </style>
-<script>
-	
-</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -46,7 +44,6 @@ a:hover {
 		<thead>
 			<tr>
 				<th><input id="checkAll" type="checkbox" checked /></th>
-
 				<th>아이디</th>
 				<th>상품종류</th>
 				<th>수량</th>
@@ -59,25 +56,41 @@ a:hover {
 					<td><input type="checkbox" name="chk" onclick="calCart()"
 						value="${basket.goods_num}" checked /> <input type="hidden"
 						name="prd_sum" value="${basket.basket_sum}" /> <input
+						type="hidden" name="amt_sum" value="${basket.basket_amount}" /> <input
 						type="hidden" id="member_id" value="${member.member_id}" /></td>
 					<td>${member.member_id}</td>
 					<td><a
 						href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>
 							${basket.goods_num} </a></td>
-
 					<td>${basket.basket_amount}</td>
 					<td>${basket.basket_sum}</td>
+					<td><a
+						href="/basket/delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
+					</td>
 				</tr>
 				<c:set var="priceSum" value="${priceSum + basket.basket_sum}" />
+				<c:set var="amountSum" value="${amountSum + basket.basket_amount}" />
 			</c:forEach>
 		</tbody>
 	</table>
 
 	<table>
+		<h1>결제</h1>
+		<table class="cart3" align="center">
+			<tr align="center">
+				<th colspan="2">총 상품 금액</th>
+				<th></th>
+			</tr>
+		</table>
 
 		<tr align="center">
 			<td colspan="2"><h2 id="prd_sum">
 					<fmt:formatNumber value="${priceSum}" pattern="#,###" />
+				</h2></td>
+		</tr>
+		<tr align="center">
+			<td colspan="2"><h2 id="amt_sum">
+					<fmt:formatNumber value="${amountSum}" pattern="#,###" />
 				</h2></td>
 		</tr>
 		<tr align="center">
@@ -106,7 +119,6 @@ a:hover {
 													"checked", false);
 										}
 									})
-
 							$("input[name=chk]")
 									.click(
 											function() {
@@ -130,11 +142,11 @@ a:hover {
 					type : "post",
 					url : 'goodsPayment',
 					data : {
-						"goods_name" : '${goods.goods_name}',
-						"order_amount" : '${priceSum + basket.basket_sum}',
-						"order_sum" : '${basket.basket_sum}' + '외',
+						"goods_name" : '${basketlist.goods_name[0]} 외 ${amountSum-1} 개',
+						"order_amount" : '${amountSum}',
+						"order_sum" : '${priceSum}',
 						"member_id" : '${member.member_id}',
-						"goods_num" : '${goods.goods_num}'
+						"goods_num" : '${basket.goods_num[0]}'
 					},
 					success : function(data) {
 						location.href = "goodsPayment";

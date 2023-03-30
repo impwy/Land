@@ -59,9 +59,9 @@ public class BasketController {
 	}
 
 	// 리스트 구현
-	@RequestMapping(value = "/basket/basketlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/basketlist", method = RequestMethod.GET)
 	// "RequestMethod.GET" 매개변수를 사용하여 GET 요청을 처리
-	public String listbasket(Model model, BasketVO vo, HttpSession session) {
+	public String listbasket(Model model, BasketVO vo, HttpSession session, GoodsVO gvo) {
 		// 멤버컨트롤러에서 로그인정보를 member 객체에 저장. 그 객체를 가져오고
 		// 아이디를 뽑아온다.
 		MemberVO member = (MemberVO) session.getAttribute("member");
@@ -69,7 +69,6 @@ public class BasketController {
 		vo.setMember_id(member_id);
 		// "Model" 개체 "model" 및 "BasketVO" 개체 "vo"의 두 매개 변수를 사용
 		model.addAttribute("basketList", basketservice.getBasketList(vo));
-		System.out.println("결제됨");
 		// "basketservice" 객체에서 "vo"를 매개변수로 전달하는
 		// "getBasketList" 메서드를 호출하여 사용자의 장바구니에 있는 항목 목록을 반환
 		System.out.print("데이터 전송 됨");
