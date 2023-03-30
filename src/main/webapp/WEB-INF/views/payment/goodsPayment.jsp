@@ -73,16 +73,17 @@ hr {
 		<div class="productRight">
 					<!-- 상품명을 불러옵니다. -->	
 			<p align="left" class="p1" id="goods_name">상품명: ${goods.gvo.goods_name}</p>
-			<p align="left">수량: <input type="number" id="order_amount" min="0" maxlength="2"
-			 max="99" value="${ goods.vo.order_amount}" /></p><!-- map에 저장해서 session에 저장한 뒤 불러옵니다. -->				
+			<p align="left">수량: <input type="number" id="order_amount" min="0" maxlength="2"			
+			 max="99" value="${ goods.vo.order_amount}" readonly /></p><!-- map에 저장해서 session에 저장한 뒤 불러옵니다. -->				
+
 			<p align="left">총 가격:<input type="number" name="order_sum" id="order_sum" value="${goods.vo.order_sum}" readonly/></p>
 		<hr>
 			<p align="left">연락처<input type="text" id="member_phone" value="${member.member_phone }"></p>
 				
 				<!-- 우편번호 찾기 라이브러리 -->
-				<input type="text" name="sn_member_zipcode" size="10" placeholder="우편번호" value="">
+				<input type="text" name="sn_member_zipcode" size="10" placeholder="우편번호" value="" readonly>
 				<input type="button" name="nn_searchPost" onclick="searchPost()" value="우편번호 찾기"><br>
-				<input type="text" name="sn_member_faddr"  size="60" placeholder="우편주소" value="">
+				<input type="text" name="sn_member_faddr"  size="60" placeholder="우편주소" value="" readonly>
 			<p align="left">상세주소<input type="text" name="sn_member_laddr"></p>
 					
 					<!-- ajax에서 넘겨준다면 hidden은 필요 없습니다. -->
