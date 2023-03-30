@@ -57,7 +57,10 @@ a:hover {
 						value="${basket.goods_num}" checked /> <input type="hidden"
 						name="prd_sum" value="${basket.basket_sum}" /> <input
 						type="hidden" name="amt_sum" value="${basket.basket_amount}" /> <input
-						type="hidden" id="member_id" value="${member.member_id}" /></td>
+						type="hidden" id="member_id" value="${member.member_id}" /> <input
+						type="hidden" name="goods_name" class="goods_name"
+						value="${basket.goods_name}" /></td>
+
 					<td>${member.member_id}</td>
 					<td><a
 						href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>
@@ -65,14 +68,19 @@ a:hover {
 					<td>${basket.basket_amount}</td>
 					<td>${basket.basket_sum}</td>
 					<td><a
-						href="/basket/delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
+						href="delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
 					</td>
 				</tr>
+<c:set var="totalCount" value="${totalCount+1}"></c:set>
+			</c:forEach>
+			<c:forEach items="${basketList}" var="basket">
 				<c:set var="priceSum" value="${priceSum + basket.basket_sum}" />
 				<c:set var="amountSum" value="${amountSum + basket.basket_amount}" />
+				 
 			</c:forEach>
 		</tbody>
 	</table>
+
 
 	<table>
 		<h1>결제</h1>
@@ -100,6 +108,9 @@ a:hover {
 		</tr>
 
 	</table>
+	<c:set var="count" value="${totalCount-1}" />
+	<c:set var="goods_name" value="${basketList[0].goods_name}외 ${count}개" />
+
 	<div>
 		<button>
 			<a href="/">취소</a>
@@ -130,11 +141,12 @@ a:hover {
 															"checked", false);
 												}
 											})
-						})
+						});
 
 		function payCart() {
 			var member_id = $("#member_id").val();
 			var hiddenbtn = $("#hiddenbtn").val();
+
 			if ($("input[name=chk]:checkbox:checked").length == 0) {
 				swal("", "결제할 상품을 선택해주세요.", "warning");
 			} else {
@@ -142,11 +154,11 @@ a:hover {
 					type : "post",
 					url : 'goodsPayment',
 					data : {
-						"goods_name" : '${basketlist.goods_name[0]} 외 ${amountSum-1} 개',
+						"goods_name" : '${goods_name}',
 						"order_amount" : '${amountSum}',
 						"order_sum" : '${priceSum}',
 						"member_id" : '${member.member_id}',
-						"goods_num" : '${basket.goods_num[0]}'
+						"goods_num" : '1'
 					},
 					success : function(data) {
 						location.href = "goodsPayment";
