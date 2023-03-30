@@ -73,12 +73,9 @@ hr {
 		<div class="productRight">
 					<!-- 상품명을 불러옵니다. -->	
 			<p align="left" class="p1" id="goods_name">상품명: ${goods.gvo.goods_name}</p>
-			<p align="left">수량: <input type="number" id="order_amount" min="0" maxlength="2"
-<<<<<<< HEAD
-			 max="99" value="${ goods.vo.order_amount}" /></p><!-- map에 저장해서 session에 저장한 뒤 불러옵니다. -->				
-=======
+			<p align="left">수량: <input type="number" id="order_amount" min="0" maxlength="2"			
 			 max="99" value="${ goods.vo.order_amount}" readonly /></p><!-- map에 저장해서 session에 저장한 뒤 불러옵니다. -->				
->>>>>>> 6e295bb (no message)
+
 			<p align="left">총 가격:<input type="number" name="order_sum" id="order_sum" value="${goods.vo.order_sum}" readonly/></p>
 		<hr>
 			<p align="left">연락처<input type="text" id="member_phone" value="${member.member_phone }"></p>
