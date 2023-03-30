@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberVO;
 
 @Repository
@@ -42,6 +43,12 @@ public class MemberDAO {
 		public void updateMember(MemberVO vo) {
 			mybatis.update("MemberDAO.updateMember", vo);
 		}
+		
+		//구매 내역 조회
+		public List<MemberVO> getorderMember(String member_id){
+			return mybatis.selectList("MemberDAO.getorderMember",member_id);
+		}
+		
 		// 테스트용
 		public List<MemberVO> getMemberList(int start, int end, MemberVO vo) {
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -51,7 +58,17 @@ public class MemberDAO {
 			return mybatis.selectList("MemberDAO.getMemberList", map);
 		}
 
-		public int getCountMember(MemberVO vo) {
-			return mybatis.selectOne("MemberDAO.getCountMember", vo);
+		/*public int getCountMember(MemberVO vo) {
+			// TODO Auto-generated method stub
+			return 0;
+		}*/
+		//구매 내역 조회
+		public List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo) {
+			// TODO Auto-generated method stub
+			return mybatis.selectList("MemberDAO.orderMember",vo);
+		}
+		//구매 갯수
+		public int getCountOrder(GoodsPaymentVO vo) {
+			return mybatis.selectOne("MemberDAO.CountOrder", vo);
 		}
 }

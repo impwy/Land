@@ -15,7 +15,7 @@
     <link href="resoutces/js/FAQ.js">
     
    	
-    <title>modal test</title>
+    <title>FAQ</title>
    
   </head>
  

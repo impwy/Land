@@ -2,6 +2,8 @@ package com.land.myapp.model.member.vo;
 
 import java.util.List;
 
+import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+
 
 public interface MemberService {
 	
@@ -26,5 +28,13 @@ public interface MemberService {
 		
 		// 회원 리스트
 		List<MemberVO> getMemberList(int start, int end, MemberVO vo);
-		int getCountMember(MemberVO vo);
+
+		//구매 내역 조회
+		List<GoodsPaymentVO> getorderMember(GoodsPaymentVO vo);
+
+		
+		//구매 갯수
+		int getCountOrder(GoodsPaymentVO vo);
+		
+		
 	}
