@@ -3,34 +3,38 @@
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  
-  th, td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+th, td {
+	padding: 0.75rem;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
 </style>
+<script>
+	
+</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -41,78 +45,116 @@
 	<table>
 		<thead>
 			<tr>
+				<th><input id="checkAll" type="checkbox" checked /></th>
+
 				<th>아이디</th>
 				<th>상품종류</th>
 				<th>수량</th>
-				<th>합계</th>
+				<th>가격</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${basketList}" var="basket">
 				<tr>
+					<td><input type="checkbox" name="chk" onclick="calCart()"
+						value="${basket.goods_num}" checked /> <input type="hidden"
+						name="prd_sum" value="${basket.basket_sum}" /> <input
+						type="hidden" id="member_id" value="${member.member_id}" /></td>
 					<td>${member.member_id}</td>
 					<td><a
 						href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>
-					    ${basket.goods_num} </a></td>
-					<td>${basket.basket_sum}</td>
+							${basket.goods_num} </a></td>
+
 					<td>${basket.basket_amount}</td>
+					<td>${basket.basket_sum}</td>
 				</tr>
+				<c:set var="priceSum" value="${priceSum + basket.basket_sum}" />
 			</c:forEach>
 		</tbody>
 	</table>
 
+	<table>
 
+		<tr align="center">
+			<td colspan="2"><h2 id="prd_sum">
+					<fmt:formatNumber value="${priceSum}" pattern="#,###" />
+				</h2></td>
+		</tr>
+		<tr align="center">
+			<td colspan="7"><input type="button" id="payCart"
+				onclick="payCart()" value="결제하기" /> <input type="hidden"
+				name="hiddenbtn" id="hiddenbtn" value="cartpage" /></td>
+		</tr>
+
+	</table>
 	<div>
-		<h2>주문 상세 내역</h2>
-		<div>
-			<button>
-				<a href="/">취소</a>
-			</button>
-			<button>
-				<a href="/goodspay">구매</a>
-			</button>
-		</div>
+		<button>
+			<a href="/">취소</a>
+		</button>
 	</div>
 	<script>
-	$('#buybasket').click(function(){		
-		//아임포트 카카오페이 결제 시작
-	var IMP = window.IMP; 
-	IMP.init('imp42522200'); 
-	IMP.request_pay({
-		pg : "kakaopay", 
-	    pay_method : 'card',
-	    merchant_uid : 'merchant_' + new Date().getTime(),
-	    name : '${map.basket_type }',
-	    amount : '${map.basket_sum }',
-	    buyer_email : '${member.member_email}',
-	    buyer_name : '${member.member_name}',
-	    buyer_tel : '${member.member_phone}',
-	}, function(rsp) {
-	    if ( rsp.success ) {
-	        var msg = '예매가 완료되었습니다.';
-	        $.ajax({
-	        	  type: "POST",
-	        	  url: "basketPayment",
-	        	  data: $('#form1').serialize(),
-	        	  success: function(response) {
-	        	    console.log(response);
-	        	    swal("", msg, "success").then(()=>{
-	        	    location.href="main";
-	        	    });
-	        	  },
-	        	  error: function(xhr, textStatus, errorThrown) {
-	        	    console.log(xhr.responseText);
-	        	  }
-	        	});
-	    } else {
-	        var msg = '결제에 실패하였습니다.';
-	        rsp.error_msg;
-	        
-	    }
-		});
-	});
-	</script>
+		$(document)
+				.ready(
+						function() { // 최상단 체크박스 클릭
+							$("#checkAll").click(
+									function() { // 클릭
+										if ($("#checkAll").prop("checked")) { // input tag name="chk" checked=true
+											$("input[name=chk]").prop(
+													"checked", true);
+										} else {
+											$("input[name=chk]").prop(
+													"checked", false);
+										}
+									})
 
+							$("input[name=chk]")
+									.click(
+											function() {
+												if ($("input[name=chk]").length == $("input[name=chk]:checkbox:checked").length) {
+													$("#checkAll").prop(
+															"checked", true);
+												} else {
+													$("#checkAll").prop(
+															"checked", false);
+												}
+											})
+						})
+
+		function payCart() {
+			var member_id = $("#member_id").val();
+			var hiddenbtn = $("#hiddenbtn").val();
+			if ($("input[name=chk]:checkbox:checked").length == 0) {
+				swal("", "결제할 상품을 선택해주세요.", "warning");
+			} else {
+				$.ajax({
+					type : "post",
+					url : 'goodsPayment',
+					data : {
+						"goods_name" : '${goods.goods_name}',
+						"order_amount" : '${priceSum + basket.basket_sum}',
+						"order_sum" : '${basket.basket_sum}' + '외',
+						"member_id" : '${member.member_id}',
+						"goods_num" : '${goods.goods_num}'
+					},
+					success : function(data) {
+						location.href = "goodsPayment";
+					}
+				});
+			}
+		}
+		function calCart() {
+			var prd_sum = 0;
+			for (i = 0; i < $("input[name=chk]").length; i++) {
+				if ($("input[name=chk]")[i].checked == true) {
+					prd_sum += parseInt($("input[name=prd_sum]")[i].value);
+				}
+			}
+			document.getElementById("prd_sum").innerHTML = numberWithCommas(prd_sum);
+		}
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+	</script>
 
 
 </body>
