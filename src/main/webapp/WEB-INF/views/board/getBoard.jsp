@@ -21,23 +21,34 @@
 
 	</script>
 </head>
-<div class="board-container">
 <body class="getBoard">
 <div class="getBoard-container">
-<h2 class="writing-header"> ${mode=="new"?"글 작성":"내용"}</h2>
+<h2 class="writing-header"> ${mode=="new"?"글 작성":""}</h2>
 <form action="" id="form" class="frm" method="post">
 
 	<input type="text" name="board_num" value="${board.board_num}" hidden="hidden">
 
 	<c:if test="${mode ne 'new'}">
-	<input class="getBoard" type="text" name="board_title" value="<c:out value='${board.board_title}'/>"  ${mode=="new" ? "" :"readonly='readonly'"} ><br>
-	<textarea class="getBoard" name="board_content" rows="20"  ${mode=="new" ? "" :"readonly='readonly'"}><c:out value="${board.board_content}"/></textarea><br>
+
+	<div class="boardTitle-container">
+		<input class="title" type="text" name="board_title" value="<c:out value='${board.board_title}'/>"  ${mode=="new" ? "" :"readonly='readonly'"} >
+	</div>
+		<div class="writer">
+				<div class="side"><c:out value='${board.member_id}'/></div>
+				<div class="side-fr"><span><fmt:formatDate value="${board.board_regdate}" pattern="HH:mm" type="time"/></span></div>
+				<div class="side-fr"><span><fmt:formatDate value="${board.board_regdate}" pattern="yyyy.MM.dd" type="date"/></span></div>
+				<div class="side-fr"><span>조회수 <b>${board.board_viewcnt}</b></span></div>
+		</div>
+	<textarea class="getBoard" name="board_content" rows="20"  ${mode=="new" ? "" :"readonly='readonly'"}><c:out value="${board.board_content}"/></textarea>
 </c:if>
 <c:if test="${mode eq 'new'}">
-	<input class="getBoard" type="text" name="board_title"  placeholder="제목을 입력해 주세요." ${mode=="new" ? "" :"readonly='readonly'"} ><br>
+	<input class="getBoard" type="text" name="board_title"  placeholder="제목을 입력해 주세요." ${mode=="new" ? "" :"readonly='readonly'"} >
 	<textarea class="getBoard" name="board_content" rows="20" placeholder="내용을 입력해 주세요." ${mode=="new" ? "" :"readonly='readonly'"}></textarea><br>
 </c:if>
-
+<c:if test="${mode eq 'update'}">
+	<input class="getBoard" type="text" name="board_title" value="<c:out value='${board.board_title}'/>">
+	<textarea class="getBoard" name="board_content" rows="20" ><c:out value="${board.board_content}"/></textarea>
+</c:if>
 	<c:if test="${member.member_id eq 'admin'}">
 		<c:if test="${mode eq 'new'}">
 			<button type="button" id="writeBtn" class="btn btn-write"><i class="fa fa-pencil"></i>등록</button>
@@ -48,16 +59,19 @@
 		</c:if>
 	<button type="button" id="removeBtn" class="btn btn-remove"><i class="fa fa-remove"></i>삭제</button>
 	</c:if>
-	<button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i>목록</button>
-<br>
-	<br>
-		<button type="button" id="nextBtn" class="boardBtn"  ${nextPage.board_num ==null?"disabled":""}><i class="fa-solid fa-caret-up"></i>다음글${nextPage.board_num ==null?"이 없습니다":""}</button>
-		<c:out value="${nextPage.board_title }"/>
 
-	<br>
-	<br>
-		<button type="button" id="prevBtn" class="boardBtn"  ${prevPage.board_num ==null?"disabled":""}><i class="fa-solid fa-caret-down"></i>이전글${prevPage.board_num ==null?"이 없습니다":""}</button>
-		<c:out value="${prevPage.board_title }"/>
+	<div class="list-container">
+	<div class="btn-container">
+	<p id="listBtn" class="listBtn">목록으로</p>
+	</div>
+	</div>
+
+	<div class="btn-container">
+		<p>다음글${nextPage.board_num ==null?"이 없습니다":""}<i class="fa-solid fa-caret-up"></i></p><p id="nextBtn" class="btn"><c:out value="${nextPage.board_title }"/></p>
+	</div>
+	<div class="btn-container">
+		<p>이전글${prevPage.board_num ==null?"이 없습니다":""}<i class="fa-solid fa-caret-down"></i></p><p id="prevBtn" class="btn"><c:out value="${prevPage.board_title }"/></p>
+	</div>
 </form>
 
 </div>
@@ -164,5 +178,4 @@
 	});
 </script>
 </body>
-</div>
 </html>
