@@ -13,7 +13,7 @@
 			
 			</resultMap>
 			
-			<!-- rownum은 페이징을 뽑아 낼때 쓰는거 -->
+			<!-- 굿즈몰 상품 뿌려주기(일반인) -->
 	<select id="getGoodsList" resultMap ="goodsinfo">
 		<![CDATA[
 			SELECT * FROM (
@@ -75,6 +75,23 @@
 		]]>
 	</select>
 	
+	
+	<!-- 관리자페이지 굿즈몰 상품 목록 뿌려주기 -->
+	<select id="getAdminGoodsList" resultMap="goodsinfo">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROWNUM AS RN, A.* FROM (
+					SELECT * FROM GOODS_INFO ORDER BY GOODS_NUM
+				) A
+			) WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getAdminCountGoods" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM GOODS_INFO
+		]]>
+	</select>
 	
 	
 </mapper>

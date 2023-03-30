@@ -25,6 +25,7 @@ public class GoodsServiceImpl implements GoodsService{
     }
     //상품정보 삭제
     public void deleteGoods(int goods_num){
+    	System.out.println("impl통과");
     	goodsDAO.deleteGoods(goods_num);
     }
     //상품등록
@@ -49,6 +50,13 @@ public class GoodsServiceImpl implements GoodsService{
 	public int getCountGoods(GoodsVO vo) {
 		return goodsDAO.getCountGoods(vo);
 	}
-   
+    //관리자용
+	public List<GoodsVO> getAdminGoodsList(int start, int end, GoodsVO vo){
+		return goodsDAO.getAdminGoodsList(start, end, vo);
+	}
+	
+	public int getAdminCountGoods(GoodsVO vo) {
+		return goodsDAO.getAdminCountGoods(vo);
+	}
  
 }

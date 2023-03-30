@@ -58,5 +58,20 @@ public class GoodsDAO {
 		public int getCountGoods(GoodsVO vo) {
 			return mybatis.selectOne("GoodsDAO.getCountGoods", vo);
 		}
+		
+		//관리자 품목 리스트
+		public List<GoodsVO> getAdminGoodsList(int start, int end, GoodsVO vo) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("start", start);
+			map.put("end", end);
+			map.put("goods", vo);
+			System.out.println("dao통과");
+			return mybatis.selectList("GoodsDAO.getAdminGoodsList",map);
+			
+		}
+		// 관리자 페이지 리스트 갯수 체크
+				public int getAdminCountGoods(GoodsVO vo) {
+					return mybatis.selectOne("GoodsDAO.getAdminCountGoods", vo);
+				}
 
 }

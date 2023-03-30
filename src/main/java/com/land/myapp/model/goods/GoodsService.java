@@ -19,6 +19,11 @@ public interface GoodsService {
 		List<GoodsVO> getGoodsList(int start, int end, GoodsVO vo);
 		
 		int getCountGoods(GoodsVO vo);
-	   
+		
+	//관리자 물품 관리
+		List<GoodsVO> getAdminGoodsList(int start, int end, GoodsVO vo);
+		
+		int getAdminCountGoods(GoodsVO vo);
+		
 	
 }
