@@ -69,6 +69,7 @@ public class BasketController {
 		vo.setMember_id(member_id);
 		// "Model" 개체 "model" 및 "BasketVO" 개체 "vo"의 두 매개 변수를 사용
 		model.addAttribute("basketList", basketservice.getBasketList(vo));
+		System.out.println("결제됨");
 		// "basketservice" 객체에서 "vo"를 매개변수로 전달하는
 		// "getBasketList" 메서드를 호출하여 사용자의 장바구니에 있는 항목 목록을 반환
 		System.out.print("데이터 전송 됨");
