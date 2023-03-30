@@ -6,8 +6,15 @@ public class BasketVO {// 장바구니
 	private int goods_num;
 	private int basket_sum;
 	private int basket_amount;
+	private String goods_name;
 	
 	
+	public String getGoods_name() {
+		return goods_name;
+	}
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
 	public String getMember_id() {
 		return member_id;
 	}
@@ -35,8 +42,9 @@ public class BasketVO {// 장바구니
 	@Override
 	public String toString() {
 		return "BasketVO [member_id=" + member_id + ", goods_num=" + goods_num + ", basket_sum=" + basket_sum
-				+ ", basket_amount=" + basket_amount + "]";
+				+ ", basket_amount=" + basket_amount + ", goods_name=" + goods_name + "]";
 	}
+	
 	
 	
 }

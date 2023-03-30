@@ -28,7 +28,8 @@
 			WHEN MATCHED THEN
 			UPDATE SET BASKET_AMOUNT = BASKET_AMOUNT + #{basket_amount}, BASKET_SUM = BASKET_SUM + #{basket_sum}
 			WHEN NOT MATCHED THEN
-			INSERT (MEMBER_ID, GOODS_NUM, BASKET_SUM, BASKET_AMOUNT) VALUES (#{member_id}, #{goods_num}, #{basket_sum}, #{basket_amount})
+			INSERT (MEMBER_ID, GOODS_NUM, BASKET_SUM, BASKET_AMOUNT, GOODS_NAME)
+			 VALUES (#{member_id}, #{goods_num}, #{basket_sum}, #{basket_amount}, #{goods_name})
 		]]>
 		<!-- insert 문은 Oracle 관련 MERGE INTO 구문을 사용하여 "BASKET" 테이블에 행을 삽입하거나 업데이트 -->
 		<!-- USING 절은 MERGE 문의 구문이 올바른지 확인하는 데 사용되는 더미 테이블 "DUAL"을 지정 -->

@@ -30,6 +30,7 @@
 					<input type="hidden" name="goods_image" id="goods_image" value="${goods.goods_image}" />
 					<input type="hidden" name="member_id" id="member_id" value="${member.member_id}" />
 					<input type="hidden" name="goods_num" id="goods_num" value="${goods.goods_num}" />
+					<input type="hidden" name="goods_name" id="goods_names" value="${goods.goods_name}" />
 					
 					<p align="left">
 						<input type="button" name="buy" id="buy" onclick="buyGoods()"  value="구매하기" />&nbsp;&nbsp;&nbsp;
@@ -83,7 +84,7 @@ function buyGoods(){
 			"order_amount" : basket_amount,
 			"order_sum" : basket_sum,
 			"member_id" : '${member.member_id}',
-			"goods_num" : '${goods.goods_num}'
+			"goods_num" : '${goods.goods_num}',
 			}, success : function(data){
 				location.href = "goodsPayment";
 			}
