@@ -29,15 +29,21 @@
 	</delete>
 	
 	<!-- 예매내역조회 -->
-	<select id ="getOrderTicketList" parameterType="String" resultMap="ticket">
+	<select id ="getOrderTicketList" resultMap="ticket">
 		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM rn, A.* FROM(
 		SELECT b.MEMBER_NAME, TICKET_DATE, TICKET_EMAIL, TICKET_PHONE, TICKET_NUM, TICKET_TYPE, TICKET_AMOUNT, TICKET_SUM
-		FROM ORDER_TICKET a, MEMBER b WHERE a.MEMBER_ID = b.MEMBER_ID AND b.MEMBER_ID = #{member_id}
+		FROM ORDER_TICKET a, MEMBER b WHERE a.MEMBER_ID = b.MEMBER_ID AND b.MEMBER_ID = #{member_id,jdbcType=VARCHAR} ORDER BY TICKET_DATE DESC
+			) A
+		) WHERE rn BETWEEN ${start} AND ${end}
 		]]>
 	</select>
 	
 	<!-- 예매 갯수 -->
-	<select id="getCountOrderTicket" parameterType="String" resultType="java.lang.Integer">
+	<select id="getCountOrderTicket" resultType="java.lang.Integer">
+		<![CDATA[
 		SELECT COUNT(*) FROM ORDER_TICKET WHERE MEMBER_ID = #{member_id}
+		]]>
 	</select>
 </mapper>

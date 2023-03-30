@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
+import com.land.myapp.model.ticket.TicketVO;
 
 @Service("orderTicketService")
 public class OrderTicketServiceImpl implements OrderTicketService{
@@ -41,8 +42,13 @@ public class OrderTicketServiceImpl implements OrderTicketService{
 	}
 	
 	//티켓 조회
-	public List<OrderTicketVO> getOrderTicketList(String member_id) {
-		return orderTicketDAO.getOrderTicketList(member_id);
+	public List<OrderTicketVO> getOrderTicketList(String member_id, int start, int end) {
+		return orderTicketDAO.getOrderTicketList(member_id,start,end);
+	}
+	
+	//티켓 수량
+	public int getCountOrderTicket(String member_id) {
+		return orderTicketDAO.getCountOrderTicket(member_id);
 	}
 	
 }

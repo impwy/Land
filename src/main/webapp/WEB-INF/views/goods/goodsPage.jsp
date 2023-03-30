@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -32,7 +32,7 @@
 					<input type="hidden" name="goods_num" id="goods_num" value="${goods.goods_num}" />
 					
 					<p align="left">
-						<input type="button" name="buy" id="buy"  value="구매하기" />&nbsp;&nbsp;&nbsp;
+						<input type="button" name="buy" id="buy" onclick="buyGoods()"  value="구매하기" />&nbsp;&nbsp;&nbsp;
 						<input type="button" name="cart" id="cart" onclick="insertCart()" value="장바구니" />
 						<input type="hidden" name="hiddenbtn" id="hiddenbtn" value="prdpage" />
 					</p>
@@ -53,7 +53,7 @@
 			</table>
 		</div>
 <script type="text/javascript" src="resources/js/cart.js" charset="UTF-8"></script>
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <script>
 		//수량이 늘어날 때 마다 가격을 늘려준다.
 $(document).ready(function() {
@@ -66,52 +66,33 @@ $(document).ready(function() {
 	    basketSumInput.val(basketAmount);
 	  });
 });
-
-$('#buy').click(function(){		
-	//아임포트 카카오페이 결제 시작
-var IMP = window.IMP; 
-var amount = parseInt($("#basket_sum").val());
-var order_amount = parseInt($("#basket_amount").val());
-
-IMP.init('imp42522200'); 
-IMP.request_pay({
-	pg : "kakaopay",  //pg사
-    pay_method : 'card', //결제방법
-    merchant_uid : 'merchant_' + new Date().getTime(), //결제날짜
-    name : '${goods.goods_name}', //품목이름
-    amount : amount, //가격
-    buyer_email : '${member.member_email}', //이메일
-    buyer_name : '${member.member_name}', //이름
-    buyer_tel : '${member.member_phone}', //전화번호
-    buyer_addr : '${member.member_addr}', //주소
-}, function(rsp) {
-    if ( rsp.success ) { //성공시
-    	var amount = parseInt($("#basket_sum").val());
-    	var order_amount = parseInt($("#basket_amount").val());
-        var msg = '결제가 완료되었습니다.';
-      	$.ajax({
-      		type : "post",
-			url : "payment",
+		
+function buyGoods(){
+	var basket_amount = parseInt($("#basket_amount").val());
+	var basket_sum = $("#basket_sum").val();
+	if(basket_amount === 0 ){
+		swal("","수량을 선택해 주세요","error");
+	}else{
+		confirm("주문 하시겠습니까?");
+		if(confirm){
+		$.ajax({
+			type : "post",
+			url : 'goodsPayment',
 			data : {
-				"member_id" : '${member.member_id}',
-				"goods_num" : '${goods.goods_num}',
-				"member_addr": '${member.member_addr}',
-				"member_phone" : '${member.member_phone}',
-				"order_sum":amount,
-				"order_amount" : order_amount
-			},
-			success : function(data) {
-				 swal("", msg, "success");
+			"goods_name" : '${goods.goods_name}',
+			"order_amount" : basket_amount,
+			"order_sum" : basket_sum,
+			"member_id" : '${member.member_id}',
+			"goods_num" : '${goods.goods_num}'
+			}, success : function(data){
+				location.href = "goodsPayment";
 			}
-      	});
-    } else {
-        var msg = '결제에 실패하였습니다.';
-        rsp.error_msg;
-    }
-});
-});
-
-
+		});
+		}else{
+			swal("","취소하셨습니다.","warnimg");
+		}
+	}
+}
 </script>
 <%@ include file="../include/footer.jsp"%>
 </body>

@@ -3,16 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="BasketDAO">
+	<!-- 코드 스니펫은 네임스페이스가 "BasketDAO"인 MyBatis 매퍼에 대한 XML 구성 -->
 	<resultMap type="basket" id="basketResult">
+		<!-- id "basketResult"로 정의된 resultMap은 쿼리 결과를 코드 조각에 표시되지 않는 "basket" 유형의 
+			Java 개체에 매핑 -->
 		<id property="member_id" column="MEMBER_ID"></id>
+		<!-- "id" 태그는 "MEMBER_ID" 열을 "basket" 개체의 "member_id" 속성에 매핑 -->
 		<result property="goods_num" column="GOODS_NUM"></result>
+		<!-- "result" 태그는 "GOODS_NUM" 열을 "goods_num" 속성에, -->
 		<result property="basket_sum" column="BASKET_SUM"></result>
+		<!-- "BASKET_SUM" 열을 "basket_sum" 속성에, -->
 		<result property="basket_amount" column="BASKET_AMOUNT"></result>
+		<!-- "BASKET_AMOUNT" 열을 "basket_sum" 속성에 매핑합니다. -->
 	</resultMap>
 
-	
+
 	<!-- 장바구니추가 -->
 	<insert id="insertBasket">
+		<!-- "insertBasket"인 MyBatis의 SQL 삽입 문에 대한 XML 구성 -->
 		<![CDATA[
 			MERGE INTO BASKET
 			USING DUAL ON (MEMBER_ID=#{member_id} AND GOODS_NUM=#{goods_num})
@@ -21,17 +29,59 @@
 			WHEN NOT MATCHED THEN
 			INSERT (MEMBER_ID, GOODS_NUM, BASKET_SUM, BASKET_AMOUNT) VALUES (#{member_id}, #{goods_num}, #{basket_sum}, #{basket_amount})
 		]]>
+		<!-- insert 문은 Oracle 관련 MERGE INTO 구문을 사용하여 "BASKET" 테이블에 행을 삽입하거나 업데이트 -->
+		<!-- USING 절은 MERGE 문의 구문이 올바른지 확인하는 데 사용되는 더미 테이블 "DUAL"을 지정 -->
+		<!-- ON 절은 일치해야 하는 조건을 지정 -->
+		<!-- "MEMBER_ID" 및 "GOODS_NUM" 열이 각각 "member_id" 및 "goods_num" 매개변수의 값과 
+			동일한 행과 일치 -->
+		<!-- WHEN MATCHED 절은 일치 항목을 찾았을 때 수행할 작업을 지정 -->
+		<!-- "basket_amount" 및 "basket_sum" 매개변수의 값을 현재 값에 추가하여 "BASKET_AMOUNT" 
+			및 "BASKET_SUM" 열을 업데이트 -->
+		<!-- WHEN NOT MATCHED 절은 일치 항목이 없을 때 수행할 작업을 지정 -->
+		<!-- "member_id", "goods_num", "basket_sum" 및 "basket_amount" 매개변수 값을 사용하여 
+			"BASKET" 테이블에 새 행을 삽입 -->
+		<!-- 매개변수 값은 #{} 표기법으로 표시되는 MyBatis 매개변수 대체 구문을 사용하여 지정 -->
 	</insert>
+
+
+
 	<!-- 장바구니 삭제 -->
 	<delete id="deleteCart">
-		<![CDATA[
-			DELETE BASKET WHERE MEMBER_ID=#{member_id} AND GOODS_NUM=#{goods_num}
-		]]>
+		<!-- ID가 "deleteCart"인 MyBatis의 SQL 삭제 문에 대한 XML 구성 -->
+		DELETE FROM BASKET where GOODS_NUM=#{goods_num} AND MEMBER_ID=#{member_id}
+		<!-- 삭제 문은 "GOODS_NUM" 열이 "goods_num" 매개변수의 값과 동일한 "BASKET" 테이블에서 행을 삭제 -->
+		<!-- #{} 표기법으로 표시되는 MyBatis 매개변수 대체 구문을 사용하여 지정 -->
 	</delete>
+
+
+
 	<!-- 장바구니 리스트 -->
 	<select id="basketList" resultMap="basketResult">
+		<!-- id가 "basketList"인 MyBatis의 SQL select 문에 대한 XML 구성 -->
+		<!-- select 문은 "BASKET" 테이블에서 모든 열을 선택 -->
+		<!-- "resultMap" 속성은 이 쿼리의 결과를 Java 객체에 매핑하는 데 사용해야 하는 결과 맵의 이름을 지정 -->
 	<![CDATA[
-		SELECT * FROM BASKET
+		SELECT * FROM BASKET WHERE MEMBER_ID = #{member_id, jdbcType=VARCHAR}
 	]]>
+		<!-- SQL 문은 CDATA 섹션에 내장되어 있으며, 이는 포함된 텍스트를 순수 문자 데이터로 처리하고 XML로 구문 분석하지 
+			않아야 함을 나타내는 데 사용 -->
 	</select>
+	<!-- 이 구성은 MyBatis를 사용하여 "BASKET" 테이블에서 모든 행을 선택하기 위한 SQL 문을 정의 -->
+	<!-- 이 쿼리의 결과는 "resultMap" 속성에 지정된 결과 맵을 사용하여 Java 객체에 매핑 -->
+
+
+	<!-- 장바구니 상세보기 -->
+	<select id="getbasketList" resultMap="basketResult">
+		<!-- ID가 "getbasketList"인 MyBatis SQL select 문에 대한 XML 구성 -->
+		<!-- SQL 문은 CDATA 섹션에 내장되어 있으며, 이는 포함된 텍스트를 순수 문자 데이터로 처리하고 XML로 구문 분석하지 
+			않아야 함을 나타내는 데 사용 -->
+	<![CDATA[
+		SELECT * FROM BASKET where GOODS_NUM=#{goods_num} AND MEMBER_ID=#{member_id}
+	]]>
+		<!-- select 문은 "GOODS_NUM" 열의 값이 "goods_num" 매개변수의 값과 같은 "BASKET" 테이블에서 
+			모든 열을 선택 -->
+		<!-- "resultMap" 속성은 select 문의 결과가 "basketResult" 결과 맵에 매핑되어야 함을 지정 -->
+	</select>
+	
+	
 </mapper>

@@ -1,9 +1,7 @@
 package com.land.myapp.view.board;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,12 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.land.myapp.model.board.BoardService;
 import com.land.myapp.model.board.BoardVO;
 import com.land.myapp.model.board.PageHandler;
+import com.land.myapp.model.board.SearchCondition;
 import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
 
@@ -34,7 +34,7 @@ public class BoardController {
 
     //글 읽기
     @GetMapping("/insertBoard")
-    public String insertBoardGo(Model m,Integer page, Integer pageSize)throws IOException {
+    public String insertBoardGo( Model m,Integer page, Integer pageSize)throws IOException {
         m.addAttribute("mode","new");
         m.addAttribute("page",page);
         m.addAttribute("pageSize",pageSize);
@@ -42,7 +42,7 @@ public class BoardController {
     }
     //글 쓰기
     @PostMapping("/insertBoard")
-    public String insertBoard(BoardVO vo,MemberVO mvo,Model m,HttpSession session,RedirectAttributes rattr) {
+    public String insertBoard(BoardVO vo,Model m,HttpSession session,RedirectAttributes rattr) {
         //멤버컨트롤러에서 로그인정보를 member 객체에 저장. 그 객체를 가져오고
         //아이디를 뽑아온다.
         MemberVO member=(MemberVO) session.getAttribute("member");
@@ -65,12 +65,13 @@ public class BoardController {
         }
     	}
 
-        //궁성 수정
+        //글 수정
         @PostMapping("/updateBoard")
         public String updateBoard(BoardVO vo,MemberVO mvo,Model m,Integer page, Integer pageSize,HttpSession session,RedirectAttributes rattr) {
             //멤버컨트롤러에서 로그인정보를 member 객체에 저장. 그 객체를 가져오고
-            //아이디를 뽑아온다.
             mvo=(MemberVO) session.getAttribute("member");
+            //아이디를 뽑아온다.
+            m.addAttribute("mode","update");
             String member_id=mvo.getMember_id();
             vo.setMember_id(member_id);
 
@@ -125,17 +126,44 @@ public class BoardController {
     }
     //글 상세보기 ( 원본)
     @GetMapping("/getBoard")
-    public String getBoard(BoardVO vo, Model model,Integer page,Integer pageSize,RedirectAttributes rattr) {
+    public String getBoard(@RequestParam ("board_num")int board_num, Model model,Integer page,Integer pageSize,RedirectAttributes rattr,SearchCondition sc) {
         try {
-            model.addAttribute("board", boardService.getBoard(vo));
+            model.addAttribute("board", boardService.getBoard(board_num));
+            model.addAttribute("prevPage",boardService.prevPage(board_num));
+            model.addAttribute("nextPage",boardService.nextPage(board_num));
             model.addAttribute("page",page);
             model.addAttribute("pageSize",pageSize);
+            model.addAttribute("sc",sc);
         } catch (Exception e) {
             e.printStackTrace();
             rattr.addFlashAttribute("page",page);
             rattr.addFlashAttribute("pageSize",pageSize);
             rattr.addFlashAttribute("msg","WRITE_ERR");
             return "redirect:/page";
+        }
+        return "board/getBoard";
+    }
+
+    //이전글
+    @GetMapping("/prevPage")
+    public String getPrevPage(Model m,Integer page, Integer pageSize,int prevPage){
+        try {
+            m.addAttribute("page",page);
+            m.addAttribute("pageSize",pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "board/getBoard";
+    }
+
+    //다음글
+    @GetMapping("/nextPage")
+    public String getNextPage(Model m,Integer page, Integer pageSize,int nextPage){
+        try {
+            m.addAttribute("page",page);
+            m.addAttribute("pageSize",pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return "board/getBoard";
     }
@@ -159,26 +187,22 @@ public class BoardController {
     }
     //글 페이징
     @GetMapping("/page")
-    public String getBoardPage(Integer page, Integer pageSize, Model model){
-
-        if(page==null)page=1;
-        if(pageSize==null)pageSize=10;
-
+    public String getBoardPage(SearchCondition sc, Model m){
         try {
-            int totalCnt=boardService.getCount();
-            PageHandler pageHandler=new PageHandler(totalCnt,page, pageSize);
+            int totalCnt=boardService.getSearchResultCnt(sc);
+            m.addAttribute("totalCnt", totalCnt);
+            PageHandler pageHandler=new PageHandler(totalCnt,sc);
 
-            Map map=new HashMap();
-            map.put("start",((page-1)*pageSize)+1);
-            map.put("end",(pageSize*page));
 
-            List<BoardVO> list=boardService.getBoardPage(map);
-            model.addAttribute("boardList",list);
-            model.addAttribute("ph",pageHandler);
-            model.addAttribute("page",page);
-            model.addAttribute("pageSize",pageSize);
+
+            List<BoardVO> list=boardService.getSearchResultPage(sc);
+            m.addAttribute("boardList",list);
+            m.addAttribute("ph",pageHandler);
+
         } catch (Exception e) {
             e.printStackTrace();
+            m.addAttribute("msg","LIST_ERR");
+            m.addAttribute("totalCnt",0);
         }
         return "board/getBoardList";
 }

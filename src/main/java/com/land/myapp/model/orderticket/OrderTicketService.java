@@ -9,5 +9,7 @@ public interface OrderTicketService {
 	//예매 취소
 	void deleteOrderTicket(String ticket_num);
 	//티켓 조회
-	List<OrderTicketVO> getOrderTicketList(String member_id);
+	List<OrderTicketVO> getOrderTicketList(String member_id,int start, int end);
+	//주문 수
+	int getCountOrderTicket(String member_id);
 }

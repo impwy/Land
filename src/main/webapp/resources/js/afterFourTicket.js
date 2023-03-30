@@ -1,19 +1,19 @@
 
 $(document).ready(function() {
-	  // Get references to the input elements
+	  
 	  var adultInput = $("#adult-amount");
 	  var teenInput = $("#teen-amount");
 	  var babyInput = $("#baby-amount");
 	  var totalInput = $("#total");
 	  var amountInput = $("#amount");
-	  // Attach a change event listener to each input element
+	//input값이 바뀔 때마다 값이 바뀐다.
 	  adultInput.change(updateTotal);
 	  teenInput.change(updateTotal);
 	  babyInput.change(updateTotal);
 	  
 	  $("button").click(updateAmount);
 	  
-	  // Define the updateTotal function
+	//input값이 올라갈 때마다 totalValue증가
 	  function updateTotal() {
 		var adultValue = parseInt(adultInput.val());
 		var teenValue = parseInt(teenInput.val());

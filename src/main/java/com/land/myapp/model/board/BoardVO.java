@@ -18,7 +18,11 @@ public class BoardVO {
 	private String board_commentcnt;
 	// 등록일
 	private Date board_regdate;
-	
+	// 이전글
+	private Integer prevPage;
+	//다음글
+	private Integer nextPage;
+
 	public BoardVO() {}
 	
 	public BoardVO(String board_title, String board_content, String member_id) {
@@ -84,6 +88,22 @@ public class BoardVO {
 		this.board_regdate = board_regdate;
 	}
 
+	public int getPrevPage() {
+		return prevPage;
+	}
+
+	public void setPrevPage(int prevPage) {
+		this.prevPage = prevPage;
+	}
+
+	public int getNextPage() {
+		return nextPage;
+	}
+
+	public void setNextPage(int nextPage) {
+		this.nextPage = nextPage;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO{" +
@@ -94,6 +114,8 @@ public class BoardVO {
 				", board_viewcnt='" + board_viewcnt + '\'' +
 				", board_commentcnt='" + board_commentcnt + '\'' +
 				", board_regdate=" + board_regdate +
+				", prevPage=" + prevPage +
+				", nextPage=" + nextPage +
 				'}';
 	}
 }

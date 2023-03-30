@@ -16,5 +16,7 @@ public class GoodsPaymentServiceImpl implements GoodsPaymentService {
 	public void insertGoodsPayment(GoodsPaymentVO vo) {
 		goodsPaymentDAO.insertGoodsPayment(vo);
 	}
+	
+	
 
 }

@@ -2,7 +2,6 @@
 
 body.board {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
     font-family: "Noto Sans KR", sans-serif;
     margin-top: 250px;
@@ -16,6 +15,58 @@ a.board {
     text-decoration: none;
     color: black;
 }
+.search-container {
+    background-color: rgb(253, 253, 250);
+    width: 100%;
+    height: 110px;
+    border: 1px solid #ddd;
+    margin-top : 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-form {
+    height: 37px;
+    display: flex;
+}
+.search-option {
+    width: 100px;
+    height: 100%;
+    outline: none;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    color: gray;
+}
+.search-option > option {
+    text-align: center;
+}
+.search-input {
+    color: gray;
+    background-color: white;
+    border: 1px solid #ccc;
+    height: 100%;
+    width: 300px;
+    font-size: 15px;
+    padding: 5px 7px;
+}
+.search-input::placeholder {
+    color: gray;
+}
+.search-button {
+    /* 메뉴바의 검색 버튼 아이콘  */
+    width: 20%;
+    height: 100%;
+    background-color: rgb(22, 22, 22);
+    color: rgb(209, 209, 209);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+.search-button:hover {
+    color: rgb(165, 165, 165);
+}
 button,
 input {
     border: none;
@@ -23,11 +74,9 @@ input {
 }
 table.board {
     border-collapse: collapse;
-    width: 100%;
     border-top: 2px solid rgb(39, 39, 39);
 }
-table.board >th,
-td {
+table.board >th, td {
     width:300px;
     text-align: center;
     padding: 10px 12px;
@@ -44,8 +93,8 @@ table.board>tr:nth-child(even) {
 .title   { width:50%;  }
 
 .board-container {
-    width: 60%;
-    height: 1200px;
+    width: 70%;
+    height: 800px;
     margin: 0 auto;
     /* border: 1px solid black; */
 }

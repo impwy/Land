@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+	<!-- trimDirectiveWhitesapces : include 사이 간격 없앰. -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,8 +11,7 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/f84cdf215e.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f84cdf215e.js"	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="resources/css/main.css" />
 <title>Document</title>
 </head>
@@ -101,30 +101,30 @@
 		<div class="attraction-container">
 			<div class="attraction-top">
 				<div class="attraction-item">
-					<a href=""> <img src="resources/img/main/a.jpg">
-						<div class="attraction-context">롤러코스터</div></a>
+					<a href=""> <img src="resources/img/enjoy/attraction/images/B-dragon.jpeg">
+						<div class="attraction-context">비룡열차</div></a>
 				</div>
 				<div class="attraction-item">
-					<a href=""> <img src="resources/img/main/a.jpg">
+					<a href=""> <img src="resources/img/enjoy/attraction/images/T-exp.jpeg">
 						<div class="attraction-context">티익스프레스</div></a>
 				</div>
 				<div class="attraction-item">
-					<a href=""> <img src="resources/img/main/a.jpg">
-						<div class="attraction-context">회전목마</div></a>
+					<a href=""> <img src="resources/img/enjoy/attraction/images/double-rockspin.jpeg">
+						<div class="attraction-context">더블락스핀</div></a>
 				</div>
 			</div>
 			<div class="attraction-bottom">
 				<div class="attraction-item">
-					<a href=""> <img src="resources/img/main/a.jpg">
-						<div class="attraction-context">자이로드롭</div></a>
+					<a href=""> <img src="resources/img/enjoy/attraction/images/amazone-express.jpeg">
+						<div class="attraction-context">아마존익스프레스</div></a>
 				</div>
 				<div class="attraction-item">
-					<a href=""> <img src="resources/img/main/a.jpg">
+					<a href=""> <img src="resources/img/enjoy/attraction/images/bumpercar.jpeg">
 						<div class="attraction-context">범퍼카</div></a>
 				</div>
 				<div class="attraction-item">
-					<a href=""> <img src="resources/img/main/a.jpg">
-						<div class="attraction-context">혜성특급</div></a>
+					<a href=""> <img src="resources/img/enjoy/attraction/images/safari.jpeg">
+						<div class="attraction-context">사파리월드</div></a>
 				</div>
 			</div>
 			<div class="attraction-btn">

@@ -8,7 +8,7 @@ import com.land.myapp.model.goods_payment.GoodsPaymentService;
 import com.land.myapp.model.goods_payment.GoodsPaymentVO;
 
 @Repository
-public class GoodsPaymentDAO implements GoodsPaymentService {
+public class GoodsPaymentDAO {
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
@@ -16,4 +16,5 @@ public class GoodsPaymentDAO implements GoodsPaymentService {
 	public void insertGoodsPayment(GoodsPaymentVO vo) {
 		mybatis.insert("GoodsPaymentDAO.insertGoodsPayment",vo);
 	}
+	
 }

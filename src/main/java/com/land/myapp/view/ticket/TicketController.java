@@ -1,5 +1,6 @@
 package com.land.myapp.view.ticket;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,10 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.mvc.method.annotation.ViewMethodReturnValueHandler;
-import org.springframework.web.servlet.mvc.method.annotation.ViewNameMethodReturnValueHandler;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.land.myapp.Pager;
 import com.land.myapp.model.member.vo.MemberVO;
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
@@ -27,7 +27,7 @@ public class TicketController {
 	@RequestMapping(value="/ticketPayment",method=RequestMethod.POST)
 	public String insertTicket(OrderTicketVO vo) {
 		orderTicketService.insertOrderTicket(vo);
-		return "redirect:/success"; 
+		return "main"; 
 	}
 	
 	//예매 취소
@@ -46,6 +46,7 @@ public class TicketController {
 		//티켓주문으로 이동
 		@RequestMapping(value="/order", method=RequestMethod.POST)
 		public String orderTicket(OrderTicketVO vo,HttpSession session) {
+			System.out.println(vo);
 			session.setAttribute("map", vo);
 			return "/ticket/ticketPayment";
 		}
@@ -64,10 +65,22 @@ public class TicketController {
 	
 	//예매내역 조회
 	@RequestMapping(value="/ticketList", method=RequestMethod.GET)
-	public String getTicketList(OrderTicketVO vo, HttpSession session) {
-		MemberVO member = (MemberVO) session.getAttribute("member");
-		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member.getMember_id());
-		session.setAttribute("list", list);
+	public String getTicketList(OrderTicketVO vo, 
+			HttpSession session,
+			@RequestParam(defaultValue="1") int curPage) {
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String member_id = member.getMember_id();
+		int count = orderTicketService.getCountOrderTicket(member_id);
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member_id,start,end);
+		System.out.println(list);
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("pager", pager);
+		session.setAttribute("map", map);
 		return "ticket/ticketList";
 	}
 }
