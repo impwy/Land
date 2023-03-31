@@ -92,7 +92,7 @@ public class MemberController {
 
 	// 멤버 삭제
 	@PostMapping("/deleteMember")
-	public String deleteMember(Integer member_no, RedirectAttributes rattr , String hidden) {
+	public String deleteMember(Integer member_no, RedirectAttributes rattr , String date) {
 		try {
 			int rowCnt = memberService.deleteMember(member_no);
 
@@ -102,7 +102,7 @@ public class MemberController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			if(hidden == "member_hidden"){
+			if(date == "member_date"){
 				return "redirect:/main";
 			}
 			else {
@@ -160,10 +160,10 @@ public class MemberController {
 	 memberService.dropMember(member_id);
 	 return "redirect:/main";
 	}*/
-	@RequestMapping(value="deleteMember2", method = RequestMethod.GET)
+	/*@RequestMapping(value="deleteMember2", method = RequestMethod.GET)
 	public String dropMember() {
 		return "mypage/delete";
-	}
+	}*/
 /*	@RequestMapping(value="deleteMember2", method = RequestMethod.POST)
 	public String dropMember(MemberVO vo, HttpSession session, RedirectAttributes rttr) {
 		

@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <style>
     #ticket-list {
       max-width: 800px;
@@ -71,8 +73,25 @@
 			<td>${row.ticket_type}</td>
 			<td>${row.ticket_amount}</td>
 			<td>${row.ticket_sum}</td>
-			<td><a href="deleteTicket?ticket_num=${row.ticket_num }">취소</a></td>
+			<td><a onclick="cancelTicket('${row.ticket_num}')">취소</a></td>
 		</tr>
+		<script>
+		function cancelTicket(ticketNum) {
+			
+			  $.ajax({
+			    url: "deleteTicket",
+			    type: "GET",
+			    data: { "ticket_num": ticketNum },
+			    success: function(result) {
+			     alert("삭제되었습니다.");
+			     location.href = "ticketList";
+			    },
+			    error: function(jqXHR, textStatus, errorThrown) {
+			      // Display an error message or handle the error
+			    }
+			  });
+			}
+		</script>
 		</c:forEach>
 		</c:when>
 		<c:otherwise>
@@ -82,7 +101,7 @@
 		
 		<c:if test="${(fn:length(map)) ne 0}">
 			<tr>
-				<td colspan="4" align="center">
+				<td colspan="9" align="center">
 					<c:if test="${map.pager.curBlock > 1}">
 						<a href="ticketList">[처음]</a>
 					</c:if> 

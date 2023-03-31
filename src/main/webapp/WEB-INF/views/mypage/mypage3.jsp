@@ -40,7 +40,8 @@
 					<td colspan="2" align="center">
 					<input type="submit" value="수정하기">
 				<!-- <button onClick="location.href='delete?member_id=${member.member_id}'">탈퇴하기</button> -->
-					<input type="button" value="탈퇴하기" onClick="location.href='deleteMember2'">	
+					<!-- <input type="button" value="탈퇴하기" onClick="location.href='deleteMember2'"> -->
+					<input type="hidden" name="date" value="member_date" />	
 				</table>
 		</form>
 	</div>

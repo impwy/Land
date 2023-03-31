@@ -46,7 +46,6 @@ public class TicketController {
 		//티켓주문으로 이동
 		@RequestMapping(value="/order", method=RequestMethod.POST)
 		public String orderTicket(OrderTicketVO vo,HttpSession session) {
-			System.out.println(vo);
 			session.setAttribute("map", vo);
 			return "/ticket/ticketPayment";
 		}
@@ -75,7 +74,6 @@ public class TicketController {
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member_id,start,end);
-		System.out.println(list);
 		HashMap<String, Object> map = new HashMap<String,Object>();
 		map.put("list", list);
 		map.put("count", count);
