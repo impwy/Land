@@ -6,6 +6,8 @@ import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -13,8 +15,13 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
-	
-	
+
+	@Override
+	public List<GoodsPaymentVO> getGoodsPaymentList(GoodsPaymentVO vo, int start, int end) {
+
+		return memberDAO.getGoodsPaymentList(vo,start,end);
+	}
+
 	public void setMemberDao(MemberDAO memberDao) {
 		this.memberDAO = memberDao;
 	}

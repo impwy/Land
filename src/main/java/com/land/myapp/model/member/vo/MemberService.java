@@ -43,4 +43,6 @@ public interface MemberService {
 	void dropMember(MemberVO vo);
 
 	void insertGoodsPayment(GoodsPaymentVO vo);
+
+	public List<GoodsPaymentVO> getGoodsPaymentList(GoodsPaymentVO vo,int start,int end);
 }

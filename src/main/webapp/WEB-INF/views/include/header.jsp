@@ -20,7 +20,7 @@
 
 	<c:if test="${empty member }"> <!-- 멤버가아닐경우뜨는 페이지 -->
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
-		<a id="ticketing"><i class="fa-solid fa-ticket fa-beat"></i></i></a>		
+		<a id="ticketing"><i class="fa-solid fa-ticket fa-beat"></i></a>
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
 		<input type="hidden" id="member_id" value="${member.member_id}"/>
 	</c:if>
@@ -37,7 +37,7 @@
 		
 		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
 		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
-		<a href="#">개인정보</a>
+		<a href="mypage">개인정보</a>
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="insert">굿즈관리</a>	
 		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>

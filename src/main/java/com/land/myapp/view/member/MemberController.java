@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.land.myapp.Pager;
 import com.land.myapp.model.member.vo.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
@@ -117,23 +119,10 @@ public class MemberController {
 		return "admin/memberManager";
 	}
 
-	// 굿즈 주문 내역 조회
-	@RequestMapping(value = "/mypage2", method = RequestMethod.GET)
-	public String getOrderList(GoodsPaymentVO vo, HttpSession session) {
-		int count = memberService.getCountOrder(vo);
-		MemberVO member = (MemberVO) session.getAttribute("member");
-		List<GoodsPaymentVO> list = memberService.getorderMember(vo);
 
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list);
-		map.put("count", count);
-		map.put("member", member);
-		session.setAttribute("map", map);
-		return "mypage/mypage2";
-	}
     @RequestMapping("/mypage")
     public String mypage() {
-        return    "mypage/mypage";
+        return "mypage/mypage";
     } 
 	
 	// 회원 정보 수정 창 이동
@@ -187,5 +176,26 @@ public class MemberController {
 	public String insertGoodsPayment(GoodsPaymentVO vo) {
 		memberService.insertGoodsPayment(vo);
 		return "main";
+	}
+
+	// 굿즈 주문 내역 조회
+	@GetMapping(value = "/mypage2")
+	public String getOrderList(@RequestParam(defaultValue="1")int curPage,
+		GoodsPaymentVO vo,Model model, HttpSession session) {
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String member_id = member.getMember_id();
+		vo.setMember_id(member_id);
+		int count = memberService.getCountOrder(vo);
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<GoodsPaymentVO> list = memberService.getGoodsPaymentList(vo, start, end);
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		map.put("count", count);
+		model.addAttribute("map", map);
+		return "mypage/goodsList";
 	}
 }
