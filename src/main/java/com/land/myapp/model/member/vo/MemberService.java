@@ -39,10 +39,10 @@ public interface MemberService {
 
 	MemberVO getMember(Integer member_no);
 
-	//int dropMember(String member_id);
-	void dropMember(MemberVO vo);
+	// 회원 탈퇴
+	void dropMember(String member_id);
 
 	void insertGoodsPayment(GoodsPaymentVO vo);
 
-	public List<GoodsPaymentVO> getGoodsPaymentList(GoodsPaymentVO vo,int start,int end);
+	public List<GoodsPaymentVO> getGoodsPaymentList(GoodsPaymentVO vo, int start, int end);
 }

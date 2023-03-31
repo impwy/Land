@@ -4,39 +4,41 @@ import java.sql.Date;
 
 public class MemberVO {
 
-	 // 회원번호 
-    private int member_no;
+	// 회원번호
+	private int member_no;
 
-    // 아이디 
-    private String member_id;
+	// 아이디
+	private String member_id;
 
-    // 비밀번호 
-    private String member_pwd;
+	// 비밀번호
+	private String member_pwd;
 
-    // 이름 
-    private String member_name;
+	// 이름
+	private String member_name;
 
-    // 전화번호 
-    private String member_phone;
+	// 전화번호
+	private String member_phone;
 
-    // 나이 
-    private int member_age;
+	// 나이
+	private int member_age;
 
-    // 이메일 
-    private String member_email;
+	// 이메일
+	private String member_email;
 
-    // 주소 
-    private String member_addr;
+	// 주소
+	private String member_addr;
 
-    // 주민등록번호 
-    private Long member_key;
+	// 주민등록번호
+	private Long member_key;
 
-    // 가입날짜 
-    private Date member_date;
+	// 가입날짜
+	private Date member_date;
 
 	private Integer getMember;
 
-	public MemberVO(){}
+	public MemberVO() {
+	}
+
 	public MemberVO(int member_no) {
 		this.member_no = member_no;
 	}
@@ -128,7 +130,7 @@ public class MemberVO {
 	public void setGetMember(Integer getMember) {
 		this.getMember = getMember;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "MemberVO{" +

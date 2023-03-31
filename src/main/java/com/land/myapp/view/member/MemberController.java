@@ -94,7 +94,7 @@ public class MemberController {
 
 	// 멤버 삭제
 	@PostMapping("/deleteMember")
-	public String deleteMember(Integer member_no, RedirectAttributes rattr , String date) {
+	public String deleteMember(Integer member_no, RedirectAttributes rattr, String date) {
 		try {
 			int rowCnt = memberService.deleteMember(member_no);
 
@@ -104,12 +104,11 @@ public class MemberController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			if(date == "member_date"){
-				return "redirect:/main";
-			}
-			else {
-		return "redirect:/getMemberList";
-			}
+		if (date == "member_date") {
+			return "redirect:/main";
+		} else {
+			return "redirect:/getMemberList";
+		}
 	}
 
 	// 멤버
@@ -119,12 +118,11 @@ public class MemberController {
 		return "admin/memberManager";
 	}
 
+	@RequestMapping("/mypage")
+	public String mypage() {
+		return "mypage/mypage";
+	}
 
-    @RequestMapping("/mypage")
-    public String mypage() {
-        return "mypage/mypage";
-    } 
-	
 	// 회원 정보 수정 창 이동
 	@RequestMapping(value = "/mypage3", method = RequestMethod.GET)
 	public String mypage4() {
@@ -138,41 +136,15 @@ public class MemberController {
 		return "mypage/mypage";
 	}
 
-	/*// 회원 정보 탈퇴 페이지로 이동
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String mypage3() {
-		return "mypage/delete";
-	}
-	
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String dropMember(String member_id) {
-	 memberService.dropMember(member_id);
-	 return "redirect:/main";
-	}*/
-	/*@RequestMapping(value="deleteMember2", method = RequestMethod.GET)
-	public String dropMember() {
-		return "mypage/delete";
-	}*/
-/*	@RequestMapping(value="deleteMember2", method = RequestMethod.POST)
-	public String dropMember(MemberVO vo, HttpSession session, RedirectAttributes rttr) {
-		
-		MemberVO member = (MemberVO) session.getAttribute("member");
-	
-		String sessionPWD = member.getMember_pwd();
-		
-		String voPWD = vo.getMember_pwd();
-		
-		if(!(sessionPWD.equals(voPWD))) {
-			rttr.addFlashAttribute("msg", false);
-			return "redirect:/delete";
-		}
-		memberService.dropMember(vo);
-		session.invalidate();
+	// 회원 탈퇴
+	@RequestMapping(value = "/deleteMember2", method = RequestMethod.GET)
+	public String deleteMember2(String member_id) {
+		memberService.dropMember(member_id);
 		return "redirect:/main";
-	}*/
+	}
 
-	//주문 내역 등록
-	@PostMapping(value="/payment")
+	// 주문 내역 등록
+	@PostMapping(value = "/payment")
 	public String insertGoodsPayment(GoodsPaymentVO vo) {
 		memberService.insertGoodsPayment(vo);
 		return "main";
@@ -180,10 +152,10 @@ public class MemberController {
 
 	// 굿즈 주문 내역 조회
 	@GetMapping(value = "/mypage2")
-	public String getOrderList(@RequestParam(defaultValue="1")int curPage,
-		GoodsPaymentVO vo,Model model, HttpSession session) {
-		
-		MemberVO member = (MemberVO)session.getAttribute("member");
+	public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
+			HttpSession session) {
+
+		MemberVO member = (MemberVO) session.getAttribute("member");
 		String member_id = member.getMember_id();
 		vo.setMember_id(member_id);
 		int count = memberService.getCountOrder(vo);
