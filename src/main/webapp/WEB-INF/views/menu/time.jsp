@@ -48,6 +48,6 @@
 			</table>
 			<p class="time-p">영업 시간은 예고 없이 변경될 수 있습니다. 자세한 내용은 당사에 문의하십시오.</p>
 		</div>
-		<%@ include file="../include/footer.jsp"%>
+
 	</div>
 </html>

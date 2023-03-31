@@ -1,93 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+   
         <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
             <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
                 <html>
                 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-                <style>
-                    body.basketlist {
-                        font-family: Arial, sans-serif;
-                        align-content: center;
-                        
-                    }
-
-                    .basketlist h1 {
-                        font-size: 2em;
-                        margin-bottom: 1em;
-                    }
-
-                    .basketlist table {
-                        border-collapse: collapse;
-                        width: 100%;
-                         border-radius: 15px;
-                    }
-
-                    .basketlist table th,
-                    .basketlist table td {
-                        border: 1px solid #ddd;
-                        padding: 0.5em;
-                        text-align: center;
-                         
-                    }
-
-                    .basketlist table th {
-                        background-color: #f2f2f2;
-                        font-weight: bold;
-                    }
-
-                    .basketlist table tr:nth-child(even) {
-                        background-color: #f2f2f2;
-                    }
-
-                    .basketlist table tr:hover {
-                        background-color: #ddd;
-                    }
-
-                    .cart3 th {
-                        font-size: 1.2em;
-                        font-weight: bold;
-                    }
-
-                    .center {
-                        text-align: center;
-                    }
-
-                    button {
-                        background-color: #4CAF50;
-                        border: none;
-                        color: white;
-                        padding: 0.5em 1em;
-                        text-align: center;
-                        text-decoration: none;
-                        display: inline-block;
-                        font-size: 1em;
-                        margin: 0.5em;
-                        cursor: pointer;
-                        border-radius: 5px;
-                    }
-
-                    button a {
-                        color: white;
-                        text-decoration: none;
-                    }
-
-                    button:hover {
-                        background-color: #3e8e41;
-                    }
-
-                    input[type=checkbox] {
-                        transform: scale(1.5);
-                    }
-                </style>
-
+         
                 <head>
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+                    <link rel="stylesheet" href="resources/css/basketlist.css" />
                     <title>장바구니</title>
                 </head>
 
                 <body class="basketlist">
+                <%@ include file="../include/header.jsp"%>
                     <h1>장바구니</h1>
                     <table>
                         <thead>
@@ -152,16 +78,12 @@
                             <td>
                                 <input type="button" id="payCart" onclick="payCart()" value="결제하기" />
                                 <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage" />
+                                <input type="button" id="home" onclick=location.href='/' value="취소" />
                             </td>
                         </tr>
                     </table>
                     <c:set var="count" value="${totalCount-1}" />
                     <c:set var="goods_name" value="${basketList[0].goods_name}외 ${count}개" />
-                    <div class=center>
-                        <button>
-                            <a href="/">취소</a>
-                        </button>
-                    </div>
                     <script>
                         $(document)
                             .ready(

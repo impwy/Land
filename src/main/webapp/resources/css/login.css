@@ -82,6 +82,10 @@
   border-radius:25px;
   background:rgba(255,255,255,.1);
 }
+.login-form .group .button:hover{
+  background-color:#002ead;
+  transition: 0.7s;
+}
 .login-form .group input[data-type="password"]{
   text-security:circle;
   -webkit-text-security:circle;

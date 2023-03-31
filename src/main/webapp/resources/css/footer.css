@@ -4,7 +4,7 @@ footer {
 	position:fixed;
 	display: flex;
 	width : 100%;
-	height: 100px;
+	height: 65px;
 	align-items: center;
 	background: #eee;
 	bottom:0;
@@ -21,6 +21,7 @@ footer .footerLogo {
 footer p {
 	width: 70%;
 	text-align: center;
+	font-size: 13px;
 }
 
 footer .sns a img {

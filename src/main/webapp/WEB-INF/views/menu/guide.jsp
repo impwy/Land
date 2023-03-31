@@ -9,16 +9,9 @@
  <link rel="stylesheet" href="resources/css/guide.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    #map {
-      height: 500px;
-      width: 1200px;
-      position: relative;
-      top:10px;
-      left: 350px;
-    }
-  </style>
+  
 </head>
+<div class="container_map">
 <div class="guide-b">
 <%@ include file="../include/header.jsp"%>
     <div class="guide-header">
@@ -28,8 +21,11 @@
         <h2 class="guide-h2">버츄얼랜드(서울 성동구 행당동 286-5)</h2>
         <hr>
     </div>
-  <div id="map"></div>
-  <script>
+  <div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.7171946816807!2d127.03206071563345!3d37.56172623216058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca35bd1308717%3A0x9009d623f5a64d48!2z7ISc7Jq47Yq567OE7IucIOyEseuPmeq1rCDsmZXsi63rpqzroZwgMzE1!5e0!3m2!1sko!2skr!4v1680237180214!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </iframe>
+    </div>
+  <!-- <script>
     // Create the map container
     var myMap = L.map('map').setView([51.505, -0.09], 13);
 
@@ -44,6 +40,7 @@
 
     // Add interactivity
     marker.bindPopup("<b>현재위치</b>").openPopup();
-  </script>
+  </script> -->
+</div>
 </div>
 </html>

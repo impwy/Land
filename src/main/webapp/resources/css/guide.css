@@ -1,44 +1,66 @@
 @charset "UTF-8";
 
 .guide-header {
-    background-color: #ffa7f0;
-    color: #fff;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    margin: auto;
-    padding: 0;
-    border-radius: 15px;
-    
+	background-color: #ffa7f0;
+	color: #fff;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+	margin: auto;
+	padding: 0;
+	border-radius: 15px;
 }
+
 .guide-div {
-    margin: 20px;
+	margin: 20px;
 }
 
 .h1, h2 {
-    font-weight: normal;
-    text-transform: uppercase;
-    text-align: center;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-align: center;
 }
+
 .guide-header h1 {
-    font-size: 36px;
-    margin: 0;
-    text-align: center;
+	font-size: 36px;
+	margin: 0;
+	text-align: center;
 }
+
 .h2 {
-    font-size: 24px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-align: center;
+	font-size: 24px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-align: center;
 }
+
 .p {
-    line-height: 1.5;
-    margin-bottom: 20px;
-    text-align: center;
+	line-height: 1.5;
+	margin-bottom: 20px;
+	text-align: center;
 }
+
 .guide-p {
-    text-align: center;
+	text-align: center;
 }
+
 .guide-b {
-    top: 220px;
-    position: relative;
+	top: 220px;
+	position: relative;
+}
+
+.map iframe {
+	height: 500px;
+	width: 1900px;
+	top: 10px;
+	left: 350px;
+}
+
+#map {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container_map {
+	margin: 0 auto;
 }

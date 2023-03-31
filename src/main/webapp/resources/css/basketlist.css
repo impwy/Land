@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+body.basketlist {
+	font-family: Arial, sans-serif;
+	align-content: center;
+	margin-top: 250px;
+}
+
+.basketlist h1 {
+	font-size: 2em;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.basketlist table {
+	border-collapse: collapse;
+	width: 100%;
+	border-radius: 15px;
+}
+
+.basketlist table th, .basketlist table td {
+	border: 1px solid #ddd;
+	padding: 0.5em;
+	text-align: center;
+}
+
+.basketlist table th {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
+
+.basketlist table tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.basketlist table tr:hover {
+	background-color: #ddd;
+}
+
+.cart3 th {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#prd_sum, #amt_sum {
+	text-align: center;
+}
+
+#payCart, #home {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 0.5em 1em;
+	text-align: center;
+	text-decoration: none;
+	inline-display: flex;
+	font-size: 1em;
+	margin: 0.5em;
+	cursor: pointer;
+	border-radius: 5px;
+	align-content: center;
+}
+
+#home:hover {
+	background-color: #3e8e41;
+}
+
+#payCart:hover {
+	background-color: #3e8e41;
+}
+
+input[type=checkbox] {
+	transform: scale(1.5);
+}
