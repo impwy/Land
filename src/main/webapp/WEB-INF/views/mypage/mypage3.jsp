@@ -10,7 +10,7 @@
 <body>
 <h1 align="center">회원 정보 수정</h1>
 	<div class="">
-		<form action="mypage" method="post">
+		<form action="mypage3" method="post">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -39,8 +39,10 @@
 				<tr>
 					<td colspan="2" align="center">
 					<input type="submit" value="수정하기">
-					<input type="button" value = "회원 탈퇴" onClick="location.href='delete'">
-			</table>
+				<!-- <button onClick="location.href='delete?member_id=${member.member_id}'">탈퇴하기</button> -->
+					<!-- <input type="button" value="탈퇴하기" onClick="location.href='deleteMember2'"> -->
+					<input type="hidden" name="date" value="member_date" />	
+				</table>
 		</form>
 	</div>
 

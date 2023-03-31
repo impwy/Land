@@ -92,7 +92,14 @@ public class MemberServiceImpl implements MemberService {
 			// TODO Auto-generated method stub
 			
 		}
-
+		
+		/*public int dropMember(String member_id) {
+			// TODO Auto-generated method stub
+			return memberDAO.dropMember(member_id);
+		}*/
+		public void dropMember(MemberVO vo) {
+			memberDAO.dropMember(vo);
+		}
 	
 
 	

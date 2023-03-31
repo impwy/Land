@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.land.myapp.model.orderticket.OrderTicketService;
 import com.land.myapp.model.orderticket.OrderTicketVO;
-import com.land.myapp.model.ticket.TicketVO;
 
 @Service("orderTicketService")
 public class OrderTicketServiceImpl implements OrderTicketService{

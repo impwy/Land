@@ -4,6 +4,7 @@ body.getBoard {
     font-family: "Noto Sans KR", sans-serif;
     margin-top: 250px;
     overflow: scroll;
+    min-height: 100vh;
 }
 
 .getBoard-container {
@@ -21,10 +22,34 @@ input[type="text"]{
     width: 100%;
     height: 50px;
     margin: 5px 0px 10px 0px;
-    border: 1px solid #e9e8e8;
+    border: 1px solid #f8f8f8;
     padding: 8px;
     background: #f8f8f8;
+    outline-color: #f8f8f8;
+}
+textarea.getBoard {
+    width: 100%;
+    height: 59px;
+    padding: 8px;
+    margin-top: -1px;
+    background: #f8f8f8;
+    resize: none;
+    border: 1px solid #f8f8f8;
+    outline-color: #f8f8f8;
+}
+textarea.updateBoard {
+    width: 100%;
+    height: 500px;
+    padding: 8px;
+    margin-top: -1px;
+    background: #f8f8f8;
+    resize: none;
+    border: 1px solid #f8f8f8;
     outline-color: #e6e6e6;
+    outline-width: 2px;
+}
+textarea::-webkit-scrollbar{
+    width: 0px;
 }
 .boardTitle-container{
     display: flex;
@@ -37,7 +62,6 @@ div.writer{
     width: 1050px;
     height: 50px;
     line-height: 50px;
-    border: 1px solid rgba(106, 111, 134, 0.17);
     margin-top: -10px;
 }
 .side{
@@ -46,7 +70,7 @@ div.writer{
     height: 100%;
     text-align: center;
     float: left;
-
+    outline-color: #f8f8f8;
 
 }
 .side-fr{
@@ -70,15 +94,7 @@ div.writer{
     font-size: 1.5em;
     font-weight: bold;
 }
-textarea.getBoard {
-    width: 100%;
-    height: 70vh;
-    background: #f8f8f8;
-    border: 1px solid #e9e8e8;
-    padding: 8px;
-    outline-color: #e6e6e6;
-    margin-top: -1px;
-}
+
 .frm {
 
 }

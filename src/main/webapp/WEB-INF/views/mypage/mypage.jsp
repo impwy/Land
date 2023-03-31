@@ -26,13 +26,13 @@
 		</tr>
 		<tr>
 			<td>
-				<img src ="resouces/img/">
+				<!-- <img src ="resouces/img/"> -->
 				<input type="button" value = "티켓 예매 내역" onClick="location.href='ticketList'">
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<img src ="resouces/img/">
+				<!-- <img src ="resouces/img/"> -->
 				<input type="button" value = "회원 정보 보기" onClick="location.href='mypage3'">
 			</td>
 		</tr>
