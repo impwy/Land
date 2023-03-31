@@ -29,7 +29,7 @@
 		
 		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
 		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
-		<a href="#"><i class="fa-solid fa-user"></i></a>
+		<a href="mypage"><i class="fa-solid fa-user"></i></a>
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>		
 		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
