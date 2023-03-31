@@ -4,14 +4,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public class SearchCondition {
    private Integer page=1;
-   private Integer pageSize=10;
+   private Integer pageSize=15;
    private String keyword="";
    private String option="";
 
    public SearchCondition(){}
     public SearchCondition(Integer page, Integer pageSize, String keyword, String option) {
         this.page = page;
-        this.pageSize = pageSize;
+        this.pageSize = 15;
         this.keyword = keyword;
         this.option = option;
     }
