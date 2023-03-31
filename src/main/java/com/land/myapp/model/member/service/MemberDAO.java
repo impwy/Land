@@ -1,21 +1,19 @@
 package com.land.myapp.model.member.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.MemberVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.land.myapp.model.member.vo.MemberVO;
+import java.util.List;
 
 @Repository
 public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
+
+
 	// 아이디 중복검사
 		public int checkID(String member_id) {
 			return mybatis.selectOne("MemberDAO.checkID", member_id);
@@ -84,4 +82,9 @@ public class MemberDAO {
 			mybatis.delete("MemberDAO.dropMember", vo);
 			
 		}
-}
+
+		//주문
+		public void insertGoodsPayment(GoodsPaymentVO vo) {
+		mybatis.insert("GoodsPaymentDAO.insertGoodsPayment",vo);
+	}
+		}

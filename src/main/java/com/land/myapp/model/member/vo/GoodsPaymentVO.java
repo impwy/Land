@@ -1,4 +1,4 @@
-package com.land.myapp.model.goods_payment;
+package com.land.myapp.model.member.vo;
 
 import java.sql.Date;
 

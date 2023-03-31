@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
 
@@ -181,4 +181,11 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/main";
 	}*/
+
+	//주문 내역 등록
+	@PostMapping(value="/payment")
+	public String insertGoodsPayment(GoodsPaymentVO vo) {
+		memberService.insertGoodsPayment(vo);
+		return "main";
+	}
 }

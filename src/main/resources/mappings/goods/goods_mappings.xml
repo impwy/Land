@@ -9,7 +9,6 @@
 			<result property="goods_name" column="GOODS_NAME"/>
 			<result property="goods_image" column="GOODS_IMAGE"/>
 			<result property="goods_amount" column="GOODS_AMOUNT"/>
-			
 			</resultMap>
 			
 			<select id="getGoodsInfo" resultMap="GoodsInfo">

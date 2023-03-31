@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.land.myapp.model.basket.BasketService;
 import com.land.myapp.model.basket.BasketVO;
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
 
 @Service("BasketService")
 public class BasketServiceImpl implements BasketService {

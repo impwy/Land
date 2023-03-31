@@ -2,7 +2,7 @@ package com.land.myapp.model.basket;
 
 import java.util.List;
 
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
 
 public interface BasketService {// 장바구니
 

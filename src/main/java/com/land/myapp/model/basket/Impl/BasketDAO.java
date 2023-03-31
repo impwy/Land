@@ -1,15 +1,13 @@
 package com.land.myapp.model.basket.Impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.land.myapp.model.basket.BasketVO;
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
 
 @Repository
 public class BasketDAO {

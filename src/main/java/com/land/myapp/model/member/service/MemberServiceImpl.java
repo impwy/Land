@@ -1,23 +1,18 @@
 package com.land.myapp.model.member.service;
 
 
-
-import java.util.List;
-
-
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.MemberService;
+import com.land.myapp.model.member.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.land.myapp.model.member.vo.MemberService;
-import com.land.myapp.model.member.vo.MemberVO;
+import java.util.List;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
-	
-	
 	
 	
 	public void setMemberDao(MemberDAO memberDao) {
@@ -100,8 +95,11 @@ public class MemberServiceImpl implements MemberService {
 		public void dropMember(MemberVO vo) {
 			memberDAO.dropMember(vo);
 		}
-	
 
-	
+	@Override
+	public void insertGoodsPayment(GoodsPaymentVO vo) {
+		memberDAO.insertGoodsPayment(vo);
+	}
+
 	
 }

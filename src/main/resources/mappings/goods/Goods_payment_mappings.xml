@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="GoodsPaymentDAO">
-	<resultMap type="com.land.myapp.model.goods_payment.GoodsPaymentVO" id="GoodsPayment">
+	<resultMap type="com.land.myapp.model.member.vo.GoodsPaymentVO" id="GoodsPayment">
 	<id property="member_id" column="MEMBER_ID"/>
 	<result property="goods_num" column="GOODS_NUM"/>
 	<result property="order_date" column="ORDER_DATE"/>
@@ -22,4 +22,13 @@
 	]]>
 	</insert>
 
+	<select id="goodsList" resultType="GoodsPayment">
+	<![CDATA[
+		SELECT * FROM (
+		    SELECT ROWNUM rn, A.* FROM (
+		        SELECT * FROM GOODS_PAYMENT WHERE MEMBER_ID = #{member_id} ORDER BY ORDER_DATE DESC
+									   ) A WHERE rn <= #{end}
+						)where rn >= #{start}
+	]]>
+	</select>
 </mapper>

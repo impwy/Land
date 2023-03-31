@@ -10,7 +10,7 @@
 		    <typeAlias alias="member" type="com.land.myapp.model.member.vo.MemberVO" />  
 		      <typeAlias alias="basket" type="com.land.myapp.model.basket.BasketVO" /> 
 		       <typeAlias alias="goods" type="com.land.myapp.model.goods.GoodsVO" /> 
-				<typeAlias alias="goodspayment" type="com.land.myapp.model.goods_payment.GoodsPaymentVO" /> 
+				<typeAlias alias="goodspayment" type="com.land.myapp.model.member.vo.GoodsPaymentVO" />
 		     
 	</typeAliases>
 	<!--SQL MAPPER 설정 -->

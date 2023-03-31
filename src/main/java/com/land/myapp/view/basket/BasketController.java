@@ -1,29 +1,23 @@
   package com.land.myapp.view.basket;
 
-import java.util.HashMap;
+  import com.land.myapp.model.basket.BasketService;
+  import com.land.myapp.model.basket.BasketVO;
+  import com.land.myapp.model.goods.GoodsVO;
+  import com.land.myapp.model.member.vo.GoodsPaymentVO;
+  import com.land.myapp.model.member.vo.MemberVO;
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.stereotype.Controller;
+  import org.springframework.ui.Model;
+  import org.springframework.web.bind.annotation.GetMapping;
+  import org.springframework.web.bind.annotation.PostMapping;
+  import org.springframework.web.bind.annotation.RequestMapping;
+  import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.land.myapp.model.basket.BasketService;
-import com.land.myapp.model.basket.BasketVO;
-import com.land.myapp.model.goods.GoodsVO;
-import com.land.myapp.model.goods_payment.GoodsPaymentService;
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
-import com.land.myapp.model.member.vo.MemberVO;
+  import javax.servlet.http.HttpSession;
+  import java.util.HashMap;
 
 @Controller
 public class BasketController {
-
-	@Autowired
-	private GoodsPaymentService goodsPaymentService;
 
 	@Autowired
 	private BasketService basketservice;
@@ -77,24 +71,7 @@ public class BasketController {
 		// "basket/basketlist" 문자열 값을 반환
 	}
 
-	// 결제
-	@RequestMapping(value = "/goodspay")
-	// "/goodspay"에 대한 요청 매핑을 처리하는 메서드
-	public String insertPayment(String[] getBasketList, GoodsPaymentVO vo) {
-		//"getBasketList"의 문자열 배열과 "vo"라는 "GoodsPaymentVO" 객체를 받기
-		for (int i = 0; i < getBasketList.length; i += 3) { 
-			vo.setMember_id(getBasketList[i]);
-			vo.setGoods_num(Integer.parseInt(getBasketList[i + 1]));
-			vo.setOrder_amount(Integer.parseInt(getBasketList[i + 2]));
-			System.out.println(vo.toString());
-			// getBasketList 배열을 반복하고 그에 따라 "vo" 개체에 대한 구성원 ID, 상품 번호 및 주문 금액을 설정
-			goodsPaymentService.insertGoodsPayment(vo);
-			//"vo" 개체의 세부 정보를 인쇄하고 이를 goodPaymentService에 삽입
-			basketservice.deleteCartPayment(vo);
-			// basketservice를 사용하여 장바구니에서 결제 내역을 삭제
-		}
-		return "main";
-	}
+
 
 	// 상세
 	@RequestMapping("/basket/get")
@@ -113,13 +90,7 @@ public class BasketController {
 			public String orderGoods() {
 				return "/goods/Goods";
 			}
-			
-			//주문 내역 등록
-			@PostMapping(value="/payment")
-			public String insertGoodsPayment(GoodsPaymentVO vo) {
-				goodsPaymentService.insertGoodsPayment(vo);
-				return "main";
-			}
+
 			
 			//주문 이동
 			@PostMapping(value="/goodsPayment")

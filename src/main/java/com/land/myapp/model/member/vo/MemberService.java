@@ -1,7 +1,5 @@
 package com.land.myapp.model.member.vo;
 
-import com.land.myapp.model.goods_payment.GoodsPaymentVO;
-
 import java.util.List;
 
 public interface MemberService {
@@ -43,4 +41,6 @@ public interface MemberService {
 
 	//int dropMember(String member_id);
 	void dropMember(MemberVO vo);
+
+	void insertGoodsPayment(GoodsPaymentVO vo);
 }
