@@ -39,12 +39,11 @@
                 <div class="side-fr"><span>조회수 <b>${board.board_viewcnt}</b></span></div>
             </div>
             <textarea id="target-textarea" class="getBoard" name="board_content" ${mode=="new" ? "" :"readonly='readonly'"}><c:out value="${board.board_content}"/></textarea>
-
         </c:if>
         <c:if test="${mode eq 'new'}">
             <input class="getBoard" type="text" name="board_title"
-                   placeholder="제목을 입력해 주세요.">
-            <textarea id="target-textarea" class="getBoard" name="board_content" placeholder="내용을 입력해 주세요." onkeydown="resize(this)" rows="1"></textarea>
+                   placeholder="제목을 입력해 주세요." autofocus>
+            <textarea id="target-textarea" class="getBoard" name="board_content" placeholder="내용을 입력해 주세요." onkeydown="resize(this)" rows="1" style="height: 200px"></textarea>
         </c:if>
         <c:if test="${mode eq 'update'}">
             <input class="getBoard" type="text" name="board_title" value="<c:out value='${board.board_title}'/>">
@@ -81,7 +80,7 @@
         function windowResize() {
             let textarea = document.getElementById("target-textarea");
 
-            textarea.style.height = "0px";
+            textarea.style.height = "200px";
 
             let scrollHeight = textarea.scrollHeight;
             let style = window.getComputedStyle(textarea);
@@ -95,8 +94,8 @@
         window.onresize = windowResize;
 
         function resize(obj) {
-            obj.style.height = '1px';
-            obj.style.height = (12 + obj.scrollHeight) + 'px';
+            obj.style.height = '200px';
+            obj.style.height = (1 + obj.scrollHeight) + 'px';
         }
     </script>
 </div>
