@@ -27,7 +27,7 @@ public class OrderTicketDAO {
 	}
 	//티켓 조회
 	public List<OrderTicketVO> getOrderTicketList(String member_id, int start, int end){
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<String,Object>();
 		map.put("member_id", member_id);
 		map.put("start",start);
 		map.put("end", end);

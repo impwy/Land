@@ -76,7 +76,7 @@ public class TicketController {
 		int end = pager.getPageEnd();
 		List<OrderTicketVO> list =  orderTicketService.getOrderTicketList(member_id,start,end);
 		System.out.println(list);
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<String,Object>();
 		map.put("list", list);
 		map.put("count", count);
 		map.put("pager", pager);
