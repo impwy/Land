@@ -6,6 +6,14 @@ body.board {
     font-family: "Noto Sans KR", sans-serif;
     margin-top: 250px;
     text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    min-height: 100vh;
+}
+
+.board h2 {
+    text-align: center;
 }
 a.board {
     text-decoration: none;
@@ -20,15 +28,16 @@ a.board {
     width: 100%;
     height: 110px;
     border: 1px solid #ddd;
-    margin-top : 10px;
-    margin-bottom: 30px;
     display: flex;
+    padding-left: 100px;
     justify-content: center;
     align-items: center;
 }
 .search-form {
+    margin: 0 auto;
     height: 37px;
     display: flex;
+    margin-left: 110px;
 }
 .search-option {
     width: 100px;
@@ -63,8 +72,25 @@ a.board {
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    margin: 0;
+
 }
 .search-button:hover {
+    color: rgb(165, 165, 165);
+}
+
+.btn-write {
+    width: 6.5%;
+    height: 37px;
+    background-color: rgb(22, 22, 22);
+    color: rgb(209, 209, 209);
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    position: absolute;
+    right: 318px;
+}
+.btn-write:hover {
     color: rgb(165, 165, 165);
 }
 button,
@@ -149,16 +175,3 @@ td.title:hover {
 
 }
 
-.btn-write {
-    background-color: rgb(236, 236, 236); /* Blue background */
-    border: none; /* Remove borders */
-    color: black; /* White text */
-    padding: 6px 12px; /* Some padding */
-    font-size: 16px; /* Set a font size */
-    cursor: pointer; /* Mouse pointer on hover */
-    border-radius: 5px;
-    margin-left: 30px;
-}
-.btn-write:hover {
-    text-decoration: underline;
-}

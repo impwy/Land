@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <title>Virtualland</title>
     <script>
@@ -20,7 +20,7 @@
 <body class="getBoard">
 
 <div class="getBoard-container">
-    <h2 class="writing-header"> ${mode=="new"?"글 작성":""}</h2>
+    <h2 class="writing-header"> ${mode=="new"?"글 작성":"공지사항"}</h2>
     <form action="" id="form" class="frm" method="post">
 
         <input type="text" name="board_num" value="${board.board_num}" hidden="hidden">
@@ -66,6 +66,7 @@
                 <p id="listBtn" class="listBtn">목록으로</p>
             </div>
         </div>
+            <c:if test="${mode ne 'new'}">
         <div class="btn-container">
             <p>다음글${nextPage.board_num ==null?"이 없습니다":""}<i class="fa-solid fa-caret-up"></i></p>
             <p id="nextBtn" class="btn"><c:out value="${nextPage.board_title }"/></p>
@@ -74,6 +75,7 @@
             <p>이전글${prevPage.board_num ==null?"이 없습니다":""}<i class="fa-solid fa-caret-down"></i></p>
             <p id="prevBtn" class="btn"><c:out value="${prevPage.board_title }"/></p>
         </div>
+            </c:if>
     </form>
     <script>
         function windowResize() {
