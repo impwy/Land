@@ -63,22 +63,7 @@ a:hover{
   display:block;
   margin:0px auto;
   }
-  /* .six h1:after, .six h1:before {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 45px;
-    height: 4px;
-    content: "";
-    right: 45px; 
-    margin:auto;
-    background-color: #800040;
-  }
-  .six h1:before { 
-  background-color:#000080;
-    left:45px; width:90px;
-  } */
-  
+
 
 /*-----------------------------------------------------------------------------------------------------*/
 /* login ------------------------------------------------------------------------------------------------------*/
@@ -240,43 +225,6 @@ ul.pro-list li{
 .mobile{
     display:none;
 }
-/* 이미지 위에 hover */
-/*
-.thum{
-    overflow:hidden;
-}
-.thum img{
-    transition:1s;
-}
-.thum img:hover{
-    transform:scale(1.2);
-    
-}
-*/
-/* opacity를 이용한 투명도 hover */
-/*
-.hover-text{
-    color:black;
-    width:100%;
-    background-color:rgba(0,0,0,0.5);
-    height:100%;
-    position:absolute;
-    top:0;
-    left:0;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    opacity:0;
-    transition:1s;
-}
-.thum{
-    position:relative;
-}
-.hover-text:hover{
-    opacity:1;
-}
-*/
 
 .hover-text{
     color:black;
