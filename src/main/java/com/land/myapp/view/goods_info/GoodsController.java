@@ -51,20 +51,26 @@ public class GoodsController {
 		return "/menu/goodsmall";
 	}
 	
-	   //굿즈삭제
-		@RequestMapping("/delete")
-		public String deleteGoods(int goods_num) {
-			goodsService.deleteGoods(goods_num);
-			System.out.println("컨트롤러 통과");
-			return "/goods/product_list";
-		}
 		
-	  /* //굿즈수정
-		@RequestMapping("/edit")
-		public String updateGoods(GoodsVO vo) {
-			goodsService.updateGoods(vo);
+	//굿즈 삭제 
+		@RequestMapping("/product_delete")
+		public String delete(int goods_num) {
+			goodsService.deleteGoods(goods_num);
+			
+			return "redirect:/goods/product_list";
+				}
+		
+	   //굿즈수정페이지이동
+		@RequestMapping("/editgoods")
+		public String updateGoods() {
 			return "/goods/product_edit";
-		}*/
+		}
+	//굿즈수정
+//		@RequestMapping("/editgoods")
+//		public String updateGoods() {
+//			goodsService.updateGoods();
+//			return "/goods/product_edit";
+//		}
 		
 	
 	//버튼을 누르면 굿즈등록입력 화면 진입

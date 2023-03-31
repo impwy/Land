@@ -7,14 +7,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 		<title>관리자 페이지</title>
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	</head>
 	<body>
-		
+		 <script>
+      function product_delete() {
+         if (!confirm("해당 품목을 삭제할까요?")) {
+            alert("취소되었습니다.");
+         } else {
+            alert("해당 품목을 삭제합니다.");
+            document.querySelector("#f3rm").action = "product_delete";
+            document.querySelector("#f3rm").submit();
+         }/* 자바스크립트에서는  html을 바로 읽을수없다 */
+      }
+		</script>
 		<section>
 			<h2 align="center">상품관리 리스트</h2>
-			<form name="f3rm" id="f3rm">
 				<table align="center" border="1">
 					<tr>
 						
@@ -25,16 +34,21 @@
 						<th>상품수량</th>
 					</tr>
 					<c:forEach begin="0" end="${(fn:length(map.list))}" var="i">
+					<form name="f3rm" id="f3rm" action="">
 						<c:set var="product" value="${map.list[i]}" />
 						<c:if test="${not empty product}">
 							<tr>
-								<td>${product.goods_num}</td>
+								<td>${product.goods_num}<a href="editgoods">[편집]</a></td>
 								<td>${product.goods_price}</td>
-								<td>${product.goods_name}</td>
+								<td>${product.goods_name}
+								<input type="button" value="삭제" onclick="product_delete()"/>
+								<!-- form안에 input으로 히든 타임을 설정해주고 value에 값을 넣어줘야 값이 전송됨 -->
+								<input type="hidden" name="goods_num" value="${product.goods_num}"/></td>
 								<td><img src="${product.goods_image}" width="100" height="100"></td>
 								<td>${product.goods_amount}</td>
 							</tr>
 						</c:if>
+						</form>
 					</c:forEach>
 				<c:if test="${(fn:length(map)) ne 0}">
 			<tr>
@@ -67,7 +81,7 @@
 			</tr>
 		</c:if>
 			</table>
-		</form>
+		
 		</section>
 	
 	</body>

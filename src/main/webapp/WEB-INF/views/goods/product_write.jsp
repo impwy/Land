@@ -41,7 +41,7 @@
 		<td colspan="2" align="center">
 			<input type="submit" value="등록" class="button">
 			
-			<input type="button" value="목록" onclick="goods/product_list">
+			<input type="button" value="목록" onclick="location.href='${path}goodsPage'">
 		</td>
 	</tr>
 </table>	

@@ -24,11 +24,11 @@ public class GoodsDAO {
 	
 	//상품정보수정
 	public void updateGoods(GoodsVO vo) {
-		mybatis.update("GoodsDAO.Goods_update",vo);
+		mybatis.update("GoodsDAO.goods_update",vo);
 	}
 	//상품 삭제
 	public void deleteGoods(int goods_num) {
-		mybatis.delete("GoodsDAO.Goods_delete",goods_num);
+		mybatis.delete("GoodsDAO.goods_delete",goods_num);
 	}
 	//상품 등록
 	public void insertGoods(GoodsVO vo) {
