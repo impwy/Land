@@ -167,6 +167,7 @@ public class MemberController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
 		map.put("count", count);
+		map.put("pager", pager);
 		model.addAttribute("map", map);
 		return "mypage/goodsList";
 	}

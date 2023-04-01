@@ -27,8 +27,8 @@
 		SELECT * FROM (
 		    SELECT ROWNUM rn, A.* FROM (
 		        SELECT * FROM GOODS_PAYMENT WHERE MEMBER_ID = #{list.member_id} ORDER BY ORDER_DATE DESC
-									   ) A
-						)WHERE rn BETWEEN #{start} AND #{end}
+									   ) A WHERE ROWNUM <= #{end}
+						)WHERE rn >=#{start}
 	]]>
 	</select>
 </mapper>
