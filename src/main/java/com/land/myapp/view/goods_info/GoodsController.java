@@ -13,12 +13,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
-
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.land.myapp.Pager;
 import com.land.myapp.model.goods.GoodsService;
@@ -55,22 +56,25 @@ public class GoodsController {
 	//굿즈 삭제 
 		@RequestMapping("/product_delete")
 		public String delete(int goods_num) {
-			goodsService.deleteGoods(goods_num);
-			
-			return "redirect:/goods/product_list";
+			goodsService.deleteGoods(goods_num);			
+			return "redirect/goods/product_list";
 				}
 		
 	   //굿즈수정페이지이동
-		@RequestMapping("/editgoods")
-		public String updateGoods() {
-			return "/goods/product_edit";
+		@RequestMapping(value="/editgoods", method=RequestMethod.POST)
+		public ModelAndView visitUpdate(int goods_num, ModelAndView mav) {
+			mav.setViewName("goods/product_edit");
+			mav.addObject("vo",goodsService.getGoodsOne(goods_num));
+			return mav;
 		}
-	//굿즈수정
-//		@RequestMapping("/editgoods")
-//		public String updateGoods() {
-//			goodsService.updateGoods();
-//			return "/goods/product_edit";
-//		}
+		/*//굿즈수정
+		@RequestMapping("/")
+		public String updateGoods(GoodsVO vo, Model model) {
+			
+			goodsService.updateGoods(vo);
+			return "redirect:/list";
+		}*/
+	
 		
 	
 	//버튼을 누르면 굿즈등록입력 화면 진입
@@ -95,12 +99,7 @@ public class GoodsController {
 		return "/goods/admin_menu";
 	}
 	
-	/*//관리자 상품리스트페이지이동
-		@RequestMapping("/list")
-		public String listView() {
-			
-			return "/goods/product_list";
-		}*/
+	
 		
 		//관리자용 상품 목록
 		@RequestMapping(value="/list",method=RequestMethod.GET)
@@ -123,7 +122,7 @@ public class GoodsController {
 		}
 		
 		//상품 상세보기
-		@RequestMapping(value="/goodsInfo", method=RequestMethod.GET)
+		@RequestMapping(value="/goodsInfo",method=RequestMethod.GET)
 		public String getGoodsInfo(GoodsVO vo, int goods_num, Model model) {
 			model.addAttribute("goods", goodsService.getGoodsInfo(goods_num));
 			return "/goods/goodsPage";

@@ -73,5 +73,9 @@ public class GoodsDAO {
 				public int getAdminCountGoods(GoodsVO vo) {
 					return mybatis.selectOne("GoodsDAO.getAdminCountGoods", vo);
 				}
+				
+				public List<GoodsVO> getGoodsOne(int goods_num){
+					return mybatis.selectOne("GoodsDAO.goods_update",goods_num);
+				}
 
 }
