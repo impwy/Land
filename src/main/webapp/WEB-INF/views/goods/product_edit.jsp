@@ -17,23 +17,23 @@
 		<table>
 			<tr>
 		<td>상품명</td>
-		<td><input type="text" name="goods_name" value="${vo.goods_name}" ></td>
+		<td><input type="text" name="goods_name" value="${list.goods_name}" ></td>
 	</tr>
 	<tr>
 		<td>상품번호</td>
-		<td><input type="number" name="goods_num" id="number" value="${vo.goods_num}"  ></td>
+		<td><input type="number" name="goods_num" id="number" value="${list.goods_num}"  ></td>
 	</tr>
 	<tr>
 		<td>상품가격</td>
-		<td><input type="number" name="goods_price" id="price" value="${vo.goods_price}" ></td>
+		<td><input type="number" name="goods_price" id="price" value="${list.goods_price}" ></td>
 	</tr>
 	<tr>
 		<td>상품이미지</td>
-		<td><input type="text" name="goods_image" id="image" value="${vo.goods_image}" ></td>
+		<td><input type="text" name="goods_image" id="image" value="${list.goods_image}" ></td>
 	</tr>
 	<tr>
 		<td>상품수량</td>
-		<td><input type="number" name="goods_amount" id="amount" value="${vo.goods_amount}" ></td>
+		<td><input type="number" name="goods_amount" id="amount" value="${list.goods_amount}" ></td>
 		
 	</tr>
 			<tr>

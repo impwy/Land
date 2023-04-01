@@ -61,11 +61,11 @@ public class GoodsController {
 				}
 		
 	   //굿즈수정페이지이동
-		@RequestMapping(value="/editgoods", method=RequestMethod.POST)
-		public ModelAndView visitUpdate(int goods_num, ModelAndView mav) {
-			mav.setViewName("goods/product_edit");
-			mav.addObject("vo",goodsService.getGoodsOne(goods_num));
-			return mav;
+		@RequestMapping("/editgoods")
+		public String visitUpdate(int goods_num, Model model) {
+			List<GoodsVO> result = goodsService.getGoodsOne(goods_num);
+			model.addAttribute("list",result);
+			return "goods/product_edit";
 		}
 		/*//굿즈수정
 		@RequestMapping("/")
