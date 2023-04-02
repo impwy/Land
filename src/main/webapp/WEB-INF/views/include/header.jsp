@@ -66,14 +66,14 @@
 				<hr class="dashed"></li>
 			<li><a href="guidemap">가이드맵</a></li>
 		</ul></li>
-	<li><a href="#">요금/우대혜택</a>
+	<li><a href="price">요금/우대혜택</a>
 		<ul class="drop-down">
 			<li><a href="price">가격정보</a>
 				<hr class="dashed"></li>
 			<li><a href="discount">할인정보</a>
 				<hr class="dashed"></li>
 		</ul></li>
-	<li><a href="#">즐길거리</a>
+	<li><a href="attraction">즐길거리</a>
 		<ul class="drop-down">
 			<li><a href="attraction">어트랙션</a>
 				<hr class="dashed"></li>
@@ -82,12 +82,12 @@
 			<li><a href="convenients">주변환경</a>
 				<hr class="dashed"></li>
 		</ul></li>
-	<li><a href="#">굿즈</a>
+	<li><a href="goodsmall">굿즈</a>
 		<ul class="drop-down">
 			<li><a href="goodsmall">굿즈몰</a>
 				<hr class="dashed"></li>
 		</ul></li>
-	<li><a href="#">고객센터</a>
+	<li><a href="FAQ">고객센터</a>
 		<ul class="drop-down">
 			<li><a href="FAQ">FAQ</a>
 				<hr class="dashed"></li>

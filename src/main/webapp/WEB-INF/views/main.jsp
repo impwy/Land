@@ -137,7 +137,7 @@
                 </div>
             </div>
             <div class="attraction-btn">
-                <a href="#"> <span>기구 보러 가기</span>
+                <a href="attraction"> <span>기구 보러 가기</span>
                 </a>
             </div>
         </div>
@@ -197,7 +197,7 @@
         </div>
 
         <div class="goods-btn">
-            <a href="#"> <span>상점가기</span>
+            <a href="goodsmall"> <span>상점가기</span>
             </a>
         </div>
     </div>
