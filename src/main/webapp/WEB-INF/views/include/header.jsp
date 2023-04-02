@@ -56,7 +56,7 @@
 
 <nav>
 <ul class="n-list">
-	<li><a href="#">이용가이드</a>
+	<li><a href="time">이용가이드</a>
 		<ul class="drop-down">
 			<li><a href="time">운영시간</a>
 				<hr class="dashed"></li>

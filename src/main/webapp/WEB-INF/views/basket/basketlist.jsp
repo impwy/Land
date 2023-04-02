@@ -28,21 +28,22 @@
                         <tbody>
                             <c:forEach items="${basketList}" var="basket">
                                 <tr>
-                                    <td><input type="checkbox" name="chk" onclick="calCart()"
-                                            value="${basket.goods_num}" checked /> <input type="hidden" name="prd_sum"
-                                            value="${basket.basket_sum}" /> <input type="hidden" name="amt_sum"
-                                            value="${basket.basket_amount}" /> <input type="hidden" id="member_id"
-                                            value="${member.member_id}" /> <input type="hidden" name="goods_name"
-                                            class="goods_name" value="${basket.goods_name}" /></td>
-
+                                    <td>
+                                        <input type="checkbox" name="chk" onclick="calCart()" value="${basket.goods_num}" checked />
+                                        <input type="hidden" name="prd_sum" value="${basket.basket_sum}" />
+                                        <input type="hidden" name="amt_sum" value="${basket.basket_amount}" />
+                                        <input type="hidden" id="member_id" value="${member.member_id}" />
+                                        <input type="hidden" name="goods_name" class="goods_name" value="${basket.goods_name}" />
+                                    </td>
                                     <td>${member.member_id}</td>
-                                    <td><a
-                                            href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>
-                                            ${basket.goods_num} </a></td>
+                                    <td>
+                                        <a href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>${basket.goods_num}
+                                        </a>
+                                    </td>
                                     <td>${basket.basket_amount}</td>
                                     <td>${basket.basket_sum}</td>
-                                    <td><a
-                                            href="delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
+                                    <td>
+                                        <a href="delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
                                     </td>
                                 </tr>
                                 <c:set var="totalCount" value="${totalCount+1}"></c:set>
@@ -64,22 +65,22 @@
                         <tr>
                             <td colspan="2">
                                 <h2 id="prd_sum">
-                                                            금액:<fmt:formatNumber value="${priceSum}" pattern="#,###" />원
+                                                           금액:<fmt:formatNumber value="${priceSum}" pattern="#,###" />원
                                 </h2>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <h2 id="amt_sum">
-                                                            수량:<fmt:formatNumber value="${amountSum}" pattern="#,###" />개
+                                                           수량:<fmt:formatNumber value="${amountSum}" pattern="#,###" />개
                                 </h2>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                            <input type="button" id="payCart" onclick="payCart()" value="결제하기" /> 
-                            <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage" />
-                            <input type="button" id="home" onclick=location.href='/' value="취소" />
+                                <input type="button" id="payCart" onclick="payCart()" value="결제하기" />
+                                <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage" />
+                                <input type="button" id="home" onclick=location.href='/' value="취소" />
                             </td>
                         </tr>
                     </table>
@@ -151,4 +152,5 @@
                         }
                     </script>
             </body>
+
             </html>
