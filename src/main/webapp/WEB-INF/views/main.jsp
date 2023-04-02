@@ -70,7 +70,6 @@
                     },
                     on: {
                         init: function () {
-                            $('.btn-wrapper').style.right = $('.swiper-pagination').offsetWidth + 20 + 'px';
                             $('.fa-play').click(function () {
                                 swiper.autoplay.start();
                             });
