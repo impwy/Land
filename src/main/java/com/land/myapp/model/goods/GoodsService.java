@@ -26,6 +26,6 @@ public interface GoodsService {
 		int getAdminCountGoods(GoodsVO vo);
 		
 	    List<GoodsVO> getGoodsOne(int goods_num);
-		
-	
+	    
+	  	
 }

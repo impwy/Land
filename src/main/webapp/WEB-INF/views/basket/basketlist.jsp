@@ -19,7 +19,7 @@
                             <tr>
                                 <th><input id="checkAll" type="checkbox" checked /></th>
                                 <th>아이디</th>
-                                <th>상품종류</th>
+                                <th>상품이름</th>
                                 <th>수량</th>
                                 <th>가격</th>
                                 <th>지우기</th>
@@ -37,7 +37,7 @@
                                     </td>
                                     <td>${member.member_id}</td>
                                     <td>
-                                        <a href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>${basket.goods_num}
+                                        <a href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>${basket.goods_name}
                                         </a>
                                     </td>
                                     <td>${basket.basket_amount}</td>

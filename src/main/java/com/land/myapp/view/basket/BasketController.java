@@ -1,34 +1,37 @@
   package com.land.myapp.view.basket;
 
-  import com.land.myapp.model.basket.BasketService;
-  import com.land.myapp.model.basket.BasketVO;
-  import com.land.myapp.model.goods.GoodsVO;
-  import com.land.myapp.model.member.vo.GoodsPaymentVO;
-  import com.land.myapp.model.member.vo.MemberVO;
-  import org.springframework.beans.factory.annotation.Autowired;
-  import org.springframework.stereotype.Controller;
-  import org.springframework.ui.Model;
-  import org.springframework.web.bind.annotation.GetMapping;
-  import org.springframework.web.bind.annotation.PostMapping;
-  import org.springframework.web.bind.annotation.RequestMapping;
-  import org.springframework.web.bind.annotation.RequestMethod;
-
-  import javax.servlet.http.HttpSession;
   import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.land.myapp.model.basket.BasketService;
+import com.land.myapp.model.basket.BasketVO;
+import com.land.myapp.model.goods.GoodsService;
+import com.land.myapp.model.goods.GoodsVO;
+import com.land.myapp.model.member.vo.GoodsPaymentVO;
+import com.land.myapp.model.member.vo.MemberVO;
 
 @Controller
 public class BasketController {
 
 	@Autowired
 	private BasketService basketservice;
+	
 
-	// 굿즈 등록
+	// 장바구니 등록
 	@RequestMapping("/insertBasket")
 	// URL 경로 "/insertBasket"에 매핑된 메서드입니다.
 	public String insertBasket(BasketVO vo) {
 		// "BasketVO" 개체 "vo"를 매개 변수로 사용
-		System.out.println("ajax성공");
-		// ("Ajax 성공") 메시지를 출력
 		// 웹 페이지에서 Ajax 요청을 통해 호출
 		basketservice.insertBasket(vo);
 		// "basketservice" 개체에서 "vo"를 매개 변수로 전달하는 "insertBasket" 메서드를 호출하여 항목을 사용자의

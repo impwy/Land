@@ -16,6 +16,6 @@
 				SELECT * FROM GOODS_INFO WHERE GOODS_NUM = #{goods_num}
 			]]>
 			</select>
-	
-
+			
+			
 </mapper>

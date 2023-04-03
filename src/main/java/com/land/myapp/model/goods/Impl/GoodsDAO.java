@@ -77,5 +77,11 @@ public class GoodsDAO {
 				public List<GoodsVO> getGoodsOne(int goods_num){
 					return mybatis.selectOne("GoodsDAO.goods_update",goods_num);
 				}
+		
+		//굿즈이름검색
+		public String getGoodsName(int goods_num) {
+			
+			return mybatis.selectOne("goodsInfoDAO.getGoodsName",goods_num);
+		}
 
 }

@@ -62,5 +62,5 @@ public class GoodsServiceImpl implements GoodsService{
 	public List<GoodsVO> getGoodsOne(int goods_num){
 		return goodsDAO.getGoodsOne(goods_num);
 	}
- 
+	 
 }
