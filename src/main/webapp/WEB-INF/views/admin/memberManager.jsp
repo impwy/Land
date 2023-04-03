@@ -95,7 +95,26 @@
 </table>
 </c:if>
 <c:if test="${member.member_id ne 'admin'}">
-<h1>잘못 된 접근입니다.</h1>
+    <h1>잘못된 접근입니다.</h1>
+        <h1><span id="countdown">3</span>초 뒤 이전 페이지로 넘어갑니다.</h1>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration;
+            setInterval(function () {
+                var seconds = timer % 60;
+                display.textContent = seconds;
+                if (--timer < 0) {
+                    window.history.back();
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var countdownSeconds = 3,
+                display = document.querySelector('#countdown');
+            startTimer(countdownSeconds, display);
+        };
+    </script>
 </c:if>
 <a onclick="history.back()" style="cursor: pointer">돌아가기</a>
 </body>
