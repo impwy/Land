@@ -65,6 +65,7 @@
 		set
 			goods_name=#{goods_name}, 
 			goods_price=#{goods_price},
+			goods_image=#{goods_image},
 			goods_amount=#{goods_amount}
 		where goods_num=#{goods_num}
 	</update>

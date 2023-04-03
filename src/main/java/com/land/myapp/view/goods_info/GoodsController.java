@@ -57,23 +57,32 @@ public class GoodsController {
 		@RequestMapping("/product_delete")
 		public String delete(int goods_num) {
 			goodsService.deleteGoods(goods_num);			
-			return "redirect/goods/product_list";
+			return "/goods/product_list";
 				}
-		
-	   //굿즈수정페이지이동
-		@RequestMapping("/editgoods")
+		//굿즈수정페이지이동
+		@RequestMapping(value="/editgoods", method=RequestMethod.GET)
 		public String visitUpdate(int goods_num, Model model) {
-			List<GoodsVO> result = goodsService.getGoodsOne(goods_num);
+		GoodsVO result = goodsService.getGoodsInfo(goods_num);
 			model.addAttribute("list",result);
-			return "goods/product_edit";
+			System.out.println(model);
+			return "/goods/product_edit";
 		}
-		/*//굿즈수정
-		@RequestMapping("/")
-		public String updateGoods(GoodsVO vo, Model model) {
-			
+		
+//	   //굿즈수정페이지이동
+//		@RequestMapping(value="/editgoods", method=RequestMethod.POST)
+//		public String Update(int goods_num, Model model) {
+//			GoodsVO result = goodsService.getGoodsInfo(goods_num);
+//			model.addAttribute("list",result);
+//			System.out.println(model);
+//			return "/goods/product_edit";
+//		}
+		
+		//굿즈수정
+		@RequestMapping(value="/form2", method=RequestMethod.POST)
+		public String updateGoods(GoodsVO vo) {	
 			goodsService.updateGoods(vo);
 			return "redirect:/list";
-		}*/
+		}
 	
 		
 	
@@ -82,6 +91,7 @@ public class GoodsController {
 	public String addGoods() {
 		return "/goods/product_write";
 	}
+
 	
 	//굿즈입력화면에서 상품 등록 입력완료후 처리
 	@RequestMapping(value="/form1", method=RequestMethod.POST)

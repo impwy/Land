@@ -21,6 +21,7 @@
 			<th>상품이름</th>
 			<th>이미지경로</th>
 			<th>상품수량</th>
+			<th>상품편집</th>
 			<th>상품삭제</th>
 		</tr>
 		<c:choose>
@@ -28,30 +29,32 @@
 				<c:forEach begin="0" end="${(fn:length(map.list))}" var="i">
 					<c:set var="product" value="${map.list[i] }" />
 					<tr>
-						<td>${product.goods_num}<a href="#" onclick="editgoods('${product.goods_num}')">[편집]</a></td>
+						<td>${product.goods_num}</td>
 						<td>${product.goods_price}</td>
 						<td>${product.goods_name}</td>
 						<td><img src="${product.goods_image}" width="100"
 							height="100"></td>
 						<td>${product.goods_amount}</td>
+						<td><a href="#" onclick="location.href='editgoods?goods_num=${product.goods_num}'">편집</a></td>
 						<td><a href="#" onclick="deleteGoods('${product.goods_num}')">삭제</a></td>
 					</tr>
-			<script>
+			 <!-- <script>
 			function editgoods(goodsnum){
+				var goods = parseInt(goodsnum)
 				$.ajax({
 				    url: "editgoods",
-				    type: "GET",
-				    data: { "goods_num": goodsnum },
+				    type: "POST",
+				    data: { "goods_num": goods },
 				    success: function(result) {
 				     
-				     location.href = "product_edit";
+				     location.href = "editgoods";
 				    },
 				    error: function(jqXHR, textStatus, errorThrown) {
 				      // Display an error message or handle the error
 				    }
 				  });
 			}
-			</script>
+			</script> -->
 			
 			
 			
@@ -64,7 +67,7 @@
 			    data: { "goods_num": goodsnum },
 			    success: function(result) {
 			     alert("삭제되었습니다.");
-			     location.href = "product_list";
+			     location.href = "product_delete";
 			    },
 			    error: function(jqXHR, textStatus, errorThrown) {
 			      // Display an error message or handle the error
