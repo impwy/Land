@@ -10,39 +10,42 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <style>
-    #ticket-list {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-       background-color: #F7F7F7; /* Change to a light grey or white color */
-  color: #333; /* Change the text color to a darker shade */
-      border: 1px solid #ddd;
-    }
+   #ticket-list {
+  font-family: Arial, sans-serif;
+}
 
-    /* Style the header row */
-  #ticket-list  th {
-      background-color: #FFD700;
-      font-weight: bold;
-      padding: 10px;
-      text-align: left;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
-    /* Style the data rows */
-   #ticket-list td {
-      padding: 8px;
-      background-color: #FFF;
-    }
+th, td {
+  padding: 10px;
+  text-align: center;
+}
 
-    /* Style the "Cancel booking" link */
-   #ticket-list a {
-      color: #cc0000;
-      text-decoration: none;
-    }
+th {
+  background-color: #F7F7F7;
+}
 
-    /* Hover effect on table rows */
-   #ticket-list tr:hover {
-      background-color: #f3f3f3;
-    }
+tr:nth-child(even) {
+  background-color: #F2F2F2;
+}
+
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+td[colspan="9"] {
+  text-align: center;
+}
+
   </style>
 </head>
 <body>

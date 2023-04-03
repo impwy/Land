@@ -3,11 +3,6 @@ package com.land.myapp.model.goods;
 import java.util.List;
 
 
-
-
-
-
-
 public interface GoodsService {
 	    
 	   
@@ -25,7 +20,5 @@ public interface GoodsService {
 		
 		int getAdminCountGoods(GoodsVO vo);
 		
-	   
-		
-	
+
 }

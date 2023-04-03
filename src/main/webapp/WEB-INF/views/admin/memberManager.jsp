@@ -25,6 +25,7 @@
     <title>회원 관리</title>
 </head>
 <body>
+<c:if test="${member.member_id eq 'admin'}">
 <script type="text/javascript">
     let msg = "${msg}";
     if (msg == "DEL_OK") alert('삭제되었습니다.', "삭제.", "success");
@@ -45,7 +46,7 @@
     </tr>
 
     <form id="form" method="post" action="">
-        <c:forEach items="${memberList}" var="member">
+        <c:forEach items="${memberList}" var="member" begin="1">
             <%--            스윗알람 및 삭제 버튼 함수--%>
             <script type="text/javascript">
                 var confirm = function (title, msg) {
@@ -92,6 +93,29 @@
         </c:forEach>
     </form>
 </table>
+</c:if>
+<c:if test="${member.member_id ne 'admin'}">
+    <h1>잘못된 접근입니다.</h1>
+        <h1><span id="countdown">3</span>초 뒤 이전 페이지로 넘어갑니다.</h1>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration;
+            setInterval(function () {
+                var seconds = timer % 60;
+                display.textContent = seconds;
+                if (--timer < 0) {
+                    window.history.back();
+                }
+            }, 1000);
+        }
 
+        window.onload = function () {
+            var countdownSeconds = 3,
+                display = document.querySelector('#countdown');
+            startTimer(countdownSeconds, display);
+        };
+    </script>
+</c:if>
+<a onclick="history.back()" style="cursor: pointer">돌아가기</a>
 </body>
 </html>

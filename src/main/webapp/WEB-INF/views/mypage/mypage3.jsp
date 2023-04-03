@@ -52,20 +52,19 @@
 							탈퇴</button></td>
 				</tr>
 				<script>
-					function cancelMember(memberid) {
-
+					function cancelMember(memberId) {
+						//비밀번호 확인
 						$.ajax({
 							url : "deleteMember2",
 							type : "GET",
 							data : {
-								"member_id" : memberid
+								"member_id" : memberId
 							},
 							success : function(result) {
 								alert("탈퇴가 완료되었습니다.");
 								location.href = "login";
 							},
 							error : function(jqXHR, textStatus, errorThrown) {
-								//Dispaly an error message or handle the error
 								alert("실패했습니다.")
 								location.href = "main";
 							}

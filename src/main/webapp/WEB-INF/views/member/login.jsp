@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +18,7 @@
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
       <div class="login-form">
         <div class="sign-in-htm">
-        <form action="login" method="post">
+        <form id="loginForm" method="post">
           <div class="group">
             <label for="user" class="label">아이디</label>
             <input id="user" type="text" class="input" name="member_id">
@@ -31,8 +32,7 @@
             <label for="check"><span class="icon"></span>아이디 저장</label>
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign In">
-            
+            <input type="submit" class="button" id="loginBtn" value="Sign In">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -40,7 +40,7 @@
           </form>
         </div>
         <div class="sign-up-htm">
-        <form action="join" method="post">
+        <form action="join" method="post" id="joinForm">
           <div class="group">
             <label for="user" class="label">아이디</label>
             <input id="user_id" type="text" class="input" name="member_id">
@@ -73,14 +73,14 @@
           </div>
           <div class="group">
             <label for="address" class="label">주소</label>
-            <input id="address" type="text" class="input" name="member_addr">
+            <input id="address" type="email" class="input" name="member_addr">
           </div>
           <div class="group">
             <label for="key" class="label">주민등록번호</label>
             <input id="key" type="number" class="input" name="member_key">
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up">
+            <input type="submit" class="button" id="signBtn" value="Sign Up">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">

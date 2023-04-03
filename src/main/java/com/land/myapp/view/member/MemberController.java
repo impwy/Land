@@ -36,10 +36,6 @@ public class MemberController {
 		return "member/term";
 	}
 
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String signUpView(MemberVO vo) {
-		return "member/signup";
-	}
 
 	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -49,14 +45,17 @@ public class MemberController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(MemberVO vo, HttpSession session) {
+		int memberCheck = memberService.checkMember(vo);
 		MemberVO member = memberService.login(vo);
 		if (member != null) {
 			session.setAttribute("member", member);
 			return "main";
 		} else {
+			session.setAttribute("memberCheck", memberCheck);
 			return "member/login";
 		}
 	}
+
 
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -118,11 +117,6 @@ public class MemberController {
 		return "admin/memberManager";
 	}
 
-	@RequestMapping("/mypage")
-	public String mypage() {
-		return "mypage/mypage";
-	}
-
 	// 회원 정보 수정 창 이동
 	@RequestMapping(value = "/mypage3", method = RequestMethod.GET)
 	public String mypage4() {
@@ -150,8 +144,8 @@ public class MemberController {
 		return "main";
 	}
 
-	// 굿즈 주문 내역 조회
-	@GetMapping(value = "/mypage2")
+	// 개인 정보 이동
+	@GetMapping(value = "/mypage")
 	public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
 			HttpSession session) {
 
@@ -169,6 +163,6 @@ public class MemberController {
 		map.put("count", count);
 		map.put("pager", pager);
 		model.addAttribute("map", map);
-		return "mypage/goodsList";
+		return "mypage/mypage";
 	}
 }

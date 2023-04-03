@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-   
-        <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-            <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-                <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-                <html>
-                <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-         
-                <head>
-                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                    <link rel="stylesheet" href="resources/css/basketlist.css" />
-                    <title>장바구니</title>
-                </head>
+    <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+            <html>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-                <body class="basketlist">
-                <%@ include file="../include/header.jsp"%>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <link rel="stylesheet" href="resources/css/basketlist.css" />
+                <title>장바구니</title>
+            </head>
+
+            <body class="basketlist">
+                <%@ include file="../include/header.jsp" %>
                     <h1>장바구니</h1>
                     <table>
                         <thead>
                             <tr>
                                 <th><input id="checkAll" type="checkbox" checked /></th>
                                 <th>아이디</th>
-                                <th>상품종류</th>
+                                <th>상품이름</th>
                                 <th>수량</th>
                                 <th>가격</th>
                                 <th>지우기</th>
@@ -29,19 +28,22 @@
                         <tbody>
                             <c:forEach items="${basketList}" var="basket">
                                 <tr>
-                                    <td><input type="checkbox" name="chk" onclick="calCart()" value="${basket.goods_num}" checked />
+                                    <td>
+                                        <input type="checkbox" name="chk" onclick="calCart()" value="${basket.goods_num}" checked />
                                         <input type="hidden" name="prd_sum" value="${basket.basket_sum}" />
                                         <input type="hidden" name="amt_sum" value="${basket.basket_amount}" />
                                         <input type="hidden" id="member_id" value="${member.member_id}" />
-                                        <input type="hidden" name="goods_name" class="goods_name"value="${basket.goods_name}" />
+                                        <input type="hidden" name="goods_name" class="goods_name" value="${basket.goods_name}" />
                                     </td>
-
                                     <td>${member.member_id}</td>
-                                    <td><a href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>
-                                            ${basket.goods_num} </a></td>
+                                    <td>
+                                        <a href='/basket/get?goods_num=${basket.goods_num}&member_id=${member.member_id}'>${basket.goods_name}
+                                        </a>
+                                    </td>
                                     <td>${basket.basket_amount}</td>
                                     <td>${basket.basket_sum}</td>
-                                    <td><a href="delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
+                                    <td>
+                                        <a href="delbasket?goods_num=${basket.goods_num}&member_id=${member.member_id}">삭제</a>
                                     </td>
                                 </tr>
                                 <c:set var="totalCount" value="${totalCount+1}"></c:set>
@@ -55,15 +57,15 @@
 
                     <table>
                         <h1>결제</h1>
-                          <table class="cart3" align="center">
+                        <table class="cart3" align="center">
                             <tr align="center">
                                 <th colspan="2">총 상품 금액</th>
                             </tr>
-                          </table>
+                        </table>
                         <tr>
                             <td colspan="2">
                                 <h2 id="prd_sum">
-                                                            금액:<fmt:formatNumber value="${priceSum}" pattern="#,###" />원
+                                                           금액:<fmt:formatNumber value="${priceSum}" pattern="#,###" />원
                                 </h2>
                             </td>
                         </tr>
@@ -112,6 +114,7 @@
                                 });
 
                         function payCart() {
+
                             var member_id = $("#member_id").val();
                             var hiddenbtn = $("#hiddenbtn").val();
 
@@ -129,7 +132,8 @@
                                         "goods_num": '1'
                                     },
                                     success: function (data) {
-                                        location.href = "goodsPayment";
+                                        window.open("goodsPayment", "", "width=700,height=500,");
+                                        // location.href = "goodsPayment";
                                     }
                                 });
                             }
@@ -147,8 +151,6 @@
                             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         }
                     </script>
+            </body>
 
-
-                </body>
-
-                </html>
+            </html>

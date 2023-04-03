@@ -10,7 +10,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<title>Insert title here</title>
+<title>결제 페이지</title>
 <style>
 .productLeft {
   float: left;

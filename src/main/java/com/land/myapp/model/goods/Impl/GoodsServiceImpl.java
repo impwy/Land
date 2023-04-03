@@ -59,6 +59,5 @@ public class GoodsServiceImpl implements GoodsService{
 		return goodsDAO.getAdminCountGoods(vo);
 	}
 	
-	
- 
+
 }

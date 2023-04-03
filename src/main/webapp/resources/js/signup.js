@@ -42,7 +42,7 @@ $(document).ready(function(){
             idCheck = false;
           } else{
             swal("","사용 가능한 아이디 입니다.","success");
-            idChck = true;
+            idCheck = true;
           }
         },
         error : function(error) {
@@ -51,5 +51,38 @@ $(document).ready(function(){
       });
     }
   });
+  
+  $("#loginBtn").click(function(){
+	 $.ajax({
+		 type : 'post',
+		 url : 	'checkMember',
+		 data : $("#loginForm").serialize(),
+		 success : function(data){
+			 if(data == 0){
+				alert("아이디 비밀번호를 확인해 주세요.");
+					location.href="login";
+			 }else{
+				 alert("로그인 완료");
+					$.ajax({
+						type : 'post',
+						url : 'login',
+						data : $('#loginForm').serialize(),
+						success : function(){
+							location.href = 'main';
+						}
+					});
+			 }
+		 }
+	 }); 
+  });
+  
+  //회원가입 전 체크
+  $('#signBtn').click(function(event) {
+	    if (idCheck === false) {
+	     swal("","중복검사를 해주세요","warning");
+	    	event.preventDefault(); // prevent form submission
+	    }else{
+	    	alert("회원가입 완료");
+	    }
+	 });
 });
-
