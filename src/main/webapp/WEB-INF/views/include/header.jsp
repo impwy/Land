@@ -9,7 +9,8 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="resources/css/header.css" />
 </head>
 <header class="header">
@@ -26,13 +27,12 @@
 	</c:if>
 	<c:if test="${not empty member }"> <!-- 멤버일경우뜨는페이지 -->
 
-		
 		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
 		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
 		<a href="mypage"><i class="fa-solid fa-user"></i></a>
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>		
-		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+		<a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 		</c:if>
 		
 		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
@@ -40,7 +40,7 @@
 		<a href="mypage">개인정보</a>
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="insert">굿즈관리</a>	
-		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+		<a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 	</c:if>
 	
 	</c:if>
@@ -95,6 +95,5 @@
 		</ul></li>
 </ul>
 </nav> </header>
-
 <script src="resources/js/header.js"></script>
 </html>

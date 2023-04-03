@@ -17,7 +17,7 @@
     
     #goods-list table {
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
 }
 
 #goods-list th,
