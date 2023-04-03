@@ -9,7 +9,7 @@ public class GoodsPaymentVO {
 	private String member_addr;
 	private String member_phone;
 	private String order_process;
-	private String order_order_payment;
+	private String order_payment;
 	private int order_sum;
 	private int order_amount;
 	
@@ -50,11 +50,11 @@ public class GoodsPaymentVO {
 	public void setOrder_process(String order_process) {
 		this.order_process = order_process;
 	}
-	public String getOrder_order_payment() {
-		return order_order_payment;
+	public String getOrder_payment() {
+		return order_payment;
 	}
-	public void setOrder_order_payment(String order_order_payment) {
-		this.order_order_payment = order_order_payment;
+	public void setOrder_payment(String order_payment) {
+		this.order_payment = order_payment;
 	}
 	public int getOrder_sum() {
 		return order_sum;
@@ -74,7 +74,7 @@ public class GoodsPaymentVO {
 	public String toString() {
 		return "GoodsPaymentVO [member_id=" + member_id + ", goods_num=" + goods_num + ", order_date=" + order_date
 				+ ", member_addr=" + member_addr + ", member_phone=" + member_phone + ", order_process=" + order_process
-				+ ", order_order_payment=" + order_order_payment + ", order_sum=" + order_sum + ", order_amount="
+				+ ", order_order_payment=" + order_payment + ", order_sum=" + order_sum + ", order_amount="
 				+ order_amount + "]";
 	}
 	

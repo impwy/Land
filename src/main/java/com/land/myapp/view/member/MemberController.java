@@ -151,7 +151,7 @@ public class MemberController {
 	}
 
 	// 굿즈 주문 내역 조회
-	@GetMapping(value = "/mypage2")
+	@GetMapping(value = "/mypage")
 	public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
 			HttpSession session) {
 
@@ -169,6 +169,6 @@ public class MemberController {
 		map.put("count", count);
 		map.put("pager", pager);
 		model.addAttribute("map", map);
-		return "mypage/goodsList";
+		return "mypage/mypage";
 	}
 }
