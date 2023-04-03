@@ -82,6 +82,23 @@
   border-radius:25px;
   background:rgba(255,255,255,.1);
 }
+
+#phone1 {
+  width: 18%;
+}
+
+#phone2 {
+  width: 30%;
+}
+
+#phone3 {
+  width: 30%;
+}
+.phone {
+  display: flex;
+  justify-content: space-between;
+  line-height: 35px;
+}
 .login-form .group .button:hover{
   background-color:#002ead;
   transition: 0.7s;

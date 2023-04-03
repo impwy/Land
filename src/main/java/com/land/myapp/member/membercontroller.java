@@ -46,5 +46,9 @@ public class membercontroller {
 	private String FAQ() {
 		return "faq/FAQ";
 	}
+	@RequestMapping(value ="/memberpage", method = RequestMethod.GET)
+	private String memberpage() {
+		return "memberpage";
+	}
 
 }

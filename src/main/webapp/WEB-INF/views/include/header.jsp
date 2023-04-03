@@ -40,7 +40,12 @@
 		<a href="mypage">개인정보</a>
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a href="insert">굿즈관리</a>	
+<<<<<<< HEAD
 		<a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+=======
+		<a href="memberpage">회원관리</a>
+		<a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+>>>>>>> ef98200 (no message)
 	</c:if>
 	
 	</c:if>
