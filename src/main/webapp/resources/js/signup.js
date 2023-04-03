@@ -42,7 +42,7 @@ $(document).ready(function(){
             idCheck = false;
           } else{
             swal("","사용 가능한 아이디 입니다.","success");
-            idChck = true;
+            idCheck = true;
           }
         },
         error : function(error) {
@@ -75,4 +75,14 @@ $(document).ready(function(){
 		 }
 	 }); 
   });
+  
+  //회원가입 전 체크
+  $('#signBtn').click(function(event) {
+	    if (idCheck === false) {
+	     swal("","중복검사를 해주세요","warning");
+	    	event.preventDefault(); // prevent form submission
+	    }else{
+	    	alert("회원가입 완료");
+	    }
+	 });
 });

@@ -4,7 +4,7 @@
 var member_id = $('#member_id').val();
 			$('#ticketing').click(function(){
 				if(!member_id){
-					swal("","로그인이 필요합니다","error").then(()=>{
+					alert("로그인이 필요합니다").then(()=>{
 					window.location.href="login";
 					});
 				}else{
