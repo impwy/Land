@@ -1,65 +1,82 @@
 @charset "UTF-8";
-.logo{
-    color:#E9967A;
-    transform: translateX(46%);
-    width: 65%;
-    position: relative;
-    overflow-x: hidden;
+
+.logo {
+	color: #E9967A; /* 색상 지정 */
+	transform: translateX(30%); /* 수평방향만큼 이동 */
+	width: 65%; /* 부모요소 가로길이에 65% */
+	position: relative;
+	overflow-x: hidden;
 }
-.logo img{
+
+.logo img {
+	display: block;
+	margin: 0 auto;
+	width: 600px; /* 이미지의 너비를 지정해주세요. */
+	text-align: center;
 	padding-top: 230px;
 }
-h3{
-    text-align: center;
-    font-size: 15px;
-    color: #000080;
-    margin-bottom: 90px;
+
+h3 {
+	text-align: center;
+	font-size: 15px;
+	color: #000080;
+	margin-bottom: 90px;
 }
-.between{
-   padding: 5px;
+
+.between {
+	padding: 5px;
 }
-h1{
-    color:	#4B0082;
+
+h1 {
+	color: #4B0082;
 }
-.tc{
-    color: #708090;
+
+.tc {
+	color: #708090;
 }
-/* mystyle.css */
-/* The Modal (background) */
-.btn{
-    text-align: center;
-    font-size: 20px;
+
+.btn {
+	text-align: center;
+	font-size: 20px;
 }
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+	margin-top: 50px; background-color : #fefefe;
+	position: fixed; /* 모달 창이 스크롤에 상관없이 고정됩니다. */
+	top: 50%; /* 모달 창이 수직 방향으로 중앙에 위치합니다. */
+	left: 50%; /* 모달 창이 수평 방향으로 중앙에 위치합니다. */
+	transform: translate(-50%, -50%);
+	/* 모달 창이 수평과 수직 방향으로 중앙에 위치하도록 이동합니다. */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */
+	max-width: 500px;
+	background-color: #fefefe; /* 모달 창의 최대 너비를 지정합니다. */
 }
+
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
 }
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
 }

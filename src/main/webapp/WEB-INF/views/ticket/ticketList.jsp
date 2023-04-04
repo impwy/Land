@@ -12,12 +12,15 @@
 <style>
    #ticket-list {
   font-family: Arial, sans-serif;
+  margin-top:250px;
+  margin-bottom:90px;
 }
 
 table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin-top: 20px;
+  transform:translateX(14%);
 }
 
 th, td {
@@ -45,12 +48,16 @@ a:hover {
 td[colspan="9"] {
   text-align: center;
 }
+.ticket {
+	text-align: center;
+}
 
   </style>
+  <%@ include file="../include/header.jsp" %>
 </head>
 <body>
 <div id="ticket-list">
-	<h3>예매내역</h3>
+	<h2 class="ticket">예매내역</h2>
 		<table border="1">
 		<tr>
 			<th>이름</th>
@@ -132,5 +139,6 @@ td[colspan="9"] {
 		</c:if>
 		</table>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>
