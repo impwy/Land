@@ -27,7 +27,7 @@
 
 .producttop {
   width: 100%;
-  max-height: 200px;
+  max-height: 250px;
   object-fit: contain;
   margin-bottom: 20px;
 }
@@ -101,7 +101,7 @@ hr {
 <div id="goods-payment">
 <form>
     <!-- 상품 이미지를 불러옵니다. -->
-    <img class="producttop" src="${goods.goods_image }">
+    <img class="producttop" src="${goods.gvo.goods_image }">
     <div class="productbottom">
         <!-- 상품명을 불러옵니다. -->
         <p align="left" class="p1" id="goods_name">상품명: ${goods.gvo.goods_name}</p>
