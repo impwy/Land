@@ -28,32 +28,7 @@
 		<a href="login" title="로그인"><i class="fa-solid fa-right-to-bracket"></i></a>
 		<input type="hidden" id="member_id" value="${member.member_id}"/>
 	</c:if>
-	<c:if test="${not empty member }">
-		<!-- 멤버일경우뜨는페이지 -->
-
-		<c:if test="${member.member_id ne 'admin' }">
-			<!-- 멤버가 관리자가 아닐경우 -->
-			<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
-			<a href="mypage"><i class="fa-solid fa-user"></i></a>
-			<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
-			<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>
-			<a href="#" class="logout"><i
-				class="fa-solid fa-right-from-bracket"></i></a>
-		</c:if>
-
-		<c:if test="${member.member_id eq 'admin' }">
-			<!-- 멤버가 관리자일 경우 -->
-			<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
-			<a href="mypage">개인정보</a>
-			<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
-			<a href="insert">굿즈관리</a>
-			<a href="memberpage">회원관리</a>
-			<a href="#" class="logout"><i
-				class="fa-solid fa-right-from-bracket"></i></a>
-
-<<<<<<< HEAD
-		</c:if>
-=======
+	<c:if test="${not empty member }"><!-- 멤버일경우뜨는페이지 -->
 		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
 		<a href="basketlist" title="장바구니"><i class="fa-solid fa-cart-shopping" ></i></a>
 		<a href="mypage" title="개인정보"><i class="fa-solid fa-user"></i></a>
@@ -69,10 +44,8 @@
 		<a href="insert">굿즈관리</a>	
 		<a href="getMemberList">회원관리</a>
 		<a href="#" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
->>>>>>> ec020c8 (티켓쪽 정리하고 메인에 링크랑 css좀 수정했습니다.)
-
 	</c:if>
-
+</c:if>
 </div>
 
 <div class="six">
