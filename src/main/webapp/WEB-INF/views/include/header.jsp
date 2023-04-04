@@ -3,14 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
 	rel="stylesheet" />
-<script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f84cdf215e.js"
+	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="resources/css/header.css" />
 </head>
 <header class="header">
@@ -19,43 +23,46 @@
 </div>
 <div id="login">
 
-	<c:if test="${empty member }"> <!-- 멤버가아닐경우뜨는 페이지 -->
+	<c:if test="${empty member }">
+		<!-- 멤버가아닐경우뜨는 페이지 -->
 		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
 		<a id="ticketing"><i class="fa-solid fa-ticket fa-beat"></i></a>
 		<a href="login"><i class="fa-solid fa-right-to-bracket"></i></a>
-		<input type="hidden" id="member_id" value="${member.member_id}"/>
+		<input type="hidden" id="member_id" value="${member.member_id}" />
 	</c:if>
-	<c:if test="${not empty member }"> <!-- 멤버일경우뜨는페이지 -->
+	<c:if test="${not empty member }">
+		<!-- 멤버일경우뜨는페이지 -->
 
-		<c:if test="${member.member_id ne 'admin' }"> <!-- 멤버가 관리자가 아닐경우 -->
-		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
-		<a href="mypage"><i class="fa-solid fa-user"></i></a>
-		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
-		<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>		
-		<a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+		<c:if test="${member.member_id ne 'admin' }">
+			<!-- 멤버가 관리자가 아닐경우 -->
+			<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
+			<a href="mypage"><i class="fa-solid fa-user"></i></a>
+			<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
+			<a href="ticket"><i class="fa-solid fa-ticket fa-beat"></i></a>
+			<a href="#" class="logout"><i
+				class="fa-solid fa-right-from-bracket"></i></a>
 		</c:if>
-		
-		<c:if test="${member.member_id eq 'admin' }"> <!-- 멤버가 관리자일 경우 -->
-		<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
-		<a href="mypage">개인정보</a>
-		<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
-		<a href="insert">굿즈관리</a>	
-		<a href="memberpage">회원관리</a>
-		<a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+
+		<c:if test="${member.member_id eq 'admin' }">
+			<!-- 멤버가 관리자일 경우 -->
+			<a href="basketlist"><i class="fa-solid fa-cart-shopping"></i></a>
+			<a href="mypage">개인정보</a>
+			<a href="goodsmall"><i class="fa-brands fa-shopify"></i></a>
+			<a href="insert">굿즈관리</a>
+			<a href="memberpage">회원관리</a>
+			<a href="#" class="logout"><i
+				class="fa-solid fa-right-from-bracket"></i></a>
+
+		</c:if>
 
 	</c:if>
-	
-	</c:if>
-	
+
 </div>
 
 <div class="six">
-<a href="main"><img
-		src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-		alt="카카오라이언" width="100" height="50" border="0" /></a>
-	<h1>virtualland</h1>
+	<a href="main"><h1>virtualland</h1></a>
+	
 </div>
-
 <nav>
 <ul class="n-list">
 	<li><a href="time">이용가이드</a>
@@ -93,7 +100,7 @@
 		<ul class="drop-down">
 			<li><a href="FAQ">FAQ</a>
 				<hr class="dashed"></li>
-				
+
 		</ul></li>
 </ul>
 </nav> </header>
