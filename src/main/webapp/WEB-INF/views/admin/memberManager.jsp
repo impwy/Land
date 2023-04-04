@@ -20,7 +20,8 @@
 </script>
 <style>
 .member-container {
-	margin: 0 auto; padding : 0;
+	margin: 0 auto;
+	padding: 0;
 	margin-top: 200px;
 	text-align: center;
 	width: 100%;
@@ -32,7 +33,8 @@ button>a {
 	color: black;
 	text-decoration: none;
 }
-table{
+
+table {
 	margin: 0 auto;
 	justify-content: center;
 }
@@ -53,7 +55,7 @@ table{
     if (msg == "DEL_OK") alert('회원정보가 삭제 되었습니다.', "삭제", "success");
 </script>
 		<div class="member-container">
-		<h1>회원 관리</h1>
+			<h1>회원 관리</h1>
 
 			<div class="search-container">
 				<form action="<c:url value="memberpage"/>" class="search-form"
@@ -114,8 +116,8 @@ table{
 				</div>
 			</div>
 			<button>
-		<a onclick=location.href= 'main' style="cursor: pointer">메인으로</a>
-	</button>
+				<a onclick=location.href='main' style="cursor: pointer">메인으로</a>
+			</button>
 		</div>
 	</c:if>
 	<c:if test="${member.member_id ne 'admin'}">
@@ -142,6 +144,6 @@ table{
         };
     </script>
 	</c:if>
-	
+
 </body>
 </html>
