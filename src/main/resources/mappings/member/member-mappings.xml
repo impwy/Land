@@ -73,16 +73,12 @@
 	<select id="login" resultMap="member">
 
 		SELECT * FROM MEMBER
-		WHERE MEMBER_ID=#{member_id} AND MEMBER_PWD=#{member_pwd}
+		WHERE
+		MEMBER_ID=#{member_id} AND MEMBER_PWD=#{member_pwd}
 
 	</select>
 
-	<!-- 회원탈퇴 -->
-	<delete id="deleteMember">
-		DELETE FROM MEMBER WHERE
-		MEMBER_NO =
-		#{member_no}
-	</delete>
+
 	<!-- 회원탈퇴 -->
 	<delete id="dropMember">
 		DELETE FROM MEMBER
@@ -97,17 +93,7 @@
 		UPDATE MEMBER SET MEMBER_PWD=#{member_pwd} WHERE
 		MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
 	</update>
-	<!-- 멤버관리 -->
-	<!-- 멤버 리스트 -->
-	<select id="getMemberList" resultMap="member">
-		select * from member
-		order by member_no
-	</select>
 
-	<select id="getMeber">
-		select *from member
-		where member_no=#{member_no}
-	</select>
 	<!-- 구매 내역 조회 -->
 	<select id="orderMember" resultType="goodspayment">
 		SELECT GOODS_NUM,ORDER_DATE,
@@ -121,6 +107,69 @@
 	<select id="CountOrder" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM
 		GOODS_PAYMENT WHERE MEMBER_ID =#{member_id}
+	</select>
+
+
+
+	<!-- 멤버관리 -->
+	<!-- 멤버 리스트 (미사용) -->
+	<select id="getMemberList" resultMap="member">
+		select * from member
+		order
+		by member_no
+	</select>
+	<!-- 어드민 회원탈 -->
+	<delete id="deleteMember">
+		DELETE FROM MEMBER WHERE
+		MEMBER_NO =
+		#{member_no}
+	</delete>
+	<!-- 어드민 회원 상세보기 -->
+	<select id="getMember" resultType="member">
+		select * from member
+		where member_no=#{member_no}
+	</select>
+	
+	<!-- 어드민 회원 목록 검색 -->
+	<sql id="searchCondition">
+		<choose>
+			<when test='option=="N"'>
+				and member_name like '%'||#{keyword}||'%'
+			</when>
+			<when test='option=="I"'>
+				and member_id like '%'||#{keyword}||'%'
+			</when>
+			<otherwise>
+				and member_name like '%'||#{keyword}||'%'
+				or member_id like
+				'%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	<!-- 어드민 회원 목록 페이징 -->
+	<select id="memberPage" parameterType="SearchCondition"
+		resultType="member">
+		select *
+		from (
+		select rownum as rn, A.*
+		from (
+		select *
+		from member
+		where
+		1=1
+		<include refid="searchCondition" />
+		ORDER BY member_no
+		) A
+		) where rn between ${offset} and
+		${pageSize}*#{page}
+	</select>
+
+	<select id="memberCount" parameterType="SearchCondition"
+		resultType="int">
+		select count(*)
+		from member
+		where 1=1
+		<include refid="searchCondition" />
 	</select>
 
 </mapper>

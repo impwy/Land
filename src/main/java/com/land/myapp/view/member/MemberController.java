@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.land.myapp.Pager;
+import com.land.myapp.model.board.PageHandler;
+import com.land.myapp.model.board.SearchCondition;
 import com.land.myapp.model.member.vo.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
@@ -94,16 +96,18 @@ public class MemberController {
         if (date == "member_date") {
             return "redirect:/main";
         } else {
-            return "redirect:/getMemberList";
+            return "redirect:/memberpage";
         }
     }
 
     // 멤버
     @GetMapping("/getMember")
-    public String getMember(Model m, Integer member_no) {
-        m.addAttribute("member", memberService.getMember(member_no));
-        return "admin/memberManager";
-    }
+	public String getMember(int member_no,Model m,SearchCondition sc) {
+		m.addAttribute("member", memberService.getMember(member_no));
+		m.addAttribute("sc",sc);
+
+		return "admin/getMember";
+	}
 
     // 회원 정보 수정 창 이동
     @RequestMapping(value = "/mypage3", method = RequestMethod.GET)
@@ -153,4 +157,24 @@ public class MemberController {
         model.addAttribute("map", map);
         return "mypage/mypage";
     }
+    @GetMapping("/memberpage")
+	public String getMemberPage(MemberVO mvo,Model m, SearchCondition sc) {
+		try {
+			int totalCnt=memberService.getMemberCount(sc);
+			m.addAttribute("totalCnt", totalCnt);
+			PageHandler pageHandler = new PageHandler(totalCnt,sc);
+
+
+			List<MemberVO> list = memberService.getMemberPage(sc);
+			m.addAttribute("memberList", list);
+			m.addAttribute("ph", pageHandler);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			m.addAttribute("msg", "LIST_ERR");
+			m.addAttribute("totalCnt", 0);
+
+		}
+		return "admin/memberManager";
+	}
 }

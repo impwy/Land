@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.land.myapp.model.board.SearchCondition;
 import com.land.myapp.model.member.vo.GoodsPaymentVO;
 import com.land.myapp.model.member.vo.MemberService;
 import com.land.myapp.model.member.vo.MemberVO;
@@ -53,11 +54,6 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.updateMember(vo);
 	}
 
-	// 테스트
-	public List<MemberVO> getMemberList(MemberVO vo) {
-		return memberDAO.getMemberList(vo);
-	}
-
 	public int getCountMember(MemberVO vo) {
 		return memberDAO.getCountMember(vo);
 	}
@@ -71,16 +67,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int getCountOrder(GoodsPaymentVO vo) {
 		return memberDAO.getCountOrder(vo);
-	}
-
-	@Override
-	public int deleteMember(Integer member_no) {
-		return memberDAO.deleteMember(member_no);
-	}
-
-	@Override
-	public MemberVO getMember(Integer member_no) {
-		return memberDAO.getMember(member_no);
 	}
 
 	@Override
@@ -102,6 +88,35 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void insertGoodsPayment(GoodsPaymentVO vo) {
 		memberDAO.insertGoodsPayment(vo);
+	}
+	// 어드민 관련
+
+	// 멤버 리스트(미사용)
+	public List<MemberVO> getMemberList(MemberVO vo) {
+		return memberDAO.getMemberList(vo);
+	}
+
+	// 멤버 삭제
+	@Override
+	public int deleteMember(Integer member_no) {
+		return memberDAO.deleteMember(member_no);
+	}
+
+	// 멤버 상세보기
+	@Override
+	public MemberVO getMember(int member_no) {
+		return memberDAO.getMember(member_no);
+	}
+
+	// 멤버 리스트 페이징
+	@Override
+	public List<MemberVO> getMemberPage(SearchCondition sc) {
+		return memberDAO.memberPage(sc);
+	}
+
+	@Override
+	public int getMemberCount(SearchCondition sc) {
+		return memberDAO.memberCount(sc);
 	}
 
 }
