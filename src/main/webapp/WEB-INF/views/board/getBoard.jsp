@@ -77,7 +77,7 @@
                 <button type="button" id="modifyBtn" class="btn btn-modify"><i class="fa fa-edit"></i>수정</button>
             <button type="button" id="removeBtn" class="btn btn-remove"><i class="fa fa-remove"></i>삭제</button>
             </c:if>
-            <button type="button" class="btn btn-write" onclick=location.href="page"><i class="fa fa-pencil"></i>목록으로</button>
+           <!--  <button type="button" class="btn btn-write" onclick=location.href="page"><i class="fa fa-pencil"></i>목록으로</button> -->
         </c:if>
         <div class="list-container">
             <div class="btn-container">

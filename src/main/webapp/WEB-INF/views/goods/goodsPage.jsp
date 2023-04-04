@@ -82,6 +82,7 @@ function buyGoods(){
 			"order_sum" : basket_sum,
 			"member_id" : '${member.member_id}',
 			"goods_num" : '${goods.goods_num}',
+			"goods_image" : '${goods.goods_image}'
 			}, success : function(data){
 				location.href = "goodsPayment";
 			}

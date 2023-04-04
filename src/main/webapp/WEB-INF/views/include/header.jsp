@@ -42,7 +42,7 @@
 		<a href="mypage" title="개인정보">개인정보</a>
 		<a href="goodsmall" title="굿즈몰"><i class="fa-brands fa-shopify"></i></a>
 		<a href="insert">굿즈관리</a>	
-		<a href="getMemberList">회원관리</a>
+		<a href="memberpage"><i class="fa-solid fa-users"></i></a>
 		<a href="#" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
 	</c:if>
 </c:if>

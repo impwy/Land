@@ -69,11 +69,11 @@
           </div>
           <div class="group">
             <label for="email" class="label">Email 주소</label>
-            <input id="email" type="text" class="input" name="member_email">
+            <input id="email" type="email" class="input" name="member_email">
           </div>
           <div class="group">
             <label for="address" class="label">주소</label>
-            <input id="address" type="email" class="input" name="member_addr">
+            <input id="address" type="text" class="input" name="member_addr">
           </div>
           <div class="group">
             <label for="key" class="label">주민등록번호</label>

@@ -29,7 +29,7 @@ $(document).ready(function(){
   $("#checkID").click(function(){
     let member_id = $('#user_id').val();
     if(!member_id){
-      swal("","아이디를 입력해주세요","error");
+     swal("","아이디를 입력해주세요","warning");
     } else if(member_id){
       $.ajax({
         type: "POST",
@@ -46,7 +46,7 @@ $(document).ready(function(){
           }
         },
         error : function(error) {
-          swal("", member_id, "error");
+         swal("",member_id,"warning");
         }
       });
     }
@@ -79,10 +79,17 @@ $(document).ready(function(){
   //회원가입 전 체크
   $('#signBtn').click(function(event) {
 	    if (idCheck === false) {
-	     swal("","중복검사를 해주세요","warning");
+	     alert("중복검사를 해주세요");
 	    	event.preventDefault(); // prevent form submission
-	    }else{
+	    }else if(pwCheck === false){
+	    	alert("비밀번호가 다릅니다.");
+	    	event.preventDefault();
+	    }else if($("#email").val().indexOf("@") == -1){
+	    	alert("이메일을 바르게 써주세요");
+	    	event.preventDefault();
+	    } else{
 	    	alert("회원가입 완료");
+	    	location.href="login";
 	    }
 	 });
 });

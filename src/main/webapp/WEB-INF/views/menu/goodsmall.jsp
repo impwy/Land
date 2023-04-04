@@ -23,6 +23,7 @@ table#product {
 	margin: 0 auto; /* center the table */
 	border-collapse: separate;
 	width: 80%;
+	padding-bottom:50px;
 }
 
 table#product td {

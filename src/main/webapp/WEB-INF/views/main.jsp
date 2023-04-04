@@ -15,9 +15,37 @@
     <link rel="stylesheet" href="resources/css/main.css"/>
     <title>Document</title>
 </head>
+<style>
+.pageNavi{
+    position:fixed;
+    bottom: 50px;
+    right: 20px;
+    background-color: #f8f8f8;
+    border-radius: 2em;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 50000;
+}
+.pageNavi >a{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+</style>
 <body>
 <%@ include file="include/header.jsp" %>
-
+<div class="pageNavi">
+    <a href="#" style="cursor: pointer"><i class="fa-solid fa-up-long"></i></a>
+    <a href="#attr" style="cursor: pointer"><i class="fa-solid fa-down-long"></i></a>
+     <a href="#goods" style="cursor: pointer"><i class="fa-solid fa-down-long"></i></a>
+      <a href="#bottom" style="cursor: pointer"><i class="fa-solid fa-down-long"></i></a>
+</div>
 <main id="cbody"> <!-- main swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -84,7 +112,7 @@
         });
     </script>
     <!-- 운영시간 -->
-    <div class="mainTodayTime">
+    <div class="mainTodayTime" id="attr">
         <div class="time">
             <a href="#"> <i class="fa-regular fa-clock"></i>
                 <p class="tit">오늘의 파크운영시간</p>
@@ -136,7 +164,7 @@
                 </div>
             </div>
             <div class="attraction-btn">
-                <a href="attraction"> <span>기구 보러 가기</span>
+                <a href="attraction" id="goods"> <span>기구 보러 가기</span>
                 </a>
             </div>
         </div>
@@ -198,6 +226,7 @@
         <div class="goods-btn">
             <a href="goodsmall"> <span>상점가기</span>
             </a>
+            <div id="bottom"></div>
         </div>
     </div>
 
