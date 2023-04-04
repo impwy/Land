@@ -80,11 +80,13 @@ td[colspan="9"] {
 		</tr>
 		<script>
 		function cancelTicket(ticketNum) {
-			
+			var check = confirm("삭제하시겠습니까?");
+			if(check){
+			var ticket = parseInt(ticketNum);
 			  $.ajax({
 			    url: "deleteTicket",
 			    type: "GET",
-			    data: { "ticket_num": ticketNum },
+			    data: { "ticket_num": ticket},
 			    success: function(result) {
 			     alert("삭제되었습니다.");
 			     location.href = "ticketList";
@@ -93,7 +95,10 @@ td[colspan="9"] {
 			      // Display an error message or handle the error
 			    }
 			  });
+			}else{
+			alert("취소하셨습니다");
 			}
+	}
 		</script>
 		</c:forEach>
 		</c:when>

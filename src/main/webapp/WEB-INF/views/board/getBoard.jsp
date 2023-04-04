@@ -197,10 +197,10 @@
             if (!confirm('경고', "정말 삭제 하시겠습니까?", "warning")) return;
         });
         $("#prevBtn").on("click", function () {
-            location.href = "<c:url value='getBoard${sc.queryString}&board_num=${prevPage.board_num}'/>"
+            location.href = "<c:url value='getBoard${sc.queryString}&board_num=${prevPage.board_num}'/>";
         });
         $("#nextBtn").on("click", function () {
-            location.href = "<c:url value='getBoard${sc.queryString}&board_num=${nextPage.board_num}'/>"
+            location.href = "<c:url value='getBoard${sc.queryString}&board_num=${nextPage.board_num}'/>";
         });
     });
 </script>
