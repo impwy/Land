@@ -4,9 +4,8 @@
 <%@ taglib prefix="c" 
 uri="http://java.sun.com/jsp/jstl/core" %>
 
-<a href="list">상품목록</a> |
+<a href="product_list">상품목록</a> |
 <a href="write">상품등록</a> |
-<a href="editgoods">상품수정</a> | 
 
 
 <div style="text-align:right;">

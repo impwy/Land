@@ -66,7 +66,7 @@ public class GoodsDAO {
 			map.put("end", end);
 			map.put("goods", vo);
 			System.out.println("dao통과");
-			return mybatis.selectList("GoodsDAO.getAdminGoodsList",map);
+			return mybatis.selectList("GoodsDAO.getGoodsList",map);
 			
 		}
 		// 관리자 페이지 리스트 갯수 체크

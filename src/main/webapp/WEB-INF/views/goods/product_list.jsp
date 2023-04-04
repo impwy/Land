@@ -26,7 +26,7 @@
 		</tr>
 		<c:choose>
 			<c:when test="${not empty map.list}">
-				<c:forEach begin="0" end="${(fn:length(map.list))}" var="i">
+				<c:forEach begin="0" end="${(fn:length(map.list)-1)}" var="i">
 					<c:set var="product" value="${map.list[i] }" />
 					<tr>
 						<td>${product.goods_num}</td>
@@ -38,41 +38,28 @@
 						<td><a href="#" onclick="location.href='editgoods?goods_num=${product.goods_num}'">편집</a></td>
 						<td><a href="#" onclick="deleteGoods('${product.goods_num}')">삭제</a></td>
 					</tr>
-			 <!-- <script>
-			function editgoods(goodsnum){
-				var goods = parseInt(goodsnum)
-				$.ajax({
-				    url: "editgoods",
-				    type: "POST",
-				    data: { "goods_num": goods },
-				    success: function(result) {
-				     
-				     location.href = "editgoods";
-				    },
-				    error: function(jqXHR, textStatus, errorThrown) {
-				      // Display an error message or handle the error
-				    }
-				  });
-			}
-			</script> -->
-			
 			
 			
 			<script>
 		       function deleteGoods(goodsnum) {
-			
+		    	   var check = confirm("삭제하시겠습니까?");
+		    	   if(check){
+		    		   var goodsnum = parseInt(goodsnum);
 			  $.ajax({
 			    url: "product_delete",
 			    type: "GET",
-			    data: { "goods_num": goodsnum },
+			    data: { "goods_num": goodsnum},
 			    success: function(result) {
 			     alert("삭제되었습니다.");
-			     location.href = "product_delete";
+			     location.href = "product_list";
 			    },
 			    error: function(jqXHR, textStatus, errorThrown) {
 			      // Display an error message or handle the error
 			    }
 			  });
+		       }else{
+		    	   alert("취소하셨습니다");
+		       }
 			}
 		</script>
 				</c:forEach>
@@ -81,16 +68,14 @@
 
 		<c:if test="${(fn:length(map)) ne 0}">
 			<tr>
-				<td colspan="4" align="center">
-					<!-- 컨트롤러에 리퀘스트파람 디폴트값을 1로 지정해줫음, --> <c:if
-						test="${map.pager.curBlock > 1}">
+				<td colspan="9" align="center">
+					<c:if test="${map.pager.curBlock > 1}">
 						<a href="product_list">[처음]</a>
-					</c:if> <!-- 우리는 js로 list function(카테고리)을 안쓰기 때문에 온클릭 삭제, href에  get 방식으로 
-					[이전]일떄,굿즈몰의 현재페이지에서 이전 페이지를 링크걸어준다--> <c:if
-						test="${map.pager.curBlock > 1}">
+					</c:if> 
+					<c:if test="${map.pager.curBlock > 1}">
 						<a href="product_list?curPage=${map.pager.prevPage}">[이전]</a>
-					</c:if> <!-- 여기는 pager의 블록 변수 주석 참고 --> <c:forEach var="num"
-						begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+					</c:if> 
+					<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
 						<c:choose>
 							<c:when test="${num == map.pager.curPage}">
 								<span style="color: red;">${num}</span>
@@ -98,12 +83,12 @@
 							<c:otherwise>
 								<a href="product_list?curPage=${num}">${num}</a>
 							</c:otherwise>
-						</c:choose>
-						<!-- pager참고, 블록의  if문에 따라 다음페이지로 링크 걸어줌 -->
-					</c:forEach> <c:if test="${map.pager.curBlock < map.pager.totBlock}">
+						</c:choose>	
+					</c:forEach> 
+					<c:if test="${map.pager.curBlock < map.pager.totBlock}">
 						<a href="product_list?curPage=${map.pager.nextPage}">>[다음]</a>
-					</c:if> <!-- pager참고, 블록의  if문에 따라 끝페이지로 링크 걸어줌 --> <c:if
-						test="${map.pager.curBlock < map.pager.totPage}">
+					</c:if>
+					<c:if test="${map.pager.curBlock < map.pager.totPage}">
 						<a href="product_list?curPage=${map.pager.totPage}">[끝]</a>
 					</c:if>
 				</td>

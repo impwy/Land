@@ -57,7 +57,7 @@ public class GoodsController {
 		@RequestMapping("/product_delete")
 		public String delete(int goods_num) {
 			goodsService.deleteGoods(goods_num);			
-			return "/goods/product_list";
+			return "redirect:/product_list";
 				}
 		//굿즈수정페이지이동
 		@RequestMapping(value="/editgoods", method=RequestMethod.GET)
@@ -81,7 +81,7 @@ public class GoodsController {
 		@RequestMapping(value="/form2", method=RequestMethod.POST)
 		public String updateGoods(GoodsVO vo) {	
 			goodsService.updateGoods(vo);
-			return "redirect:/list";
+			return "redirect:/product_list";
 		}
 	
 		
@@ -112,14 +112,14 @@ public class GoodsController {
 	
 		
 		//관리자용 상품 목록
-		@RequestMapping(value="/list",method=RequestMethod.GET)
+		@RequestMapping(value="/product_list",method=RequestMethod.GET)
 		public String goodsAdminViewList(@RequestParam(defaultValue = "1") int curPage, GoodsVO vo, Model model) {
-			int count = goodsService.getAdminCountGoods(vo);
+			int count = goodsService.getCountGoods(vo);
 			Pager pager = new Pager(count,curPage);
 			int start = pager.getPageBegin();
 			int end = pager.getPageEnd();
 			
-			List<GoodsVO> list = goodsService.getAdminGoodsList(start, end, vo);
+			List<GoodsVO> list = goodsService.getGoodsList(start, end, vo);
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			
 			map.put("list", list);

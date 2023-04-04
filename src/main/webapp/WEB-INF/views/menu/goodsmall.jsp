@@ -193,7 +193,7 @@ table#product img {
 			</tr>
 		</c:if>
 	</table>
-	<%@ include file="../include/footer.jsp"%>
+	 <%@ include file="../include/footer.jsp"%>
 	</div>
 </body>
 </html>
