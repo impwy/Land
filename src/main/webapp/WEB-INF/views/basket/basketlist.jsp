@@ -132,7 +132,7 @@
                                         "goods_num": '1'
                                     },
                                     success: function (data) {
-                                        window.open("goodsPayment", "", "width=700,height=500,");
+                                        window.open("goodsPayment", "", "width=800,height=1200,");
                                         // location.href = "goodsPayment";
                                     }
                                 });
