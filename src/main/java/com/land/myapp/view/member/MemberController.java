@@ -23,146 +23,134 @@ import com.land.myapp.model.member.vo.MemberVO;
 
 @Controller
 public class MemberController {
-	@Autowired
-	private MemberService memberService;
+    @Autowired
+    private MemberService memberService;
 
-	@RequestMapping("/main")
-	public String main() {
-		return "main";
-	}
+    // 로그인
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "member/login";
+    }
 
-	@RequestMapping("/term")
-	public String term(MemberVO vo) {
-		return "member/term";
-	}
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(MemberVO vo, HttpSession session) {
+        int memberCheck = memberService.checkMember(vo);
+        MemberVO member = memberService.login(vo);
+        if (member != null) {
+            session.setAttribute("member", member);
+            return "main";
+        } else {
+            session.setAttribute("memberCheck", memberCheck);
+            return "member/login";
+        }
+    }
 
+    // 회원가입
+    @RequestMapping(value = "/join", method = RequestMethod.POST)
+    public String signUp(MemberVO vo) {
+        System.out.println("가입 성공....");
+        memberService.insertMember(vo);
+        return "main";
+    }
 
-	// 로그인
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		return "member/login";
-	}
+    // 로그아웃
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "main";
+    }
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpSession session) {
-		int memberCheck = memberService.checkMember(vo);
-		MemberVO member = memberService.login(vo);
-		if (member != null) {
-			session.setAttribute("member", member);
-			return "main";
-		} else {
-			session.setAttribute("memberCheck", memberCheck);
-			return "member/login";
-		}
-	}
+    @PostMapping(value = "/checkID")
+    @ResponseBody
+    public int checkID(String member_id) {
+        return memberService.checkID(member_id);
+    }
 
+    @PostMapping(value = "/checkMember")
+    @ResponseBody
+    public int checkMember(MemberVO vo) {
+        return memberService.checkMember(vo);
+    }
 
-	// 회원가입
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String signUp(MemberVO vo) {
-		System.out.println("가입 성공....");
-		memberService.insertMember(vo);
-		return "main";
-	}
+    // 멤버 리스트
+    @GetMapping("/getMemberList")
+    public String getMemberList(MemberVO mvo, Model m) {
+        m.addAttribute("memberList", memberService.getMemberList(mvo));
+        return "admin/memberManager";
+    }
 
-	// 로그아웃
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "main";
-	}
+    // 멤버 삭제
+    @PostMapping("/deleteMember")
+    public String deleteMember(Integer member_no, RedirectAttributes rattr, String date) {
+        try {
+            int rowCnt = memberService.deleteMember(member_no);
 
-	@PostMapping(value = "/checkID")
-	@ResponseBody
-	public int checkID(String member_id) {
-		return memberService.checkID(member_id);
-	}
+            if (rowCnt != 1)
+                throw new Exception("Member delete error");
+            rattr.addFlashAttribute("msg", "DEL_OK");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (date == "member_date") {
+            return "redirect:/main";
+        } else {
+            return "redirect:/getMemberList";
+        }
+    }
 
-	@PostMapping(value = "/checkMember")
-	@ResponseBody
-	public int checkMember(MemberVO vo) {
-		return memberService.checkMember(vo);
-	}
+    // 멤버
+    @GetMapping("/getMember")
+    public String getMember(Model m, Integer member_no) {
+        m.addAttribute("member", memberService.getMember(member_no));
+        return "admin/memberManager";
+    }
 
-	// 멤버 리스트
-	@GetMapping("/getMemberList")
-	public String getMemberList(MemberVO mvo, Model m) {
-		m.addAttribute("memberList", memberService.getMemberList(mvo));
-		return "admin/memberManager";
-	}
+    // 회원 정보 수정 창 이동
+    @RequestMapping(value = "/mypage3", method = RequestMethod.GET)
+    public String mypage4() {
+        return "mypage/mypage3";
+    }
 
-	// 멤버 삭제
-	@PostMapping("/deleteMember")
-	public String deleteMember(Integer member_no, RedirectAttributes rattr, String date) {
-		try {
-			int rowCnt = memberService.deleteMember(member_no);
+    // 회원 정보 수정
+    @RequestMapping(value = "/mypage3", method = RequestMethod.POST)
+    public String updateMember(MemberVO vo) {
+        memberService.updateMember(vo);
+        return "mypage/mypage";
+    }
 
-			if (rowCnt != 1)
-				throw new Exception("Member delete error");
-			rattr.addFlashAttribute("msg", "DEL_OK");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		if (date == "member_date") {
-			return "redirect:/main";
-		} else {
-			return "redirect:/getMemberList";
-		}
-	}
+    // 회원 탈퇴
+    @RequestMapping(value = "/deleteMember2", method = RequestMethod.GET)
+    public String deleteMember2(String member_id) {
+        memberService.dropMember(member_id);
+        return "redirect:/main";
+    }
 
-	// 멤버
-	@GetMapping("/getMember")
-	public String getMember(Model m, Integer member_no) {
-		m.addAttribute("member", memberService.getMember(member_no));
-		return "admin/memberManager";
-	}
+    // 주문 내역 등록
+    @PostMapping(value = "/payment")
+    public String insertGoodsPayment(GoodsPaymentVO vo) {
+        memberService.insertGoodsPayment(vo);
+        return "main";
+    }
 
-	// 회원 정보 수정 창 이동
-	@RequestMapping(value = "/mypage3", method = RequestMethod.GET)
-	public String mypage4() {
-		return "mypage/mypage3";
-	}
+    // 개인 정보 이동
+    @GetMapping(value = "/mypage")
+    public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
+                               HttpSession session) {
 
-	// 회원 정보 수정
-	@RequestMapping(value = "/mypage3", method = RequestMethod.POST)
-	public String updateMember(MemberVO vo) {
-		memberService.updateMember(vo);
-		return "mypage/mypage";
-	}
+        MemberVO member = (MemberVO) session.getAttribute("member");
+        String member_id = member.getMember_id();
+        vo.setMember_id(member_id);
+        int count = memberService.getCountOrder(vo);
+        Pager pager = new Pager(count, curPage);
+        int start = pager.getPageBegin();
+        int end = pager.getPageEnd();
+        List<GoodsPaymentVO> list = memberService.getGoodsPaymentList(vo, start, end);
 
-	// 회원 탈퇴
-	@RequestMapping(value = "/deleteMember2", method = RequestMethod.GET)
-	public String deleteMember2(String member_id) {
-		memberService.dropMember(member_id);
-		return "redirect:/main";
-	}
-
-	// 주문 내역 등록
-	@PostMapping(value = "/payment")
-	public String insertGoodsPayment(GoodsPaymentVO vo) {
-		memberService.insertGoodsPayment(vo);
-		return "main";
-	}
-
-	// 개인 정보 이동
-	@GetMapping(value = "/mypage")
-	public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
-			HttpSession session) {
-
-		MemberVO member = (MemberVO) session.getAttribute("member");
-		String member_id = member.getMember_id();
-		vo.setMember_id(member_id);
-		int count = memberService.getCountOrder(vo);
-		Pager pager = new Pager(count, curPage);
-		int start = pager.getPageBegin();
-		int end = pager.getPageEnd();
-		List<GoodsPaymentVO> list = memberService.getGoodsPaymentList(vo, start, end);
-
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list);
-		map.put("count", count);
-		map.put("pager", pager);
-		model.addAttribute("map", map);
-		return "mypage/mypage";
-	}
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("list", list);
+        map.put("count", count);
+        map.put("pager", pager);
+        model.addAttribute("map", map);
+        return "mypage/mypage";
+    }
 }

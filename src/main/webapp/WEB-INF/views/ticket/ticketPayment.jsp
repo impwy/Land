@@ -4,12 +4,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+
     <title>Payment</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     <style>
-      
         #ticket-Payment {
             max-width: 600px;
             margin: 300px auto;
@@ -112,59 +111,60 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
-//아임포트 카카오페이 결제 시작
-$('#buyTicket').click(function () {
-Swal.fire({
-	   title: '결제 하시겠습니까?',
-	   icon: 'warning',
-	   
-	   showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
-	   confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
-	   cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
-	   confirmButtonText: '예매', // confirm 버튼 텍스트 지정
-	   cancelButtonText: '취소', // cancel 버튼 텍스트 지정
-	   
-	   reverseButtons: true, // 버튼 순서 거꾸로
-	   
-	}).then(result => {
-	   // 만약 Promise리턴을 받으면,
-	   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
-		   var IMP = window.IMP;
-	        IMP.init('imp42522200');
-	        IMP.request_pay({
-	            pg: "kakaopay",
-	            pay_method: 'card',
-	            merchant_uid: 'merchant_' + new Date().getTime(),
-	            name: '${map.ticket_type }',
-	            amount: '${map.ticket_sum }',
-	            buyer_email: '${member.member_email}',
-	            buyer_name: '${member.member_name}',
-	            buyer_tel: '${member.member_phone}',
-	        }, function (rsp) {
-	            if (rsp.success) {
-	                var msg = '예매가 완료되었습니다.';
-	                $.ajax({
-	                    type: "POST",
-	                    url: "ticketPayment",
-	                    data: $('#form1').serialize(),
-	                    success: function (response) {
-	                        console.log(response);
-	                        swal("", msg, "success").then(() => {
-	                            location.href = "main";
-	                        });
-	                    },
-	                    error: function (xhr, textStatus, errorThrown) {
-	                        console.log(xhr.responseText);
-	                    }
-	                });
-	            } else {
-	                var msg = '결제에 실패하였습니다.';
-	                rsp.error_msg;
+    //아임포트 카카오페이 결제 시작
+    $('#buyTicket').click(function () {
+        Swal.fire({
+            title: '결제 하시겠습니까?',
+            icon: 'warning',
 
-	            }
-	        });
-	   }
-	});     
+            showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+            confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+            cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+            confirmButtonText: '예매', // confirm 버튼 텍스트 지정
+            cancelButtonText: '취소', // cancel 버튼 텍스트 지정
+
+            reverseButtons: true, // 버튼 순서 거꾸로
+
+        }).then(result => {
+            // 만약 Promise리턴을 받으면,
+            if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
+                var IMP = window.IMP;
+                IMP.init('imp42522200');
+                IMP.request_pay({
+                    //카카오 페이 설정
+                    pg: "kakaopay",
+                    pay_method: 'card',
+                    merchant_uid: 'merchant_' + new Date().getTime(),
+                    name: '${map.ticket_type }',
+                    amount: '${map.ticket_sum }',
+                    buyer_email: '${member.member_email}',
+                    buyer_name: '${member.member_name}',
+                    buyer_tel: '${member.member_phone}',
+                }, function (rsp) {
+                    if (rsp.success) {
+                        //카카오 페이가 성공하면 DB에 데이터 저장 시작
+                        var msg = '예매가 완료되었습니다.';
+                        $.ajax({
+                            type: "POST",
+                            url: "ticketPayment",
+                            data: $('#form1').serialize(),
+                            success: function (response) {
+                                console.log(response);
+                                swal("", msg, "success").then(() => {
+                                    location.href = "main";
+                                });
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                console.log(xhr.responseText);
+                            }
+                        });
+                    } else {
+                        var msg = '결제에 실패하였습니다.';
+                        rsp.error_msg;
+                    }
+                });
+            }
+        });
     });
 </script>
 </body>

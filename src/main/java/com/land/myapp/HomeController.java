@@ -15,30 +15,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+    /**
+     * Simply selects the home view to render by returning its name.
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(Locale locale, Model model) {
+        logger.info("Welcome home! The client locale is {}.", locale);
 
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat
+                                .getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-		String formattedDate = dateFormat.format(date);
+        String formattedDate = dateFormat.format(date);
 
-		model.addAttribute("serverTime", formattedDate);
-		
-		return "main";
+        model.addAttribute("serverTime", formattedDate);
 
-	}
-	@RequestMapping(value = "/myapp/login", method = RequestMethod.GET)
-	public String login() {
-		
-		return "/member/login";
+        return "main";
+    }
 
-	}
-
+    @RequestMapping("/main")
+    public String main() {
+        return "main";
+    }
 }
