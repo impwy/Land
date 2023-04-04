@@ -43,7 +43,7 @@ public class TicketController {
     }
 
     //티켓주문으로 이동
-    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    @RequestMapping(value = "/orderTicket", method = RequestMethod.POST)
     public String orderTicket(OrderTicketVO vo, HttpSession session) {
         session.setAttribute("map", vo);
         return "/ticket/ticketPayment";

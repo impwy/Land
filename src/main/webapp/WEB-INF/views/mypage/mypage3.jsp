@@ -153,7 +153,7 @@ h2 {
 								location.href = "login";
 							},
 							error : function(jqXHR, textStatus, errorThrown) {
-								alert("실패했습니다.")
+								alert("실패했습니다.");
 								location.href = "main";
 							}
 						});

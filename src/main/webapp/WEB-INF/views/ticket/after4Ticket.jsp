@@ -15,7 +15,7 @@
    <div class="ticket-info">
     <h2>티켓을 고르세요.</h2>
        
-    <form action="order" method="post">
+    <form action="orderTicket" method="post" onsubmit="return validateForm()">
         <input type="hidden" id="amount" name="ticket_amount" value="0" />
         <input type="hidden" id="type" name="ticket_type" value="AfterFour" />
         

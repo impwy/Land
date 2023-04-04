@@ -18,7 +18,7 @@ $(document).ready(function() {
 		var adultValue = parseInt(adultInput.val());
 		var teenValue = parseInt(teenInput.val());
 		var babyValue = parseInt(babyInput.val());
-	    var totalValue = adultValue*40000 + teenValue*30000 + babyValue*20000;
+	    var totalValue = adultValue*49000 + teenValue*46000 + babyValue*43000;
 	    totalInput.val(totalValue);
 	  }
 	  
@@ -41,3 +41,14 @@ $(document).ready(function() {
 	  }
 	  
 	});
+
+function validateForm() {
+	var date = document.getElementById("date").value;
+	var total = document.getElementById("total").value;
+
+	if (date === "" || total == 0 ) {
+		alert("티켓을 선택해 주세요");
+		return false;
+	}
+	return true;
+}

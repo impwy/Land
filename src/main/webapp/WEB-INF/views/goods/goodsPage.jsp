@@ -7,9 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="resources/css/productpage.css" />
 <title>상품 상세 페이지</title>
@@ -71,11 +68,11 @@ $(document).ready(function() {
 function buyGoods(){
 	var basket_amount = parseInt($("#basket_amount").val());
 	var basket_sum = $("#basket_sum").val();
-	if(basket_amount === 0 ){
-		swal("","수량을 선택해 주세요","error");
+	if(basket_amount == 0 ){
+		alert("수량을 선택해 주세요");
 	}else{
-		confirm("주문 하시겠습니까?");
-		if(confirm){
+		var check = confirm("주문 하시겠습니까?");
+		if(check){
 		$.ajax({
 			type : "post",
 			url : 'goodsPayment',
@@ -90,7 +87,7 @@ function buyGoods(){
 			}
 		});
 		}else{
-			swal("","취소하셨습니다.","warnimg");
+			alert("취소하셨습니다.");
 		}
 	}
 }

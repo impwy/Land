@@ -143,23 +143,21 @@
                 }, function (rsp) {
                     if (rsp.success) {
                         //카카오 페이가 성공하면 DB에 데이터 저장 시작
-                        var msg = '예매가 완료되었습니다.';
                         $.ajax({
                             type: "POST",
                             url: "ticketPayment",
                             data: $('#form1').serialize(),
                             success: function (response) {
                                 console.log(response);
-                                swal("", msg, "success").then(() => {
+                                alert("예매가 완료되었습니다.");
                                     location.href = "main";
-                                });
                             },
                             error: function (xhr, textStatus, errorThrown) {
                                 console.log(xhr.responseText);
                             }
                         });
                     } else {
-                        var msg = '결제에 실패하였습니다.';
+                        var error_msg = '결제에 실패하였습니다.';
                         rsp.error_msg;
                     }
                 });

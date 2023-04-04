@@ -213,14 +213,26 @@ align-items: center;
     color: black;
 }
 
-.main-title{
+.attr-main-title{
     display: inline-block;
     text-align: center;
     margin-top: 3%;
     width: 100%;
     height: 10%;
     color: white;
+    font-size:1.5rem;
 }
+
+.goods-main-title{
+    display: inline-block;
+    text-align: center;
+    margin-top: 3%;
+    width: 100%;
+    height: 10%;
+    color: black;
+    font-size:2rem;
+}
+
 
 .goods-container{
     display: flex;

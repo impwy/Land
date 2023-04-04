@@ -8,13 +8,12 @@ function insertCart() {
 	var basket_sum = $("#basket_sum").val();	
 	var goods_name = $("#goods_names").val();
 	if (member_id == "admini") {
-		swal("", "관리자 권한으로는 이용하실 수 없습니다.", "warning");
+		alert("관리자 권한으로는 이용하실 수 없습니다.");
 					} else if (!member_id) {
-						swal("", "비회원은 장바구니를 이용하실 수 없습니다.", "error").then(()=>{
+						alert("비회원은 장바구니를 이용하실 수 없습니다.");
 							location.href="login";
-						});
 					} else if (basket_amount == 0) {
-						swal("", "수량을 선택해주세요", "error");
+						alert("수량을 선택해주세요");
 					} else {
 						$.ajax({
 							type : "GET",
@@ -27,7 +26,7 @@ function insertCart() {
 								"basket_amount" : basket_amount
 							},
 							success : function(data) {
-								swal("", "장바구니에 저장되었습니다.", "success");
+								alert("장바구니에 저장되었습니다.");
 							}
 						});
 					}

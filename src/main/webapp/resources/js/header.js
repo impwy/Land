@@ -4,9 +4,8 @@
 var member_id = $('#member_id').val();
 			$('#ticketing').click(function(){
 				if(!member_id){
-					alert("로그인이 필요합니다").then(()=>{
-					window.location.href="login";
-					});
+					alert("로그인이 필요합니다");
+					location.href="login";
 				}else{
 				$.ajax({
 					type:"POST",
@@ -30,7 +29,7 @@ $(".logout").click(function(){
 		   confirmButtonText: '로그아웃', // confirm 버튼 텍스트 지정
 		   cancelButtonText: '취소', // cancel 버튼 텍스트 지정
 		   
-		   reverseButtons: true, // 버튼 순서 거꾸로
+		   reverseButtons: false, // 버튼 순서 거꾸로
 		   
 		}).then(result => {
 		   // 만약 Promise리턴을 받으면,

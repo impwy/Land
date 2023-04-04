@@ -7,10 +7,11 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<link rel="stylesheet" href="resources/css/attraction.css">
+
 <html>
 <head>
   <title>Title</title>
+  <link rel="stylesheet" href="resources/css/attraction.css">
 </head>
 <body class="attraction">
 <%@ include file="../../include/header.jsp"%>

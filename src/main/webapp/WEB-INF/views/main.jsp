@@ -96,41 +96,41 @@
 
     <!-- 기구 소개 -->
     <div class="attraction-introduce">
-        <div class="main-title">
+        <div class="attr-main-title">
             <h1>기구소개</h1>
         </div>
 
         <div class="attraction-container">
             <div class="attraction-top">
                 <div class="attraction-item">
-                    <a href=""> <img src="resources/img/enjoy/attraction/images/B-dragon.jpeg">
+                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/B-dragon.jpeg">
                         <div class="attraction-context">비룡열차</div>
                     </a>
                 </div>
                 <div class="attraction-item">
-                    <a href=""> <img src="resources/img/enjoy/attraction/images/T-exp.jpeg">
+                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/T-exp.jpeg">
                         <div class="attraction-context">티익스프레스</div>
                     </a>
                 </div>
                 <div class="attraction-item">
-                    <a href=""> <img src="resources/img/enjoy/attraction/images/double-rockspin.jpeg">
+                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/double-rockspin.jpeg">
                         <div class="attraction-context">더블락스핀</div>
                     </a>
                 </div>
             </div>
             <div class="attraction-bottom">
                 <div class="attraction-item">
-                    <a href=""> <img src="resources/img/enjoy/attraction/images/amazone-express.jpeg">
+                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/amazone-express.jpeg">
                         <div class="attraction-context">아마존익스프레스</div>
                     </a>
                 </div>
                 <div class="attraction-item">
-                    <a href=""> <img src="resources/img/enjoy/attraction/images/bumpercar.jpeg">
+                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/bumpercar.jpeg">
                         <div class="attraction-context">범퍼카</div>
                     </a>
                 </div>
                 <div class="attraction-item">
-                    <a href=""> <img src="resources/img/enjoy/attraction/images/safari.jpeg">
+                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/safari.jpeg">
                         <div class="attraction-context">사파리월드</div>
                     </a>
                 </div>
@@ -146,9 +146,9 @@
 
     <!-- 굿즈소개 -->
     <div class="goods-introduce">
-        <div class="main-title">
+        <div class="goods-main-title">
             <h1>
-                <span>굿즈보고가세요</span>
+                <span>굿즈몰</span>
             </h1>
             <span>굿즈사세요</span>
         </div>
