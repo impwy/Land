@@ -60,11 +60,11 @@
         <c:if test="${mode eq 'new'}">
             <input class="getBoard" type="text" name="board_title"
                    placeholder="제목을 입력해 주세요." autofocus>
-            <textarea id="target-textarea" class="getBoard" name="board_content" placeholder="내용을 입력해 주세요." onkeydown="resize(this)" rows="1" style="height: 200px"></textarea>
+            <textarea id="target-textarea" class="getBoard" name="board_content" placeholder="내용을 입력해 주세요." onkeydown="resize(this)" rows="1"></textarea>
         </c:if>
         <c:if test="${mode eq 'update'}">
             <input class="getBoard" type="text" name="board_title" value="<c:out value='${board.board_title}'/>">
-            <textarea id="target-textarea" class="getBoard" name="board_content" onkeydown="resize(this)"><c:out value="${board.board_content}"/></textarea>
+            <textarea id="target-textarea" class="getBoard" name="board_content" onkeydown="resize(this)" rows="1"><c:out value="${board.board_content}"/></textarea>
         </c:if>
 
         <c:if test="${member.member_id eq 'admin'}">
