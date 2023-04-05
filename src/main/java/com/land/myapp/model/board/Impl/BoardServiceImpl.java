@@ -37,6 +37,7 @@ public class BoardServiceImpl implements BoardService {
         return boardDAO.deleteBoard(board_num,member_id);
     }
 
+    //전체삭제(테스트용)
     @Override
     public int deleteAll() throws Exception {
         return boardDAO.deleteAll();
@@ -44,7 +45,7 @@ public class BoardServiceImpl implements BoardService {
 
 
     @Override
-    //상세보기
+    //글 읽기
     public BoardVO getBoard(int board_num) {
         boardDAO.increaseViewCnt(board_num);
         return boardDAO.getBoard(board_num);
@@ -55,18 +56,17 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardVO> getBoardList(BoardVO vo) {
         return boardDAO.getBoardList(vo);
     }
-    //페이징
+    //페이징(이전버전)
     public List<BoardVO> getBoardPage(Map map){
         return boardDAO.getBoardPage(map);
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
     @Override
     public int getCount() throws Exception {
         return boardDAO.count();
     }
 
-    //검색
+    //검색페이징
     @Override
     public List<BoardVO> getSearchResultPage(SearchCondition sc)throws Exception {
         return boardDAO.searchSelectPage(sc);
@@ -77,11 +77,12 @@ public class BoardServiceImpl implements BoardService {
         return boardDAO.searchResultCnt(sc);
     }
 
+    //이전글
     @Override
     public BoardVO prevPage(int board_num) {
         return boardDAO.prevPage(board_num);
     }
-
+    //다음글
     @Override
     public BoardVO nextPage(int board_num) {
         return boardDAO.nextPage(board_num);

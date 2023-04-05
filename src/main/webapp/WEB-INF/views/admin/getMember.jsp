@@ -27,13 +27,10 @@
 <style>
 .member-container {
 	margin: 0 auto;
-	padding: 0;
-	margin-top: 200px;
+	padding: 200px;
 	text-align: center;
 	width: 100%;
 	height: 100%;
-	padding: 0;
-	text-align: center;
 }
 
 button>a {
@@ -42,10 +39,10 @@ button>a {
 }
 
 table {
-	margin: 0 auto;
-	justify-content: center;
-}
+	margin: 10px auto;
+	justify-content: space-between;
 
+}
 input {
 	border: 0 solid black;
 }

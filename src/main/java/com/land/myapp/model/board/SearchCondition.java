@@ -4,7 +4,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public class SearchCondition {
    private Integer page=1;
-   private Integer pageSize=15;
+   private Integer pageSize=15; //보여지는 게시글의 갯수
    private String keyword="";
    private String option="";
 

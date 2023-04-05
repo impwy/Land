@@ -19,24 +19,31 @@
     }
 </script>
 <style>
+	body{
+		margin: 0 auto;
+	}
 .member-container {
 	margin: 0 auto;
-	padding: 0;
-	margin-top: 200px;
+	padding: 200px;
 	text-align: center;
 	width: 100%;
 	height: 100%;
-	padding: 0;
-}
 
+}
+.memberlist-container{
+	margin: 0 auto;
+	width: 100%;
+	justify-content: space-between;
+}
 button>a {
 	color: black;
 	text-decoration: none;
 }
 
 table {
-	margin: 0 auto;
-	justify-content: center;
+	margin: 10px auto;
+	justify-content: space-between;
+	width: 600px;
 }
 </style>
 <head>
@@ -56,7 +63,6 @@ table {
 </script>
 		<div class="member-container">
 			<h1>회원 관리</h1>
-
 			<div class="search-container">
 				<form action="<c:url value="memberpage"/>" class="search-form"
 					method="get">
@@ -70,6 +76,7 @@ table {
 						type="submit" class="search-button" value="검색">
 				</form>
 			</div>
+			<div class="memberlist-container">
 			<table>
 				<tr>
 					<th>회원번호</th>
@@ -97,6 +104,7 @@ table {
 					</c:forEach>
 				</form>
 			</table>
+			</div>
 			<div class="paging-container">
 				<div class="paging">
 					<c:if test="${totalCnt!=null && totalCnt!=0}">

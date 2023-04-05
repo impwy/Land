@@ -29,30 +29,30 @@
         DELETE BOARD WHERE BOARD_NUM=#{board_num}
     ]]></delete>
 
+<!--    모두 삭제 (테스트용)-->
     <delete id="deleteAll">
         DELETE from BOARD
         </delete>
-<!--    글 상세-->
-<!--    <select id="getBoard" resultType="board"><![CDATA[-->
-<!--        SELECT  * FROM BOARD WHERE BOARD_NUM=#{board_num}-->
 
-<!--    ]]></select>-->
-<!--    글 읽기 궁성-->
+<!--    자주사용하는 쿼리문-->
     <sql id="selectFromBoard">
         SELECT board_num, board_title, board_content, member_id, board_viewcnt, board_commentcnt, board_regdate
         FROM board
     </sql>
+    <!--    글 읽기-->
+
     <select id="getBoard" resultType="board">
         <include refid="selectFromBoard"/>
         where board_num=#{board_num}
     </select>
-<!--    글 목록-->
+
+<!--    글 목록(페이징전에 사용하던것)-->
     <select id="getBoardList" resultMap="boardResult">
         SELECT * FROM BOARD
         where 1=1
         ORDER BY BOARD_NUM DESC
     </select>
-
+<!--페이징(검색 페이징 이전에 사용 하던것-->
     <select id="getBoardPage" parameterType="map" resultType="board">
         SELECT * FROM(
                     SELECT ROWNUM AS RN, A.*  FROM
@@ -87,6 +87,7 @@
             </otherwise>
         </choose>
     </sql>
+<!--    검색 페이징-->
     <select id="searchSelectPage" parameterType="SearchCondition" resultType="board">
         select board_num,board_title,member_id,board_regdate,board_viewcnt,board_commentcnt
         from (

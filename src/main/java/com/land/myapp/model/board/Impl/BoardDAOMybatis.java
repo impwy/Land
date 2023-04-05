@@ -31,7 +31,7 @@ public class BoardDAOMybatis {
         return mybatis.delete("BoardDAO.deleteBoard",map);
 
     }
-    //모두 지우기
+    //모두 지우기(테스트용)
     public int deleteAll(){
         return mybatis.delete("BoardDAO.deleteAll");
 
@@ -41,11 +41,11 @@ public class BoardDAOMybatis {
         return (BoardVO)mybatis.selectOne("BoardDAO.getBoard",board_num);
     }
 
-    //이전글
+    //이전 글
     public BoardVO prevPage(int board_num){
         System.out.println(board_num);
         return (BoardVO) mybatis.selectOne("BoardDAO.prevPage",board_num);}
-    //다음글
+    //다음 글
     public BoardVO nextPage(int board_num){return (BoardVO) mybatis.selectOne("BoardDAO.nextPage",board_num);}
     //글 목록
     public List<BoardVO> getBoardList(BoardVO vo){
@@ -60,6 +60,7 @@ public class BoardDAOMybatis {
     public int count()throws Exception{
         return mybatis.selectOne("BoardDAO.count");
     }
+    //조회수 증가
     public int increaseViewCnt(Integer board_num){
         return mybatis.update("BoardDAO.increaseViewCnt", board_num);
     }

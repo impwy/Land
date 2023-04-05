@@ -31,7 +31,7 @@ public class BoardController {
     @Autowired
     private MemberService memberService;
 
-    //글 상세보기
+    //글 읽기
     @GetMapping("/getBoard")
     public String getBoard(Integer board_num, Model model,Integer page,Integer pageSize,RedirectAttributes rattr,SearchCondition sc) {
         try {
@@ -151,33 +151,20 @@ public class BoardController {
         }
         return "board/getBoard";
     }
-    //글 읽기 궁성
-//    @GetMapping("/getBoard")
-//    public String getBoard(Integer board_num,Model m) {
-//        try {
-//            BoardVO boardVO = boardService.getBoard(board_num);
-////    m.addAttribute("boardVO",boardVO); //아래 문장과 동일
-//            m.addAttribute(boardVO);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return "board/getBoard";
-//    }
-    //글 목록
+
+    //글 목록(페이징 이전에 사용하던것)
     @RequestMapping(value="/getBoardList",method=RequestMethod.GET)
     public String getBoardList(BoardVO vo, Model model){
         model.addAttribute("boardList", boardService.getBoardList(vo));
         return "board/getBoardList";
     }
-    //글 페이징
+    //글 목록 및 페이징
     @GetMapping("/page")
     public String getBoardPage(SearchCondition sc, Model m){
         try {
             int totalCnt=boardService.getSearchResultCnt(sc);
             m.addAttribute("totalCnt", totalCnt);
             PageHandler pageHandler=new PageHandler(totalCnt,sc);
-
-
 
             List<BoardVO> list=boardService.getSearchResultPage(sc);
             m.addAttribute("boardList",list);
@@ -190,7 +177,4 @@ public class BoardController {
         }
         return "board/getBoardList";
     }
-
-
-
 }
