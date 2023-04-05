@@ -129,7 +129,8 @@
                                         "order_amount": '${amountSum}',
                                         "order_sum": '${priceSum}',
                                         "member_id": '${member.member_id}',
-                                        "goods_num": '1'
+                                        "goods_num": '1',
+                                        "basket" : 'basket'
                                     },
                                     success: function (data) {
                                         window.open("goodsPayment", "", "width=800,height=1200,");

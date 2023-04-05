@@ -176,7 +176,8 @@ hr {
                         "member_addr": member_addr, /* js의 var 변수명입니다. */
                         "member_phone": member_phone,
                         "order_sum": amount,
-                        "order_amount": order_amount
+                        "order_amount": order_amount,
+                        "basket" : '${goods.basket}'
                     },
                     success: function (data) {
                        alert("결제가 완료 되었습니다.");

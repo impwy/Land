@@ -46,8 +46,8 @@ public class BasketDAO {
 	}
 
 	// 결제 후 장바구니 비우기
-	public void deleteCartPayment(GoodsPaymentVO vo) {
-		mybatis.delete("GoodsPaymentDAO.deleteCartPayment", vo);
+	public void deleteCartPayment(BasketVO vo) {
+		mybatis.delete("BasketDAO.deleteCartPayment", vo);
 	}
 
 }

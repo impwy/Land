@@ -18,6 +18,6 @@ public interface BasketService {// 장바구니
 	public void basketPayment(GoodsPaymentVO vo);
 
 	// 결제 후 장바구니 비우기
-	public void deleteCartPayment(GoodsPaymentVO vo);
+	public void deleteCartPayment(BasketVO vo);
 
 }

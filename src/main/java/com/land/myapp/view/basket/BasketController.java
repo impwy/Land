@@ -97,10 +97,11 @@ public class BasketController {
 			
 			//주문 이동
 			@PostMapping(value="/goodsPayment")
-			public String orderGoods(GoodsPaymentVO vo, HttpSession session, GoodsVO gvo) {
+			public String orderGoods(GoodsPaymentVO vo, HttpSession session, GoodsVO gvo, String basket) {
 				HashMap<String, Object> map = new HashMap<String,Object>();
 				map.put("vo", vo);
 				map.put("gvo", gvo);
+				map.put("basket", basket);
 				session.setAttribute("goods", map);
 				return "/payment/goodsPayment";
 			}

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.land.myapp.Pager;
+import com.land.myapp.model.basket.BasketService;
+import com.land.myapp.model.basket.BasketVO;
 import com.land.myapp.model.board.PageHandler;
 import com.land.myapp.model.board.SearchCondition;
 import com.land.myapp.model.member.vo.GoodsPaymentVO;
@@ -27,6 +29,8 @@ import com.land.myapp.model.member.vo.MemberVO;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private BasketService basketService;
 
     // 로그인
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -131,8 +135,14 @@ public class MemberController {
 
     // 주문 내역 등록
     @PostMapping(value = "/payment")
-    public String insertGoodsPayment(GoodsPaymentVO vo) {
+    public String insertGoodsPayment(GoodsPaymentVO vo,String basket, BasketVO bvo) {
+    	if(basket.equals("basket")) {
+    		System.out.println(basket);
+    	basketService.deleteCartPayment(bvo);
         memberService.insertGoodsPayment(vo);
+    	}else {
+    	memberService.insertGoodsPayment(vo);
+    	}
         return "main";
     }
 

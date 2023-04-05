@@ -42,7 +42,7 @@ public class BasketServiceImpl implements BasketService {
 	}
 	//장바구니 결제후 장바구니 비우기
 	@Override
-	public void deleteCartPayment(GoodsPaymentVO vo) {
+	public void deleteCartPayment(BasketVO vo) {
 		basketDAO.deleteCartPayment(vo);
 		
 	}

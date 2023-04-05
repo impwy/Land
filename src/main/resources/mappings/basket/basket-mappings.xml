@@ -54,7 +54,11 @@
 		<!-- 삭제 문은 "GOODS_NUM" 열이 "goods_num" 매개변수의 값과 동일한 "BASKET" 테이블에서 행을 삭제 -->
 		<!-- #{} 표기법으로 표시되는 MyBatis 매개변수 대체 구문을 사용하여 지정 -->
 	</delete>
-
+	
+	<!-- 결제 후 장바구니 비우기 -->
+	<delete id="deleteCartPayment">
+		DELETE FROM BASKET
+	</delete>
 
 
 	<!-- 장바구니 리스트 -->
