@@ -84,7 +84,8 @@ function buyGoods(){
 			"goods_num" : '${goods.goods_num}',
 			"goods_image" : '${goods.goods_image}'
 			}, success : function(data){
-				location.href = "goodsPayment";
+				window.open("goodsPayment", "", "width=800,height=1200,");
+				/* location.href = "goodsPayment"; */
 			}
 		});
 		}else{
