@@ -133,7 +133,7 @@
                                         "basket" : 'basket'
                                     },
                                     success: function (data) {
-                                        window.open("goodsPayment", "", "width=800,height=1200,");
+                                    	window.open("goodsPayment", "", "width=600,height=800,");
                                         // location.href = "goodsPayment";
                                     }
                                 });

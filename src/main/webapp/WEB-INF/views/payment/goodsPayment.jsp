@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,7 @@
   flex-direction: column;
   width: 100%;
   max-width: 500px;
-  margin: 300px auto;
+  margin: 100px auto;
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -97,7 +98,6 @@ hr {
     </style>
 </head>
 <body>
-<%@ include file="../include/header.jsp" %>
 <div id="goods-payment">
 <form>
     <!-- 상품 이미지를 불러옵니다. -->
