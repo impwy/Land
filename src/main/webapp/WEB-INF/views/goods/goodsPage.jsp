@@ -20,8 +20,8 @@
 					<p align="left" class="p1" id="goods_name">상품명: ${goods.goods_name}</p>
 					<p align="left" class="p2">가격: <fmt:formatNumber value="${goods.goods_price}" pattern="#,###"/>원</p>
 					<p align="left">상품코드: ${goods.goods_num}</p>
-					<p align="left">수량: <input type="number" id="basket_amount" min="0" maxlength="2" max="99" value="0" /></p>				
-					<p align="left">총 가격:<input type="number" name="basket_sum" id="basket_sum" value="0" readonly/></p>
+					<p align="left">수량: <input type="number" id="basket_amount" min="0" maxlength="2" max="99" value="1" /></p>				
+					<p align="left">총 가격:<input type="number" name="basket_sum" id="basket_sum" value="${goods.goods_price}" readonly/></p>
 					
 					<p align="left">본 상품은 서울배송만 가능합니다.</p><br><br><br>
 					<input type="hidden" name="goods_image" id="goods_image" value="${goods.goods_image}" />
