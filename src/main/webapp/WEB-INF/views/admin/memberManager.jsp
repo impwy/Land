@@ -87,7 +87,7 @@ table {
 					<th>비고</th>
 				</tr>
 				<form id="form" method="post" action="">
-					<c:forEach items="${memberList}" var="member" begin="1">
+					<c:forEach items="${memberList}" var="member">
 						<tr>
 							<td>${member.member_no}</td>
 							<td>${member.member_id}</td>

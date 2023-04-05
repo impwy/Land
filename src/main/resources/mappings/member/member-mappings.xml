@@ -162,6 +162,7 @@
 		) A
 		) where rn between ${offset} and
 		${pageSize}*#{page}
+		AND member_id!='admin'
 	</select>
 
 	<select id="memberCount" parameterType="SearchCondition"
