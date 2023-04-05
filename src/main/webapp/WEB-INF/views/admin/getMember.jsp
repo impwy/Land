@@ -25,24 +25,26 @@
 </script>
 <head>
 <style>
-.member-container {
-	margin: 0 auto;
-	padding: 200px;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-}
+	body{
+		margin-top: 200px;
+	}
+	.member-container {
+		margin: 0 auto;
+	}
+	.memberlist-container{
+		text-align: center;
+		margin: 0 auto;
+	}
+	button>a {
+		color: black;
+		text-decoration: none;
+	}
 
-button>a {
-	color: black;
-	text-decoration: none;
-}
-
-table {
-	margin: 10px auto;
-	justify-content: space-between;
-
-}
+	table {
+		text-align: left;
+		margin: 0 auto;
+		justify-content: space-between;
+	}
 input {
 	border: 0 solid black;
 }
@@ -57,6 +59,7 @@ input:focus {
 </head>
 <body>
 	<div class="member-container">
+			<div class="memberlist-container">
 		<h1>회원 상세 정보</h1>
 		<form action="" method="post" id="form">
 			<table>
@@ -106,12 +109,20 @@ input:focus {
 						value="${member.member_date}" readonly></td>
 				</tr>
 				<tr>
-					<button type="button" id="removeBtn" class="btn btn-remove">
-						<i class="fa fa-remove"></i>회원 삭제
-					</button>
-					<button type="button" id="listBtn">목록으로</button>
+					<td>
+					회원관리
+					</td>
+						<td>
+							<button type="button" id="removeBtn" class="btn btn-remove">
+								<i class="fa fa-remove"></i>회원 삭제
+							</button>
+				<button type="button" id="listBtn">목록으로</button>
+				</td>
+					</td>
+				</tr>
 			</table>
 		</form>
+			</div>
 	</div>
 	<script type="text/javascript">
 		var confirm = function(title, msg, type) {
