@@ -140,12 +140,13 @@ public class MemberController {
     		System.out.println(basket);
     	basketService.deleteCartPayment(bvo);
         memberService.insertGoodsPayment(vo);
+        return "basket/basketlist";
     	}else {
     	memberService.insertGoodsPayment(vo);
+    	return "main";
     	}
-        return "main";
     }
-
+    
     // 개인 정보 이동
     @GetMapping(value = "/mypage")
     public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,

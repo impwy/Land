@@ -29,7 +29,7 @@ $(document).ready(function(){
   $("#checkID").click(function(){
     let member_id = $('#user_id').val();
     if(!member_id){
-     swal("","아이디를 입력해주세요","warning");
+     alert("아이디를 입력해주세요");
     } else if(member_id){
       $.ajax({
         type: "POST",
@@ -38,15 +38,15 @@ $(document).ready(function(){
         success : function(data){
           console.log(data);
           if(data != 0){
-            swal("","중복된 아이디 입니다.","error");
+            alert("중복된 아이디 입니다.");
             idCheck = false;
           } else{
-            swal("","사용 가능한 아이디 입니다.","success");
+            alert("사용 가능한 아이디 입니다.");
             idCheck = true;
           }
         },
         error : function(error) {
-         swal("",member_id,"warning");
+         alert(member_id);
         }
       });
     }

@@ -182,7 +182,6 @@ hr {
                     success: function (data) {
                        alert("결제가 완료 되었습니다.");
                        		window.close();
-                            location.href = "main"; /* ajax가 성공하면 메인페이지로 보냅니다. */
                     }
                 });
             } else {

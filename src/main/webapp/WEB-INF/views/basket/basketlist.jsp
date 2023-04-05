@@ -134,6 +134,7 @@
                                     },
                                     success: function (data) {
                                     	window.open("goodsPayment", "", "width=600,height=800,");
+                                    	location.href="mypage";
                                         // location.href = "goodsPayment";
                                     }
                                 });

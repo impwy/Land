@@ -86,7 +86,7 @@
 <body>
 	<%@ include file="../include/header.jsp"%>
 	<div id="goods-list">
-		<h2>예매내역</h2>
+		<h2>주문내역</h2>
 		<table border="1">
 			<tr>
 				<th>주문날짜</th>
@@ -119,9 +119,9 @@
 				<tr>
 					<td colspan="9" align="center"><c:if
 							test="${map.pager.curBlock > 1}">
-							<a href="mypage2">[처음]</a>
+							<a href="mypage">[처음]</a>
 						</c:if> <c:if test="${map.pager.curBlock > 1}">
-							<a href="mypage2?curPage=${map.pager.prevPage}">[이전]</a>
+							<a href="mypage?curPage=${map.pager.prevPage}">[이전]</a>
 						</c:if> <c:forEach var="num" begin="${map.pager.blockBegin}"
 							end="${map.pager.blockEnd}">
 							<c:choose>
@@ -129,13 +129,13 @@
 									<span style="color: red;">${num}</span>
 								</c:when>
 								<c:otherwise>
-									<a href="mypage2?curPage=${num}">${num}</a>
+									<a href="mypage?curPage=${num}">${num}</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach> <c:if test="${map.pager.curBlock < map.pager.totBlock}">
-							<a href="mypage2?curPage=${map.pager.nextPage}">>[다음]</a>
+							<a href="mypage?curPage=${map.pager.nextPage}">>[다음]</a>
 						</c:if> <c:if test="${map.pager.curBlock < map.pager.totPage}">
-							<a href="mypage2?curPage=${map.pager.totPage}">[끝]</a>
+							<a href="mypage?curPage=${map.pager.totPage}">[끝]</a>
 						</c:if></td>
 				</tr>
 			</c:if>
