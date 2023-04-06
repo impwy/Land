@@ -27,6 +27,7 @@ function insertCart() {
 							},
 							success : function(data) {
 								alert("장바구니에 저장되었습니다.");
+								location.href="goodsmall";
 							}
 						});
 					}
