@@ -129,6 +129,8 @@ table {
 		</div>
 	</c:if>
 	<c:if test="${member.member_id ne 'admin'}">
+		<body style="margin-top: 200px; text-align: center">
+
 		<h1>잘못 된 접근입니다.</h1>
 		<h1>
 			<span id="countdown">3</span>초 뒤 메인 페이지로 넘어갑니다.
@@ -151,6 +153,7 @@ table {
             startTimer(countdownSeconds, display);
         };
     </script>
+		</body>
 	</c:if>
 
 </body>
