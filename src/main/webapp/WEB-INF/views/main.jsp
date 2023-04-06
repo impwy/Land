@@ -182,42 +182,42 @@
         </div>
         <div class="goods-container">
             <div class="goods">
-                <a href="#"> <img src="resources/img/main/229062_85158_058.jpg">
+                <a href="#"> <img src="https://shop-phinf.pstatic.net/20210401_90/1617272915641BsM7X_JPEG/18408758355337117_858546194.jpg?type=f296_296">
                     <div class="goods-text">
-                        <div class="goods-text-title">뱃지</div>
-                        <div class="goods-text-serve">싸다</div>
+                        <div class="goods-text-title">회전라이트</div>
+                        <div class="goods-text-serve">불빛이 돌아간다</div>
                     </div>
                 </a>
             </div>
             <div class="goods">
-                <a href="#"> <img src="resources/img/main/229062_85158_058.jpg">
+                <a href="#"> <img src="https://shop-phinf.pstatic.net/20200304_275/1583314733835VJdt7_JPEG/20678122359363781_2132856343.jpg?type=f296_296" alt="Product 3">
                     <div class="goods-text">
-                        <div class="goods-text-title">뱃지</div>
-                        <div class="goods-text-serve">싸다</div>
+                        <div class="goods-text-title">우유키홀더</div>
+                        <div class="goods-text-serve">귀여운 키 홀더</div>
                     </div>
                 </a>
             </div>
             <div class="goods">
-                <a href="#"> <img src="resources/img/main/229062_85158_058.jpg">
+                <a href="#"> <img src="https://shop-phinf.pstatic.net/20220714_257/1657786162547NO0aM_PNG/58922058232613675_1078133758.png?type=f296_296" alt="Product 4">
                     <div class="goods-text">
-                        <div class="goods-text-title">뱃지</div>
-                        <div class="goods-text-serve">싸다</div>
+                        <div class="goods-text-title">스위밍 상어</div>
+                        <div class="goods-text-serve">귀여운 상어인형</div>
                     </div>
                 </a>
             </div>
             <div class="goods">
-                <a href="#"> <img src="resources/img/main/229062_85158_058.jpg">
+                <a href="#"> <img src="https://shop-phinf.pstatic.net/20230117_78/1673929254533SWeBo_PNG/75065150249556730_1032377332.png?type=f296_296" alt="Product 5">
                     <div class="goods-text">
-                        <div class="goods-text-title">뱃지</div>
-                        <div class="goods-text-serve">싸다</div>
+                        <div class="goods-text-title">쿼카 목도리</div>
+                        <div class="goods-text-serve">귀여운 쿼카</div>
                     </div>
                 </a>
             </div>
             <div class="goods">
-                <a href="#"> <img src="resources/img/main/229062_85158_058.jpg">
+                <a href="#"> <img src="https://shop-phinf.pstatic.net/20221228_42/1672200248341t1ten_PNG/73336143985178084_209322268.png?type=f296_296" alt="Product 6">
                     <div class="goods-text">
-                        <div class="goods-text-title">뱃지</div>
-                        <div class="goods-text-serve">싸다</div>
+                        <div class="goods-text-title">토끼 크로스백</div>
+                        <div class="goods-text-serve">흑묘년엔 토끼백</div>
                     </div>
                 </a>
             </div>
