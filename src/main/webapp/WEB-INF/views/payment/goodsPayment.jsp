@@ -7,9 +7,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <title>결제 페이지</title>
     <style>
     	#goods-payment {
@@ -128,71 +129,71 @@ hr {
     </div>
 </form>
 </div>
+
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<script>
-
-    $('#buy').click(function () {
-        //아임포트 카카오페이 결제 시작
-        var IMP = window.IMP;
-        var amount = parseInt($("#order_sum").val());
-        var order_amount = parseInt($("#order_amount").val());
-        var member_phone = $("#member_phone").val();
-
-        /* 우편번호 찾기로 가져온 주소를 전부 더해 addr에 넣습니다. */
-        var member_addr = $("input[name=sn_member_zipcode]").val()
-            + $("input[name=sn_member_faddr]").val()
-            + $("input[name=sn_member_laddr]").val();
-
-        IMP.init('imp42522200');
-        IMP.request_pay({
-            pg: "kakaopay",  //pg사
-            pay_method: 'card', //결제방법
-            merchant_uid: 'merchant_' + new Date().getTime(), //결제날짜
-            name: '${goods.gvo.goods_name}', //품목이름
-            amount: amount, //가격
-            buyer_email: '${member.member_email}', //이메일
-            buyer_name: '${member.member_name}', //이름
-            buyer_tel: member_phone, //전화번호
-            buyer_addr: member_addr //주소
-        }, function (rsp) {
-            if (rsp.success) { //성공시
-                /* function별로 scope이 달라서 다시 변수명 선언 해주었습니다. */
-                var amount = parseInt($("#order_sum").val());
-                var order_amount = parseInt($("#order_amount").val());
-                var member_phone = $("#member_phone").val();
-                /* 우편번호 찾기로 가져온 주소를 전부 더해 addr에 넣습니다. */
-                var member_addr = $("input[name=sn_member_zipcode]").val()
-                    + $("input[name=sn_member_faddr]").val()
-                    + $("input[name=sn_member_laddr]").val();
-                var msg = '결제가 완료되었습니다.';
-
-                /* ajax 시작 db로 보냅니다 */
-                $.ajax({
-                    type: "post",
-                    url: "payment",
-                    data: {
-                        "member_id": '${member.member_id}', /* 이건 EL로 바로 보냅니다. */
-                        "goods_num": '${goods.gvo.goods_num}',
-                        "member_addr": member_addr, /* js의 var 변수명입니다. */
-                        "member_phone": member_phone,
-                        "order_sum": amount,
-                        "order_amount": order_amount,
-                        "basket" : '${goods.basket}'
-                    },
-                    success: function (data) {
-                       alert("결제가 완료 되었습니다.");
-                       		window.close();
-                    }
-                });
-            } else {
-                var error_msg = '결제에 실패하였습니다.';
-                rsp.error_msg;
-            }
-        });
-    });
-
-    
-</script>
 <script src="resources/js/goodsPayment.js"></script>
+<script>
+$('#buy').click(
+		function() {
+			//아임포트 카카오페이 결제 시작
+			var IMP = window.IMP;
+			var amount = parseInt($("#order_sum").val());
+			var order_amount = parseInt($("#order_amount").val());
+			var member_phone = $("#member_phone").val();
+
+			/* 우편번호 찾기로 가져온 주소를 전부 더해 addr에 넣습니다. */
+			var member_addr = $("input[name=sn_member_zipcode]").val()
+					+ $("input[name=sn_member_faddr]").val()
+					+ $("input[name=sn_member_laddr]").val();
+
+			IMP.init('imp42522200');
+			IMP.request_pay({
+				pg : "kakaopay", //pg사
+				pay_method : 'card', //결제방법
+				merchant_uid : 'merchant_' + new Date().getTime(), //결제날짜
+				name : '${goods.gvo.goods_name}', //품목이름
+				amount : amount, //가격
+				buyer_email : '${member.member_email}', //이메일
+				buyer_name : '${member.member_name}', //이름
+				buyer_tel : member_phone, //전화번호
+				buyer_addr : member_addr
+			//주소
+			}, function(rsp) {
+				if (rsp.success) { //성공시
+					/* function별로 scope이 달라서 다시 변수명 선언 해주었습니다. */
+					var amount = parseInt($("#order_sum").val());
+					var order_amount = parseInt($("#order_amount").val());
+					var member_phone = $("#member_phone").val();
+					/* 우편번호 찾기로 가져온 주소를 전부 더해 addr에 넣습니다. */
+					var member_addr = $("input[name=sn_member_zipcode]").val()
+							+ $("input[name=sn_member_faddr]").val()
+							+ $("input[name=sn_member_laddr]").val();
+					var msg = '결제가 완료되었습니다.';
+
+					/* ajax 시작 db로 보냅니다 */
+					$.ajax({
+						type : "post",
+						url : "payment",
+						data : {
+							"member_id" : '${member.member_id}', /* 이건 EL로 바로 보냅니다. */
+							"goods_num" : '${goods.gvo.goods_num}',
+							"member_addr" : member_addr, /* js의 var 변수명입니다. */
+							"member_phone" : member_phone,
+							"order_sum" : amount,
+							"order_amount" : order_amount,
+							"basket" : '${goods.basket}'
+						},
+						success : function(data) {
+							alert("결제가 완료 되었습니다.");
+							window.close();
+						}
+					});
+				} else {
+					var error_msg = '결제에 실패하였습니다.';
+					rsp.error_msg;
+				}
+			});
+		});
+</script>
 </body>
 </html>

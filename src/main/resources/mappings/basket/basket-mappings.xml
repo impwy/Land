@@ -57,7 +57,7 @@
 	
 	<!-- 결제 후 장바구니 비우기 -->
 	<delete id="deleteCartPayment">
-		DELETE FROM BASKET
+		DELETE FROM BASKET WHERE MEMBER_ID = #{member_id}
 	</delete>
 
 

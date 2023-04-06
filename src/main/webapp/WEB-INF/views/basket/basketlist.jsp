@@ -80,7 +80,7 @@
                             <td>
                                 <input type="button" id="payCart" onclick="payCart()" value="결제하기" />
                                 <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage" />
-                                <input type="button" id="home" onclick=location.href='/' value="취소" />
+                                <input type="button" id="home" onclick="location.href=main" value="취소" />
                             </td>
                         </tr>
                     </table>
@@ -119,7 +119,7 @@
                             var hiddenbtn = $("#hiddenbtn").val();
 
                             if ($("input[name=chk]:checkbox:checked").length == 0) {
-                                swal("", "결제할 상품을 선택해주세요.", "warning");
+                                alert("결제할 상품을 선택해주세요.");
                             } else {
                                 $.ajax({
                                     type: "post",
@@ -133,8 +133,14 @@
                                         "basket" : 'basket'
                                     },
                                     success: function (data) {
-                                    	window.open("goodsPayment", "", "width=600,height=800,");
-                                    	location.href="mypage";
+                                    var childWindow = window.open("goodsPayment", "", "width=600,height=800,");
+
+                                    var checkChildWindow = setInterval(function() {
+                                    	  if (childWindow.closed) {
+                                    	    clearInterval(checkChildWindow);
+                                    	    location.href = "basketlist";
+                                    	  }
+                                    	}, 1000);				
                                         // location.href = "goodsPayment";
                                     }
                                 });
@@ -152,6 +158,7 @@
                         function numberWithCommas(x) {
                             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         }
+                        
                     </script>
             </body>
 
