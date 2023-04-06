@@ -25,6 +25,11 @@ public class membercontroller {
 	public String attraction() {
 		return "enjoy/attraciton/attraction";
 	}
+
+	@RequestMapping(value = "/tExpress", method = RequestMethod.GET)
+	public String tExpress() {
+		return "enjoy/attraciton/t-texpress/t-express";
+	}
 	@RequestMapping(value = "/discount", method = RequestMethod.GET)
 	public String discount() {
 		return "menu/discount";

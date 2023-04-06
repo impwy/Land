@@ -10,7 +10,7 @@
 
 <html>
 <head>
-  <title>Title</title>
+  <title>어트랙션</title>
   <link rel="stylesheet" href="resources/css/attraction.css">
 </head>
 <body class="attraction">
@@ -21,7 +21,7 @@
 </div>
 <div class="grid">
   <div class="box">
-    <a href="t-texpress/t-express.jsp">
+    <a href="tExpress">
       <img src="resources/img/enjoy/attraction/images/T-exp.jpeg" alt="image1">
       <div class="upperText">유러피안 어드벤처</div>
       <div class="textbox">

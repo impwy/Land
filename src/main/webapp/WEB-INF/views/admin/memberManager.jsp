@@ -54,8 +54,8 @@ table {
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <title>회원 관리</title>
-</head>
 <body>
+</head>
 	<c:if test="${member.member_id eq 'admin'}">
 		<script type="text/javascript">
     let msg = "${msg}";

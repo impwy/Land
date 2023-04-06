@@ -10,7 +10,7 @@
 <html>
 <head>
   <title>T-EXPRESS</title>
-  <link rel="stylesheet" href="css/t-express.css">
+  <link rel="stylesheet" href="resources/css/t-express.css">
 </head>
 <body>
 <div class="head">
@@ -20,7 +20,7 @@
 </div>
 <div class="container">
   <div class="banner">
-    <img src="../images/T-exp.jpeg" alt="">
+    <img src="resources/img/enjoy/attraction/images/T-exp.jpeg" alt="">
   </div>
 
   <div class="video-container">
@@ -31,28 +31,28 @@
   </div>
   <div class="infoBox">
     <div class="textbox">
-      <img src="images/number-people.png" alt="">
+      <img src="resources/img/enjoy/attraction/images//number-people.png" alt="">
       <p class="p-head">탑승인원</p>
       <p class="p-number">36명</p>
     </div>
     <div class="textbox">
-      <img src="images/information.png" alt="img1">
+      <img src="resources/img/enjoy/attraction/images//information.png" alt="img1">
       <p class="p-head">이용정보</p>
       <p>Lorem ipsum dolor sit amet.</p>
     </div>
 
     <div class="textbox">
-      <img src="../images/limit.png" alt="img1">
+      <img src="resources/img/enjoy/attraction/images/limit.png" alt="img1">
       <p class="p-head">탑승제한</p>
       <div class="limit">
-        <img src="../limit-icon/drink.png" alt="img1"><img src="../limit-icon/heart-attack.png" alt="img2"><img
-              src="../limit-icon/old-person.png" alt="img3"><img src="../limit-icon/pregnant.png" alt="img4">
+        <img src="resources/img/enjoy/attraction/images/limit-icon/drink.png" alt="img1"><img src="resources/img/enjoy/attraction/images/limit-icon/heart-attack.png" alt="img2"><img
+              src="resources/img/enjoy/attraction/images/limit-icon/old-person.png" alt="img3"><img src="resources/img/enjoy/attraction/images/limit-icon/pregnant.png" alt="img4">
         <p>129cm 이하 195cm 이상 </p>
       </div>
     </div>
   </div>
 
-  <div class="button"><a href="../attraction.html">목록으로</a></div>
+  <div class="button"><a href="attraction">목록으로</a></div>
 </div>
 
 </body>

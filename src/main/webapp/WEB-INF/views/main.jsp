@@ -136,7 +136,7 @@
                     </a>
                 </div>
                 <div class="attraction-item">
-                    <a href="attraction"> <img src="resources/img/enjoy/attraction/images/T-exp.jpeg">
+                    <a href="tExpress"> <img src="resources/img/enjoy/attraction/images/T-exp.jpeg">
                         <div class="attraction-context">티익스프레스</div>
                     </a>
                 </div>
