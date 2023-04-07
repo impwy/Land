@@ -55,7 +55,7 @@
                                                            type="date"/></span></div>
                 <div class="side-fr"><span>조회수 <b>${board.board_viewcnt}</b></span></div>
             </div>
-            <textarea id="target-textarea" class="getBoard" name="board_content" ${mode=="new" ? "" :"readonly='readonly'"}><c:out value="${board.board_content}"/></textarea>
+            <textarea id="target-textarea" class="getBoard" name="board_content" onkeydown="resize(this)" ${mode=="new" ? "" :"readonly='readonly'" }><c:out value="${board.board_content}"/></textarea>
         </c:if>
         <c:if test="${mode eq 'new'}">
             <input class="getBoard" type="text" name="board_title" placeholder="제목을 입력해 주세요." autofocus>
