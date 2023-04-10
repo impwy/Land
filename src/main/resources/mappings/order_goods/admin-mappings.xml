@@ -48,7 +48,7 @@
 	<!-- 상품 리스트 뿌려주기 -->
 	<select id="goods_list"
 		resultType=
-			"com.land.myapp.model.goods.GoodsVO">
+			"com.land.myapp.model.goods.DTO.GoodsDTO">
 		select * from goods_info
 		order by goods_num
 	</select>

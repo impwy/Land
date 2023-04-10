@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.land.myapp.Pager;
-import com.land.myapp.model.member.vo.MemberVO;
-import com.land.myapp.model.orderticket.OrderTicketService;
-import com.land.myapp.model.orderticket.OrderTicketVO;
+import com.land.myapp.main.Pager;
+import com.land.myapp.model.member.DTO.MemberDTO;
+import com.land.myapp.model.orderticket.Service.OrderTicketService;
+import com.land.myapp.model.orderticket.DTO.OrderTicketDTO;
 
 @Controller
 public class TicketController {
@@ -24,7 +24,7 @@ public class TicketController {
 
     //예매 성공
     @RequestMapping(value = "/ticketPayment", method = RequestMethod.POST)
-    public String insertTicket(OrderTicketVO vo) {
+    public String insertTicket(OrderTicketDTO vo) {
         orderTicketService.insertOrderTicket(vo);
         return "main";
     }
@@ -44,7 +44,7 @@ public class TicketController {
 
     //티켓주문으로 이동
     @RequestMapping(value = "/orderTicket", method = RequestMethod.POST)
-    public String orderTicket(OrderTicketVO vo, HttpSession session) {
+    public String orderTicket(OrderTicketDTO vo, HttpSession session) {
         session.setAttribute("map", vo);
         return "/ticket/ticketPayment";
     }
@@ -64,16 +64,16 @@ public class TicketController {
 
     //예매내역 조회
     @RequestMapping(value = "/ticketList", method = RequestMethod.GET)
-    public String getTicketList(OrderTicketVO vo,
+    public String getTicketList(OrderTicketDTO vo,
                                 HttpSession session,
                                 @RequestParam(defaultValue = "1") int curPage) {
-        MemberVO member = (MemberVO) session.getAttribute("member");
+        MemberDTO member = (MemberDTO) session.getAttribute("member");
         String member_id = member.getMember_id();
         int count = orderTicketService.getCountOrderTicket(member_id);
         Pager pager = new Pager(count, curPage);
         int start = pager.getPageBegin();
         int end = pager.getPageEnd();
-        List<OrderTicketVO> list = orderTicketService.getOrderTicketList(member_id, start, end);
+        List<OrderTicketDTO> list = orderTicketService.getOrderTicketList(member_id, start, end);
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("list", list);
         map.put("count", count);

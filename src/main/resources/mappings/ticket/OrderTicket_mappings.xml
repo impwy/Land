@@ -4,7 +4,7 @@
 
 <mapper namespace="OrderTicketDAO">
 	
-	<resultMap id="ticket" type="com.land.myapp.model.orderticket.OrderTicketVO">
+	<resultMap id="ticket" type="com.land.myapp.model.orderticket.DTO.OrderTicketDTO">
 		<id property="ticket_num" column="TICKET_NUM" />
 		<result property="member_id" column="MEMBER_ID" />
 		<result property="ticket_date" column="TICKET_DATE" />

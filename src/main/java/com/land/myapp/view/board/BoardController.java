@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.land.myapp.model.board.BoardService;
-import com.land.myapp.model.board.BoardVO;
-import com.land.myapp.model.board.PageHandler;
-import com.land.myapp.model.board.SearchCondition;
-import com.land.myapp.model.member.vo.MemberService;
-import com.land.myapp.model.member.vo.MemberVO;
+import com.land.myapp.model.board.Service.BoardService;
+import com.land.myapp.model.board.DTO.BoardDTO;
+import com.land.myapp.main.PageHandler;
+import com.land.myapp.main.SearchCondition;
+import com.land.myapp.model.member.Service.MemberService;
+import com.land.myapp.model.member.DTO.MemberDTO;
 
 @Controller
 @SessionAttributes("board")
@@ -54,10 +54,10 @@ public class BoardController {
     }
     //글 쓰기
     @PostMapping("/insertBoard")
-    public String insertBoard(BoardVO vo,Model m,HttpSession session,RedirectAttributes rattr) {
+    public String insertBoard(BoardDTO vo, Model m, HttpSession session, RedirectAttributes rattr) {
         //멤버컨트롤러에서 로그인정보를 member 객체에 저장. 그 객체를 가져오고
         //아이디를 뽑아온다.
-        MemberVO member=(MemberVO) session.getAttribute("member");
+        MemberDTO member=(MemberDTO) session.getAttribute("member");
         String member_id=member.getMember_id();
         vo.setMember_id(member_id);
 
@@ -79,9 +79,9 @@ public class BoardController {
 
     //글 수정
     @PostMapping("/updateBoard")
-    public String updateBoard(BoardVO vo,MemberVO mvo,Model m,Integer page, Integer pageSize,HttpSession session,RedirectAttributes rattr) {
+    public String updateBoard(BoardDTO vo, MemberDTO mvo, Model m, Integer page, Integer pageSize, HttpSession session, RedirectAttributes rattr) {
         //멤버컨트롤러에서 로그인정보를 member 객체에 저장. 그 객체를 가져오고
-        mvo=(MemberVO) session.getAttribute("member");
+        mvo=(MemberDTO) session.getAttribute("member");
         //아이디를 뽑아온다.
         m.addAttribute("mode","update");
         String member_id=mvo.getMember_id();
@@ -154,7 +154,7 @@ public class BoardController {
 
     //글 목록(페이징 이전에 사용하던것)
     @RequestMapping(value="/getBoardList",method=RequestMethod.GET)
-    public String getBoardList(BoardVO vo, Model model){
+    public String getBoardList(BoardDTO vo, Model model){
         model.addAttribute("boardList", boardService.getBoardList(vo));
         return "board/getBoardList";
     }
@@ -166,7 +166,7 @@ public class BoardController {
             m.addAttribute("totalCnt", totalCnt);
             PageHandler pageHandler=new PageHandler(totalCnt,sc);
 
-            List<BoardVO> list=boardService.getSearchResultPage(sc);
+            List<BoardDTO> list=boardService.getSearchResultPage(sc);
             m.addAttribute("boardList",list);
             m.addAttribute("ph",pageHandler);
 

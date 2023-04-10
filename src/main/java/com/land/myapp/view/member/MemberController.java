@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.land.myapp.Pager;
-import com.land.myapp.model.basket.BasketService;
-import com.land.myapp.model.basket.BasketVO;
-import com.land.myapp.model.board.PageHandler;
-import com.land.myapp.model.board.SearchCondition;
-import com.land.myapp.model.member.vo.GoodsPaymentVO;
-import com.land.myapp.model.member.vo.MemberService;
-import com.land.myapp.model.member.vo.MemberVO;
+import com.land.myapp.main.Pager;
+import com.land.myapp.model.basket.Service.BasketService;
+import com.land.myapp.model.basket.DTO.BasketDTO;
+import com.land.myapp.main.PageHandler;
+import com.land.myapp.main.SearchCondition;
+import com.land.myapp.model.member.DTO.GoodsPaymentDTO;
+import com.land.myapp.model.member.Service.MemberService;
+import com.land.myapp.model.member.DTO.MemberDTO;
 
 @Controller
 public class MemberController {
@@ -39,9 +39,9 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(MemberVO vo, HttpSession session) {
+    public String login(MemberDTO vo, HttpSession session) {
         int memberCheck = memberService.checkMember(vo);
-        MemberVO member = memberService.login(vo);
+        MemberDTO member = memberService.login(vo);
         if (member != null) {
             session.setAttribute("member", member);
             return "main";
@@ -53,7 +53,7 @@ public class MemberController {
 
     // 회원가입
     @RequestMapping(value = "/join", method = RequestMethod.POST)
-    public String signUp(MemberVO vo) {
+    public String signUp(MemberDTO vo) {
         System.out.println("가입 성공....");
         memberService.insertMember(vo);
         return "main";
@@ -74,13 +74,13 @@ public class MemberController {
 
     @PostMapping(value = "/checkMember")
     @ResponseBody
-    public int checkMember(MemberVO vo) {
+    public int checkMember(MemberDTO vo) {
         return memberService.checkMember(vo);
     }
 
     // 멤버 리스트
     @GetMapping("/getMemberList")
-    public String getMemberList(MemberVO mvo, Model m) {
+    public String getMemberList(MemberDTO mvo, Model m) {
         m.addAttribute("memberList", memberService.getMemberList(mvo));
         return "admin/memberManager";
     }
@@ -121,7 +121,7 @@ public class MemberController {
 
     // 회원 정보 수정
     @RequestMapping(value = "/modifyMember", method = RequestMethod.POST)
-    public String updateMember(MemberVO vo) {
+    public String updateMember(MemberDTO vo) {
         memberService.updateMember(vo);
         return "mypage/mypage";
     }
@@ -135,7 +135,7 @@ public class MemberController {
 
     // 주문 내역 등록
     @PostMapping(value = "/payment")
-    public String insertGoodsPayment(GoodsPaymentVO vo,String basket, BasketVO bvo) {
+    public String insertGoodsPayment(GoodsPaymentDTO vo, String basket, BasketDTO bvo) {
     	if(basket.equals("basket")) {
     		System.out.println(basket);
     	basketService.deleteCartPayment(bvo);
@@ -149,17 +149,17 @@ public class MemberController {
     
     // 개인 정보 이동
     @GetMapping(value = "/mypage")
-    public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
+    public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentDTO vo, Model model,
                                HttpSession session) {
 
-        MemberVO member = (MemberVO) session.getAttribute("member");
+        MemberDTO member = (MemberDTO) session.getAttribute("member");
         String member_id = member.getMember_id();
         vo.setMember_id(member_id);
         int count = memberService.getCountOrder(vo);
         Pager pager = new Pager(count, curPage);
         int start = pager.getPageBegin();
         int end = pager.getPageEnd();
-        List<GoodsPaymentVO> list = memberService.getGoodsPaymentList(vo, start, end);
+        List<GoodsPaymentDTO> list = memberService.getGoodsPaymentList(vo, start, end);
 
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("list", list);
@@ -169,14 +169,14 @@ public class MemberController {
         return "mypage/mypage";
     }
     @GetMapping("/memberpage")
-	public String getMemberPage(MemberVO mvo,Model m, SearchCondition sc) {
+	public String getMemberPage(MemberDTO mvo, Model m, SearchCondition sc) {
 		try {
 			int totalCnt=memberService.getMemberCount(sc);
 			m.addAttribute("totalCnt", totalCnt);
 			PageHandler pageHandler = new PageHandler(totalCnt,sc);
 
 
-			List<MemberVO> list = memberService.getMemberPage(sc);
+			List<MemberDTO> list = memberService.getMemberPage(sc);
 			m.addAttribute("memberList", list);
 			m.addAttribute("ph", pageHandler);
 
