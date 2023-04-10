@@ -101,7 +101,7 @@ h2 {
 	<%@ include file="../include/header.jsp"%>
 	<div class="mypage">
 		<h2>회원 정보 수정</h2>
-		<form action="mypage3" method="post">
+		<form action="modifyMember" method="post">
 			<table class="Profile">
 				<tr class="infor">
 					<td>아이디</td>
@@ -136,7 +136,7 @@ h2 {
 				<tr>
 					<td align="center"><input type="submit" value="수정하기"></td>
 					<td>
-						<button onClick="cancelMember('${member.member_id}')">회원탈퇴</button>
+						<button type="button" onClick="cancelMember('${member.member_id}')">회원탈퇴</button>
 					</td>
 				</tr>
 				<script>

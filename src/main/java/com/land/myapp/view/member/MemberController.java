@@ -114,13 +114,13 @@ public class MemberController {
 	}
 
     // 회원 정보 수정 창 이동
-    @RequestMapping(value = "/mypage3", method = RequestMethod.GET)
+    @RequestMapping(value = "/modifyMember", method = RequestMethod.GET)
     public String mypage4() {
-        return "mypage/mypage3";
+        return "mypage/modifyMember";
     }
 
     // 회원 정보 수정
-    @RequestMapping(value = "/mypage3", method = RequestMethod.POST)
+    @RequestMapping(value = "/modifyMember", method = RequestMethod.POST)
     public String updateMember(MemberVO vo) {
         memberService.updateMember(vo);
         return "mypage/mypage";

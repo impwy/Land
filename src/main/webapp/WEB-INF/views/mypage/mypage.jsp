@@ -156,7 +156,7 @@
 			<td class="icon">
 			<a href="ticketList"><img src="resources/img/myPage/ticket.png"></a>
 			
-			<a href="mypage3"><img src="resources/img/myPage/update.png"></a></td>
+			<a href="modifyMember"><img src="resources/img/myPage/update.png"></a></td>
 		</tr>
 	</table>
 	<%@ include file="../include/footer.jsp"%>

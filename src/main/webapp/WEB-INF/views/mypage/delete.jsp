@@ -15,7 +15,7 @@
 		//취소
 		$(".cencle").on("click", function(){
 			
-			location.href = "/mypage/mapge";
+			location.href = "/mypage/mypage";
 		})
 		$("#submit").on("click", function(){
 			if($("#member_pwd").val() ==""){
